@@ -30,7 +30,7 @@
     list-style-type:none;
 }
 .navbar-link:hover {
-
+    margin-bottom: -3px;
     border-radius: 0 0 2px 2px;
     border-bottom: 3px rgba(110, 129, 93, 1) solid;
 }
