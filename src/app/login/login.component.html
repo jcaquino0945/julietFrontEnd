@@ -1,1 +1,7 @@
-<p>login works!</p>
+<form novalidate #loginForm="ngForm" (ngSubmit)="login()">
+    <input  placeholder="Username" type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
+    <p *ngIf="username.errors?.required">Username is required</p>
+    <input  placeholder="Password" type="password" [(ngModel)]="user.password" name="password" #password="ngModel" required>
+    <p *ngIf="password.errors?.required">Password is required</p>
+    <button type="submit" [disabled]="loginForm.form.invalid" >Login</button>
+</form>

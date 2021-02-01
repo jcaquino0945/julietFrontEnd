@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor(private http : HttpClient) { }
       public isAuthenticated() : Boolean {
-        let userData = localStorage.getItem('userInfo')
+        let userData = sessionStorage.getItem('userInfo')
         if(userData && JSON.parse(userData)){
           return true;
         }
@@ -16,7 +16,7 @@ export class AuthService {
       }
 
       public setUserInfo(user){
-        localStorage.setItem('userInfo', JSON.stringify(user));
+        sessionStorage.setItem('userInfo', JSON.stringify(user));
       }
 
       public validate(username, password) {

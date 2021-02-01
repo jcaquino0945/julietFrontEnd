@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate : [AuthGuard] },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' }, // redirect to `Home`
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `Home`
   { path: '**', component: PagenotfoundComponent },
 
 ];
