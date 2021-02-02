@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
+import { FooterComponent } from './footer/footer.component';
+import { RibbonComponent } from './ribbon/ribbon.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    FooterComponent,
+    RibbonComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
