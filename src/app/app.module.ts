@@ -12,6 +12,9 @@ import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { FooterComponent } from './footer/footer.component';
+import { RibbonComponent } from './ribbon/ribbon.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,10 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     PagenotfoundComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    FooterComponent,
+    RibbonComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
