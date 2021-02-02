@@ -1,0 +1,165 @@
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    padding: 50px;
+    z-index: 1;
+    background: #C1AE8D;
+}
+
+#support,
+#products {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #43341F;
+
+
+}
+
+#support {
+    position: absolute;
+    width: 85px;
+    height: 21px;
+    left: 94px;
+    top: 50px;
+}
+
+#products {
+    position: absolute;
+    width: 98px;
+    height: 21px;
+    top: 50px;
+    left: 400px;
+}
+
+#supp-item1,
+#supp-item2,
+#supp-item3,
+#products-item1,
+#products-item2,
+#products-item3,
+#products-item4,
+#products-item5,
+#products-item6,
+#brand-name {
+    padding: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin: 0;
+
+}
+
+#supp-item1 {
+    position: absolute;
+    width: 45px;
+    height: 21px;
+    left: 95px;
+    top: 80px;
+}
+
+#supp-item2 {
+    position: absolute;
+    width: 116px;
+    height: 21px;
+    left: 95px;
+    top: 110px;
+}
+
+#supp-item3 {
+    position: absolute;
+    width: 116px;
+    height: 21px;
+    left: 95px;
+    top: 140px;
+}
+
+#products-item1 {
+    position: absolute;
+    width: 91px;
+    height: 21px;
+    left: 400px;
+    top: 80px;
+
+}
+
+#products-item2 {
+    position: absolute;
+    width: 91px;
+    height: 21px;
+    left: 400px;
+    top: 110px;
+
+}
+
+#products-item3 {
+    position: absolute;
+    width: 91px;
+    height: 21px;
+    left: 400px;
+    top: 140px;
+
+}
+
+#products-item4 {
+    position: absolute;
+    width: 91px;
+    height: 21px;
+    left: 400px;
+    top: 170px;
+
+}
+
+#products-item5 {
+    position: absolute;
+    width: 91px;
+    height: 21px;
+    left: 400px;
+    top: 200px;
+
+}
+
+#products-item6 {
+    position: absolute;
+    width: 91px;
+    height: 21px;
+    left: 400px;
+    top: 230px;
+
+}
+
+#brand-name {
+    position: absolute;
+    width: 404px;
+    height: 21px;
+    left: 941px;
+    top: 230px;
+    text-align: right;
+    right: 100px;
+}
+
+
+
+#facebook {
+    position: relative;
+    height: 29.82px;
+    top: 200px;
+    right: 210px;
+}
+
+#instagram {
+    position: relative;
+    height: 30px;
+    top: 200px;
+    right: 175px;
+}

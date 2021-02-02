@@ -1,0 +1,70 @@
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.jumbotron {
+    align-items: center;
+    display: flex;
+    background-size: cover;
+    color: #fff;
+}
+
+.section-1 {
+    background-image: url(https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+    height: 90vh;
+}
+
+.section-2 {
+    background-color: #C1AE8D;
+    height:30vh;
+}
+
+.section-3 {
+    height: 80vh;
+    color: #000;
+}
+
+.section-4 {
+    background-color: #E7EDEB;
+    height: 80vh;
+    color: #000;
+    padding: 150px 30px;
+}
+
+.section-5 {
+    height: 100vh;
+    color: #000;
+}
+
+.section-6 {
+    height: 120vh;
+    color: #000;
+}
+
+.btn-shop-all {
+    background: #6E815D;
+    padding:15px;
+    border-radius: 10px;
+    border: 0;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.img-thumbnail {
+    border: 10px solid #fff;
+    border-radius: 0;
+}
+
+.carousel, .carousel-img {
+    background-color: #e4e4e4;
+    width: 600px;
+    height: 400px;
+}
