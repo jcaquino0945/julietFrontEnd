@@ -22,4 +22,8 @@ export class AuthService {
       public validate(username, password) {
         return this.http.post('http://localhost:3000/auth/login', {'username' : username, 'password' : password}).toPromise()
       }
+
+      public clear() {
+        sessionStorage.clear();
+      }
 }
