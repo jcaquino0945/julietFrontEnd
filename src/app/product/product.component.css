@@ -1,0 +1,35 @@
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+select {
+    margin: 15px 0;
+}
+
+.section {
+    align-items: center;
+    display: flex;
+    background-size: cover;
+    height: 80vh;
+    padding: 0 150px;
+}
+
+.col {
+    margin: 0 25px;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    background: #6E815D;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #fff;
+}

@@ -1,0 +1,40 @@
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+select {
+    margin: 15px 0;
+}
+
+.container-fluid {
+    padding: 80px 150px;
+}
+
+.title {
+    align-items: flex-end;
+    padding: 0 150px;
+}
+
+.cart-items {
+    align-items: start;
+    align-content: center;
+    display: flex;
+    background-size: cover;
+    padding: 0 150px;
+}
+
+.btn-shipping {
+    width: 100%;
+    background: #6E815D;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #fff;
+}
