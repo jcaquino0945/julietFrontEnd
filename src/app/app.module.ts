@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { RibbonComponent } from './ribbon/ribbon.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ShopComponent } from './shop/shop.component';
+import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AdminComponent,
     FooterComponent,
     RibbonComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ShopComponent,
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

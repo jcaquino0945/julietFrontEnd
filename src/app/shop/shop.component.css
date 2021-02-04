@@ -1,0 +1,20 @@
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+.row {
+    margin: 20px 0;;
+}
+
+.jumbotron {
+    align-items: center;
+    display: flex;
+    background-size: cover;
+    color: #fff;
+}
+
+.product-items {
+    height: 80vh;
+    padding: 0 80px;
+    color: #000;
+}
