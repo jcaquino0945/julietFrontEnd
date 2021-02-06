@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { FooterComponent } from './footer/footer.component';
 import { RibbonComponent } from './ribbon/ribbon.component';
@@ -18,6 +18,16 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +47,16 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MaterialFileInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
