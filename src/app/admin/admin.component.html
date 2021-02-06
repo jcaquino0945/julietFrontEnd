@@ -2,43 +2,101 @@
     <button type="submit">Logout</button>
 </form>
 
-<div class="example-container mat-elevation-z8">
-    <h2>Add Gallery</h2>
-    <div class="example-loading-shade"
-          *ngIf="isLoadingResults">
-      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    </div>
-    <mat-card class="example-card">
-      <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
-        <mat-form-field class="example-full-width">
-          <mat-label>Gallery Image</mat-label>
-          <ngx-mat-file-input formControlName="imageFile" placeholder="Select Image" valuePlaceholder="No image file selected"
-            [errorStateMatcher]="matcher"></ngx-mat-file-input>
-          <mat-icon matSuffix>folder</mat-icon>
-          <mat-error>
-            <span *ngIf="!galleryForm.get('imageFile').valid">Please select image file</span>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Image Name</mat-label>
-          <input matInput placeholder="Image Name" formControlName="imageTitle"
-            [errorStateMatcher]="matcher">
-          <mat-error>
-            <span *ngIf="!galleryForm.get('imageTitle').valid && galleryForm.get('imageTitle').touched">Please enter Image Name</span>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Image Description</mat-label>
-          <input matInput placeholder="Image Description" formControlName="imageDesc"
-            [errorStateMatcher]="matcher">
-          <mat-error>
-            <span *ngIf="!galleryForm.get('imageDesc').valid && galleryForm.get('imageDesc').touched">Please enter Image Description</span>
-          </mat-error>
-        </mat-form-field>
-        <div class="button-row">
-          <button type="submit" mat-flat-button color="primary"><mat-icon>upgrade</mat-icon></button>
+
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCentered">
+    Launch centered demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenteredLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
         </div>
-      </form>
-    </mat-card>
+        <div class="modal-body">
+          <mat-card>
+            <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
+                <mat-form-field>
+                    <mat-label>Product Image</mat-label>
+                    <ngx-mat-file-input formControlName="imageFile" placeholder="Select Image" valuePlaceholder="No image file selected"
+                    [errorStateMatcher]="matcher"></ngx-mat-file-input>
+                    <mat-error>
+                    <span *ngIf="!galleryForm.get('imageFile').valid">Please select image file</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Name</mat-label>
+                    <input matInput placeholder="Product Name" formControlName="name"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!galleryForm.get('name').valid && galleryForm.get('name').touched">Please enter product name</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Description</mat-label>
+                    <input matInput placeholder="Product Description" formControlName="description"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!galleryForm.get('description').valid && galleryForm.get('description').touched">Please enter product description</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Price</mat-label>
+                    <input matInput placeholder="Product Price" formControlName="price"
+                    [errorStateMatcher]="matcher">
+                    <mat-error>
+                    <span *ngIf="!galleryForm.get('price').valid && galleryForm.get('price').touched">Please enter product price</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Category</mat-label>
+                    <input matInput placeholder="Product Category" formControlName="category"
+                    [errorStateMatcher]="matcher">
+                    <mat-error>
+                    <span *ngIf="!galleryForm.get('category').valid && galleryForm.get('category').touched">Please enter product category</span>
+                    </mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                    <button type="submit" mat-flat-button color="primary"></button>
+                  </div>
+                  
+                  <div class="button-row">
+                    <button type="submit" mat-flat-button color="primary">Add</button>
+                  </div>
+                  <div class="button-row">
+                  <button type="reset">Clear</button></div>
+            </form>
+          </mat-card>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+           
+        </div>
+      </div>
+    </div>
   </div>
   
+  <table class="table" *ngIf="products$">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Image</th>
+        <th>Product Price</th>
+        <th>Product Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products$">
+        <td>{{product.name}}</td>
+        <td><img src='{{product.imageUrl}}'></td>
+        <td>{{product.price}}</td>
+        <td>{{product.category}}</td>
+      </tr>
+    </tbody>
+  </table>

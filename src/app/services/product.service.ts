@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams, HttpRequest } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Product } from '../models/product';
+import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
 const apiUrl = 'http://localhost:3000/products';
 
@@ -11,31 +12,20 @@ const apiUrl = 'http://localhost:3000/products';
 })
 export class ProductService {
 
-  constructor(private http: HttpClient) { }
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    return throwError(
-      'Something bad happened; please try again later.');
+  constructor(private http: HttpClient, private processHTTPMsgService: ProcessHTTPMsgService) { }
+  
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(apiUrl).pipe(catchError(this.processHTTPMsgService.handleError))
   }
 
-  getGalleryById(id: string): Observable<any> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.get<Product>(url).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  addGallery(gallery: Product, file: File): Observable<any> {
+  addGallery(product: Product, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('imageTitle', gallery.imageTitle);
-    formData.append('imageDesc', gallery.imageDesc);
+    //formData.append('imageTitle', gallery.imageTitle);
+    formData.append('name', product.name);
+    formData.append('price', product.price);
+    formData.append('category', product.category);
+    formData.append('description', product.description);
     const header = new HttpHeaders();
     const params = new HttpParams();
 

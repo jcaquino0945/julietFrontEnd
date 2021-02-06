@@ -2,8 +2,10 @@ export class Product {
     // tslint:disable-next-line:variable-name
     _id: string;
     imageUrl: string;
-    imageTitle: string;
-    imageDesc: string;
+    name: string;
+    description: string;
+    price: string;
+    category: string;
     uploaded: Date;
   }
   

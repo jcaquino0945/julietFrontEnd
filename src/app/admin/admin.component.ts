@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {ProductService} from '../services/product.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Product } from '../models/product';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,19 +19,27 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  products$: Product[];
+  errMess: string;
   galleryForm: FormGroup;
   imageFile: File = null;
-  imageTitle = '';
-  imageDesc = '';
+  name = '';
+  description = '';
+  price = '';
+  category = '';
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
   constructor(private authService : AuthService, private router : Router,private productService:ProductService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.productService.getProducts().subscribe(products$ => this.products$ = products$,
+      errmess => this.errMess = <any>errmess);
     this.galleryForm = this.formBuilder.group({
       imageFile : [null, Validators.required],
-      imageTitle : [null, Validators.required],
-      imageDesc : [null, Validators.required]
+      name : [null, Validators.required],
+      description : [null, Validators.required],
+      price : [null, Validators.required],
+      category : [null, Validators.required]
     });
   }
   logout() {
@@ -44,7 +53,8 @@ export class AdminComponent implements OnInit {
       .subscribe((res: any) => {
         this.isLoadingResults = false;
         if (res.body) {
-          this.router.navigate(['/gallery-details', res.body._id]);
+          //this.router.navigate(['/gallery-details', res.body._id]);
+          console.log("added!")
         }
       }, (err: any) => {
         console.log(err);
