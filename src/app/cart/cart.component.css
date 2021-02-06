@@ -1,6 +1,5 @@
 h1, h2, h3, h4, h5 {
     font-weight: bold;
-    border-radius: 10px;
 }
 
 select {
@@ -24,7 +23,7 @@ select {
     padding: 0 150px;
 }
 
-.btn-shipping {
+.btn-checkout {
     width: 100%;
     background: #6E815D;
     margin: 20px 0;
