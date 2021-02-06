@@ -1,0 +1,34 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+
+.container-fluid {
+    padding: 80px 180px;
+}
+
+.form-row {
+    margin: 10px 0px;
+}
+
+.form-group {
+    padding: 10px 0;
+}
+
+.btn-proceed {
+    width: 100%;
+    background: #6E815D;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 0;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.img-responsive {
+    width: 100px;
+}
