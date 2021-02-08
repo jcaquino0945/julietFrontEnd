@@ -1,68 +1,81 @@
-<div class="container-fluid">
-    <div class="row title">
-        <div class="d-flex justify-content-between">
-            <div><h3>Your Cart</h3></div>
-            <div><h5>Continue Shopping</h5>  </div>
+<div class="container">
+    <div class="row section">
+        <div class="col-7 mx-3">
+            <h5>Shopping Cart</h5>
+            <div class="d-flex my-3">
+                <div class="align-self-center"><img src="https://i.imgur.com/gEdYbSe.jpg" class="mr-3 img-responsive img-thumbnail"></div>
+                <div class="align-self-center">
+                    Sol and Luna Necklace
+                    <div class="details">
+                        Size 12
+                    </div>
+                    <div class="py-2">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected disabled>Qty</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ml-auto align-self-center">Php 250</div>
+            </div>
+            <div class="d-flex my-3">
+                <div class="align-self-center"><img src="https://i.imgur.com/HGYgGAq.jpg" class="mr-3 img-responsive img-thumbnail"></div>
+                <div class="align-self-center">
+                    Sol and Luna Necklace
+                    <div class="details">
+                        Size 12
+                    </div>
+                    <div class="py-2">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected disabled>Qty</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ml-auto align-self-center">Php 250</div>
+            </div>
         </div>
-    </div>
-    <div class="row cart-items">
-        <div class="col">
-            <hr>
-            <div class="row">
-                <div class="col m-0">
-                    <picture>
-                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" class="w-100">
-                    </picture>
-                </div>
-                <div class="col d-flex flex-column m-0">
-                    <div class="mb-auto p-2">
-                        <p>
-                            Sol and Luna Necklace <br>
-                            Size 6
-                        </p>
+        <div class="col mx-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-text mb-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                Order value
+                            </div>
+                            <div>
+                                Php 500
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                Shipping
+                            </div>
+                            <div>
+                                Php 150
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>Total</h6>
+                            </div>
+                            <div>
+                                <h6>Php 650</h6>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-2 align-self-end">
-                        <h5>PHP 250</h5>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col m-0">
-                    <picture>
-                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" class="w-100">
-                    </picture>
-                </div>
-                <div class="col d-flex flex-column m-0">
-                    <div class="mb-auto p-2">
-                        <p>
-                            Sol and Luna Necklace <br>
-                            Size 6
-                        </p>
-                    </div>
-                    <div class="p-2 align-self-end">
-                        <h5>PHP 250</h5>
-                    </div>
+                    <button type="button" class="btn-proceed" routerLink="/checkout">Proceed to Checkout</button>
                 </div>
             </div>
-            <hr>
-        </div>
-        <div class="col">
-            <hr>
-            <div class="d-flex justify-content-between">
-                <div>Sol and Luna Necklace</div>
-                <div><b>PHP 250</b></div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>Sol and Luna Necklace</div>
-                <div><b>PHP 250</b></div>
-            </div>
-            <hr>
-            <div class="d-flex justify-content-between">
-                <div class="text-uppercase"><h5>Base Total</h5></div>
-                <div><h5>PHP 500</h5></div>
-            </div>
-            <a routerLink="/checkout" class="btn btn-checkout">Proceed to Checkout</a>
         </div>
     </div>
 </div>

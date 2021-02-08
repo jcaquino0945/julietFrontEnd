@@ -1,34 +1,27 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-h1, h2, h3, h4, h5 {
-    font-weight: bold;
-}
+.container { padding: 80px; }
 
-.container-fluid {
-    padding: 80px 180px;
-}
+.step-trigger { pointer-events: none; }
 
-.form-row {
-    margin: 10px 0px;
-}
+.form-row { margin: 10px 0px; }
 
-.form-group {
-    padding: 10px 0;
-}
+.form-group { padding: 10px 0; }
 
 .btn-proceed {
-    width: 100%;
     background: #6E815D;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     border: 0;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
     color: #fff;
 }
 
-.img-responsive {
-    width: 100px;
-}
+.img-responsive { width: 100px; }
+
+.img-thumbnail { border-radius: 0; }
+
+.details { font-size: 12px; }

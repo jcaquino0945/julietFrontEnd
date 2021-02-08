@@ -1,15 +1,19 @@
-h1, h2, h3, h4, h5 {
+.title {
+    color: #6E815D;
     font-weight: bold;
 }
 
-body {
-    overflow-x: hidden;
-}
+a:hover { text-decoration: none; }
+
+p { font-size: large; }
 
 .jumbotron {
     align-items: center;
     display: flex;
     background-size: cover;
+    background-color: transparent;
+    margin: 0;
+    border-radius: 0;
 }
 
 .section-1 {
@@ -19,53 +23,72 @@ body {
 }
 
 .section-2 {
-    background-color: #C1AE8D;
-    height:30vh;
-    color: #fff
+    overflow: hidden;
+    margin: auto;
+    height: 30vh;
+    width: 50em;    
 }
 
 .section-3 {
+    overflow: hidden;
+    margin: 0;
     height: 80vh;
-    color: #000;
+    width: 100%;
 }
 
 .section-4 {
-    background-color: #E7EDEB;
-    height: 80vh;
-    color: #000;
-    padding: 150px 30px;
+    overflow: hidden;
+    margin: 0;
+    padding: 30px;
+    height: 100vh; 
+    width: 100%;
 }
 
 .section-5 {
-    height: 100vh;
-    color: #000;
+    height: 80vh; 
 }
 
-.section-6 {
-    height: 120vh;
-    color: #000;
+.bg1 {
+    background-color: #E7EDEB;
+    width: 700px;
+    height: 500px;
 }
 
-.btn-shop-all {
+.bg2 {
+    background-color: #E7EDEB;
+    width: 250px;
+    height: 500px;
+}
+
+.text {
+    position: relative;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 500px;
+}
+
+.btn-shop-now {
     background: #6E815D;
-    padding: 15px;
+    padding: 5px 15px;
     border-radius: 10px;
     border: 0;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 28px;
     text-transform: uppercase;
     color: #fff;
 }
 
-.img-thumbnail {
-    border: 10px solid #fff;
+.card, .card-img-top {
+    width: 200px;
+    border: 0;
     border-radius: 0;
 }
 
-.carousel, .carousel-img {
-    background-color: #e4e4e4;
-    width: 600px;
-    height: 400px;
-}
+.card-body { padding: 10px 0; }
+
+.card-title, .card-text { font-size: 15px; }
