@@ -1,0 +1,27 @@
+.section-1 {
+  height: 120vh;
+  color: #000;
+}
+
+
+#col-1 {
+  background-image: url(https://www.sheknows.com/wp-content/uploads/2020/04/jewelry-cleaning.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 800px;
+  height: 720px;
+}
+
+#jewelry {
+  font-weight: normal;
+  font-family: 'Lora', sans-serif;
+  left: 830px;
+  top: 435px;
+
+}
+
+.section-2 {
+  height: 100vh;
+  color: #000;
+  background-color: #ffffff;
+}

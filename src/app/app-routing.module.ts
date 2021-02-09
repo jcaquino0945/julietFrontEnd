@@ -11,6 +11,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +24,9 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate : [AuthGuard] },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'faqs', component: FaqsComponent },
+  { path: 'jewelry-care', component: JewelryCareComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `Home`
   { path: '**', component: PagenotfoundComponent },
 
