@@ -29,6 +29,7 @@
                     <span *ngIf="!galleryForm.get('imageFile').valid">Please select image file</span>
                     </mat-error>
                 </mat-form-field>
+                <br>
                 <mat-form-field>
                     <mat-label>Product Name</mat-label>
                     <input matInput placeholder="Product Name" formControlName="name"
@@ -48,7 +49,7 @@
                 <mat-form-field>
                     <mat-label>Product Price</mat-label>
                     <input matInput placeholder="Product Price" formControlName="price"
-                    [errorStateMatcher]="matcher">
+                    [errorStateMatcher]="matcher" type="number">
                     <mat-error>
                     <span *ngIf="!galleryForm.get('price').valid && galleryForm.get('price').touched">Please enter product price</span>
                     </mat-error>
@@ -61,6 +62,17 @@
                     <span *ngIf="!galleryForm.get('category').valid && galleryForm.get('category').touched">Please enter product category</span>
                     </mat-error>
                 </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Stock Quantity</mat-label>
+                  <input matInput formControlName="stock_quantity"
+                  [errorStateMatcher]="matcher" value="0" type="number">
+                  <mat-error>
+                  <span *ngIf="!galleryForm.get('stock_quantity').valid && galleryForm.get('stock_quantity').touched">Please enter product stock quantity</span>
+                  </mat-error>
+              </mat-form-field>
+              
+              <mat-slide-toggle formControlName="featured">Featured</mat-slide-toggle>
+            
                 <div class="button-row">
                     <button type="submit" mat-flat-button color="primary"></button>
                   </div>
@@ -89,6 +101,8 @@
         <th>Product Image</th>
         <th>Product Price</th>
         <th>Product Category</th>
+        <th>Stock Quantity</th>
+        <th>Featured</th>
       </tr>
     </thead>
     <tbody>
@@ -97,6 +111,8 @@
         <td><img src='{{product.imageUrl}}'></td>
         <td>{{product.price}}</td>
         <td>{{product.category}}</td>
+        <td>{{product.stock_quantity}}</td>
+        <td>{{product.featured}}</td>
       </tr>
     </tbody>
   </table>

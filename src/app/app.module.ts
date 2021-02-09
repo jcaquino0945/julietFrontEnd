@@ -29,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { CheckoutComponent } from './checkout/checkout.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatCardModule,
     MatFormFieldModule,
     MaterialFileInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

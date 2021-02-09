@@ -11,6 +11,7 @@ const apiUrl = 'http://localhost:3000/products';
   providedIn: 'root'
 })
 export class ProductService {
+  currentIndex:BehaviorSubject<string>; 
 
   constructor(private http: HttpClient, private processHTTPMsgService: ProcessHTTPMsgService) { }
   
@@ -23,9 +24,11 @@ export class ProductService {
     formData.append('file', file);
     //formData.append('imageTitle', gallery.imageTitle);
     formData.append('name', product.name);
-    formData.append('price', product.price);
+    formData.append('price', product.price.toString());
     formData.append('category', product.category);
     formData.append('description', product.description);
+    formData.append('stock_quantity', product.stock_quantity.toString());
+    formData.append('featured', JSON.stringify(product.featured));
     const header = new HttpHeaders();
     const params = new HttpParams();
 

@@ -4,8 +4,11 @@ export class Product {
     imageUrl: string;
     name: string;
     description: string;
-    price: string;
+    price: number;
     category: string;
     uploaded: Date;
+    featured: boolean;
+    stock_quantity: number;
+    orders: number;
   }
   

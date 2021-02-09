@@ -1,4 +1,7 @@
 /* Structure */
+mat-form-field {
+  display: block;
+}
 .example-container {
     position: relative;
     padding: 5px;
@@ -29,3 +32,4 @@
     height: 30px;
     width: 30px;
   }
+  
