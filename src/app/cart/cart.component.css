@@ -1,39 +1,29 @@
-h1, h2, h3, h4, h5 {
-    font-weight: bold;
-}
+select { font-size: 12px; width: 70px; border-radius: 0; }
 
-select {
-    margin: 15px 0;
-}
-
-.container-fluid {
-    padding: 80px 150px;
-}
-
-.title {
-    align-items: flex-end;
-    padding: 0 150px;
-}
-
-.cart-items {
-    align-items: start;
-    align-content: center;
+.section {
     display: flex;
     background-size: cover;
-    padding: 0 150px;
+    height: 100%;
+    padding: 90px 80px;
 }
 
-.btn-checkout {
-    width: 100%;
+.btn-proceed {
     background: #6E815D;
-    margin: 20px 0;
-    padding: 10px;
+    width: 100%;
+    padding: 5px 10px;
     border-radius: 5px;
     border: 0;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
-    line-height: 28px;
     text-transform: uppercase;
     color: #fff;
 }
+
+.img-responsive { width: 100px; }
+
+.img-thumbnail { border-radius: 0; }
+
+.details { font-size: 12px; }
+
+.card { border-radius: 0; font-size: 13px; }

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col">
             <div id="stepper" class="bs-stepper">
@@ -82,7 +82,8 @@
                                         <button (click)="next()" class="btn-proceed">Proceed to Shipping</button>
                                     </div>
                                 </div>
-                            </div>      
+                            </div>    
+                            
                         </div>
                         <!-- Shipping Method -->
                         <div id="shipping" class="content">
@@ -106,7 +107,8 @@
                                 </div>
                                 <div class="form-row float-right">
                                     <div class="col">
-                                        <button (click)="next()" class="btn-proceed">Proceed to Payment</button>
+                                        <button type="button" (click)="previous()" class="btn-proceed">Back to Information</button>
+                                        <button type="button" (click)="next()" class="btn-proceed ml-1">Proceed to Payment</button>
                                     </div>
                                 </div>
                             </div>                    
@@ -153,7 +155,8 @@
                                 </div>
                                 <div class="form-row float-right">
                                     <div class="col">
-                                        <button type="submit" class="btn-proceed">Finish</button>
+                                        <button type="button" (click)="previous()" class="btn-proceed">Back to Shipping</button>
+                                        <button type="submit" class="btn-proceed ml-1">Complete Purchase</button>
                                     </div>
                                 </div>
                             </div>
@@ -163,31 +166,41 @@
             </div>
         </div>
         <div class="col">
-            <h5 style="line-height: 20px;">Order Summary</h5>
-            <hr>
-            <div class="d-flex bd-highlight mb-3">
-                <div class="bd-highlight align-self-center"><img src="https://images.unsplash.com/photo-1610223516037-98a56e639456?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="mr-3 img-responsive"></div>
-                <div class="bd-highlight align-self-center">Sol and Luna Necklace</div>
-                <div class="ml-auto bd-highlight align-self-center"><b>PHP 250</b></div>
+            <div class="mb-5">
+                <div class="d-flex my-3">
+                    <div class="align-self-center"><img src="https://i.imgur.com/gEdYbSe.jpg" class="mr-3 img-responsive img-thumbnail"></div>
+                    <div class="align-self-center">
+                        Sol and Luna Necklace
+                        <div class="details">
+                            Size 12
+                        </div>
+                    </div>
+                    <div class="ml-auto align-self-center">Php 250</div>
+                </div>
+                <div class="d-flex my-3">
+                    <div class="align-self-center"><img src="https://i.imgur.com/IcZOQ6L.jpg" class="mr-3 img-responsive img-thumbnail"></div>
+                    <div class="align-self-center">
+                        Sol and Luna Necklace
+                        <div class="details">
+                            Size 12
+                        </div>
+                    </div>
+                    <div class="ml-auto align-self-center">Php 250</div>
+                </div>
             </div>
-            <div class="d-flex bd-highlight mb-3">
-                <div class="bd-highlight align-self-center"><img src="https://images.unsplash.com/photo-1610223516037-98a56e639456?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="mr-3 img-responsive"></div>
-                <div class="bd-highlight align-self-center">Sol and Luna Necklace</div>
-                <div class="ml-auto bd-highlight align-self-center"><b>PHP 250</b></div>
-            </div>
-            <hr>
+
             <div class="d-flex justify-content-between">
                 <div>Subtotal</div>
-                <div>PHP 500</div>
+                <div>Php 500</div>
             </div>
             <div class="d-flex justify-content-between">
                 <div>Shipping Fee</div>
-                <div>PHP 150</div>
+                <div class="text-muted">Calculated at next step</div>
             </div>
             <hr>
             <div class="d-flex justify-content-between">
                 <div><h5>Total</h5></div>
-                <div><h5>PHP 650</h5></div>
+                <div><h5>Php 650</h5></div>
             </div>
         </div>
     </div>

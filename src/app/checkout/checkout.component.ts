@@ -13,6 +13,10 @@ export class CheckoutComponent implements OnInit {
   title = 'stepper';
   private stepper: Stepper;
 
+  previous() {
+    this.stepper.previous();
+  }
+
   next() {
     this.stepper.next();
   }

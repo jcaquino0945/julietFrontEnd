@@ -1,20 +1,40 @@
-h1, h2, h3, h4, h5 {
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #6E815D;
+}
+
+.title {
+    color: #6E815D;
     font-weight: bold;
 }
 
-.row {
-    margin: 20px 0;;
-}
-
 .jumbotron {
-    align-items: center;
     display: flex;
     background-size: cover;
-    color: #fff;
+    background-color: transparent;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
 }
 
-.product-items {
-    height: 80vh;
-    padding: 0 80px;
+.nav-link {
+    font-size: 13px;
     color: #000;
+    margin: 2px 0;
+    padding: 0;
 }
+
+.card, .card-img-top {
+    width: 200px;
+    border: 0;
+    border-radius: 0;
+}
+
+.card-body { padding: 10px 0; }
+
+.card-title, .card-text { font-size: 15px; }
