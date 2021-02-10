@@ -4,13 +4,20 @@ form {
   height: 700px;
 }
 
+.jumbotron {
+  background-image: url(https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1274&q=80);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+}
 
 form .row {
   padding: 10px;
 
 }
 
-input, textarea {
+input,
+textarea {
   border: 1px solid #6E815D;
   box-sizing: border-box;
   border-radius: 10px;
