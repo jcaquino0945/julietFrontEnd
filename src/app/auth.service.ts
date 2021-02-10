@@ -17,6 +17,7 @@ export class AuthService {
 
       public setUserInfo(user){
         sessionStorage.setItem('userInfo', JSON.stringify(user));
+      
       }
 
       public validate(username, password) {

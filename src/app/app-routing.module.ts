@@ -11,7 +11,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { AdminProductComponent } from './admin-product/admin-product.component';
+import { ModuleWithProviders } from '@angular/core';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,8 +21,9 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent, canActivate : [AuthGuard] },
-  { path: 'admin/product', component: AdminProductComponent, canActivate : [AuthGuard] },
+  { path: 'admin', component: AdminComponent, 
+  canActivate : [AuthGuard],
+  loadChildren: './admin/admin.module#AdminModule'},
   { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `Home`
   { path: '**', component: PagenotfoundComponent },
 
