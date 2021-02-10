@@ -12,6 +12,9 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ModuleWithProviders } from '@angular/core';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -24,6 +27,10 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, 
   canActivate : [AuthGuard],
   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+  { path: 'admin', component: AdminComponent, canActivate : [AuthGuard] },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'faqs', component: FaqsComponent },
+  { path: 'jewelry-care', component: JewelryCareComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `Home`
   { path: '**', component: PagenotfoundComponent },
 

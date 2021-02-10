@@ -30,6 +30,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { CheckoutComponent } from './checkout/checkout.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -48,6 +51,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     ProductComponent,
     CartComponent,
     CheckoutComponent,
+    ContactUsComponent,
+    FaqsComponent,
+    JewelryCareComponent
   ],
   imports: [
     BrowserModule,
