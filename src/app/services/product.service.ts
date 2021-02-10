@@ -40,4 +40,8 @@ export class ProductService {
     const req = new HttpRequest('POST', apiUrl, formData, options);
     return this.http.request(req);
   }
+
+  deleteProduct(id:string): Observable<any>{
+    return this.http.delete<Product[]>(apiUrl + '/' + id).pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 }

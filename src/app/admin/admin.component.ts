@@ -70,5 +70,14 @@ export class AdminComponent implements OnInit {
         console.log(err);
         this.isLoadingResults = false;
       });
+      this.galleryForm.reset();
+  }
+
+  deleteProduct(id) {
+    this.productService.deleteProduct(id).subscribe(products$ => this.products$ = products$,
+      errmess => this.errMess = <any>errmess)
+    
+      this.productService.getProducts().subscribe(products$ => this.products$ = products$,
+        errmess => this.errMess = <any>errmess);
   }
 }

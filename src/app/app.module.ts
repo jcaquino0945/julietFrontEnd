@@ -30,6 +30,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { CheckoutComponent } from './checkout/checkout.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { AdminProductComponent } from './admin-product/admin-product.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     ShopComponent,
     ProductComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminProductComponent
   ],
   imports: [
     BrowserModule,
