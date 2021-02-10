@@ -1,9 +1,14 @@
 .section-1 {
-  height: 120vh;
+  height: 50vh;
   color: #000;
+  background-image: url(https://images.unsplash.com/photo-1531995811006-35cb42e1a022?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-
+h2 {
+  margin-top: 50px;
+}
 #col-1 {
   background-image: url(https://www.sheknows.com/wp-content/uploads/2020/04/jewelry-cleaning.jpg);
   background-size: cover;
