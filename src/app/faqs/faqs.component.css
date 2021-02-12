@@ -3,6 +3,23 @@
   background: none;
 }
 
+.accordion-button::after {
+  background-image: url(../../assets/images/plus.png);
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffffff;
+  background-color: #6e815d;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url(../../assets/images/minus.png);
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+}
+
 .jumbotron {
   background-image: url(https://images.unsplash.com/photo-1484069560501-87d72b0c3669?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
   background-size: cover;
