@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams, HttpRequest } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
@@ -18,6 +18,17 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(apiUrl).pipe(catchError(this.processHTTPMsgService.handleError))
   }
+
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(apiUrl + '/' + id)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
+  getProductIds(): Observable<number[] | any> {
+    return this.getProducts().pipe(map(products => products.map(product => product._id)))
+      .pipe(catchError(error => error));
+  }
+
 
   addGallery(product: Product, file: File): Observable<any> {
     const formData = new FormData();

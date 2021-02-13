@@ -104,7 +104,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products$; let i = index">
+      <tr *ngFor="let product of products$; let i = index" [routerLink]="['/admin/adminProduct/', product._id]">
         <td>{{product.name}}</td>
         <td><img src='{{product.imageUrl}}'></td>
         <td>{{product.price}}</td>
