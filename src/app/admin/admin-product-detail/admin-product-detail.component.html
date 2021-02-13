@@ -1,3 +1,7 @@
 <div *ngIf="product">
-<h1>{{product.name | uppercase}}</h1>
+    <h1>{{product.name}}</h1>
+    <img src='{{product.imageUrl}}' style="height: 100px; width: 100px;">
+    <h2>Php {{product.price}}</h2>
+    <p>{{product.description}}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
 </div>

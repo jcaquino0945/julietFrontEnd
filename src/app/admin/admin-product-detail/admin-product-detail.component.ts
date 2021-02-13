@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../../models/product';
 import {ProductService} from '../../services/product.service';
+import { Router } from '@angular/router';
 
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -14,6 +15,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./admin-product-detail.component.css']
 })
 export class AdminProductDetailComponent implements OnInit {
+  products$: Product[];
   product: Product;
   productIds: string[];
   prev: string;
@@ -22,7 +24,7 @@ export class AdminProductDetailComponent implements OnInit {
 
   constructor(private productService: ProductService, private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,private router : Router) { }
 
   ngOnInit(): void {
     this.productService.getProductIds().subscribe(productIds => this.productIds = productIds);
@@ -36,6 +38,11 @@ export class AdminProductDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
- 
+  deleteProduct(id) {
+    this.productService.deleteProduct(id).subscribe(products$ => this.products$ = products$,
+      errmess => this.errMess = <any>errmess)
+    console.log("deleted product with id: " + id);
+     this.router.navigate(['/admin/adminProduct'])
+  }
 
 }
