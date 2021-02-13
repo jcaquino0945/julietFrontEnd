@@ -56,7 +56,8 @@ export class AdminProductComponent implements OnInit {
       .subscribe((res: any) => {
         this.isLoadingResults = false;
         if (res.body) {
-          //this.router.navigate(['/gallery-details', res.body._id]);
+          document.getElementById('close').click();// close modal
+          this.router.navigate(['/admin/adminProduct/', res.body._id]); //navigate to product detail page
           this.productService.getProducts().subscribe(products$ => this.products$ = products$,
             errmess => this.errMess = <any>errmess);
         }

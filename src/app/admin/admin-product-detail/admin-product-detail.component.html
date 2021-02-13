@@ -4,4 +4,93 @@
     <h2>Php {{product.price}}</h2>
     <p>{{product.description}}</p>
     <button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCentered">
+        Launch centered demo modal
+      </button>
 </div>
+
+ <!-- Modal -->
+ <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true" *ngIf="product">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenteredLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <mat-card>
+            <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
+                <mat-form-field>
+                    <mat-label>Product Image</mat-label>
+                    <ngx-mat-file-input formControlName="imageFile" placeholder="Select Image" valuePlaceholder="No image file selected"
+                    [errorStateMatcher]="matcher"></ngx-mat-file-input>
+                    <mat-error>
+                    <span *ngIf="!galleryForm.get('imageFile').valid">Please select image file</span>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Product Name</mat-label>
+                    <input matInput placeholder="{{product.name}}" formControlName="name"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!galleryForm.get('name').valid && galleryForm.get('name').touched">Please enter updated product name</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Description</mat-label>
+                    <input matInput placeholder="{{product.description}}" formControlName="description"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!galleryForm.get('description').valid && galleryForm.get('description').touched">Please enter updated product description</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Price</mat-label>
+                    <input matInput placeholder="{{product.price}}" formControlName="price"
+                    [errorStateMatcher]="matcher" type="number">
+                    <mat-error>
+                    <span *ngIf="!galleryForm.get('price').valid && galleryForm.get('price').touched">Please enter updated product price</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Product Category</mat-label>
+                    <input matInput placeholder="{{product.category}}" formControlName="category"
+                    [errorStateMatcher]="matcher">
+                    <mat-error>
+                    <span *ngIf="!galleryForm.get('category').valid && galleryForm.get('category').touched">Please enter updated product category</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Stock Quantity</mat-label>
+                  <input matInput formControlName="stock_quantity"
+                  [errorStateMatcher]="matcher" value="{{product.stock_quantity}}" type="number">
+                  <mat-error>
+                  <span *ngIf="!galleryForm.get('stock_quantity').valid && galleryForm.get('stock_quantity').touched">Please enter updated product stock quantity</span>
+                  </mat-error>
+              </mat-form-field>
+              
+              <mat-slide-toggle formControlName="featured">Featured</mat-slide-toggle>
+            
+                <div class="button-row">
+                    <button type="submit" mat-flat-button color="primary"></button>
+                  </div>
+                  
+                  <div class="button-row">
+                    <button type="submit" mat-flat-button color="primary">Add</button>
+                  </div>
+                  <div class="button-row">
+                  <button type="reset">Clear</button></div>
+            </form>
+          </mat-card>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+           
+        </div>
+      </div>
+    </div>
+  </div>
