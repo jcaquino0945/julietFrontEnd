@@ -6,6 +6,8 @@ import { AdminRoutingModule } from './admin-routing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -35,7 +37,8 @@ import { AdminProductDetailComponent } from './admin-product-detail/admin-produc
     MaterialFileInputModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   exports: [
     AdminProductComponent,

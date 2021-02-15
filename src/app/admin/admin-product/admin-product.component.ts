@@ -6,6 +6,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { Product } from '../../models/product';
 import { Observable } from 'rxjs';
 import { interval } from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -33,7 +34,7 @@ export class AdminProductComponent implements OnInit {
   //orders
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
-  constructor(private router : Router,private productService:ProductService,private formBuilder:FormBuilder) { }
+  constructor(private router : Router,private productService:ProductService,private formBuilder:FormBuilder,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(products$ => this.products$ = products$,
@@ -76,4 +77,23 @@ export class AdminProductComponent implements OnInit {
         errmess => this.errMess = <any>errmess);
   }
 
+  openDialog() {
+    this.dialog.open(AddProductDialog);
+
+  }
+
 }
+
+@Component({
+  selector: 'add-product-dialog',
+  template: `
+  <h1 mat-dialog-title>Dialog with elements</h1>
+  <div mat-dialog-content>
+  /div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+  `
+  ,
+})
+export class AddProductDialog {}
