@@ -51,7 +51,7 @@ export class AdminProductDetailComponent implements OnInit {
        },
           err => console.log(err));
        errmess => this.errMess = <any>errmess;
-
+/*
        this.galleryForm = this.formBuilder.group({
         imageFile : [null, Validators.required],
         name : [null, Validators.required],
@@ -62,6 +62,7 @@ export class AdminProductDetailComponent implements OnInit {
         featured: false
   
       });
+      */
   }
   goBack(): void {
     this.location.back();
@@ -72,7 +73,7 @@ export class AdminProductDetailComponent implements OnInit {
     console.log("deleted product with id: " + id);
      this.router.navigate(['/admin/adminProduct'])
   }
-
+/*
   onFormSubmit(id): void {
     this.isLoadingResults = true;
     this.productService.updateProduct(id,this.galleryForm.value, this.galleryForm.get('imageFile').value._files[0])
@@ -98,5 +99,5 @@ export class AdminProductDetailComponent implements OnInit {
       });
       this.galleryForm.reset();
   }
-
+*/
 }

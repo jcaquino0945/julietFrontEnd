@@ -50,6 +50,7 @@ export class ProductService {
     const req = new HttpRequest('POST', apiUrl, formData, options);
     return this.http.request(req);
   }
+  /*
   updateProduct(id, product: Product, file: File): Observable<any> {
     const formData = new FormData();
     formData.set('file', file);
