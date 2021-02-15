@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     this.authService.validate(this.user.username, this.user.password)
     .then((response) => {
       this.authService.setUserInfo({'user' : response['user']});
-      this.router.navigate(['admin']);
+      this.router.navigate(['admin/adminProduct']);
       
     })
   }

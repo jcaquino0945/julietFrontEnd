@@ -1,8 +1,9 @@
-
+<!--
 <form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
     <button type="submit">Logout</button>
 </form>
-
+-->
+<!--
 <div class="container-fluid d-flex justify-content-center shadow-sm">
   <ul>
       <div class="navbar align-self-center">
@@ -11,6 +12,15 @@
       </div>
   </ul>
 </div>
-
-
-  <router-outlet></router-outlet>
+-->
+<div class="admin-main-container">
+  <div class="sidebar">
+    <nav class="nav flex-column">
+      <a class="nav-link" routerLink="/admin/adminProduct" routerLinkActive="active">Products</a>
+      <a class="nav-link" routerLink="/admin/adminStock" routerLinkActive="active">Stock</a>
+    </nav>
+  </div>
+  <div class="adminContent">
+    <router-outlet></router-outlet>
+  </div>
+</div>
