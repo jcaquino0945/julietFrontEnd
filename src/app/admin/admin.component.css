@@ -21,17 +21,25 @@ ul {
 }
 */
 .admin-main-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
 .sidebar {
-    background-color: rgb(3, 94, 3);
-    width: 20%;
-    height: auto;
+  background-color: #6E815D;
+  width: 20%;
+  height: 120vh;
 }
+
 .adminContent {
-    overflow: auto;
-    width: 80%;
-    height: auto;
-    margin: 0;
+  overflow: auto;
+  width: 80%;
+  height: auto;
+  margin: 0;
+}
+
+span, a {
+  font-family: Work Sans;
+  font-style: normal;
+  color: #ffffff;
 }
