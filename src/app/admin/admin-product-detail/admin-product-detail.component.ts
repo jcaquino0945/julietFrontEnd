@@ -48,12 +48,22 @@ export class AdminProductDetailComponent implements OnInit {
     this.route.params.pipe(switchMap((params: Params) => { return this.productService.getProduct(params['id']); }))
     .subscribe(product => {
       this.product = product;
+      this.galleryForm.get("name").setValue(this.product.name);
+      this.galleryForm.get("description").setValue(this.product.description);
+      this.galleryForm.get("price").setValue(this.product.price);
+      this.galleryForm.get("category").setValue(this.product.category);
+      this.galleryForm.get("stock_quantity").setValue(this.product.stock_quantity);
+      this.galleryForm.get("featured").setValue(this.product.featured);
+
+
        },
           err => console.log(err));
        errmess => this.errMess = <any>errmess;
-/*
+
+       
+
        this.galleryForm = this.formBuilder.group({
-        imageFile : [null, Validators.required],
+        //imageFile : [null, Validators.required],
         name : [null, Validators.required],
         description : [null, Validators.required],
         price : [null, Validators.required],
@@ -62,16 +72,37 @@ export class AdminProductDetailComponent implements OnInit {
         featured: false
   
       });
-      */
+      
   }
   goBack(): void {
     this.location.back();
   }
   deleteProduct(id) {
+    if (window.confirm('Are you sure?')) {
     this.productService.deleteProduct(id).subscribe(products$ => this.products$ = products$,
       errmess => this.errMess = <any>errmess)
     console.log("deleted product with id: " + id);
      this.router.navigate(['/admin/adminProduct'])
+  }
+}
+
+  onFormSubmit(id) {
+    this.productService.updateProduct(id,this.galleryForm.value)
+    .subscribe(res => {
+      console.log('Content updated')
+      document.getElementById('close').click();// close modal
+    }, (error) => {
+      console.log(error)
+    })
+    //resubscribe to refresh
+    this.productService.getProductIds().subscribe(productIds => this.productIds = productIds);
+    this.route.params.pipe(switchMap((params: Params) => { return this.productService.getProduct(params['id']); }))
+    .subscribe(product => {
+      this.product = product;
+       },
+          err => console.log(err));
+       errmess => this.errMess = <any>errmess;
+
   }
 /*
   onFormSubmit(id): void {

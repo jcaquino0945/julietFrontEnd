@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
+
 const apiUrl = 'http://localhost:3000/products';
 
 @Injectable({
@@ -12,23 +13,28 @@ const apiUrl = 'http://localhost:3000/products';
 })
 export class ProductService {
   currentIndex:BehaviorSubject<string>; 
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient, private processHTTPMsgService: ProcessHTTPMsgService) { }
   
+  //get products from db
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(apiUrl).pipe(catchError(this.processHTTPMsgService.handleError))
   }
 
+  //get single product via id from db
   getProduct(id: string): Observable<Product> {
     return this.http.get<Product>(apiUrl + '/' + id)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
+  //get all product ids 
   getProductIds(): Observable<number[] | any> {
     return this.getProducts().pipe(map(products => products.map(product => product._id)))
       .pipe(catchError(error => error));
   }
 
+  //add product with image
   addGallery(product: Product, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
@@ -50,6 +56,12 @@ export class ProductService {
     const req = new HttpRequest('POST', apiUrl, formData, options);
     return this.http.request(req);
   }
+
+  //update product
+  updateProduct(id, data): Observable<any> {
+    return this.http.put(apiUrl + '/' + id,data, {headers: this.headers}).pipe(catchError(this.processHTTPMsgService.handleError))
+  }
+
   /*
   updateProduct(id, product: Product, file: File): Observable<any> {
     const formData = new FormData();
