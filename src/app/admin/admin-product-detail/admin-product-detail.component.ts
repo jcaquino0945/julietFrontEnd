@@ -91,6 +91,7 @@ export class AdminProductDetailComponent implements OnInit {
     .subscribe(res => {
       console.log('Content updated')
       document.getElementById('close').click();// close modal
+      window.alert('Product updated!')
     }, (error) => {
       console.log(error)
     })

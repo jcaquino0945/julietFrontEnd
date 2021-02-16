@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -19,11 +19,13 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 import { AdminStockComponent } from './admin-stock/admin-stock.component';
+import { AddProductComponent } from './add-product/add-product.component';
 @NgModule({
   declarations: [
     AdminProductComponent,
     AdminProductDetailComponent,
     AdminStockComponent,
+    AddProductComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import { AdminStockComponent } from './admin-stock/admin-stock.component';
     ReactiveFormsModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   exports: [
     AdminProductComponent,

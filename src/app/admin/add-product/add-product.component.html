@@ -1,0 +1,74 @@
+<form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
+    <mat-form-field>
+        <mat-label>Product Image</mat-label>
+        <ngx-mat-file-input formControlName="imageFile" placeholder="Select Image" valuePlaceholder="No image file selected"
+        [errorStateMatcher]="matcher"></ngx-mat-file-input>
+        <mat-error>
+        <span *ngIf="!galleryForm.get('imageFile').valid">Please select image file</span>
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Product Name" formControlName="name"
+            [errorStateMatcher]="matcher">
+        <mat-error>
+            <span *ngIf="!galleryForm.get('name').valid && galleryForm.get('name').touched">Please enter product name</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Description</mat-label>
+        <input matInput placeholder="Product Description" formControlName="description"
+            [errorStateMatcher]="matcher">
+        <mat-error>
+            <span *ngIf="!galleryForm.get('description').valid && galleryForm.get('description').touched">Please enter product description</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Price</mat-label>
+        <input matInput placeholder="Product Price" formControlName="price"
+        [errorStateMatcher]="matcher" type="number">
+        <mat-error>
+        <span *ngIf="!galleryForm.get('price').valid && galleryForm.get('price').touched">Please enter product price</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product Category</mat-label>
+        <!--<input matInput placeholder="Product Category" formControlName="category"
+        [errorStateMatcher]="matcher"> -->
+        <mat-select  formControlName="category">
+            <mat-option value="Bracelet">
+                Bracelets And Anklets
+            </mat-option>
+            <mat-option value="Necklaces">
+                Necklaces
+            </mat-option>
+            <mat-option value="Earings">
+                Earings
+            </mat-option>
+          </mat-select>
+        <mat-error>
+        <span *ngIf="!galleryForm.get('category').valid && galleryForm.get('category').touched">Please enter product category</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Stock Quantity</mat-label>
+      <input matInput formControlName="stock_quantity"
+      [errorStateMatcher]="matcher" value="0" type="number">
+      <mat-error>
+      <span *ngIf="!galleryForm.get('stock_quantity').valid && galleryForm.get('stock_quantity').touched">Please enter product stock quantity</span>
+      </mat-error>
+  </mat-form-field>
+  
+  <mat-slide-toggle formControlName="featured">Featured</mat-slide-toggle>
+
+    <div class="button-row">
+        <button type="submit" mat-flat-button color="primary"></button>
+      </div>
+      
+      <div class="button-row">
+        <button type="submit" mat-flat-button color="primary">Add</button>
+      </div>
+      <div class="button-row">
+      <button type="reset">Clear</button></div>
+</form>

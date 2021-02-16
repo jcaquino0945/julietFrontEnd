@@ -1,33 +1,5 @@
 /* Structure */
-mat-form-field {
-    display: block;
-  }
-  .example-container {
-      position: relative;
-      padding: 5px;
-    }
-    
-    .example-form {
-      min-width: 150px;
-      max-width: 500px;
-      width: 100%;
-    }
-    
-    .example-full-width {
-      width: 100%;
-    }
-    
-    .example-full-width:nth-last-child(0) {
-      margin-bottom: 10px;
-    }
-    
-    .button-row {
-      margin: 10px 0;
-    }
-    
-    .mat-flat-button {
-      margin: 5px;
-    }
+
     .table img {
       height: 30px;
       width: 30px;
