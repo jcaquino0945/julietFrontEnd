@@ -28,6 +28,7 @@ export class AddProductComponent implements OnInit {
   category = '';
   stock_quantity = 0;
   featured = false;
+  size = [];
   //orders
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
@@ -40,6 +41,7 @@ export class AddProductComponent implements OnInit {
       description : [null, Validators.required],
       price : [null, Validators.required],
       category : [null, Validators.required],
+      size: [],
       stock_quantity : 0,
       featured: false
     });

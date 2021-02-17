@@ -7,6 +7,7 @@
         <th>Product Category</th>
         <th>Stock Quantity</th>
         <th>Featured</th>
+        <th>Available Sizes</th>
         <th>Id</th>
         <th></th>
       </tr>
@@ -19,6 +20,11 @@
         <td>{{product.category}}</td>
         <td>{{product.stock_quantity}}</td>
         <td>{{product.featured}}</td>
+        <td>
+          <select class="custom-select">
+            <option [value]="prodSize" *ngFor="let prodSize of product.size">{{prodSize}}</option>
+          </select>
+        </td>
         <td>{{product._id}}</td>
        <!-- <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button></td> -->
       </tr>

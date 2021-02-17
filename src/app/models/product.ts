@@ -10,5 +10,6 @@ export class Product {
     featured: boolean;
     stock_quantity: number;
     orders: number;
+    size: [number];
   }
   

@@ -59,7 +59,21 @@
       <span *ngIf="!galleryForm.get('stock_quantity').valid && galleryForm.get('stock_quantity').touched">Please enter product stock quantity</span>
       </mat-error>
   </mat-form-field>
-  
+
+  <section>
+    <mat-checkbox formControlName="size" style="margin: .5vw;" value="5" >"5"</mat-checkbox>
+    <mat-checkbox formControlName="size" style="margin: .5vw;" value="6">"6"</mat-checkbox>
+  </section>
+
+<!--
+  <mat-form-field>
+    <mat-label>Available Sizes</mat-label>
+    <mat-select formControlName="size" multiple>
+      <mat-option value="1">1</mat-option>
+      <mat-option value="2">2</mat-option>
+    </mat-select>
+  </mat-form-field>
+-->
   <mat-slide-toggle formControlName="featured">Featured</mat-slide-toggle>
 
     <div class="button-row">
