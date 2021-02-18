@@ -1,207 +1,310 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div id="stepper" class="bs-stepper">
-                <div class="bs-stepper-header">
-                    <div class="step" data-target="#information">
-                        <button class="step-trigger">
-                        <span class="bs-stepper-label">Information</span>
-                        </button>
-                    </div>
-                    <div><i class="fas fa-chevron-right"></i></div>
-                    <div class="step" data-target="#shipping">
-                        <button class="step-trigger">
-                        <span class="bs-stepper-label">Shipping</span>
-                        </button>
-                    </div>
-                    <div><i class="fas fa-chevron-right"></i></div>
-                    <div class="step" data-target="#payment">
-                        <button class="step-trigger">
-                        <span class="bs-stepper-label">Payment</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="bs-stepper-content">
-                    <form (ngSubmit)="onSubmit()">
-                        <!-- Contact and Shipping Information -->
-                        <div id="information" class="content">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <h5>Contact Information</h5>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="First Name" />
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Last Name" />
-                                    </div>            
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Contact Number" />
-                                    </div>                  
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                    <input type="email" class="form-control" placeholder="Email Address" />
-                                    </div>                  
-                                </div>
-                            </div>  
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <h5>Shipping Information</h5>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="House no. / Street" />
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Province" />
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="City" />
-                                    </div>    
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Region" />
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Postal Code" />
-                                    </div>    
-                                </div>
-                                <div class="form-row float-right">
-                                    <div class="col">
-                                        <button (click)="next()" class="btn-proceed">Proceed to Shipping</button>
-                                    </div>
-                                </div>
-                            </div>    
-                            
-                        </div>
-                        <!-- Shipping Method -->
-                        <div id="shipping" class="content">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <h5>Shipping Method</h5>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="standard" checked>
-                                            <label class="form-check-label" for="standard">Standard Shipping (P150)</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="free">
-                                            <label class="form-check-label" for="free">Free Shipping</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row float-right">
-                                    <div class="col">
-                                        <button type="button" (click)="previous()" class="btn-proceed">Back to Information</button>
-                                        <button type="button" (click)="next()" class="btn-proceed ml-1">Proceed to Payment</button>
-                                    </div>
-                                </div>
-                            </div>                    
-                        </div>
-                        <!-- Payment Method -->
-                        <div id="payment" class="content">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <h5>Payment Method</h5>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="card" checked>
-                                            <label class="form-check-label" for="card">Credit or Debit Card</label>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Card Holder Name" />
-                                            </div>
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="Card Number" />
-                                            </div>
-                                        </div>
-                                        <div class="form-row">                    
-                                            <div class="col">
-                                                <input type="text" class="form-control" placeholder="CVC" />
-                                            </div>
-                                            <div class="col">
-                                                <input type="date" class="form-control" placeholder="CVC" />
-                                            </div>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="paypal">
-                                            <label class="form-check-label" for="paypal">Paypal</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="cod">
-                                            <label class="form-check-label" for="cod">Cash on Delivery</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row float-right">
-                                    <div class="col">
-                                        <button type="button" (click)="previous()" class="btn-proceed">Back to Shipping</button>
-                                        <button type="submit" class="btn-proceed ml-1">Complete Purchase</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="mb-5">
-                <div class="d-flex my-3">
-                    <div class="align-self-center"><img src="https://i.imgur.com/gEdYbSe.jpg" class="mr-3 img-responsive img-thumbnail"></div>
-                    <div class="align-self-center">
-                        Sol and Luna Necklace
-                        <div class="details">
-                            Size 12
-                        </div>
-                    </div>
-                    <div class="ml-auto align-self-center">Php 250</div>
-                </div>
-                <div class="d-flex my-3">
-                    <div class="align-self-center"><img src="https://i.imgur.com/IcZOQ6L.jpg" class="mr-3 img-responsive img-thumbnail"></div>
-                    <div class="align-self-center">
-                        Sol and Luna Necklace
-                        <div class="details">
-                            Size 12
-                        </div>
-                    </div>
-                    <div class="ml-auto align-self-center">Php 250</div>
-                </div>
-            </div>
+<nav *ngIf="nav.visible"></nav>
+<ribbon *ngIf="ribbon.visible"></ribbon>
+<footer *nfIf="footer.visible"></footer>
 
-            <div class="d-flex justify-content-between">
-                <div>Subtotal</div>
-                <div>Php 500</div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>Shipping Fee</div>
-                <div class="text-muted">Calculated at next step</div>
-            </div>
-            <hr>
-            <div class="d-flex justify-content-between">
-                <div><h5>Total</h5></div>
-                <div><h5>Php 650</h5></div>
-            </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="stepper" class="bs-stepper">
+        <div class="bs-stepper-header">
+          <div class="step" data-target="#information">
+            <button class="step-trigger">
+              <span class="bs-stepper-label">Information</span>
+            </button>
+          </div>
+          <div><i class="fas fa-chevron-right"></i></div>
+          <div class="step" data-target="#shipping">
+            <button class="step-trigger">
+              <span class="bs-stepper-label">Shipping</span>
+            </button>
+          </div>
+          <div><i class="fas fa-chevron-right"></i></div>
+          <div class="step" data-target="#payment">
+            <button class="step-trigger">
+              <span class="bs-stepper-label">Payment</span>
+            </button>
+          </div>
         </div>
+        <div class="bs-stepper-content">
+          <form (ngSubmit)="onSubmit()">
+            <!-- Contact and Shipping Information -->
+            <div id="information" class="content">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Contact Information</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First Name"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Contact Number"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email Address"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Shipping Information</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="House no. / Street"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Province"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="City"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Region"
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Postal Code"
+                    />
+                  </div>
+                </div>
+                <div class="form-row mt-4">
+                  <div class="col">
+                    <button routerLink="/cart" class="btn-back">
+                      Edit Cart
+                    </button>
+                  </div>
+                  <div class="col">
+                    <button (click)="next()" class="btn-proceed">
+                      Proceed to Shipping
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Shipping Method -->
+            <div id="shipping" class="content">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Shipping Method</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="standard"
+                        checked
+                      />
+                      <label class="form-check-label" for="standard"
+                        >Standard Shipping (P150)</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" id="free" />
+                      <label class="form-check-label" for="free"
+                        >Free Shipping</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row mt-4">
+                  <div class="col">
+                    <button (click)="previous()" class="btn-back">
+                      Back to Shipping
+                    </button>
+                  </div>
+                  <div class="col">
+                    <button (click)="next()" class="btn-proceed">
+                      Proceed to Payment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Payment Method -->
+            <div id="payment" class="content">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Payment Method</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="card"
+                        checked
+                      />
+                      <label class="form-check-label" for="card"
+                        >Credit or Debit Card</label
+                      >
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Card Holder Name"
+                        />
+                      </div>
+                      <div class="col">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Card Number"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="CVC"
+                        />
+                      </div>
+                      <div class="col">
+                        <input
+                          type="date"
+                          class="form-control"
+                          placeholder="CVC"
+                        />
+                      </div>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="paypal"
+                      />
+                      <label class="form-check-label" for="paypal"
+                        >Paypal</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" id="cod" />
+                      <label class="form-check-label" for="cod"
+                        >Cash on Delivery</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row mt-4">
+                  <div class="col">
+                    <button (click)="previous()" class="btn-back">
+                      Back to Shipping
+                    </button>
+                  </div>
+                  <div class="col">
+                    <button (click)="next()" class="btn-proceed">
+                      Proceed to Payment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+    <div class="col">
+      <div class="mb-5">
+        <div class="d-flex my-3">
+          <div class="align-self-center">
+            <img
+              src="https://i.imgur.com/gEdYbSe.jpg"
+              class="mr-3 img-responsive img-thumbnail"
+            />
+          </div>
+          <div class="align-self-center">
+            Sol and Luna Necklace
+            <div class="details">Size 12</div>
+          </div>
+          <div class="ml-auto align-self-center">Php 250</div>
+        </div>
+        <div class="d-flex my-3">
+          <div class="align-self-center">
+            <img
+              src="https://i.imgur.com/IcZOQ6L.jpg"
+              class="mr-3 img-responsive img-thumbnail"
+            />
+          </div>
+          <div class="align-self-center">
+            Sol and Luna Necklace
+            <div class="details">Size 12</div>
+          </div>
+          <div class="ml-auto align-self-center">Php 250</div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div>Subtotal</div>
+        <div>Php 500</div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div>Shipping Fee</div>
+        <div class="text-muted">Calculated at next step</div>
+      </div>
+      <hr />
+      <div class="d-flex justify-content-between">
+        <div><h5>Total</h5></div>
+        <div><h5>Php 650</h5></div>
+      </div>
+    </div>
+  </div>
 </div>

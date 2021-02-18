@@ -1,20 +1,22 @@
-.navbar {
-    padding: 2vh 0; 
-    transition: 0.1s all ease-in;
-    border: none;
-    text-decoration: none;
-    text-align: center;
+a {
+  text-decoration: none;
+  color: #000;
 }
-.navbar a {
-    font-size: medium;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 2vw;
+
+a:hover {
+  text-decoration: none;
+  color: #6e815d;
 }
-ul {
-    margin: 0 auto;
-    align-items: center;
-    list-style-type: none;
+
+.nav-link {
+  font-size: 20px;
+  color: #000;
+  margin: 15px 15px;
+  padding: 0;
+}
+
+.nav {
+  width: 15em;
+  height: 100%;
+  background: #c1ae8d;
 }

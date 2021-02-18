@@ -1,16 +1,22 @@
+<nav *ngIf="!nav.visible"></nav>
+<ribbon *ngIf="!ribbon.visible"></ribbon>
+<footer *nfIf="!footer.visible"></footer>
 
 <form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
-    <button type="submit">Logout</button>
+  <button type="submit">Logout</button>
 </form>
 
 <div class="container-fluid d-flex justify-content-center shadow-sm">
   <ul>
-      <div class="navbar align-self-center">
-          <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
-          <li><a routerLink="/admin/adminProduct" routerLinkActive="active">CMS</a></li>
-      </div>
+    <div class="navbar align-self-center">
+      <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
+      <li>
+        <a routerLink="/admin/adminProduct" routerLinkActive="active">CMS</a>
+      </li>
+    </div>
   </ul>
 </div>
 
 
-  <router-outlet></router-outlet>
+
+<router-outlet></router-outlet>

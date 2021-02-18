@@ -1,32 +1,58 @@
 .section-1 {
-  height: 100vh;
-  color: #000;
-  background-image: url(https://images.unsplash.com/photo-1531995811006-35cb42e1a022?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
-  background-repeat: no-repeat;
+  align-items: center;
+  display: flex;
   background-size: cover;
-}
-
-h2 {
-  margin-top: 50px;
-}
-#col-1 {
-  background-image: url(https://www.sheknows.com/wp-content/uploads/2020/04/jewelry-cleaning.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 800px;
-  height: 720px;
-}
-
-#jewelry {
-  font-weight: normal;
-  font-family: 'Lora', sans-serif;
-  left: 830px;
-  top: 435px;
-
+  height: 90vh;
+  padding: 0 150px;
 }
 
 .section-2 {
-  height: 100vh;
-  color: #000;
-  background-color: #ffffff;
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  height: 70vh;
+  padding: 0 150px;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 100px;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+.media {
+  width: 25em;
+  margin: auto;
+}
+
+.card,
+.card-img-top {
+  width: 200px;
+  border: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
 }
