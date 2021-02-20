@@ -1,18 +1,42 @@
-
+<div *ngIf="products$">
+  <div
+    class="card my-2"
+    *ngFor="let product of products$; let i = index"
+    [routerLink]="['/admin/adminProduct/', product._id]"
+  >
+    <div class="card-body">
+      <div
+        class="d-flex justify-content-between align-items-center flex-wrap flex-md-nowrap"
+      >
+        <img src="https://i.imgur.com/gEdYbSe.jpg" width="100px" />
+        <div class="mr-auto ml-3">
+          {{ product.name }} <br />
+          {{ product.price }} <br />
+          In stock
+        </div>
+        <div class="align-self-start">
+          <button class="btn btn-dark">
+            <i class="far fa-edit"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Button trigger modal -->
 
-<button
+<!-- <button
   type="button"
   class="btn btn-primary"
   data-toggle="modal"
   data-target="#exampleModalCentered"
 >
   Launch centered demo modal
-</button>
+</button> -->
 
 <!-- Modal -->
-<div
+<!-- <div
   class="modal"
   id="exampleModalCentered"
   tabindex="-1"
@@ -174,9 +198,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<table class="table" *ngIf="products$">
+<!-- <table class="table" *ngIf="products$">
   <thead>
     <tr>
       <th>Product Name</th>
@@ -208,8 +232,8 @@
           </option>
         </select>
       </td>
-      <td>{{ product._id }}</td>
-      <!-- <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button></td> -->
-    </tr>
+      <td>{{ product._id }}</td> -->
+<!-- <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button></td> -->
+<!-- </tr>
   </tbody>
-</table>
+</table> -->
