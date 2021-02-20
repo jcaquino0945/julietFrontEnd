@@ -1,13 +1,75 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h3>Products</h3>
+  <form class="form-inline">
+    <!-- add new product modal button trigger -->
+    <button
+      type="button"
+      class="btn btn-dark mr-2"
+      data-toggle="modal"
+      data-target="#modal"
+    >
+      Add new
+    </button>
+    <input
+      class="form-control mr-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+      Search
+    </button>
+  </form>
+</div>
+
+<!-- add new product modal -->
+<div class="modal fade" id="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add new product</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
+          <div class="form-row">
+            <input type="text" class="form-control" placeholder="Name" />
+          </div>
+          <div class="form-row">
+            <input type="text" class="form-control" placeholder="Description" />
+          </div>
+          <div class="form-row">
+            <select class="form-select">
+              <option selected disabled>Select Category</option>
+              <option value="Necklace">Necklace</option>
+              <option value="Bracelet">Bracelet</option>
+              <option value="Earring">Earring</option>
+              <option value="Ring">Ring</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-dark">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div *ngIf="products$">
-  <div
-    class="card my-2"
-    *ngFor="let product of products$; let i = index"
-    [routerLink]="['/admin/adminProduct/', product._id]"
-  >
+  <div class="card my-2" *ngFor="let product of products$; let i = index">
     <div class="card-body">
-      <div
-        class="d-flex justify-content-between align-items-center flex-wrap flex-md-nowrap"
-      >
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
         <img src="https://i.imgur.com/gEdYbSe.jpg" width="100px" />
         <div class="mr-auto ml-3">
           {{ product.name }} <br />
@@ -15,7 +77,10 @@
           In stock
         </div>
         <div class="align-self-start">
-          <button class="btn btn-dark">
+          <button
+            class="btn p-0"
+            [routerLink]="['/admin/adminProduct/', product._id]"
+          >
             <i class="far fa-edit"></i>
           </button>
         </div>
@@ -23,17 +88,6 @@
     </div>
   </div>
 </div>
-
-<!-- Button trigger modal -->
-
-<!-- <button
-  type="button"
-  class="btn btn-primary"
-  data-toggle="modal"
-  data-target="#exampleModalCentered"
->
-  Launch centered demo modal
-</button> -->
 
 <!-- Modal -->
 <!-- <div
@@ -199,41 +253,3 @@
     </div>
   </div>
 </div> -->
-
-<!-- <table class="table" *ngIf="products$">
-  <thead>
-    <tr>
-      <th>Product Name</th>
-      <th>Product Image</th>
-      <th>Product Price</th>
-      <th>Product Category</th>
-      <th>Stock Quantity</th>
-      <th>Featured</th>
-      <th>Available Sizes</th>
-      <th>Id</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      *ngFor="let product of products$; let i = index"
-      [routerLink]="['/admin/adminProduct/', product._id]"
-    >
-      <td>{{ product.name }}</td>
-      <td><img src="{{ product.imageUrl }}" /></td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.category }}</td>
-      <td>{{ product.stock_quantity }}</td>
-      <td>{{ product.featured }}</td>
-      <td>
-        <select class="custom-select">
-          <option [value]="prodSize" *ngFor="let prodSize of product.size">
-            {{ prodSize }}
-          </option>
-        </select>
-      </td>
-      <td>{{ product._id }}</td> -->
-<!-- <td><button type="button" class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button></td> -->
-<!-- </tr>
-  </tbody>
-</table> -->
