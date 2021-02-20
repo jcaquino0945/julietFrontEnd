@@ -1,22 +1,41 @@
 <nav *ngIf="!nav.visible"></nav>
 <ribbon *ngIf="!ribbon.visible"></ribbon>
-<footer *nfIf="!footer.visible"></footer>
+<footer *ngIf="!footer.visible"></footer>
 
-<form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
-  <button type="submit">Logout</button>
-</form>
-
-<div class="container-fluid d-flex justify-content-center shadow-sm">
-  <ul>
-    <div class="navbar align-self-center">
-      <li><a routerLink="/admin" routerLinkActive="active">Admin</a></li>
-      <li>
-        <a routerLink="/admin/adminProduct" routerLinkActive="active">CMS</a>
-      </li>
+<div class="admin-container">
+  <!-- sidebar -->
+  <nav class="col-lg-2 d-md-block sidebar collapse">
+    <div class="sidebar-sticky pt-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin"> Dashboard </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin"> Orders </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/adminProduct"> Products </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin"> Customers </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin"> Reports </a>
+        </li>
+      </ul>
     </div>
-  </ul>
+  </nav>
+  <!-- content -->
+  <div class="admin-content p-3">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom"
+    >
+      <h3>Dashboard</h3>
+      <form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
+        <button type="submit" class="btn btn-dark">Logout</button>
+      </form>
+    </div>
+      
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-
-
-<router-outlet></router-outlet>

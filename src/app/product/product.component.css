@@ -1,8 +1,16 @@
-.section {
+.section-1 {
   align-items: center;
   display: flex;
   background-size: cover;
-  height: 80vh;
+  height: 90vh;
+  padding: 0 150px;
+}
+
+.section-2 {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  height: 70vh;
   padding: 0 150px;
 }
 
@@ -42,4 +50,20 @@ select {
   text-transform: uppercase;
   color: #6e815d;
   width: 100%;
+}
+
+.card,
+.card-img-top {
+  width: 200px;
+  border: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
 }

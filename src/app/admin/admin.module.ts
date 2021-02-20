@@ -13,12 +13,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
+import { AdminStockComponent } from './admin-stock/admin-stock.component';
+
 @NgModule({
   declarations: [
     AdminProductComponent,
     AdminProductDetailComponent,
+    AdminStockComponent
   ],
   imports: [
     CommonModule,
