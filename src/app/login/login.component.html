@@ -1,7 +1,49 @@
-<form novalidate #loginForm="ngForm" (ngSubmit)="login()">
-    <input  placeholder="Username" type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
-    <p *ngIf="username.errors?.required">Username is required</p>
-    <input  placeholder="Password" type="password" [(ngModel)]="user.password" name="password" #password="ngModel" required>
-    <p *ngIf="password.errors?.required">Password is required</p>
-    <button type="submit" [disabled]="loginForm.form.invalid" >Login</button>
-</form>
+<nav *ngIf="!nav.visible"></nav>
+<ribbon *ngIf="!ribbon.visible"></ribbon>
+<footer *ngIf="!footer.visible"></footer>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <div class="card">
+      <div class="card-body">
+        <form novalidate #loginForm="ngForm" (ngSubmit)="login()">
+          <div class="form-row">
+            <div class="col">
+              <input
+                placeholder="Username"
+                type="text"
+                [(ngModel)]="user.username"
+                name="username"
+                class="form-control"
+                #username="ngModel"
+                required
+              />
+            </div>
+          </div>
+          <!-- <p *ngIf="username.errors?.required">Username is required</p> -->
+          <div class="form-row">
+            <div class="col">
+              <input
+                placeholder="Password"
+                type="password"
+                [(ngModel)]="user.password"
+                name="password"
+                class="form-control"
+                #password="ngModel"
+                required
+              />
+            </div>
+          </div>
+          <!-- <p *ngIf="password.errors?.required">Password is required</p> -->
+          <button
+            type="submit"
+            class="btn btn-login"
+            [disabled]="loginForm.form.invalid"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

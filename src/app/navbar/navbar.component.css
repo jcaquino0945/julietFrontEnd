@@ -1,20 +1,21 @@
 .navbar {
-    padding: 2vh 0; 
-    transition: 0.1s all ease-in;
-    border: none;
-    text-decoration: none;
-    text-align: center;
+  padding: 1vh 0;
+  transition: 0.1s all ease-in;
+  border: none;
+  text-decoration: none;
+  text-align: center;
 }
+
 .navbar a {
-    font-size: medium;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 2vw;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  margin: 0 2vw;
 }
+
 ul {
-    margin: 0 auto;
-    align-items: center;
-    list-style-type: none;
+  margin: 0 auto;
+  align-items: center;
+  list-style-type: none;
 }

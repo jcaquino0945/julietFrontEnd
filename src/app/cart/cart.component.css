@@ -1,29 +1,55 @@
-select { font-size: 12px; width: 70px; border-radius: 0; }
+select {
+  font-size: 12px;
+  width: 70px;
+  border-radius: 0;
+}
 
 .section {
-    display: flex;
-    background-size: cover;
-    height: 100%;
-    padding: 90px 80px;
+  display: flex;
+  background-size: cover;
+  height: 100%;
+  padding: 90px 80px;
 }
 
 .btn-proceed {
-    background: #6E815D;
-    width: 100%;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 0;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #fff;
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  width: 100%;
 }
 
-.img-responsive { width: 100px; }
+.btn-proceed:hover {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #6e815d;
+  width: 100%;
+}
 
-.img-thumbnail { border-radius: 0; }
+.img-responsive {
+  width: 100px;
+}
 
-.details { font-size: 12px; }
+.img-thumbnail {
+  border-radius: 0;
+}
 
-.card { border-radius: 0; font-size: 13px; }
+.details {
+  font-size: 12px;
+}
+
+.card {
+  border-radius: 0;
+  font-size: 13px;
+}

@@ -1,26 +1,65 @@
-<div class="container">
-    <div class="row section">
-        <div class="col">
-            <img src="https://i.imgur.com/HGYgGAq.jpg" width="450px">
-        </div>
-        <div class="col">
-            <h5>Sol and Luna Necklace</h5>
-            <p>
-                <b>Material</b> Gold Plated Copper <br>
-                <b>Inclusion</b> Juliet Canvas Pouch <br>
-                100% Handcrafted
-            </p>
-            <h5 class="mb-4">Php 199</h5>
-            <select class="form-select" aria-label=".form-select-sm example">
-                <option selected disabled>Select Size</option>
-                <option value="1">12"</option>
-                <option value="2">14"</option>
-                <option value="3">16"</option>
-                <option value="3">18"</option>
-            </select>
-            <a routerLink="/cart" class="btn btn-add-to-cart">Add to Cart</a>
-            <p><b>Note</b> Check the last photo for measuring guide.</p>
-        </div>
-    </div>
+<nav *ngIf="nav.visible"></nav>
+<ribbon *ngIf="ribbon.visible"></ribbon>
+<footer *ngIf="footer.visible"></footer>
 
+<div class="container">
+  <div class="row section-1">
+    <div class="col">
+      <img src="https://i.imgur.com/HGYgGAq.jpg" width="450px" />
+    </div>
+    <div class="col">
+      <h5>Sol and Luna Necklace</h5>
+      <p>
+        <b>Material</b> Gold Plated Copper <br />
+        <b>Inclusion</b> Juliet Canvas Pouch <br />
+        100% Handcrafted
+      </p>
+      <h5 class="mb-4">Php 199</h5>
+      <select class="form-select" aria-label=".form-select-sm example">
+        <option selected disabled>Chain length</option>
+        <option value="1">12"</option>
+        <option value="2">14"</option>
+        <option value="3">16"</option>
+        <option value="3">18"</option>
+      </select>
+      <a routerLink="/cart" class="btn btn-add-to-cart">Add to Cart</a>
+      <p><b>Note</b> Check the last photo for measuring guide.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-2">
+  <div class="container">
+    <h5 class="mb-5 text-center">You might also like</h5>
+    <div class="d-flex flex-row justify-content-center">
+      <div class="card m-2">
+        <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
+        <div class="card-body">
+          <div class="card-text">Sol and Luna Necklace</div>
+          <div class="card-title">Php 250</div>
+        </div>
+      </div>
+      <div class="card m-2">
+        <img src="https://i.imgur.com/gEdYbSe.jpg" class="card-img-top" />
+        <div class="card-body">
+          <div class="card-text">Sol and Luna Necklace</div>
+          <div class="card-title">Php 250</div>
+        </div>
+      </div>
+      <div class="card m-2">
+        <img src="https://i.imgur.com/0S1pVTu.png" class="card-img-top" />
+        <div class="card-body">
+          <div class="card-text">Sol and Luna Necklace</div>
+          <div class="card-title">Php 250</div>
+        </div>
+      </div>
+      <div class="card m-2">
+        <img src="https://i.imgur.com/jeBLPq1.jpg" class="card-img-top" />
+        <div class="card-body">
+          <div class="card-text">Sol and Luna Necklace</div>
+          <div class="card-title">Php 250</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

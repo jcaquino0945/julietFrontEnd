@@ -1,46 +1,86 @@
-form {
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+.title-border {
   position: relative;
-  width: 500px;
-  height: 700px;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
 }
 
 .jumbotron {
-  background-image: url(https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1274&q=80);
+  align-items: center;
+  display: flex;
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 50vh;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+  padding: 80px 30em;
 }
 
-form .row {
-  padding: 10px;
-
-}
-
-input,
 textarea {
-  border: 1px solid #6E815D;
-  box-sizing: border-box;
-  border-radius: 10px;
+  height: 100px;
+}
+
+input, textarea {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: transparent;
+}
+
+input:focus, textarea:focus {
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #000;
 }
 
 ::placeholder {
-  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.75px;
+}
+
+.form-row {
+  margin: 20px 0px;
+}
+
+.form-group {
+  padding: 10px 0;
+}
+
+.btn-submit {
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
   font-size: 15px;
-  line-height: 21px;
-  color: black;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-#enter {
-  position: relative;
-  width: 245px;
-  height: 50px;
-  background: #6E815D;
-  border-radius: 10px;
-  font-weight: 500;
-  font-size: 24px;
-  color: white;
-}
-
-#text-area {
-  height: 200px;
+.btn-submit:hover {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #6e815d;
 }

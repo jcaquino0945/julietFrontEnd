@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { NavbarComponent} from './navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
@@ -29,7 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { CheckoutComponent } from './checkout/checkout.component';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
@@ -53,7 +53,7 @@ import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
     CheckoutComponent,
     ContactUsComponent,
     FaqsComponent,
-    JewelryCareComponent
+    JewelryCareComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +73,6 @@ import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
     //AdminModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,57 +1,58 @@
-/*
-.navbar {
-    padding: 2vh 0; 
-    transition: 0.1s all ease-in;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-}
-.navbar a {
-    font-size: medium;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 2vw;
-}
-ul {
-    margin: 0 auto;
-    align-items: center;
-    list-style-type: none;
-}
-*/
-.admin-main-container {
+.admin-container {
   display: flex;
   flex-direction: row;
 }
 
-.sidebar {
-  background-color: #6E815D;
-  width: 20%;
-  height: 100vh;
-  position: static;
-}
-
-.adminContent {
+.admin-content {
   overflow: auto;
-  width: 80%;
+  width: 100%;
   height: 100vh;
   margin: 0;
 }
 
-span, .sidebar a {
-  font-family: Work Sans;
-  font-style: normal;
-  color: #ffffff;
+.sidebar {
+  background: #6e815d;
 }
-.admin-options {
-  border: 1px solid gray;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: 10vh;
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-.admin-options button {
-  margin-right: 1.5vw;
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #fff;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+input {
+  border: 0;
+  border-radius: 0;
+}
+
+.btn-juliet {
+  background: #6e815d;
+  padding: 7px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
 }

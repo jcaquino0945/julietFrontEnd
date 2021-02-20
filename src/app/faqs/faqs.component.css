@@ -1,28 +1,58 @@
-.accordion-button {
+.jumbotron {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5em 20em;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+.accordion-collapse,
+.accordion-body,
+.accordion-button,
+.accordion-button:focus,
+.accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: transparent;
   border: none;
-  background: none;
+  box-shadow: none;
+  padding: 10px 0;
 }
 
 .accordion-button::after {
-  background-image: url(../../assets/images/plus.png);
-  background-repeat: no-repeat;
-  background-size: 1.25rem;
-}
-
-.accordion-button:not(.collapsed) {
-  color: #ffffff;
-  background-color: #6e815d;
+  background: none;
+  font-family: "Font Awesome 5 Free";
+  content: "\f067";
+  font-weight: 900;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url(../../assets/images/minus.png);
-  background-repeat: no-repeat;
-  background-size: 1.25rem;
-}
-
-.jumbotron {
-  background-image: url(https://images.unsplash.com/photo-1484069560501-87d72b0c3669?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
+  background: none;
+  font-family: "Font Awesome 5 Free";
+  content: "\f068";
+  font-weight: 900;
 }

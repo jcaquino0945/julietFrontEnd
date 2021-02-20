@@ -1,11 +1,19 @@
-<div class="container-fluid d-flex justify-content-center shadow-sm">
+<nav *ngIf="nav.visible">
+  <div class="container-fluid d-flex justify-content-center shadow-sm">
     <ul>
-        <div class="navbar align-self-center">
-            <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-            <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
-            <li><a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a></li>        
-            <li><a routerLink="/discover" routerLinkActive="active">Discover</a></li>
-            <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-        </div>
+      <div class="navbar align-self-center">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
+        <li>
+          <a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a>
+        </li>
+        <li>
+          <a routerLink="/discover" routerLinkActive="active">Discover</a>
+        </li>
+        <li>
+          <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+        </li>
+      </div>
     </ul>
-</div>
+  </div>
+</nav>
