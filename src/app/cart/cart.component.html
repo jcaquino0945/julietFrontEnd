@@ -6,33 +6,7 @@
   <div class="row section">
     <div class="col-7 mx-3">
       <h5>Shopping Cart</h5>
-      <div class="d-flex my-3">
-        <div class="align-self-center">
-          <img
-            src="https://i.imgur.com/gEdYbSe.jpg"
-            class="mr-3 img-responsive img-thumbnail"
-          />
-        </div>
-        <div class="align-self-center">
-          Sol and Luna Necklace
-          <div class="details">Size 12</div>
-          <div class="py-2">
-            <select
-              class="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-            >
-              <option selected disabled>Qty</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-        </div>
-        <div class="ml-auto align-self-center">Php 250</div>
-      </div>
-      <div class="d-flex my-3">
+      <div class="d-flex my-3" *ngFor="let item of items">
         <div class="align-self-center">
           <img
             src="https://i.imgur.com/HGYgGAq.jpg"
@@ -40,7 +14,7 @@
           />
         </div>
         <div class="align-self-center">
-          Sol and Luna Necklace
+          {{ item.name }}
           <div class="details">Size 12</div>
           <div class="py-2">
             <select
@@ -56,7 +30,7 @@
             </select>
           </div>
         </div>
-        <div class="ml-auto align-self-center">Php 250</div>
+        <div class="ml-auto align-self-center">{{ item.price | currency }}</div>
       </div>
     </div>
     <div class="col mx-3">

@@ -7,9 +7,9 @@ import {ProductService} from './../services/product.service';
 import { Router } from '@angular/router';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
 import { switchMap } from 'rxjs/operators';
 
+import { CartService } from '../services/cart.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -27,7 +27,8 @@ export class ProductComponent implements OnInit {
     private productService: ProductService, 
     private route: ActivatedRoute,
     private location: Location,
-    private router : Router
+    private router : Router,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +43,10 @@ export class ProductComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
+  }
+
+  addToCart(product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
   }
 }
