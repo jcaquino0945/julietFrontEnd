@@ -2,6 +2,11 @@
   border-radius: 0;
 }
 
+.form-row {
+  margin: 10px 0px;
+  padding: 0;
+}
+
 mat-form-field {
   display: block;
 }
