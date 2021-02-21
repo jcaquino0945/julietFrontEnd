@@ -11,6 +11,8 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
   items = this.cartService.getItems();
+  totalPrice = this.cartService.totalPrice();
+  itemPrice = this.cartService.itemPrice();
   
   constructor(
     public nav: NavbarService,
@@ -23,5 +25,6 @@ export class CartComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
+  
   }
 }

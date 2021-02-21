@@ -33,15 +33,15 @@
         <div class="ml-auto align-self-center">{{ item.price | currency }}</div>
       </div>
     </div>
-    <div class="col mx-3">
+    <div class="col mx-3" *ngIf="totalPrice">
       <div class="card">
         <div class="card-body">
-          <div class="card-text">
+          <div class="card-text" *ngIf="itemPrice">
             <div class="d-flex justify-content-between">
               <div>Order value</div>
-              <div>Php 500</div>
+              <div>Php {{itemPrice}}</div>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between" *ngIf="totalPrice < 1500">
               <div>Shipping</div>
               <div>Php 150</div>
             </div>
@@ -51,7 +51,7 @@
                 <h6>Total</h6>
               </div>
               <div>
-                <h6>Php 650</h6>
+                <h6>Php {{totalPrice}}</h6>
               </div>
             </div>
           </div>

@@ -20,5 +20,27 @@ export class CartService {
     this.items = [];
     return this.items;
   }
+
+  itemPrice() {
+    let total = 0;
+    for(let data of this.items){
+      total += data.price
+    }
+      return total;
+  }
+  
+
+  totalPrice() {
+    let total = 0;
+    for(let data of this.items){
+      total += data.price
+    }
+    if (total < 1500) {
+      return total + 150; //if total price is less than 1500, may plus 150 shipping fee
+    }
+    else if (total >= 1500) {
+      return total;
+    }
+  }
   
 }
