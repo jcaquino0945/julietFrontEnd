@@ -10,12 +10,7 @@
     >
       Add new
     </button>
-    <input
-      class="form-control mr-2"
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-    />
+    <input class="form-control mr-2" type="search" placeholder="Search" />
     <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
       Search
     </button>
@@ -43,16 +38,56 @@
             <input type="text" class="form-control" placeholder="Name" />
           </div>
           <div class="form-row">
-            <input type="text" class="form-control" placeholder="Description" />
+            <textarea class="form-control" placeholder="Description"></textarea>
           </div>
           <div class="form-row">
             <select class="form-select">
-              <option selected disabled>Select Category</option>
+              <option selected disabled>Select category</option>
               <option value="Necklace">Necklace</option>
               <option value="Bracelet">Bracelet</option>
               <option value="Earring">Earring</option>
               <option value="Ring">Ring</option>
             </select>
+          </div>
+          <div class="form-row">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" />
+              <label class="custom-file-label" for="customFile"
+                >Choose image</label
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Php</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Price" />
+              <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <input type="number" class="form-control" placeholder="Stock quantity" />
+          </div>
+          <div class="form-row">Add available sizes</div>
+          <div class="form-row" *ngFor="let size of dataArray; let i = index">
+            <div class="col p-0">
+              <input
+                class="form-control"
+                type="text"
+                name="size{{ i }}"
+                placeholder="Size"
+                [(ngModel)]="size.size"
+              />
+            </div>
+            <div class="col">
+              <button class="btn btn-dark mr-1" (click)="addSize()">Add</button>
+              <button class="btn btn-danger" (click)="removeSize(i)">
+                Remove
+              </button>
+            </div>
           </div>
         </form>
       </div>

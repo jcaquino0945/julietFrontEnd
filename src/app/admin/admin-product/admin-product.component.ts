@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Product } from '../../models/product';
+import { size } from '../../models/sizes';
 import { Observable } from 'rxjs';
 import { interval } from 'rxjs';
 
@@ -44,9 +45,14 @@ export class AdminProductComponent implements OnInit {
   category = '';
   stock_quantity = 0;
   featured = false;
-  //orders
+
+  size = new size();
+  dataArray = [];
+
+  // orders
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
+
   constructor(
     private router: Router,
     private productService: ProductService,
@@ -68,7 +74,19 @@ export class AdminProductComponent implements OnInit {
       stock_quantity: 0,
       featured: false,
     });
+
+    this.dataArray.push(this.size);
   }
+
+  addSize() {
+    this.size = new size;
+    this.dataArray.push(this.size);
+  }
+
+  removeSize(index) {
+    this.dataArray.splice(index);
+  }
+
   onFormSubmit(): void {
     this.isLoadingResults = true;
     this.productService

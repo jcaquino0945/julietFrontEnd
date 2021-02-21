@@ -10,6 +10,52 @@
   padding: 5em 20em;
 }
 
+.section-2 {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  height: 80vh;
+  padding: 0 150px;
+}
+
+.card,
+.card-img-top {
+  width: 200px;
+  border: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+li {
+  counter-increment: item;
+}
+
+li:before {
+  margin: 5px 20px;
+  content: counter(item);
+  background: #c1ae8d;
+  border-radius: 50%;
+  color: white;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: inline-block;
+}
+
 .title {
   font-family: "Playfair Display", serif;
 }
