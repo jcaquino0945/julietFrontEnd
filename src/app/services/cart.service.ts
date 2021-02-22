@@ -10,6 +10,7 @@ export class CartService {
 
   addToCart(product) {
     this.items.push(product);
+
   }
 
   getItems() {

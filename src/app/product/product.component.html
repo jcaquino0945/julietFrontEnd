@@ -15,12 +15,9 @@
         100% Handcrafted
       </p>
       <h5 class="mb-4">Php {{product.price}}</h5>
-      <select class="form-select" aria-label=".form-select-sm example">
+      <select class="form-select" aria-label=".form-select-sm example" [(ngModel)]="selectedOption">
         <option selected disabled>Chain length</option>
-        <option value="1">12"</option>
-        <option value="2">14"</option>
-        <option value="3">16"</option>
-        <option value="3">18"</option>
+        <option value="{{prodSize}}" *ngFor="let prodSize of product.size">{{prodSize}}"</option>
       </select>
       <a routerLink="/cart" class="btn btn-add-to-cart" (click)="addToCart(product)">Add to Cart</a>
       <p><b>Note</b> Check the last photo for measuring guide.</p>

@@ -15,7 +15,7 @@
         </div>
         <div class="align-self-center">
           {{ item.name }}
-          <div class="details">Size 12</div>
+          <div class="details">Size: {{item.size}}</div>
           <div class="py-2">
             <select
               class="form-select form-select-sm"
@@ -30,7 +30,7 @@
             </select>
           </div>
         </div>
-        <div class="ml-auto align-self-center">{{ item.price | currency }}</div>
+        <div class="ml-auto align-self-center">Php {{ item.price }}</div>
       </div>
     </div>
     <div class="col mx-3" *ngIf="totalPrice">

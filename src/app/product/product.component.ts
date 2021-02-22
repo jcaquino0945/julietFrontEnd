@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   product: Product;
   productIds: string[];
   errMess: string;
+  selectedOption: string;
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
@@ -46,7 +47,17 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product) {
-    this.cartService.addToCart(product);
+    let cartProduct = {
+      _id: product._id,
+      name: product.name,
+      imageUrl: product.imageUrl,
+      description: product.description,
+      price: product.price,
+      category: product.category,
+      size: this.selectedOption
+    };
+    this.cartService.addToCart(cartProduct);
+    console.log(cartProduct);
     window.alert('Your product has been added to the cart!');
   }
 }
