@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   items = this.cartService.getItems();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
-  
+  quantity: number;
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
@@ -25,6 +25,10 @@ export class CartComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
-  
+  }
+  updatePrice(item,quantity) {
+    item.price *= this.quantity
+    console.log(this.quantity);
+    console.log(item.price)
   }
 }
