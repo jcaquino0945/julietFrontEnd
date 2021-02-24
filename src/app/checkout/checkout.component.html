@@ -263,9 +263,9 @@
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col" *ngIf="items">
       <div class="mb-5">
-        <div class="d-flex my-3">
+        <div class="d-flex my-3" *ngFor="let item of items">
           <div class="align-self-center">
             <img
               src="https://i.imgur.com/gEdYbSe.jpg"
@@ -273,37 +273,24 @@
             />
           </div>
           <div class="align-self-center">
-            Sol and Luna Necklace
-            <div class="details">Size 12</div>
+            {{ item.name }}
+            <div class="details">Size: {{item.size}}</div>
           </div>
-          <div class="ml-auto align-self-center">Php 250</div>
-        </div>
-        <div class="d-flex my-3">
-          <div class="align-self-center">
-            <img
-              src="https://i.imgur.com/IcZOQ6L.jpg"
-              class="mr-3 img-responsive img-thumbnail"
-            />
-          </div>
-          <div class="align-self-center">
-            Sol and Luna Necklace
-            <div class="details">Size 12</div>
-          </div>
-          <div class="ml-auto align-self-center">Php 250</div>
+          <div class="ml-auto align-self-center">Php {{ item.totalPrice }}</div>
         </div>
       </div>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between" *ngIf="itemPrice">
         <div>Subtotal</div>
-        <div>Php 500</div>
+        <div>Php {{itemPrice}}</div>
       </div>
       <div class="d-flex justify-content-between">
         <div>Shipping Fee</div>
         <div class="text-muted">Calculated at next step</div>
       </div>
       <hr />
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between" *ngIf="totalPrice">
         <div><h5>Total</h5></div>
-        <div><h5>Php 650</h5></div>
+        <div><h5>Php {{totalPrice}}</h5></div>
       </div>
     </div>
   </div>
