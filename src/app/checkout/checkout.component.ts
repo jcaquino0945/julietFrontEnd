@@ -32,7 +32,8 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
-    return false;
+    console.log("Orders: " + this.items);
+    console.log("Total Price is Php " + this.totalPrice);
   }
 
   ngOnInit(): void {
@@ -45,4 +46,5 @@ export class CheckoutComponent implements OnInit {
       animation: true,
     });
   }
+
 }
