@@ -27,8 +27,14 @@ export class CartComponent implements OnInit {
     this.footer.show();
   }
   updatePrice(item,quantity) {
-    item.price *= this.quantity
-    console.log(this.quantity);
-    console.log(item.price)
+      item.quantity = this.quantity
+      item.totalPrice = item.price * item.quantity
+      //console.log(item.quantity)
+      //console.log(item.price);
+      //console.log(item.totalPrice);
+
+      console.log(item);
+      this.totalPrice = this.cartService.totalPrice();
+      this.itemPrice = this.cartService.itemPrice();
   }
 }

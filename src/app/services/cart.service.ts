@@ -25,7 +25,7 @@ export class CartService {
   itemPrice() {
     let total = 0;
     for(let data of this.items){
-      total += data.price
+      total += data.totalPrice;
     }
       return total;
   }
@@ -34,7 +34,7 @@ export class CartService {
   totalPrice() {
     let total = 0;
     for(let data of this.items){
-      total += data.price
+      total += data.totalPrice
     }
     if (total < 1500) {
       return total + 150; //if total price is less than 1500, may plus 150 shipping fee

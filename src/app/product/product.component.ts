@@ -54,7 +54,9 @@ export class ProductComponent implements OnInit {
       description: product.description,
       price: product.price,
       category: product.category,
-      size: this.selectedOption
+      size: this.selectedOption,
+      quantity: 1,
+      totalPrice: product.price
     };
     this.cartService.addToCart(cartProduct);
     console.log(cartProduct);
