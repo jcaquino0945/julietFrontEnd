@@ -1,24 +1,29 @@
 <nav *ngIf="nav.visible">
-  <div class="container-fluid d-flex flex-wrap justify-content-center align-items-center pt-3 pb-3 bg-1">
-    <div class="mx-auto">
-      <img src="https://i.imgur.com/2diJpU5.png" width="50px" />
-    </div>
-  </div>
-  <div class="container-fluid d-flex justify-content-center bg-2">
-    <ul>
-      <div class="navbar align-self-center">
-        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
-        <li>
-          <a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a>
-        </li>
-        <li>
-          <a routerLink="/discover" routerLinkActive="active">Discover</a>
-        </li>
-        <li>
-          <a routerLink="/about-us" routerLinkActive="active">About Us</a>
-        </li>
+  <nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+      <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/shop" routerLinkActive="active">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/discover" routerLinkActive="active">Discover</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+          </li>
+        </ul>
       </div>
-    </ul>
-  </div>
+    </div>
+  </nav>
 </nav>

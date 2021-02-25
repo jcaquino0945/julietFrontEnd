@@ -9,21 +9,18 @@
 .navbar a {
   font-size: 15px;
   text-decoration: none;
-  color: #fff;
+  color: black;
   text-transform: uppercase;
   margin: 0 2vw;
-}
 
-.bg-1 {
-  background: #ff;
-}
-
-.bg-2 {
-  background: #c1ae8d;
 }
 
 ul {
   margin: 0 auto;
   align-items: center;
   list-style-type: none;
+}
+
+.navbar-toggler {
+  color: #ffffff;
 }
