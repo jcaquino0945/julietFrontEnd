@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class CartService {
   }
 
   getItems() {
-    return this.items;
+    return this.items
   }
 
   clearCart() {

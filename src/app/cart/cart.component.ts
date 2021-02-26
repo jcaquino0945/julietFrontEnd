@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.items);
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
