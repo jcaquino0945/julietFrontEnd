@@ -20,17 +20,22 @@ export class OrderService {
     return this.http.get<Orders[]>(apiUrl).pipe(catchError(this.processHTTPMsgService.handleError))
   }
 
-  addOrder(product): Observable<any> {
-    const header = new HttpHeaders();
-    const params = new HttpParams();
+  addOrder(product) {
+    console.log("from service");
+    console.log(product)
+    console.log(JSON.stringify(product))
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    const options = {
-      params,
-      reportProgress: true,
-      headers: header
+    var requestOptions: RequestInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(product),
     };
     
-    const req = new HttpRequest('POST', apiUrl, product, options);
-    return this.http.request(req);
+      fetch(apiUrl, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
   }
 }

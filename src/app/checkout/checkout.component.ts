@@ -16,6 +16,7 @@ export class CheckoutComponent implements OnInit {
   items = this.cartService.getItems();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
+  cartDetail: any;
   
   constructor(
     public nav: NavbarService,
@@ -37,6 +38,8 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(typeof this.itemPrice + "item price")
+    console.log(typeof this.totalPrice + "total price")
     console.log(this.items);
     this.nav.show();
     this.ribbon.show();
@@ -48,19 +51,19 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
+
     //let productArray = [];
     //productArray.push(this.items);
-    console.log("Orders: " + Object.values(this.items));
-    console.log("Total Price is Php " + this.totalPrice);
+    //console.log("Orders: " + Object.values(this.items));
+    //console.log("Total Price is Php " + this.totalPrice);
     //console.log("product array:" + productArray);
     let cartDetail = {
-      product: this.items,
       datePurchased: Date.now(),
-      totalPrice: this.totalPrice
+      totalPrice: this.totalPrice,
+      product: this.items,
     }
     console.log(cartDetail)
     
-    /*this.orderService.addOrder(cartDetail).subscribe(items => {
-      this.items = items});*/
+    this.orderService.addOrder(cartDetail)
   }
 }
