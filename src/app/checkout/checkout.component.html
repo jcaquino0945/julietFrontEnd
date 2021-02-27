@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="bs-stepper-content">
-          <form>
+          <form [formGroup]="orderForm">
             <!-- Contact and Shipping Information -->
             <div id="information" class="content">
               <div class="form-group">
@@ -40,15 +40,30 @@
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="First Name"
+                      placeholder="First Name" formControlName="firstName"
                     />
+                    <span
+                  *ngIf="
+                    !orderForm.get('firstName').valid &&
+                    orderForm.get('firstName').touched
+                  "
+                  >Please enter first name</span
+                >
                   </div>
                   <div class="col">
                     <input
                       type="text"
                       class="form-control"
                       placeholder="Last Name"
+                      formControlName="lastName"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('lastName').valid &&
+                      orderForm.get('lastName').touched
+                    "
+                    >Please enter last name</span
+                  >
                   </div>
                 </div>
                 <div class="form-row">
@@ -57,7 +72,15 @@
                       type="text"
                       class="form-control"
                       placeholder="Contact Number"
+                      formControlName="contactNumber"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('contactNumber').valid &&
+                      orderForm.get('contactNumber').touched
+                    "
+                    >Please enter contactNumber</span
+                  >
                   </div>
                 </div>
                 <div class="form-row">
@@ -65,8 +88,15 @@
                     <input
                       type="email"
                       class="form-control"
-                      placeholder="Email Address"
+                      placeholder="Email Address" formControlName="email"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('email').valid &&
+                      orderForm.get('email').touched
+                    "
+                    >Please enter email</span
+                  >
                   </div>
                 </div>
               </div>
@@ -81,8 +111,15 @@
                     <input
                       type="text"
                       class="form-control"
-                      placeholder="House no. / Street"
+                      placeholder="House no. / Street" formControlName="street"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('street').valid &&
+                      orderForm.get('street').touched
+                    "
+                    >Please enter first street</span
+                  >
                   </div>
                 </div>
                 <div class="form-row">
@@ -91,14 +128,30 @@
                       type="text"
                       class="form-control"
                       placeholder="Province"
+                      formControlName="province"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('province').valid &&
+                      orderForm.get('province').touched
+                    "
+                    >Please enter province</span
+                  >
                   </div>
                   <div class="col">
                     <input
                       type="text"
                       class="form-control"
                       placeholder="City"
+                      formControlName="city"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('city').valid &&
+                      orderForm.get('city').touched
+                    "
+                    >Please enter city</span
+                  >
                   </div>
                 </div>
                 <div class="form-row">
@@ -107,14 +160,30 @@
                       type="text"
                       class="form-control"
                       placeholder="Region"
+                      formControlName="region"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('region').valid &&
+                      orderForm.get('region').touched
+                    "
+                    >Please enter region</span
+                  >
                   </div>
                   <div class="col">
                     <input
                       type="text"
                       class="form-control"
                       placeholder="Postal Code"
+                      formControlName="postalCode"
                     />
+                    <span
+                    *ngIf="
+                      !orderForm.get('postalCode').valid &&
+                      orderForm.get('postalCode').touched
+                    "
+                    >Please enter region</span
+                  >
                   </div>
                 </div>
                 <div class="form-row mt-4">

@@ -20,7 +20,7 @@ export class OrderService {
     return this.http.get<Orders[]>(apiUrl).pipe(catchError(this.processHTTPMsgService.handleError))
   }
 
-  addOrder(product) {
+  addOrder(product) {    
     console.log("from service");
     console.log(product)
     console.log(JSON.stringify(product))
