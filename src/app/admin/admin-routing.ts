@@ -4,12 +4,14 @@ import { Routes, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core';
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 import { AdminStockComponent } from './admin-stock/admin-stock.component';
+import { OrdersComponent } from './orders/orders.component';
 
 export const routes: Routes = [
     { path: 'admin', component:AdminProductComponent},
     { path: 'adminProduct', component: AdminProductComponent },
     { path: 'adminProduct/:id', component: AdminProductDetailComponent },
     { path: 'adminStock', component: AdminStockComponent },
+    { path: 'orders', component: OrdersComponent },
 
     { path: '',   redirectTo: '/admin', pathMatch: 'full' }, // redirect to `Home`
   ]

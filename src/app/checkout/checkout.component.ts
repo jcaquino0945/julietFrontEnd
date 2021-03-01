@@ -5,7 +5,6 @@ import { FooterService } from '../services/footer.service';
 import Stepper from 'bs-stepper';
 import { CartService } from '../services/cart.service';
 import { OrderService } from '../services/order.service';
-import { productOrder } from './../models/productOrder';
 import {
   FormControl,
   FormGroupDirective,

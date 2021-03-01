@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+    <h3>Orders</h3>
+    <form class="form-inline">
+      <!-- add new product modal button trigger -->
+      <button
+        type="button"
+        class="btn btn-dark mr-2"
+        data-toggle="modal"
+        data-target="#modal"
+      >
+        Add new
+      </button>
+      <input class="form-control mr-2" type="search" placeholder="Search" />
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+  <div *ngIf="orders$">
+    <div class="card my-2" *ngFor="let order of orders$; let i = index">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+         <h2>{{order.firstName}} {{order.lastName}}</h2>
+          <div class="mr-auto ml-3">
+            {{ order.totalPrice }} <br />
+            {{ order.datePurchased | date }} <br />
+            In stock
+          </div>
+          <div class="align-self-start">
+              <i class="far fa-edit"></i>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams, HttpRequest } f
 import { catchError, map } from 'rxjs/operators';
 import { Orders } from '../models/orders';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
-import { productOrder } from '../models/productOrder';
+
 
 const apiUrl = 'http://localhost:3000/orders';
 
