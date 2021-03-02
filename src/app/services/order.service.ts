@@ -38,4 +38,22 @@ export class OrderService {
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   }
+
+  sendReceipt(emailDetail) {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+    /*var raw = JSON.stringify({"to":"jcaquino0945@gmail.com","subject":"test from body","html":"<h1>A TEST MSG</h1>"});*/
+
+      var requestOptions: RequestInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(emailDetail),
+    };
+    
+      fetch("http://localhost:3000/smtp", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  }
 }

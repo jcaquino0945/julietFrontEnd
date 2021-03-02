@@ -114,8 +114,17 @@ export class CheckoutComponent implements OnInit {
       totalPrice: this.totalPrice,
       product: this.items,
     }
+
+    let emailDetail = {
+      to: this.orderForm.get('email').value,
+      subject: `Order for ${this.firstName} ${this.lastName}`,
+      html: `<h2>Thank you for your order ${this.firstName} ${this.lastName}!</h2>
+      <p>We will reply back to you when we have already processed your order!</p>
+      `
+    }
     console.log(cartDetail)
     
-    this.orderService.addOrder(cartDetail)
+    this.orderService.addOrder(cartDetail);
+    this.orderService.sendReceipt(emailDetail);
   }
 }
