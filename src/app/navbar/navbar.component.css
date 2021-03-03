@@ -1,5 +1,5 @@
 .navbar {
-  padding: 1vh 0;
+  padding: 1vw 0;
   transition: 0.1s all ease-in;
   border: none;
   text-decoration: none;
@@ -7,12 +7,18 @@
 }
 
 .navbar a {
-  font-size: 15px;
+  font-size: 1.2vw;
   text-decoration: none;
   color: black;
   text-transform: uppercase;
   margin: 0 2vw;
-
+  transition: .1s all ease-in-out;
+}
+.navbar a:hover {
+  color: #6e815d;
+}
+.navbar a.active {
+  color: #6e815d;
 }
 
 ul {

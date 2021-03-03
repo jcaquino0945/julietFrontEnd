@@ -3,7 +3,7 @@ a:hover {
 }
 
 p {
-  font-size: large;
+  font-size: 1.5vw;
 }
 
 .title {
@@ -53,13 +53,19 @@ p {
   margin: auto;
   height: 100%;
   width: 100%;
+  margin: 1.3vw 0;
+}
+.section-2 a {
+  margin: 1vw 0;
 }
 
 .section-3 {
+  margin: 1.3vw 0;
   overflow: hidden;
   margin: 0;
   height: 100%;
   width: 100%;
+  padding: 0;
 }
 
 .section-4 {
