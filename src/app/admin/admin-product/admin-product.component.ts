@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import {
@@ -14,8 +14,8 @@ import { Product } from '../../models/product';
 import { size } from '../../models/sizes';
 import { Observable } from 'rxjs';
 import { interval } from 'rxjs';
+import { FixedSizeVirtualScrollStrategy } from '@angular/cdk/scrolling';
 //import { AuthService } from '../../auth.service';
-
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -41,15 +41,14 @@ export class AdminProductComponent implements OnInit {
   errMess: string;
   galleryForm: FormGroup;
   imageFile: File = null;
+  @ViewChild('labelImport')
+  labelImport: ElementRef;
   name = '';
   description = '';
   price = 0;
   category = '';
   stock_quantity = 0;
   featured = false;
-
-  size = new size();
-  dataArray = [];
 
   // orders
   isLoadingResults = false;
@@ -73,20 +72,17 @@ export class AdminProductComponent implements OnInit {
       description: [null, Validators.required],
       price: [null, Validators.required],
       category: [null, Validators.required],
+      sizes: [null, Validators.required],
       stock_quantity: 0,
       featured: false,
     });
-
-    this.dataArray.push(this.size);
   }
 
-  addSize() {
-    this.size = new size;
-    this.dataArray.push(this.size);
-  }
-
-  removeSize(index) {
-    this.dataArray.splice(index);
+  onFileChange(files: FileList) {
+    this.labelImport.nativeElement.innerText = Array.from(files)
+      .map(f => f.name)
+      .join(', ');
+    this.imageFile = files.item(0);
   }
 
   onFormSubmit(): void {
@@ -94,14 +90,14 @@ export class AdminProductComponent implements OnInit {
     this.productService
       .addGallery(
         this.galleryForm.value,
-        this.galleryForm.get('imageFile').value._files[0]
+        this.imageFile
       )
       .subscribe(
         (res: any) => {
           this.isLoadingResults = false;
           if (res.body) {
             document.getElementById('close').click(); // close modal
-            this.router.navigate(['/admin/adminProduct/', res.body._id]); //navigate to product detail page
+            this.router.navigate(['/admin/adminProduct/', res.body._id]); // navigate to product detail page
             this.productService.getProducts().subscribe(
               (products$) => (this.products$ = products$),
               (errmess) => (this.errMess = <any>errmess)
@@ -130,4 +126,3 @@ export class AdminProductComponent implements OnInit {
 }
 */
 }
-

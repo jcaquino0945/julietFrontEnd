@@ -7,8 +7,15 @@
   padding: 0;
 }
 
-mat-form-field {
+/* mat-form-field {
   display: block;
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-outline,
+::ng-deep .mat-form-field-ripple,
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: #000 !important;
 }
 
 .example-container {
@@ -41,4 +48,4 @@ mat-form-field {
 .table img {
   height: 30px;
   width: 30px;
-}
+} */

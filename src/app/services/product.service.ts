@@ -38,14 +38,13 @@ export class ProductService {
   addGallery(product: Product, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
-    //formData.append('imageTitle', gallery.imageTitle);
+    // formData.append('imageTitle', gallery.imageTitle);
     formData.append('name', product.name);
     formData.append('price', product.price.toString());
     formData.append('category', product.category);
     formData.append('description', product.description);
     formData.append('stock_quantity', JSON.stringify(product.stock_quantity));
     formData.append('featured', JSON.stringify(product.featured));
-    formData.append('size', product.size.toString());
     const header = new HttpHeaders();
     const params = new HttpParams();
 
