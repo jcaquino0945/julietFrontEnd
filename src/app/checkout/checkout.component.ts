@@ -117,8 +117,9 @@ export class CheckoutComponent implements OnInit {
 
     let emailDetail = {
       to: this.orderForm.get('email').value,
-      subject: `Order for ${this.firstName} ${this.lastName}`,
-      html: `<h2>Thank you for your order ${this.firstName} ${this.lastName}!</h2>
+      subject: `Order for ${this.orderForm.get('firstName').value}`,  
+      html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+      <p>Your total purchase is worth Php ${this.totalPrice} </p>
       <p>We will reply back to you when we have already processed your order!</p>
       `
     }
