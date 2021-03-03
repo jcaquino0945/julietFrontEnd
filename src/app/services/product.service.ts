@@ -1,44 +1,60 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams, HttpRequest } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+  HttpParams,
+  HttpRequest,
+} from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-
 const apiUrl = 'http://localhost:3000/products';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  currentIndex:BehaviorSubject<string>; 
+  currentIndex: BehaviorSubject<string>;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient, private processHTTPMsgService: ProcessHTTPMsgService) { }
-  
+  constructor(
+    private http: HttpClient,
+    private processHTTPMsgService: ProcessHTTPMsgService
+  ) {}
+
   //get products from db
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(apiUrl).pipe(catchError(this.processHTTPMsgService.handleError))
+    return this.http
+      .get<Product[]>(apiUrl)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
   //get single product via id from db
   getProduct(id: string): Observable<Product> {
-    return this.http.get<Product>(apiUrl + '/' + id)
+    return this.http
+      .get<Product>(apiUrl + '/' + id)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  //get all product ids 
+  //get all product ids
   getProductIds(): Observable<number[] | any> {
-    return this.getProducts().pipe(map(products => products.map(product => product._id)))
-      .pipe(catchError(error => error));
+    return this.getProducts()
+      .pipe(map((products) => products.map((product) => product._id)))
+      .pipe(catchError((error) => error));
   }
 
   //add product with image
-  addGallery(product: Product, file: File): Observable<any> {
+  addGallery(product: Product, file: File, sizes: any): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
     // formData.append('imageTitle', gallery.imageTitle);
+    // formData.append('sizes', JSON.stringify(sizes));
+    for (var i = 0; i < sizes.length; i++) {
+      formData.append('sizes', sizes[i])
+    }
     formData.append('name', product.name);
     formData.append('price', product.price.toString());
     formData.append('category', product.category);
@@ -57,9 +73,34 @@ export class ProductService {
     return this.http.request(req);
   }
 
+  // addGallery(product, file: File) {
+  //   let productDetail = {
+  //     file: file,
+  //     product: product
+  //   }
+
+  //   console.log(productDetail);
+  //   console.log(JSON.stringify(productDetail));
+  //   var myHeaders = new Headers();
+  //   myHeaders.append('Content-Type', 'application/json');
+
+  //   var requestOptions: RequestInit = {
+  //     method: 'POST',
+  //     headers: myHeaders,
+  //     body: JSON.stringify(productDetail)
+  //   };
+
+  //   fetch(apiUrl, requestOptions)
+  //     .then((response) => response.text())
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.log('error', error));
+  // }
+
   //update product
   updateProduct(id, data): Observable<any> {
-    return this.http.put(apiUrl + '/' + id,data, {headers: this.headers}).pipe(catchError(this.processHTTPMsgService.handleError))
+    return this.http
+      .put(apiUrl + '/' + id, data, { headers: this.headers })
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
   /*
@@ -87,7 +128,9 @@ export class ProductService {
   /*updateProduct(id,data): Observable<any> {
     return this.http.put(apiUrl + '/' + id, data).pipe(catchError(this.processHTTPMsgService.handleError));
   }*/
-  deleteProduct(id:string): Observable<any>{
-    return this.http.delete<Product[]>(apiUrl + '/' + id).pipe(catchError(this.processHTTPMsgService.handleError));
+  deleteProduct(id: string): Observable<any> {
+    return this.http
+      .delete<Product[]>(apiUrl + '/' + id)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

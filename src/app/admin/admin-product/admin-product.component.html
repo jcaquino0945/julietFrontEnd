@@ -110,10 +110,30 @@
               >
             </div>
           </div>
+          <div class="form-row">
+            <div class="col p-0">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Size"
+                #input
+              />
+            </div>
+            <div class="col p-0">
+              <button
+                class="btn btn-success ml-2"
+                (click)="addSize(input.value)"
+              >
+                Add
+              </button>
+            </div>
+          </div>
           <div class="modal-footer px-0">
             <div class="button-row">
               <button type="reset" class="btn btn-outline-dark">Clear</button>
-              <button type="submit" class="btn btn-dark ml-2">Add</button>
+              <button type="submit" class="btn btn-dark ml-2" id="close">
+                Add
+              </button>
             </div>
           </div>
         </form>
