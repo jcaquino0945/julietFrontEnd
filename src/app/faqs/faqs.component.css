@@ -1,4 +1,4 @@
-/* .jumbotron {
+.jumbotron {
   align-items: center;
   display: flex;
   background-size: cover;
@@ -8,6 +8,52 @@
   width: 100%;
   height: 100%;
   padding: 5em 20em;
+}
+
+.section-2 {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  height: 80vh;
+  padding: 0 150px;
+}
+
+.card,
+.card-img-top {
+  width: 200px;
+  border: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+li {
+  counter-increment: item;
+}
+
+li:before {
+  margin: 5px 20px;
+  content: counter(item);
+  background: #c1ae8d;
+  border-radius: 50%;
+  color: white;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: inline-block;
 }
 
 .title {
@@ -55,48 +101,4 @@
   font-family: "Font Awesome 5 Free";
   content: "\f068";
   font-weight: 900;
-} */
-
-
-.accordion-button {
-  border: none;
-  background: none;
-}
-
-.accordion-button::after {
-  background-image: url(../../assets/images/plus.png);
-  background-repeat: no-repeat;
-  background-size: 1.25rem;
-}
-
-.accordion-button:not(.collapsed) {
-  color: #ffffff;
-  background-color: #6e815d;
-}
-
-.accordion-button:not(.collapsed)::after {
-  background-image: url(../../assets/images/minus.png);
-  background-repeat: no-repeat;
-  background-size: 1.25rem;
-}
-
-/* .jumbotron {
-  background-image: url(https://images.unsplash.com/photo-1484069560501-87d72b0c3669?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
-} */
-
-.card-title {
-  font-family: "Playfair Display", serif;
-}
-
-h1,
-li,
-h2, .accordion-body {
-  font-family: "Playfair Display", serif;
-}
-
-h1, li, h2 { 
-  font-family: Work Sans;
 }

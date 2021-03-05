@@ -81,38 +81,19 @@ export class AdminProductComponent implements OnInit {
 
   onFileChange(files: FileList) {
     this.labelImport.nativeElement.innerText = Array.from(files)
-      .map(f => f.name)
+      .map((f) => f.name)
       .join(', ');
     this.imageFile = files.item(0);
   }
 
-  addSize(s){
+  addSize(s) {
     this.sizes.push(s);
-    alert([this.sizes])
   }
 
   onFormSubmit() {
-    // let productDetail = {
-    //   // imageFile: JSON.stringify(this.imageFile),
-    //   name: this.galleryForm.get('name').value,
-    //   description: this.galleryForm.get('description').value,
-    //   price: this.galleryForm.get('price').value,
-    //   category: this.galleryForm.get('category').value,
-    //   stock_quantity: this.galleryForm.get('stock_quantity').value,
-    //   sizes: this.sizes
-    // }
-
-    // this.productService.addGallery(productDetail, this.imageFile);
-    // console.log(productDetail)
-
     this.isLoadingResults = true;
-    console.log(this.sizes);
     this.productService
-      .addGallery(
-        this.galleryForm.value,
-        this.imageFile,
-        this.sizes
-      )
+      .addGallery(this.galleryForm.value, this.imageFile, this.sizes)
       .subscribe(
         (res: any) => {
           this.isLoadingResults = false;
@@ -144,6 +125,5 @@ export class AdminProductComponent implements OnInit {
       (errmess) => (this.errMess = <any>errmess)
     );
   }
-}
 */
 }

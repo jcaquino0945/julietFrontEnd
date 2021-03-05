@@ -1,14 +1,14 @@
-.card,
-input,
-button,
-textarea,
-.input-group-text {
+.card, input {
   border-radius: 0;
+  width: 100%;
 }
 
-.img-thumbnail {
+select {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
   border-radius: 0;
-  margin-right: 5px;
+  width: 12pc;
 }
 
 .subtitle {
@@ -17,14 +17,7 @@ textarea,
   letter-spacing: 0.75px;
 }
 
-.form-row {
-  margin: 10px 0px;
-  padding: 0;
-}
-
-.btn-juliet,
-.btn-edit:hover,
-.btn-clear:hover {
+.btn-juliet {
   background: #6e815d;
   padding: 8px 15px;
   margin: 0;
@@ -37,9 +30,7 @@ textarea,
   letter-spacing: 0.75px;
 }
 
-.btn-juliet:hover,
-.btn-edit,
-.btn-clear {
+.btn-juliet:hover {
   background: transparent;
   padding: 8px 15px;
   margin: 0;
@@ -50,9 +41,4 @@ textarea,
   text-transform: uppercase;
   color: #6e815d;
   letter-spacing: 0.75px;
-}
-
-.btn-edit,
-.btn-delete {
-  width: 100%;
 }

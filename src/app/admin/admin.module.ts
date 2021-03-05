@@ -20,12 +20,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AdminProductDetailComponent } from './admin-product-detail/admin-product-detail.component';
 import { AdminStockComponent } from './admin-stock/admin-stock.component';
 import { OrdersComponent } from './orders/orders.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AdminProductComponent,
     AdminProductDetailComponent,
     AdminStockComponent,
-    OrdersComponent
+    OrdersComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

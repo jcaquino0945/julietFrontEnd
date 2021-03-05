@@ -1,3 +1,6 @@
+
+
+
 a:hover {
   text-decoration: none;
 }
@@ -29,7 +32,7 @@ p {
 
 .subtitle {
   font-size: 12px;
-  letter-spacing: .75px;
+  letter-spacing: 0.75px;
   text-transform: uppercase;
 }
 
@@ -76,8 +79,8 @@ p {
 
 .bg1 {
   background-color: #e7edeb;
-  width: 100%;
-  height: 100%;
+  width: 700px;
+  height: 500px;
 }
 
 .bg2 {
@@ -93,18 +96,8 @@ p {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 100%;
-  margin-top: 30vh;
-  margin-left: 10vh;
+  width: 500px;
 }
-
-.pic-1 {
-  height: 100%;
-  width: 100%;
-  align-content: right;
-}
-
-
 
 .btn-shop-now {
   background: #6e815d;
@@ -143,43 +136,3 @@ p {
 .card-text {
   font-size: 15px;
 }
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-  .col-lg-4,
-  .col-md-6 {
-    align-items: center;
-    flex: 0 0 auto;
-  }
-
-  .text {
-    margin-top: 40vh;
-    margin-left: 20vh;
-    text-align: center;
-  }
-}
-
-@media (max-width: 767px) {
-
-  .col-lg-4,
-  .col-md-6 {
-    align-items: center;
-    flex: 0 0 auto;
-  }
-
-  .text {
-    margin-top: 20vh;
-    margin-left: 1vh;
-    text-align: center;
-  }
-}
-
-@media (max-width: 479px) {
-  .text {
-    margin-top: 40vh;
-    margin-left: 1vh;
-    text-align: center;
-  }
-
-}
-

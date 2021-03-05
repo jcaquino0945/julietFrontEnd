@@ -4,37 +4,35 @@
     <!-- add new product modal button trigger -->
     <button
       type="button"
-      class="btn btn-dark mr-2"
+      class="btn btn-juliet mr-2"
       data-toggle="modal"
       data-target="#modal"
     >
       Add new
     </button>
     <input class="form-control mr-2" type="search" placeholder="Search" />
-    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
-      Search
-    </button>
+    <button class="btn btn-juliet my-2 my-sm-0" type="submit">Search</button>
   </form>
 </div>
 
 <!-- add new product modal -->
-<div class="modal" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add new product</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-          id="close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
+  <div class="modal" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add new product</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            id="close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
           <div class="form-row">
             <div class="custom-file">
               <input
@@ -56,6 +54,7 @@
               placeholder="Name"
               formControlName="name"
             />
+            <label for="name" class="subtitle mt-2">Item Name</label>
           </div>
           <div class="form-row">
             <textarea
@@ -63,6 +62,9 @@
               placeholder="Description"
               formControlName="description"
             ></textarea>
+            <label for="description" class="subtitle mt-2"
+              >Item Description</label
+            >
           </div>
           <div class="form-row">
             <div class="input-group">
@@ -79,6 +81,7 @@
                 <span class="input-group-text">.00</span>
               </div>
             </div>
+            <label for="price" class="subtitle mt-2">Item Price</label>
           </div>
           <div class="form-row">
             <input
@@ -87,6 +90,7 @@
               placeholder="Category"
               formControlName="category"
             />
+            <label for="category" class="subtitle mt-2">Item Category</label>
           </div>
           <div class="form-row">
             <input
@@ -96,6 +100,9 @@
               placeholder="Stock Quantity"
               formControlName="stock_quantity"
             />
+            <label for="stock_quantity" class="subtitle mt-2"
+              >Stock Quantity</label
+            >
           </div>
           <div class="form-row">
             <div class="custom-control custom-switch">
@@ -116,31 +123,37 @@
                 type="text"
                 class="form-control"
                 placeholder="Size"
+                id="sizes"
                 #input
               />
+              <label for="sizes" class="subtitle mt-2">Add Available Sizes</label>
             </div>
             <div class="col p-0">
               <button
-                class="btn btn-success ml-2"
+                type="button"
+                class="btn btn-juliet ml-2"
                 (click)="addSize(input.value)"
               >
                 Add
               </button>
             </div>
           </div>
-          <div class="modal-footer px-0">
-            <div class="button-row">
-              <button type="reset" class="btn btn-outline-dark">Clear</button>
-              <button type="submit" class="btn btn-dark ml-2" id="close">
-                Add
-              </button>
-            </div>
+          <div class="form-row">
+            Sizes:
           </div>
-        </form>
+        </div>
+        <div class="modal-footer">
+          <div class="button-row">
+            <button type="reset" class="btn btn-clear">Clear</button>
+            <button type="submit" class="btn btn-juliet ml-2" id="close">
+              Save
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 
 <div *ngIf="products$">
   <div class="card my-2" *ngFor="let product of products$; let i = index">
