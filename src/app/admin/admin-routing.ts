@@ -8,14 +8,14 @@ import { OrdersComponent } from './orders/orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
-  { path: 'admin', component: AdminProductComponent },
+  { path: 'admin', redirectTo: '/admin/dashboard', component: AdminProductComponent },
   { path: 'adminProduct', component: AdminProductComponent },
   { path: 'adminProduct/:id', component: AdminProductDetailComponent },
   { path: 'adminStock', component: AdminStockComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'dashboard', component: DashboardComponent },
 
-  { path: '', redirectTo: '/admin', pathMatch: 'full' }, // redirect to `Home`
+  { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }, // redirect to `Home`
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

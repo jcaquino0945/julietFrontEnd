@@ -10,14 +10,6 @@
   padding: 5em 20em;
 }
 
-.section-2 {
-  align-items: center;
-  display: flex;
-  background-size: cover;
-  height: 80vh;
-  padding: 0 150px;
-}
-
 .card,
 .card-img-top {
   width: 200px;

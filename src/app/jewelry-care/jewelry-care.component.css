@@ -1,16 +1,8 @@
-.section-1 {
+.section {
   align-items: center;
   display: flex;
   background-size: cover;
   height: 90vh;
-  padding: 0 150px;
-}
-
-.section-2 {
-  align-items: center;
-  display: flex;
-  background-size: cover;
-  height: 70vh;
   padding: 0 150px;
 }
 
