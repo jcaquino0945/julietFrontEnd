@@ -94,20 +94,23 @@ p {
 
 .text {
   position: relative;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 100%;
-  margin-top: 30vh;
-  margin-left: 10vh;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* width: 100%; */
+  /* margin-top: 20vh; */
+  /* margin-left: 10vh; */
+  margin: 15vh 0 10vh 10vh;
 }
 
 .pic-1 {
-  height: 100%;
-  width: 100%;
-  align-content: right;
+  position: relative;
+  /* height: 300px; */
+  width: 300px;
+  /* top: 10%;
+  left: 30%; */
+  margin: 5vh 15vh;
+
 }
 
 
@@ -150,34 +153,76 @@ p {
   font-size: 15px;
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .pic-1 {
+    margin: 10vh 9vh;
+  }
+
+  #sec {
+    width: 400px;
+  }
+
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
 
-  .col-lg-4,
+  /* .col-lg-4,
   .col-md-6 {
     align-items: center;
     flex: 0 0 auto;
+  } */
+
+  .text { 
+    margin-top: 40vh;
+    margin-left: 30vh;
+    text-align: center;
+  }
+
+
+  #sec {
+    width: 450px;
+  }
+
+  .text p {
+    font-size: 12pt;
+    height: 100%;
+  }
+
+  .title {
+    font-size: 25pt;
   }
 
   .text {
-    margin-top: 40vh;
-    margin-left: 20vh;
-    text-align: center;
+    margin: 15vh;
   }
+  
+  .sec3 {
+    left: 25%;
+  }
+
 }
 
 @media (max-width: 767px) {
 
-  .col-lg-4,
+  /* .col-lg-4,
   .col-md-6 {
     align-items: center;
     flex: 0 0 auto;
-  }
+  } */
 
   .text {
     margin-top: 20vh;
     margin-left: 1vh;
     text-align: center;
   }
+
+  .card-text,
+  .card-title {
+    text-align: center;
+  }
+
+
+
 }
 
 @media (max-width: 479px) {
@@ -187,5 +232,56 @@ p {
     text-align: center;
   }
 
+  #sec {
+    width: 350px;
+    height: 350px;
+  }
+
+  .card-img-top {
+    width: 200px;
+    height: 200px;
+  }
+
+  .text p {
+    font-size: 10pt;
+    height: 100%;
+  }
+
+  .title {
+    font-size: 20pt;
+  }
+
+  .text {
+    margin-top: 15vh;
+  }
+  
+  .section-3 .row {
+    align-items: center;
+  }
 }
 
+@media (max-width: 320px) {
+  .card-img-top {
+    width: 200px;
+    height: 200px;
+  }
+
+  #sec {
+    width: 200px;
+    height: 200px;
+    margin: 0 20px 0;
+  }
+
+  .text p {
+    font-size: 8pt;
+    height: 100%;
+  }
+
+  .title {
+    font-size: 15pt;
+  }
+
+  .text {
+    margin-top: 15vh;
+  }
+}

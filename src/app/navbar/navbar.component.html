@@ -1,9 +1,18 @@
 <nav *ngIf="nav.visible">
+  <div class="container-fluid d-flex flex-wrap justify-content-center align-items-center pt-3 pb-3 bg-1">
+    <div class="mx-auto">
+      <img src="https://i.imgur.com/2diJpU5.png" width="50px" />
+    </div>
+  </div>
   <nav class="navbar navbar-expand-md">
     <div class="container-fluid">
-      <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+      <button class="navbar-toggler btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
         aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
       </button>
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -27,3 +36,28 @@
     </div>
   </nav>
 </nav>
+
+<!-- <nav *ngIf="nav.visible">
+  <div class="container-fluid d-flex flex-wrap justify-content-center align-items-center pt-3 pb-3 bg-1">
+    <div class="mx-auto">
+      <img src="https://i.imgur.com/2diJpU5.png" width="50px" />
+    </div>
+  </div>
+  <div class="container-fluid d-flex justify-content-center bg-2">
+    <ul>
+      <div class="navbar align-self-center">
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
+        <li>
+          <a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a>
+        </li>
+        <li>
+          <a routerLink="/discover" routerLinkActive="active">Discover</a>
+        </li>
+        <li>
+          <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</nav> -->

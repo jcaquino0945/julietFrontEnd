@@ -77,4 +77,10 @@ h1, h5, p {
     font-family: Work Sans;
 }
 
-
+@media (max-width: 320px) {
+  img {
+    width: 200px;
+    height: 200px;
+    margin-left: 20px;
+  }
+}
