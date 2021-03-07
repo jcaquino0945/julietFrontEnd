@@ -1,177 +1,209 @@
-<div *ngIf="product">
-  <h1>{{ product.name }}</h1>
-  <img src="{{ product.imageUrl }}" style="height: 100px; width: 100px" />
-  <h2>Php {{ product.price }}</h2>
-  <p>{{ product.description }}</p>
-  <p>{{ product.featured }}</p>
-  <p>sizes: {{product.sizes}}</p>
-  <button
-    type="button"
-    class="btn btn-danger"
-    (click)="deleteProduct(product._id)"
-  >
-    Delete
-  </button>
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-toggle="modal"
-    data-target="#exampleModalCentered"
-  >
-    Launch centered demo modal
-  </button>
-</div>
-
-<!-- Modal -->
-<div
-  class="modal"
-  id="exampleModalCentered"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalCenteredLabel"
-  aria-hidden="true"
-  *ngIf="product"
->
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenteredLabel">Modal title</h5>
+<div class="d-flex flex-row flex-wrap justify-content-between">
+  <div class="col p-0" *ngIf="product">
+    <div class="card p-4">
+      <div class="card-body">
+        <img
+          src="https://i.imgur.com/gEdYbSe.jpg"
+          width="100px"
+          class="img-thumbnail"
+        />
+        <img
+          src="https://i.imgur.com/aDlziCg.jpg"
+          width="100px"
+          class="img-thumbnail"
+        />
+        <div class="subtitle border-top pt-2 mt-3">Item Gallery</div>
+      </div>
+    </div>
+    <div class="card p-5 mt-2">
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.name }}
+        </div>
+        <div class="subtitle">Item Name</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.description }}
+        </div>
+        <div class="subtitle">Item Description</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          Php {{ product.price }}
+        </div>
+        <div class="subtitle">Item Price</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.category }}
+        </div>
+        <div class="subtitle">Item Category</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.sizes }}
+        </div>
+        <div class="subtitle">Item Sizes</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.featured }}
+        </div>
+        <div class="subtitle">Featured</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4 p-0 ml-2">
+    <div class="card p-5">
+      <div class="card-text my-4" *ngIf="product">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.stock_quantity }}
+        </div>
+        <div class="subtitle">Items In Stock</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">870</div>
+        <div class="subtitle">Order Times</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">Php 2,500</div>
+        <div class="subtitle">Amount Sold</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          Necklace, Bestseller, New Arrival
+        </div>
+        <div class="subtitle">Tags</div>
+      </div>
+      <form class="my-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Tag" />
+          <div class="input-group-append ml-2">
+            <button class="btn btn-juliet" type="button">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="form-row mt-2">
+      <div class="col p-0 mr-2">
         <button
+          class="btn btn-edit"
           type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
+          data-toggle="modal"
+          data-target="#modal"
         >
-          <span aria-hidden="true">×</span>
+          Update Item
         </button>
       </div>
-      <div class="modal-body">
-        <mat-card>
-          <form
-            [formGroup]="galleryForm"
-            (ngSubmit)="onFormSubmit(product._id)"
-          >
-            <mat-form-field>
-              <mat-label>Product Name</mat-label>
-              <input
-                matInput
-                placeholder="{{ product.name }}"
-                formControlName="name"
-                [errorStateMatcher]="matcher"
-              />
-              <mat-error>
-                <span
-                  *ngIf="
-                    !galleryForm.get('name').valid &&
-                    galleryForm.get('name').touched
-                  "
-                  >Please enter updated product name</span
-                >
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Product Description</mat-label>
-              <input
-                matInput
-                placeholder="{{ product.description }}"
-                formControlName="description"
-                [errorStateMatcher]="matcher"
-              />
-              <mat-error>
-                <span
-                  *ngIf="
-                    !galleryForm.get('description').valid &&
-                    galleryForm.get('description').touched
-                  "
-                  >Please enter updated product description</span
-                >
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Product Price</mat-label>
-              <input
-                matInput
-                placeholder="{{ product.price }}"
-                formControlName="price"
-                [errorStateMatcher]="matcher"
-                type="number"
-              />
-              <mat-error>
-                <span
-                  *ngIf="
-                    !galleryForm.get('price').valid &&
-                    galleryForm.get('price').touched
-                  "
-                  >Please enter updated product price</span
-                >
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Product Category</mat-label>
-              <input
-                matInput
-                placeholder="{{ product.category }}"
-                formControlName="category"
-                [errorStateMatcher]="matcher"
-              />
-              <mat-error>
-                <span
-                  *ngIf="
-                    !galleryForm.get('category').valid &&
-                    galleryForm.get('category').touched
-                  "
-                  >Please enter updated product category</span
-                >
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Stock Quantity</mat-label>
-              <input
-                matInput
-                formControlName="stock_quantity"
-                [errorStateMatcher]="matcher"
-                value="{{ product.stock_quantity }}"
-                type="number"
-              />
-              <mat-error>
-                <span
-                  *ngIf="
-                    !galleryForm.get('stock_quantity').valid &&
-                    galleryForm.get('stock_quantity').touched
-                  "
-                  >Please enter updated product stock quantity</span
-                >
-              </mat-error>
-            </mat-form-field>
-
-            <mat-slide-toggle formControlName="featured"
-              >Featured</mat-slide-toggle
-            >
-
-            <div class="button-row">
-              <button type="submit" mat-flat-button color="primary"></button>
-            </div>
-
-            <div class="button-row">
-              <button type="submit" mat-flat-button color="primary">Add</button>
-            </div>
-            <div class="button-row">
-              <button type="reset">Clear</button>
-            </div>
-          </form>
-        </mat-card>
-      </div>
-      <div class="modal-footer">
+      <div class="col p-0">
         <button
+          class="btn btn-juliet btn-delete"
           type="button"
-          class="btn btn-secondary"
-          data-dismiss="modal"
-          id="close"
+          (click)="deleteProduct(product._id)"
         >
-          Close
+          Delete Item
         </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- update product modal -->
+<form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
+  <div class="modal" id="modal" *ngIf="product">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update product</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="{{ product.name }}"
+              formControlName="name"
+            />
+            <label for="name" class="subtitle mt-2">Item Name</label>
+          </div>
+          <div class="form-row">
+            <textarea
+              class="form-control"
+              placeholder="{{ product.description }}"
+              formControlName="description"
+            ></textarea>
+            <label for="description" class="subtitle mt-2"
+              >Item Description</label
+            >
+          </div>
+          <div class="form-row">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Php</span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ product.price }}"
+                formControlName="price"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+            <label for="price" class="subtitle mt-2">Item Price</label>
+          </div>
+          <div class="form-row">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="{{ product.category }}"
+              formControlName="category"
+            />
+            <label for="category" class="subtitle mt-2">Item Category</label>
+          </div>
+          <div class="form-row">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="{{ product.stock_quantity }}"
+              formControlName="stock_quantity"
+            />
+            <label for="stock_quantity" class="subtitle mt-1"
+              >Stock Quantity</label
+            >
+          </div>
+          <div class="form-row">
+            <div class="custom-control custom-switch">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                formControlName="featured"
+              />
+              <label class="custom-control-label" for="featured"
+                >Featured</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="reset"
+            class="btn btn-clear"
+            data-dismiss="modal"
+            id="close"
+          >
+            Clear
+          </button>
+          <button type="submit" class="btn btn-juliet ml-2">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

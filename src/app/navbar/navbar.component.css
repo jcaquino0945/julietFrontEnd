@@ -4,13 +4,15 @@
   border: none;
   text-decoration: none;
   text-align: center;
+  background-color: #c1ae8d;
 }
 
 .navbar a {
   font-size: 1.2vw;
   text-decoration: none;
-  color: black;
+  color: #fff;
   text-transform: uppercase;
+  letter-spacing: 0.75px;
   margin: 0 2vw;
   transition: .1s all ease-in-out;
 }
