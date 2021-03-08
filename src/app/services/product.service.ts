@@ -18,8 +18,10 @@ const apiUrl = 'http://localhost:3000/products';
 })
 export class ProductService {
   currentIndex: BehaviorSubject<string>;
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+  headers = new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Authorization': 'bearer ' + sessionStorage.getItem('token')
+ });
   constructor(
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
@@ -98,6 +100,7 @@ export class ProductService {
 
   //update product
   updateProduct(id, data): Observable<any> {
+    console.log(this.headers);
     return this.http
       .put(apiUrl + '/' + id, data, { headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
