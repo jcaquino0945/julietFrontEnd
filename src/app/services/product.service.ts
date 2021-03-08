@@ -34,6 +34,12 @@ export class ProductService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http
+      .get<Product[]>(apiUrl + '/category/' + category)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
   //get single product via id from db
   getProduct(id: string): Observable<Product> {
     return this.http

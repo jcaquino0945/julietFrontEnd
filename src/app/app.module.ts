@@ -33,6 +33,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
+import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -54,6 +55,7 @@ import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
     ContactUsComponent,
     FaqsComponent,
     JewelryCareComponent,
+    ShopByCategoryComponent,
   ],
   imports: [
     BrowserModule,
