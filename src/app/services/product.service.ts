@@ -63,9 +63,11 @@ export class ProductService {
     formData.append('description', product.description);
     formData.append('stock_quantity', JSON.stringify(product.stock_quantity));
     formData.append('featured', JSON.stringify(product.featured));
-    const header = new HttpHeaders();
+    //const header = new HttpHeaders();
     const params = new HttpParams();
-
+    const header = new HttpHeaders({
+      'Authorization': 'bearer ' + sessionStorage.getItem('token')
+   });
     const options = {
       params,
       reportProgress: true,
@@ -133,7 +135,7 @@ export class ProductService {
   }*/
   deleteProduct(id: string): Observable<any> {
     return this.http
-      .delete<Product[]>(apiUrl + '/' + id)
+      .delete<Product[]>(apiUrl + '/' + id,{ headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }
