@@ -15,11 +15,13 @@ import { ModuleWithProviders } from '@angular/core';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
+import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'shop', component: ShopComponent },
+  { path: 'shop/category/:category', component: ShopByCategoryComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },

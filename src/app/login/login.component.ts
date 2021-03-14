@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
     this.authService
       .validate(this.user.username, this.user.password)
       .then((response) => {
-        this.authService.setUserInfo({ user: response['user'] });
+        this.authService.setUserInfo(response['token']);
         this.router.navigate(['admin']);
+      }).catch((err) => {
+        window.alert('Wrong username/password')
       });
   }
 }

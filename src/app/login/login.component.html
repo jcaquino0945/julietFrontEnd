@@ -3,7 +3,7 @@
 <footer *ngIf="!footer.visible"></footer>
 
 <div class="jumbotron">
-  <div class="container text-center">
+  <div class="container text-center loginContainer">
     <div class="card">
       <div class="card-body">
         <form novalidate #loginForm="ngForm" (ngSubmit)="login()">
@@ -20,7 +20,7 @@
               />
             </div>
           </div>
-          <!-- <p *ngIf="username.errors?.required">Username is required</p> -->
+        <p *ngIf="username.errors?.required" class="errorMsg" id="errorMsgUser">Username is required</p>
           <div class="form-row">
             <div class="col">
               <input
@@ -34,7 +34,7 @@
               />
             </div>
           </div>
-          <!-- <p *ngIf="password.errors?.required">Password is required</p> -->
+         <p *ngIf="password.errors?.required" class="errorMsg" id="errorMsgPass">Password is required</p>
           <button
             type="submit"
             class="btn btn-login"

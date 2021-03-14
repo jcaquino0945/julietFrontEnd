@@ -18,8 +18,10 @@ const apiUrl = 'http://localhost:3000/products';
 })
 export class ProductService {
   currentIndex: BehaviorSubject<string>;
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+  headers = new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Authorization': 'bearer ' + sessionStorage.getItem('token')
+ });
   constructor(
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
@@ -29,6 +31,12 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http
       .get<Product[]>(apiUrl)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
+  getProductsByCategory(category: string): Observable<Product[]> {
+    return this.http
+      .get<Product[]>(apiUrl + '/category/' + category)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -61,9 +69,11 @@ export class ProductService {
     formData.append('description', product.description);
     formData.append('stock_quantity', JSON.stringify(product.stock_quantity));
     formData.append('featured', JSON.stringify(product.featured));
-    const header = new HttpHeaders();
+    //const header = new HttpHeaders();
     const params = new HttpParams();
-
+    const header = new HttpHeaders({
+      'Authorization': 'bearer ' + sessionStorage.getItem('token')
+   });
     const options = {
       params,
       reportProgress: true,
@@ -98,6 +108,7 @@ export class ProductService {
 
   //update product
   updateProduct(id, data): Observable<any> {
+    console.log(this.headers);
     return this.http
       .put(apiUrl + '/' + id, data, { headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
@@ -130,7 +141,7 @@ export class ProductService {
   }*/
   deleteProduct(id: string): Observable<any> {
     return this.http
-      .delete<Product[]>(apiUrl + '/' + id)
+      .delete<Product[]>(apiUrl + '/' + id,{ headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

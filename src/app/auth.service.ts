@@ -9,15 +9,17 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   public isAuthenticated(): Boolean {
-    let userData = sessionStorage.getItem('userInfo');
-    if (userData && JSON.parse(userData)) {
+    let userData = sessionStorage.getItem('token');
+    if (userData) {
       return true;
     }
     return false;
   }
 
-  public setUserInfo(user) {
-    sessionStorage.setItem('userInfo', JSON.stringify(user));
+  public setUserInfo(token) {
+    console.log(token);
+    sessionStorage.setItem('token',token);
+    
   }
 
   public validate(username, password) {

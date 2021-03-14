@@ -158,12 +158,13 @@
             <label for="price" class="subtitle mt-2">Item Price</label>
           </div>
           <div class="form-row">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="{{ product.category }}"
-              formControlName="category"
-            />
+            <select class="custom-select" formControlName="category"  class="form-control">
+              <option selected value="Necklaces">Necklaces</option>
+              <option value="Bracelets-Anklets">Bracelets and Anklets</option>
+              <option value="Earrings">Earrings</option>
+              <option value="Rings">Rings</option>
+              <option value="Other">Other</option>
+            </select>
             <label for="category" class="subtitle mt-2">Item Category</label>
           </div>
           <div class="form-row">

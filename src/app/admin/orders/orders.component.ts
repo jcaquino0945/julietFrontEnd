@@ -20,12 +20,7 @@ export class OrdersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe((orders$) => (this.orders$ = orders$),(errMess) => (this.errMess = <any>errMess))
+    this.orderService.getOrders().subscribe((orders$) => (this.orders$ = orders$), (errMess) => (this.errMess = <any>errMess))
   }
-
-  // getOrderTimes() {
-  //   var orderTimes = this.orderService.getOrders.length;
-  //   console.log(orderTimes);
-  // }
 
 }

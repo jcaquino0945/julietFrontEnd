@@ -1,5 +1,5 @@
 .navbar {
-  padding: 1vh 0;
+  padding: 1vw 0;
   transition: 0.1s all ease-in;
   border: none;
   text-decoration: none;
@@ -14,10 +14,15 @@
   text-transform: uppercase;
   letter-spacing: 0.75px;
   margin: 0 2vw;
+  transition: .1s all ease-in-out;
 }
 
-.navbar-toggler {
-  color: #ffffff;
+.navbar a:hover {
+  color: #6e815d;
+}
+
+.navbar a.active {
+  color: #6e815d;
 }
 
 ul {
@@ -26,8 +31,27 @@ ul {
   list-style-type: none;
 }
 
-.subtitle {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.75px;
+.btn {
+  border-radius: 5px;
+  color: #6e815d;
+}
+
+.btn:active {
+  background: #c1ae8d;
+  border-color: #c1ae8d;
+} 
+
+.btn:hover {
+  background: #ffffff;
+}
+
+.btn:checked {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+@media (max-width: 767px) {
+  li {
+    margin-bottom: 2vh;
+  }
 }

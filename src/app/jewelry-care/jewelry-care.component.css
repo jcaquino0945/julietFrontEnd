@@ -2,8 +2,17 @@
   align-items: center;
   display: flex;
   background-size: cover;
-  height: 90vh;
-  padding: 0 150px;
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.section-2 {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 .title {
@@ -47,4 +56,31 @@
 .card-title,
 .card-text {
   font-size: 15px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 479px) {
+  p {
+    font-size: 11pt;
+    width: 70%;
+  }
+
+  .row {
+    margin: 0 20px 0;
+  }
+}
+
+
+@media(max-width: 320px) {
+  p {
+    font-size: 10pt;
+    width: 60%;
+  }
+
+  .row {
+    margin: 0 10px 0;
+  }
 }

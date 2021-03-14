@@ -21,13 +21,15 @@ import { AdminProductDetailComponent } from './admin-product-detail/admin-produc
 import { AdminStockComponent } from './admin-stock/admin-stock.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReportsComponent } from './reports/reports.component';
 @NgModule({
   declarations: [
     AdminProductComponent,
     AdminProductDetailComponent,
     AdminStockComponent,
     OrdersComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,

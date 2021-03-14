@@ -26,6 +26,8 @@
   background-color: transparent;
   margin: 0;
   border-radius: 0;
+  width: 100%;
+  height: 100%;
   padding: 80px 30em;
 }
 
@@ -63,6 +65,8 @@ textarea:focus {
   padding: 10px 0;
 }
 
+
+
 .btn-submit {
   background: #6e815d;
   padding: 8px 15px;
@@ -85,4 +89,36 @@ textarea:focus {
   font-size: 15px;
   text-transform: uppercase;
   color: #6e815d;
+}
+
+@media (max-width: 1024px) {
+  .jumbotron {
+    padding: 50px 20em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .jumbotron {
+    padding: 30px 10em;
+  }
+
+}
+
+@media (max-width: 479px) {
+  .jumbotron {
+    padding: 10px 5em;
+  }
+}
+
+@media (max-width: 320px) {
+  p {
+    text-align: center;
+    font-size: 10pt;
+  }
+
+  .form-row {
+    width: 100%;
+  }
+
+
 }
