@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroupDirective,
+  FormBuilder,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { Product } from '../../models/product';
-import {ProductService} from '../../services/product.service';
+import { Orders } from '../../models/orders';
+import * as _ from 'lodash';
+import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -9,22 +18,31 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { switchMap } from 'rxjs/operators';
+import { OrderService } from 'src/app/services/order.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
   }
 }
 @Component({
   selector: 'app-admin-product-detail',
   templateUrl: './admin-product-detail.component.html',
-  styleUrls: ['./admin-product-detail.component.css']
+  styleUrls: ['./admin-product-detail.component.css'],
 })
 export class AdminProductDetailComponent implements OnInit {
   products$: Product[];
   product: Product;
   productIds: string[];
+  orders$: Orders[];
   prev: string;
   next: string;
   errMess: string;
@@ -38,74 +56,110 @@ export class AdminProductDetailComponent implements OnInit {
   featured = false;
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
+  orderTimes: any;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute,
+  constructor(
+    private productService: ProductService,
+    private orderService: OrderService,
+    private route: ActivatedRoute,
     private location: Location,
-    private formBuilder: FormBuilder,private router : Router) { }
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.productService.getProductIds().subscribe(productIds => this.productIds = productIds);
-    this.route.params.pipe(switchMap((params: Params) => { return this.productService.getProduct(params['id']); }))
-    .subscribe(product => {
-      this.product = product;
-      this.galleryForm.get("name").setValue(this.product.name);
-      this.galleryForm.get("description").setValue(this.product.description);
-      this.galleryForm.get("price").setValue(this.product.price);
-      this.galleryForm.get("category").setValue(this.product.category);
-      this.galleryForm.get("stock_quantity").setValue(this.product.stock_quantity);
-      this.galleryForm.get("featured").setValue(this.product.featured);
+    this.orderService.getOrders().subscribe(
+      (orders$) =>
+        (this.orderTimes = _.concat(...orders$.map((order) => order.products))
+          .filter((product) => product.name === this.product.name)
+          .map((product) => product.quantity)
+          .reduce((accumulator, current) => accumulator + current, 0)),
+      (errMess) => (this.errMess = <any>errMess)
+    );
 
+    this.productService
+      .getProductIds()
+      .subscribe((productIds) => (this.productIds = productIds));
+    this.route.params
+      .pipe(
+        switchMap((params: Params) => {
+          return this.productService.getProduct(params['id']);
+        })
+      )
+      .subscribe(
+        (product) => {
+          this.product = product;
+          this.galleryForm.get('name').setValue(this.product.name);
+          this.galleryForm
+            .get('description')
+            .setValue(this.product.description);
+          this.galleryForm.get('price').setValue(this.product.price);
+          this.galleryForm.get('category').setValue(this.product.category);
+          this.galleryForm
+            .get('stock_quantity')
+            .setValue(this.product.stock_quantity);
+          this.galleryForm.get('featured').setValue(this.product.featured);
+        },
+        (err) => console.log(err)
+      );
+    (errmess) => (this.errMess = <any>errmess);
 
-       },
-          err => console.log(err));
-       errmess => this.errMess = <any>errmess;
-
-       
-
-       this.galleryForm = this.formBuilder.group({
-        //imageFile : [null, Validators.required],
-        name : [null, Validators.required],
-        description : [null, Validators.required],
-        price : [null, Validators.required],
-        category : [null, Validators.required],
-        stock_quantity : 0,
-        featured: false
-  
-      });
-      
+    this.galleryForm = this.formBuilder.group({
+      //imageFile : [null, Validators.required],
+      name: [null, Validators.required],
+      description: [null, Validators.required],
+      price: [null, Validators.required],
+      category: [null, Validators.required],
+      stock_quantity: 0,
+      featured: false,
+    });
   }
+
   goBack(): void {
     this.location.back();
   }
+
   deleteProduct(id) {
     if (window.confirm('Are you sure?')) {
-    this.productService.deleteProduct(id).subscribe(products$ => this.products$ = products$,
-      errmess => this.errMess = <any>errmess)
-    console.log("deleted product with id: " + id);
-     this.router.navigate(['/admin/adminProduct'])
+      this.productService.deleteProduct(id).subscribe(
+        (products$) => (this.products$ = products$),
+        (errmess) => (this.errMess = <any>errmess)
+      );
+      console.log('deleted product with id: ' + id);
+      this.router.navigate(['/admin/adminProduct']);
+    }
   }
-}
 
   onFormSubmit(id) {
-    this.productService.updateProduct(id,this.galleryForm.value)
-    .subscribe(res => {
-      console.log('Content updated')
-      document.getElementById('close').click();// close modal
-      window.alert('Product updated!')
-    }, (error) => {
-      console.log(error)
-    })
+    this.productService.updateProduct(id, this.galleryForm.value).subscribe(
+      (res) => {
+        console.log('Content updated');
+        document.getElementById('close').click(); // close modal
+        window.alert('Product updated!');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     //resubscribe to refresh
-    this.productService.getProductIds().subscribe(productIds => this.productIds = productIds);
-    this.route.params.pipe(switchMap((params: Params) => { return this.productService.getProduct(params['id']); }))
-    .subscribe(product => {
-      this.product = product;
-       },
-          err => console.log(err));
-       errmess => this.errMess = <any>errmess;
-
+    this.productService
+      .getProductIds()
+      .subscribe((productIds) => (this.productIds = productIds));
+    this.route.params
+      .pipe(
+        switchMap((params: Params) => {
+          return this.productService.getProduct(params['id']);
+        })
+      )
+      .subscribe(
+        (product) => {
+          this.product = product;
+        },
+        (err) => console.log(err)
+      );
+    (errmess) => (this.errMess = <any>errmess);
   }
-/*
+  /*
   onFormSubmit(id): void {
     this.isLoadingResults = true;
     this.productService.updateProduct(id,this.galleryForm.value, this.galleryForm.get('imageFile').value._files[0])
