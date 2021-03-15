@@ -16,6 +16,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot-password-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +28,9 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
+  { path: 'forgotPassword/:_id', component: ForgotPasswordDetailsComponent },
+
   { path: 'admin', component: AdminComponent, 
   canActivate : [AuthGuard],
   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
