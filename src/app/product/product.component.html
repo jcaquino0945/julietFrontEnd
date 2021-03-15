@@ -16,7 +16,7 @@
       </p>
       <h5 class="mb-4">Php {{ product.price }}</h5>
       <select class="form-select" [(ngModel)]="selectedOption">
-        <option selected disabled>Chain length</option>
+        <option selected value="undefined" hidden>Chain length</option>
         <option value="{{ prodSize }}" *ngFor="let prodSize of product.sizes">
           {{ prodSize }}"
         </option>

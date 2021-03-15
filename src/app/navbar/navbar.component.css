@@ -8,7 +8,7 @@
 }
 
 .navbar a {
-  font-size: 1.2vw;
+  font-size: 13px;
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
@@ -16,9 +16,11 @@
   margin: 0 2vw;
   transition: .1s all ease-in-out;
 }
+
 .navbar a:hover {
   color: #6e815d;
 }
+
 .navbar a.active {
   color: #6e815d;
 }

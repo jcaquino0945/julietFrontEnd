@@ -15,13 +15,14 @@
             {{ order.firstName }} {{ order.lastName }}
           </div>
           {{ order.email }} <br />
-          Php {{ order.totalPrice }}
+          Php {{ order.totalPrice }} <br>
         </div>
         <div class="align-self-start">
           <select class="form-select">
             <option selected value="" disabled>Update Status</option>
             <option>For Delivery</option>
             <option>Pending Payment</option>
+            <option>Transaction Complete</option>
           </select>
         </div>
       </div>
