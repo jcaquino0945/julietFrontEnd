@@ -1,5 +1,11 @@
-<ribbon *ngIf="ribbon.visible">
-  <div class="container-fluid text-center text-uppercase">
-    Free shipping on all orders over Php 1,500! Shop Now.
-  </div>
-</ribbon>
+<div *ngIf="!isMobile">
+  <ribbon *ngIf="ribbon.visible">
+    <div class="container-fluid text-center text-uppercase">
+      Free shipping on all orders over Php 1,500! Shop Now.
+    </div>
+  </ribbon>
+</div>
+
+<div *ngIf="isMobile">
+  <!-- start coding here for mobile view -->
+</div>

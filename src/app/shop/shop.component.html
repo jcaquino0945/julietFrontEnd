@@ -1,56 +1,76 @@
-<nav *ngIf="nav.visible"></nav>
-<ribbon *ngIf="ribbon.visible"></ribbon>
-<footer *ngIf="footer.visible"></footer>
+<div *ngIf="!isMobile">
+  <nav *ngIf="nav.visible"></nav>
+  <ribbon *ngIf="ribbon.visible"></ribbon>
+  <footer *ngIf="footer.visible"></footer>
 
-<main role="main">
-  <div class="jumbotron section">
-    <div class="container">
-      <div class="d-flex flex-row">
-        <div class="col-2">
-          <div><strong>Shop by Product</strong></div>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" routerLink="/shop">View All</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">New Arrival</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/shop/category/Necklace">Necklaces</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/shop/category/Bracelets-Anklets">Bracelets and Anklets</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/shop/category/Earrings">Earrings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/shop/category/Rings">Rings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Bestsellers</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-10">
-          <div class="d-flex justify-content-start flex-wrap" *ngIf="products$">
+  <main role="main">
+    <div class="jumbotron section">
+      <div class="container">
+        <div class="d-flex flex-row">
+          <div class="col-2">
+            <div><strong>Shop by Product</strong></div>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/shop">View All</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Arrival</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Necklace"
+                  >Necklaces</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  routerLink="/shop/category/Bracelets-Anklets"
+                  >Bracelets and Anklets</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Earrings"
+                  >Earrings</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Rings">Rings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Bestsellers</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-10">
             <div
-              class="card mx-2"
-              *ngFor="let product of products$; let i = index"
+              class="d-flex justify-content-start flex-wrap"
+              *ngIf="products$"
             >
-              <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
-              <div class="card-body">
-                <div class="card-text">
-                  <a [routerLink]="['/product/', product._id]">{{
-                    product.name
-                  }}</a>
+              <div
+                class="card mx-2"
+                *ngFor="let product of products$; let i = index"
+              >
+                <img
+                  src="https://i.imgur.com/HGYgGAq.jpg"
+                  class="card-img-top"
+                />
+                <div class="card-body">
+                  <div class="card-text">
+                    <a [routerLink]="['/product/', product._id]">{{
+                      product.name
+                    }}</a>
+                  </div>
+                  <div class="card-title">Php {{ product.price }}</div>
                 </div>
-                <div class="card-title">Php {{ product.price }}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
+</div>
+
+<div *ngIf="isMobile">
+  <!-- start coding here for mobile view -->
+</div>

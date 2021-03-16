@@ -30,21 +30,9 @@
       </div>
       <div class="card-text my-4">
         <div class="card-title border-bottom pb-2 mb-2">
-          Php {{ product.price }}
-        </div>
-        <div class="subtitle">Item Price</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
           {{ product.category }}
         </div>
         <div class="subtitle">Item Category</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.sizes }}
-        </div>
-        <div class="subtitle">Item Sizes</div>
       </div>
       <div class="card-text my-4">
         <div class="card-title border-bottom pb-2 mb-2">
@@ -54,23 +42,25 @@
       </div>
     </div>
   </div>
-  <div class="col-4 p-0 ml-2">
+  <div class="col-4 p-0 ml-2" *ngIf="product">
     <div class="card p-5">
-      <div class="card-text my-4" *ngIf="product">
+      <div class="card-text my-4">
         <div class="card-title border-bottom pb-2 mb-2">
           {{ product.stock_quantity }}
         </div>
         <div class="subtitle">Items In Stock</div>
       </div>
-      <div class="card-text my-4" *ngIf="orderTimes">
+      <div class="card-text my-4" >
         <div class="card-title border-bottom pb-2 mb-2">
-          {{ orderTimes }}
+          Php {{ product.price }}
         </div>
-        <div class="subtitle">Order Times</div>
+        <div class="subtitle">Item Price</div>
       </div>
       <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">Php 2,500</div>
-        <div class="subtitle">Amount Sold</div>
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ product.sizes }}
+        </div>
+        <div class="subtitle">Item Sizes</div>
       </div>
     </div>
     <div class="form-row mt-2">
