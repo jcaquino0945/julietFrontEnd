@@ -62,28 +62,16 @@
         </div>
         <div class="subtitle">Items In Stock</div>
       </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">870</div>
+      <div class="card-text my-4" *ngIf="orderTimes">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ orderTimes }}
+        </div>
         <div class="subtitle">Order Times</div>
       </div>
       <div class="card-text my-4">
         <div class="card-title border-bottom pb-2 mb-2">Php 2,500</div>
         <div class="subtitle">Amount Sold</div>
       </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          Necklace, Bestseller, New Arrival
-        </div>
-        <div class="subtitle">Tags</div>
-      </div>
-      <form class="my-3">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Tag" />
-          <div class="input-group-append ml-2">
-            <button class="btn btn-juliet" type="button">Add</button>
-          </div>
-        </div>
-      </form>
     </div>
     <div class="form-row mt-2">
       <div class="col p-0 mr-2">
@@ -158,7 +146,11 @@
             <label for="price" class="subtitle mt-2">Item Price</label>
           </div>
           <div class="form-row">
-            <select class="custom-select" formControlName="category"  class="form-control">
+            <select
+              class="custom-select"
+              formControlName="category"
+              class="form-control"
+            >
               <option selected value="Necklaces">Necklaces</option>
               <option value="Bracelets-Anklets">Bracelets and Anklets</option>
               <option value="Earrings">Earrings</option>

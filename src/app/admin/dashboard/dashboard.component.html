@@ -10,16 +10,16 @@
 >
   <div class="col p-0 mr-1">
     <div class="card">
-      <div class="card-body">
-        <h1>Php 15,500</h1>
+      <div class="card-body" *ngIf="monthlySales">
+        <h1>Php {{ monthlySales }} </h1>
         <div class="subtitle">Total sales this month</div>
       </div>
     </div>
   </div>
   <div class="col p-0 ml-1 mr-1">
     <div class="card">
-      <div class="card-body">
-        <h1>1000</h1>
+      <div class="card-body" *ngIf="monthlyOrders">
+        <h1>{{ monthlyOrders.length }} </h1>
         <div class="subtitle">Total orders this month</div>
       </div>
     </div>
@@ -39,26 +39,26 @@
   <div class="col p-0">
     <div class="card">
       <div class="card-header subtitle">Sales Today</div>
-      <div class="card-body">
-        <h5>Php 1,500</h5>
+      <div class="card-body" *ngIf="dailySales">
+        <h5>Php {{ dailySales }}</h5>
       </div>
     </div>
     <div class="card mt-2">
       <div class="card-header subtitle">Sales This Week</div>
-      <div class="card-body">
-        <h5>Php 7,000</h5>
+      <div class="card-body" *ngIf="weeklySales">
+        <h5>Php {{ weeklySales }}</h5>
       </div>
     </div>
     <div class="card mt-2">
       <div class="card-header subtitle">Orders Today</div>
-      <div class="card-body">
-        <h5>500</h5>
+      <div class="card-body" *ngIf="dailyOrders">
+        <h5>{{ dailyOrders.length }}</h5>
       </div>
     </div>
     <div class="card mt-2">
       <div class="card-header subtitle">Orders this Week</div>
-      <div class="card-body">
-        <h5>800</h5>
+      <div class="card-body" *ngIf="weeklyOrders">
+        <h5>{{ weeklyOrders.length }}</h5>
       </div>
     </div>
   </div>

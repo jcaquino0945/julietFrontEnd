@@ -34,6 +34,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot-password-details.component';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -56,6 +58,8 @@ import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.com
     FaqsComponent,
     JewelryCareComponent,
     ShopByCategoryComponent,
+    ForgotPasswordComponent,
+    ForgotPasswordDetailsComponent,
   ],
   imports: [
     BrowserModule,

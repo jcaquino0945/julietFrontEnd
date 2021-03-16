@@ -6,6 +6,7 @@ import { AdminProductDetailComponent } from './admin-product-detail/admin-produc
 import { AdminStockComponent } from './admin-stock/admin-stock.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReportsComponent } from './reports/reports.component';
 
 export const routes: Routes = [
   { path: 'admin', redirectTo: '/admin/dashboard', component: AdminProductComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'adminStock', component: AdminStockComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'reports', component: ReportsComponent },
 
   { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }, // redirect to `Home`
 ];
