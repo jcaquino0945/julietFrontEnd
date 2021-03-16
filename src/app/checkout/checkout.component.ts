@@ -14,6 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ResponsiveService } from '../services/responsive.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -35,6 +36,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
+  public isMobile: Boolean;
   items = this.cartService.getItems();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
@@ -48,7 +50,7 @@ export class CheckoutComponent implements OnInit {
   province = '';
   city = '';
   region = '';
-  postalCode='';
+  postalCode = '';
 
   constructor(
     public nav: NavbarService,
@@ -56,7 +58,8 @@ export class CheckoutComponent implements OnInit {
     public footer: FooterService,
     private cartService: CartService,
     private orderService: OrderService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private responsive: ResponsiveService
   ) {}
 
   title = 'stepper';
@@ -83,7 +86,6 @@ export class CheckoutComponent implements OnInit {
       postalCode: [null, Validators.required],
     });
 
-    
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
@@ -91,10 +93,12 @@ export class CheckoutComponent implements OnInit {
       linear: false,
       animation: true,
     });
+    
+    this.onResize();
+    this.responsive.checkWidth();
   }
 
   onSubmit() {
-    
     //let productArray = [];
     //productArray.push(this.items);
     //console.log("Orders: " + Object.values(this.items));
@@ -113,19 +117,27 @@ export class CheckoutComponent implements OnInit {
       datePurchased: Date.now(),
       totalPrice: this.totalPrice,
       product: this.items,
-    }
+    };
 
     let emailDetail = {
       to: this.orderForm.get('email').value,
-      subject: `Order for ${this.orderForm.get('firstName').value}`,  
-      html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+      subject: `Order for ${this.orderForm.get('firstName').value}`,
+      html: `<h2>Thank you for your order${
+        this.orderForm.get('firstName').value
+      }!</h2>
       <p>Your total purchase is worth Php ${this.totalPrice} </p>
       <p>We will reply back to you when we have already processed your order!</p>
-      `
-    }
-    console.log(cartDetail)
-    
+      `,
+    };
+    console.log(cartDetail);
+
     this.orderService.addOrder(cartDetail);
     this.orderService.sendReceipt(emailDetail);
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
   }
 }

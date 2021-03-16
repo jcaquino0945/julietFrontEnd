@@ -10,12 +10,14 @@ import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 
 import { CartService } from '../services/cart.service';
+import { ResponsiveService } from '../services/responsive.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
+  public isMobile: Boolean;
   products$: Product[];
   product: Product;
   productIds: string[];
@@ -29,7 +31,8 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router : Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private responsive: ResponsiveService
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +47,9 @@ export class ProductComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
+
+    this.onResize();
+    this.responsive.checkWidth();
   }
 
   addToCart(product) {
@@ -61,5 +67,11 @@ export class ProductComponent implements OnInit {
     this.cartService.addToCart(cartProduct);
     console.log(cartProduct);
     window.alert('Your product has been added to the cart!');
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
   }
 }
