@@ -14,6 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ResponsiveService } from '../services/responsive.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -35,6 +36,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
+  public isMobile: Boolean;
   items = this.cartService.getItems();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
@@ -58,7 +60,8 @@ export class CheckoutComponent implements OnInit {
     public footer: FooterService,
     private cartService: CartService,
     private orderService: OrderService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private responsive: ResponsiveService
   ) {}
 
   title = 'stepper';

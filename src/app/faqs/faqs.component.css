@@ -1,20 +1,59 @@
-.section-2 {
+.jumbotron {
   align-items: center;
   display: flex;
   background-size: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.card,
-.card-img-top {
-  width: 200px;
-  border: 0;
+  background-color: transparent;
   border-radius: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5em 20em;
 }
 
-.card-body {
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+.accordion-collapse,
+.accordion-body,
+.accordion-button,
+.accordion-button:focus,
+.accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
   padding: 10px 0;
+}
+
+.accordion-button::after {
+  background: none;
+  font-family: "Font Awesome 5 Free";
+  content: "\f067";
+  font-weight: 900;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background: none;
+  font-family: "Font Awesome 5 Free";
+  content: "\f068";
+  font-weight: 900;
 }
 
 .card-title,
@@ -48,7 +87,7 @@ li:before {
   font-family: "Playfair Display", serif;
 }
 
-@media (max-width: 479px) {
+/* @media (max-width: 479px) {
   button {
     text-align: left;
   }
@@ -67,4 +106,4 @@ li:before {
   button {
     text-align: left;
   }
-}
+} */

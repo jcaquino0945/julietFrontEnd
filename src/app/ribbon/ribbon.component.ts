@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponsiveService } from '../services/responsive.service';
 import { RibbonService } from '../services/ribbon.service';
 
 @Component({
@@ -7,7 +8,20 @@ import { RibbonService } from '../services/ribbon.service';
   styleUrls: ['./ribbon.component.css'],
 })
 export class RibbonComponent implements OnInit {
-  constructor( public ribbon: RibbonService ) {}
+  public isMobile: Boolean;
+  constructor(
+    public ribbon: RibbonService,
+    private responsive: ResponsiveService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.onResize();
+    this.responsive.checkWidth();
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
 }

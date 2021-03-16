@@ -1,47 +1,44 @@
-<nav *ngIf="nav.visible"></nav>
-<ribbon *ngIf="ribbon.visible"></ribbon>
-<footer *ngIf="footer.visible"></footer>
+<!-- desktop view -->
+<div *ngIf="!isMobile">
+  <nav *ngIf="nav.visible"></nav>
+  <ribbon *ngIf="ribbon.visible"></ribbon>
+  <footer *ngIf="footer.visible"></footer>
 
-<main role="main">
-  <!-- section 1 -->
-  <section class="jumbotron section-1 text-center">
-    <div class="container">
-      <div class="display-5">
-        Wear something unique.<br />Chic doesn't have to be expensive.
+  <main role="main">
+    <!-- section 1 -->
+    <section class="jumbotron section-1 text-center">
+      <div class="container">
+        <div class="display-5">
+          Wear something unique.<br />Chic doesn't have to be expensive.
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- section 2 -->
-  <section class="jumbotron section-2 text-center">
-    <div class="container">
-      <p>
-        Made with delicate handwork, specially delivered to you. <br />
-        Anticipate the upcoming sets and accessories soon, only here in Juliet.
-      </p>
-      <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
-    </div>
-  </section>
+    <!-- section 2 -->
+    <section class="jumbotron section-2 text-center">
+      <div class="container">
+        <p>
+          Made with delicate handwork, specially delivered to you. Anticipate
+          the upcoming sets and accessories soon, only here in Juliet.
+        </p>
+        <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
+      </div>
+    </section>
 
-  <!-- section 3 -->
-  <div class="jumbotron section-3">
-    <div class="container">
-      <div class="d-flex flex-row justify-content-center">
-        <div class="col">
+    <!-- section 3 -->
+    <div class="jumbotron section-3">
+      <div class="container">
+        <div class="d-flex flex-row justify-content-center">
           <div class="p-2">
             <img src="https://i.imgur.com/IcZOQ6L.jpg" width="350px" />
             <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
           </div>
-        </div>
-        <div class="col">
           <div class="p-2">
             <img src="https://i.imgur.com/Sf1cid0.jpg" width="350px" />
             <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
           </div>
-        </div>
-        <div class="col">
           <div class="p-2">
-            <img src="https://i.imgur.com/aDlziCg.jpg" width="350px" class="hidden-lg" />
+            <img src="https://i.imgur.com/aDlziCg.jpg" width="350px" />
             <h6 class="text-uppercase text-center mt-3">
               Shop Bracelets and Anklets
             </h6>
@@ -49,77 +46,140 @@
         </div>
       </div>
     </div>
-  </div>
 
-
-
-  <!-- section 4 -->
-  <div class="jumbotron section-4">
-    <div class="container-fluid">
-      <div class="d-flex flex-row justify-content-center">
-        <div class="align-self-center bg1">
-          <div class="text">
-            <div class="subtitle">Juliet Bestseller</div>
-            <h2 class="title">Pressed Flower Collection</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              consectetur a felis eget commodo. Nullam eu consequat dolor.
-              Aenean suscipit.
-            </p>
-            <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
+    <!-- section 4 -->
+    <div class="jumbotron section-4">
+      <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center">
+          <div class="align-self-center bg1">
+            <div class="text">
+              <div class="subtitle">Juliet Bestseller</div>
+              <h2 class="title">Pressed Flower Collection</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                consectetur a felis eget commodo. Nullam eu consequat dolor.
+                Aenean suscipit.
+              </p>
+              <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
+            </div>
           </div>
+          <div class="align-self-center">
+            <img src="https://i.imgur.com/ih3wcF7.jpg" width="500px" />
+          </div>
+          <div class="align-self-center bg2"></div>
         </div>
-        <div class="align-self-center">
-          <img src="https://i.imgur.com/ih3wcF7.jpg" width="500px" />
-        </div>
-        <div class="align-self-center bg2"></div>
       </div>
     </div>
-  </div>
 
-  <!-- section 5 -->
-  <div class="jumbotron section-5">
+    <!-- section 5 -->
+    <div class="jumbotron section-5">
+      <div class="container">
+        <h5 class="mb-5 text-center">You might like</h5>
+        <div class="d-flex flex-row justify-content-center">
+          <div class="card m-2">
+            <img
+              src="https://i.imgur.com/HGYgGAq.jpg"
+              class="card-img-top desktop-card-img img-fluid"
+            />
+            <div class="card-body">
+              <div class="card-text">Sol and Luna Necklace</div>
+              <div class="card-title">Php 250</div>
+            </div>
+          </div>
+          <div class="card m-2">
+            <img
+              src="https://i.imgur.com/gEdYbSe.jpg"
+              class="card-img-top desktop-card-img img-fluid"
+            />
+            <div class="card-body">
+              <div class="card-text">Sol and Luna Necklace</div>
+              <div class="card-title">Php 250</div>
+            </div>
+          </div>
+          <div class="card m-2">
+            <img
+              src="https://i.imgur.com/0S1pVTu.png"
+              class="card-img-top desktop-card-img img-fluid"
+            />
+            <div class="card-body">
+              <div class="card-text">Sol and Luna Necklace</div>
+              <div class="card-title">Php 250</div>
+            </div>
+          </div>
+          <div class="card m-2">
+            <img
+              src="https://i.imgur.com/jeBLPq1.jpg"
+              class="card-img-top desktop-card-img img-fluid"
+            />
+            <div class="card-body">
+              <div class="card-text">Sol and Luna Necklace</div>
+              <div class="card-title">Php 250</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- mobile view -->
+<div *ngIf="isMobile"> 
+  <section class="jumbotron section-1 text-center">
     <div class="container">
-      <h5 class="mb-5 mt-5 text-center">You might like</h5>
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="card m-2 m-auto">
-            <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top figure-img img-fluid rounded" />
-            <div class="card-body ">
-              <div class="card-text">Sol and Luna Necklace</div>
-              <div class="card-title">Php 250</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="card m-2 m-auto">
-            <img src="https://i.imgur.com/gEdYbSe.jpg" class="card-img-top figure-img img-fluid rounded" />
-            <div class="card-body ">
-              <div class="card-text">Sol and Luna Necklace</div>
-              <div class="card-title">Php 250</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="card m-2 m-auto">
-            <img src="https://i.imgur.com/0S1pVTu.png" class="card-img-top figure-img img-fluid rounded" />
-            <div class="card-body ">
-              <div class="card-text">Sol and Luna Necklace</div>
-              <div class="card-title">Php 250</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="card m-2 m-auto">
-            <img src="https://i.imgur.com/jeBLPq1.jpg" class="card-img-top figure-img img-fluid rounded" />
-            <div class="card-body ">
-              <div class="card-text">Sol and Luna Necklace</div>
-              <div class="card-title">Php 250</div>
-            </div>
+      <div class="display-5">
+        Wear something unique.<br />Chic doesn't have to be expensive.
+      </div>
+    </div>
+  </section>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <p>
+        Made with delicate handwork, specially delivered to you. Anticipate the
+        upcoming sets and accessories soon, only here in Juliet.
+      </p>
+      <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
+    </div>
+  </section>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <img
+        src="https://i.imgur.com/IcZOQ6L.jpg"
+        width="350px"
+        class="img-fluid"
+      />
+      <h6 class="text-uppercase text-center mt-3 mb-3">Shop Necklaces</h6>
+      <img
+        src="https://i.imgur.com/Sf1cid0.jpg"
+        width="350px"
+        class="img-fluid"
+      />
+      <h6 class="text-uppercase text-center mt-3 mb-3">Shop Earrings</h6>
+      <img
+        src="https://i.imgur.com/aDlziCg.jpg"
+        width="350px"
+        class="img-fluid"
+      />
+      <h6 class="text-uppercase text-center mt-3 mb-3">
+        Shop Bracelets and Anklets
+      </h6>
+    </div>
+  </section>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <div class="card">
+        <img
+          src="https://i.imgur.com/jeBLPq1.jpg"
+          class="card-img-top img-fluid"
+        />
+        <div class="card-body bg">
+          <div class="card-text p-3">
+            <div class="subtitle mb-1">Pressed Flower Collection</div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            consectetur a felis eget commodo. Nullam eu consequat dolor. Aenean
+            suscipit.
           </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </section>
+</div>

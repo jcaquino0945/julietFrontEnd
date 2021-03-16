@@ -68,15 +68,6 @@ export class AdminProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe(
-      (orders$) =>
-        (this.orderTimes = _.concat(...orders$.map((order) => order.products))
-          .filter((product) => product.name === this.product.name)
-          .map((product) => product.quantity)
-          .reduce((accumulator, current) => accumulator + current, 0)),
-      (errMess) => (this.errMess = <any>errMess)
-    );
-
     this.productService
       .getProductIds()
       .subscribe((productIds) => (this.productIds = productIds));
