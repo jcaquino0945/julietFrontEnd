@@ -31,3 +31,10 @@ a:hover {
   margin: 2px 0;
   padding: 0;
 }
+
+@media (max-width: 768px) {
+  footer {
+    display: none !important;
+  }
+}
+

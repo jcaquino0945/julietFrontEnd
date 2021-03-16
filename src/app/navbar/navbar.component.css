@@ -32,6 +32,7 @@ ul {
 .btn {
   border-radius: 5px;
   color: #6e815d;
+  border: transparent;
 }
 
 .btn:active {
@@ -48,8 +49,27 @@ ul {
   background-color: transparent;
 }
 
-@media (max-width: 767px) {
-  li {
-    margin-bottom: 2vh;
+.btn-2 {
+  border-radius: 5px;
+  color: #6e815d;
+  background-color: transparent;
+  border: transparent;
+}
+
+.btn-2:active, .btn-2:checked {
+  background: transparent;
+  border-color: transparent;
+  border: transparent;
+} 
+
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: #ffffff;
+    }
+  
+  .navbar a {
+    color: #c1ae8d;
   }
+
 }
