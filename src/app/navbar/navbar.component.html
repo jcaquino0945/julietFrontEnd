@@ -28,5 +28,51 @@
 </div>
 
 <div *ngIf="isMobile">
-  <!-- start coding here for mobile view -->
+  <nav class="navbar navbar-expand-lg shadow-lg">
+    <div class="container-fluid">
+      <button class="navbar-toggler btn btn-outline-primary" type="button" data-bs-toggle="collapse"
+        data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+      <div class="ml-auto align-self-center text-right">
+        <button class="d-lg-none btn-2 mr-4" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
+        <button class="d-lg-none btn-2 mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+          </svg>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/shop" routerLinkActive="active">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/discover" routerLinkActive="active">Discover</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
