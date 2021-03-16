@@ -46,7 +46,7 @@ export class OrderService {
       body: JSON.stringify(product),
     };
 
-    fetch(apiUrl, requestOptions)
+     fetch(apiUrl, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));

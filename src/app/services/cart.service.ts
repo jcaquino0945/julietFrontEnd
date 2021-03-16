@@ -37,12 +37,7 @@ export class CartService {
     for(let data of this.items){
       total += data.totalPrice
     }
-    if (total < 1500) {
-      return total + 150; //if total price is less than 1500, may plus 150 shipping fee
-    }
-    else if (total >= 1500) {
-      return total;
-    }
+    return total;
   }
   
 }

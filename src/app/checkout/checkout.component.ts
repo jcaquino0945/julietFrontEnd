@@ -49,6 +49,8 @@ export class CheckoutComponent implements OnInit {
   city = '';
   region = '';
   postalCode='';
+  shippingMethod='';
+  value: number;
 
   constructor(
     public nav: NavbarService,
@@ -81,9 +83,9 @@ export class CheckoutComponent implements OnInit {
       city: [null, Validators.required],
       region: [null, Validators.required],
       postalCode: [null, Validators.required],
+      shippingMethod: [null, Validators.required],
     });
 
-    
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
@@ -91,41 +93,81 @@ export class CheckoutComponent implements OnInit {
       linear: false,
       animation: true,
     });
+    this.value = 90;
+    this.totalPrice = this.itemPrice + this.value;
+    this.shippingMethod = "LBC (Metro Manila)";
+
+
   }
+  
 
   onSubmit() {
-    
+    try {
+      let cartDetail = {
+        firstName: this.orderForm.get('firstName').value,
+        lastName: this.orderForm.get('lastName').value,
+        contactNumber: this.orderForm.get('contactNumber').value,
+        email: this.orderForm.get('email').value,
+        street: this.orderForm.get('street').value,
+        province: this.orderForm.get('province').value,
+        city: this.orderForm.get('city').value,
+        region: this.orderForm.get('region').value,
+        postalCode: this.orderForm.get('postalCode').value,
+        datePurchased: Date.now(),
+        totalPrice: this.totalPrice,
+        product: this.items,
+        shippingMethod: this.shippingMethod
+      }
+  
+      let emailDetail = {
+        to: this.orderForm.get('email').value,
+        subject: `Order for ${this.orderForm.get('firstName').value}`,  
+        html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+        <p>Your total purchase is worth Php ${this.totalPrice} </p>
+        <p>We will reply back to you when we have already processed your order!</p>
+        `
+      }
+      console.log(cartDetail)
+      
+        this.orderService.addOrder(cartDetail)
+        this.orderService.sendReceipt(emailDetail);
+    } catch (error) {
+      window.alert("error")
+    }
     //let productArray = [];
     //productArray.push(this.items);
     //console.log("Orders: " + Object.values(this.items));
     //console.log("Total Price is Php " + this.totalPrice);
     //console.log("product array:" + productArray);
-    let cartDetail = {
-      firstName: this.orderForm.get('firstName').value,
-      lastName: this.orderForm.get('lastName').value,
-      contactNumber: this.orderForm.get('contactNumber').value,
-      email: this.orderForm.get('email').value,
-      street: this.orderForm.get('street').value,
-      province: this.orderForm.get('province').value,
-      city: this.orderForm.get('city').value,
-      region: this.orderForm.get('region').value,
-      postalCode: this.orderForm.get('postalCode').value,
-      datePurchased: Date.now(),
-      totalPrice: this.totalPrice,
-      product: this.items,
-    }
-
-    let emailDetail = {
-      to: this.orderForm.get('email').value,
-      subject: `Order for ${this.orderForm.get('firstName').value}`,  
-      html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
-      <p>Your total purchase is worth Php ${this.totalPrice} </p>
-      <p>We will reply back to you when we have already processed your order!</p>
-      `
-    }
-    console.log(cartDetail)
     
-    this.orderService.addOrder(cartDetail);
-    this.orderService.sendReceipt(emailDetail);
+    
+   
+  }
+     handleClick(value) {
+      this.totalPrice = this.itemPrice + value;
+      if (value == 90) {
+        this.value = value;
+        this.shippingMethod = "LBC (Metro Manila)";
+      }
+      if (value == 165) {
+        this.value = value;
+        this.shippingMethod = "LBC (Luzon)";
+      }
+      if (value == 185) {
+        this.value = value;
+        this.shippingMethod = "LBC (Visayas)";
+      }
+      if (value == 205) {
+        this.value = value;
+        this.shippingMethod = "LBC (Mindanao)";
+      }
+      if (value == 0) {
+        this.value = value;
+        this.shippingMethod = "Same Day Delivery (COD)";
+      }
   }
 }
+function value(value: any) {
+  throw new Error('Function not implemented.');
+}
+

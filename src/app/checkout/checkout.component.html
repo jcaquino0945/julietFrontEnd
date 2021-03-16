@@ -210,22 +210,25 @@
                 </div>
                 <div class="form-row">
                   <div class="col">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        id="standard"
-                        checked
-                      />
-                      <label class="form-check-label" for="standard"
-                        >Standard Shipping (P150)</label
-                      >
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio1" checked name="customRadio" value="1" class="custom-control-input" (change)="handleClick(90)">
+                      <label class="custom-control-label" for="customRadio1">LBC (Metro Manila)</label>
                     </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" id="free" />
-                      <label class="form-check-label" for="free"
-                        >Free Shipping</label
-                      >
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" (change)="handleClick(165)">
+                      <label class="custom-control-label" for="customRadio2">LBC (Luzon)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" (change)="handleClick(185)">
+                      <label class="custom-control-label" for="customRadio3">LBC (Visayas)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" (change)="handleClick(205)">
+                      <label class="custom-control-label" for="customRadio4">LBC (Mindanao)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input" (change)="handleClick(0)">
+                      <label class="custom-control-label" for="customRadio5">Same Day Delivery (COD)</label>
                     </div>
                   </div>
                 </div>
@@ -352,9 +355,13 @@
         <div>Subtotal</div>
         <div>Php {{itemPrice}}</div>
       </div>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between" *ngIf="value">
         <div>Shipping Fee</div>
-        <div class="text-muted">Calculated at next step</div>
+        <div class="text-muted">Php {{value}}</div>
+      </div>
+      <div class="d-flex justify-content-between" *ngIf="value == 0">
+        <div>Shipping Fee</div>
+        <div class="text-muted">To be updated</div>
       </div>
       <hr />
       <div class="d-flex justify-content-between" *ngIf="totalPrice">
