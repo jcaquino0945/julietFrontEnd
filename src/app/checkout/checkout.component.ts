@@ -15,6 +15,7 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ResponsiveService } from '../services/responsive.service';
+import { Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -53,8 +54,8 @@ export class CheckoutComponent implements OnInit {
   postalCode='';
   shippingMethod='';
   value: number;
-  submitted;
-
+  paymentMethod = '';
+  status='';
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
@@ -62,7 +63,9 @@ export class CheckoutComponent implements OnInit {
     private cartService: CartService,
     private orderService: OrderService,
     private formBuilder: FormBuilder,
-    private responsive: ResponsiveService
+    private responsive: ResponsiveService,
+    private router: Router
+
   ) {}
 
   title = 'stepper';
@@ -77,6 +80,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.items.length == 0) {
+      this.router.navigate(['home'])
+    }  
     this.orderForm = this.formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
@@ -100,13 +106,12 @@ export class CheckoutComponent implements OnInit {
     this.value = 90;
     this.totalPrice = this.itemPrice + this.value;
     this.shippingMethod = "LBC (Metro Manila)";
-
-
+    this.paymentMethod = 'Bank Transfer (BDO,BPI,etc)';
+    this.status = 'Awaiting Payment'
   }
   
 
   onSubmit() {
-    this.submitted = true;
     /*
     if (this.orderForm.invalid) {
       document.getElementsByClassName('')
@@ -125,7 +130,9 @@ export class CheckoutComponent implements OnInit {
         datePurchased: Date.now(),
         totalPrice: this.totalPrice,
         product: this.items,
-        shippingMethod: this.shippingMethod
+        shippingMethod: this.shippingMethod,
+        paymentMethod: this.paymentMethod,
+        status: this.status
       }
   
       let emailDetail = {
@@ -151,6 +158,18 @@ export class CheckoutComponent implements OnInit {
     
     
    
+  }
+  changePayment(payment) {
+    console.log(payment)
+    if (payment == 'bankTransfer') {
+      this.paymentMethod = 'Bank Transfer (BDO,BPI,etc)';
+    }
+    if (payment == 'gCash') {
+      this.paymentMethod = 'G-Cash';
+    }
+    if (payment == 'cod') {
+      this.paymentMethod = 'Cash On Delivery';
+    }
   }
      handleClick(value) {
       this.totalPrice = this.itemPrice + value;

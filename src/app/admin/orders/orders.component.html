@@ -16,7 +16,9 @@
           </div>
           {{ order.email }} <br />
           Php {{ order.totalPrice }} <br>
-          Shipping Method {{ order.shippingMethod }} <br>
+          Shipping Method: {{ order.shippingMethod }} <br>
+          Payment Method: {{ order.paymentMethod }} <br>
+          Status: {{ order.status }} <br>
         </div>
         <div class="align-self-start">
           <select class="form-select">

@@ -232,64 +232,17 @@
                 </div>
                 <div class="form-row">
                   <div class="col">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        id="card"
-                        checked
-                      />
-                      <label class="form-check-label" for="card"
-                        >Credit or Debit Card</label
-                      >
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="paymentRadio1" checked name="paymentMethod" value="1" class="custom-control-input" (change)="changePayment('bankTransfer')">
+                      <label class="custom-control-label" for="paymentRadio1">Bank Transfer (BDO,BPI,etc)</label>
                     </div>
-                    <div class="form-row">
-                      <div class="col">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Card Holder Name"
-                        />
-                      </div>
-                      <div class="col">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="Card Number"
-                        />
-                      </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="paymentRadio2"  name="paymentMethod" value="1" class="custom-control-input" (change)="changePayment('gCash')">
+                      <label class="custom-control-label" for="paymentRadio2">G-Cash</label>
                     </div>
-                    <div class="form-row">
-                      <div class="col">
-                        <input
-                          type="text"
-                          class="form-control"
-                          placeholder="CVC"
-                        />
-                      </div>
-                      <div class="col">
-                        <input
-                          type="date"
-                          class="form-control"
-                          placeholder="CVC"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        id="paypal"
-                      />
-                      <label class="form-check-label" for="paypal"
-                        >Paypal</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" id="cod" />
-                      <label class="form-check-label" for="cod"
-                        >Cash on Delivery</label
-                      >
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="paymentRadio3"  name="paymentMethod" value="1" class="custom-control-input" (change)="changePayment('cod')">
+                      <label class="custom-control-label" for="paymentRadio3">Cash On Delivery</label>
                     </div>
                   </div>
                 </div>
