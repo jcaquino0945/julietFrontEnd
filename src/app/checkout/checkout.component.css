@@ -50,6 +50,7 @@ input:focus {
   text-transform: uppercase;
   color: #fff;
   width: 100%;
+  
 }
 
 .btn-proceed:hover, .btn-back {

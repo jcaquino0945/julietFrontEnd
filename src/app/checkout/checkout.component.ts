@@ -56,6 +56,7 @@ export class CheckoutComponent implements OnInit {
   value: number;
   paymentMethod = '';
   status='';
+
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
@@ -134,7 +135,98 @@ export class CheckoutComponent implements OnInit {
         paymentMethod: this.paymentMethod,
         status: this.status
       }
-  
+      if (this.paymentMethod == 'Bank Transfer (BDO,BPI,etc)') {
+        let emailDetail = {
+          to: this.orderForm.get('email').value,
+          subject: `Order for ${this.orderForm.get('firstName').value}`,  
+          /*
+          html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+          <p>Your total purchase is worth Php ${this.totalPrice} </p>
+          <p>We will reply back to you when we have already processed your order!</p>
+          `,*/
+          html: `
+          <h2 style="color:#6e815d">Order Confirmation</h2>
+          <br>
+          <h4>Hello <span style="color:#6e815d">${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</span></h4>
+          <br>
+          <p>Thank you for ordering with Juliet Manila! We have received your order and will process it shortly.</p>
+          <br>
+          <p>Payment Method: <span style="color:#6e815d">${this.paymentMethod}</span></p>
+          <p>Order Status: <span style="color:orange">${this.status}</span></p>
+          <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
+          <hr style="color:#6e815d">
+          <br>
+          <h2>Bank Transfer</h2>
+          <p>1.) Please send your payment via bank transfer using the following details</p>
+          <p style="font-size:.8vw">a. Bank: <span style="font-weight: bold; text-decoration: underline;">BPI Family Savings Bank</span></p>
+          <p style="font-size:.8vw">b. Account Name: <span style="font-weight: bold; text-decoration: underline;">Antonith Joy P. Telesforo</span></p>
+          <p style="font-size:.8vw">c. Account Number: <span style="font-weight: bold; text-decoration: underline;">0429744199</span></p>
+          `
+        }
+        this.orderService.addOrder(cartDetail);
+        this.orderService.sendReceipt(emailDetail);
+        window.alert("Succesful order!");
+      }
+      if (this.paymentMethod == 'G-Cash') {
+        let emailDetail = {
+          to: this.orderForm.get('email').value,
+          subject: `Order for ${this.orderForm.get('firstName').value}`,  
+          /*
+          html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+          <p>Your total purchase is worth Php ${this.totalPrice} </p>
+          <p>We will reply back to you when we have already processed your order!</p>
+          `,*/
+          html: `
+            <h2 style="color:#6e815d">Order Confirmation</h2>
+            <br>
+            <h4>Hello <span style="color:#6e815d">${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</span></h4>
+            <br>
+            <p>Thank you for ordering with Juliet Manila! We have received your order and will process it shortly.</p>
+            <br>
+            <p>Payment Method: <span style="color:#6e815d">${this.paymentMethod}</span></p>
+            <p>Order Status: <span style="color:orange">${this.status}</span></p>
+            <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
+            <hr style="color:#6e815d">
+            <br>
+            <h2>G-Cash</h2>
+            <p>1.) Please send your payment via bank transfer using the following details</p>
+            <p style="font-size:.8vw">a. G-Cash Number: <span style="font-weight: bold; text-decoration: underline;">09326584281</span></p>
+            <p style="font-size:.8vw">b. Message: <span style="font-weight: bold; text-decoration: underline;">From: (Your Name)</span></p>
+          `
+        }
+        this.orderService.addOrder(cartDetail);
+        this.orderService.sendReceipt(emailDetail);
+        window.alert("Succesful order!");
+      }
+      if (this.paymentMethod == 'Cash On Delivery') {
+        let emailDetail = {
+          to: this.orderForm.get('email').value,
+          subject: `Order for ${this.orderForm.get('firstName').value}`,  
+          /*
+          html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+          <p>Your total purchase is worth Php ${this.totalPrice} </p>
+          <p>We will reply back to you when we have already processed your order!</p>
+          `,*/
+          html: `
+          <h2 style="color:#6e815d">Order Confirmation</h2>
+          <br>
+          <h4>Hello <span style="color:#6e815d">${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</span></h4>
+          <br>
+          <p>Thank you for ordering with Juliet Manila! We have received your order and will process it shortly.</p>
+          <br>
+          <p>Payment Method: <span style="color:#6e815d">${this.paymentMethod}</span></p>
+          <p>Order Status: <span style="color:orange">${this.status}</span></p>
+          <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
+          <hr style="color:#6e815d">
+          <br>
+          <h2>Cash On Delivery</h2>
+          `
+        }
+        this.orderService.addOrder(cartDetail);
+        this.orderService.sendReceipt(emailDetail);
+        window.alert("Succesful order!");
+      }
+      /*
       let emailDetail = {
         to: this.orderForm.get('email').value,
         subject: `Order for ${this.orderForm.get('firstName').value}`,  
@@ -143,10 +235,10 @@ export class CheckoutComponent implements OnInit {
         <p>We will reply back to you when we have already processed your order!</p>
         `
       }
-      console.log(cartDetail)
+      */
+     
       
-        this.orderService.addOrder(cartDetail)
-        this.orderService.sendReceipt(emailDetail);
+        
     } catch (error) {
       window.alert("error")
     }
