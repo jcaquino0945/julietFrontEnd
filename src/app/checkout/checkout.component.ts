@@ -53,6 +53,7 @@ export class CheckoutComponent implements OnInit {
   postalCode='';
   shippingMethod='';
   value: number;
+  submitted;
 
   constructor(
     public nav: NavbarService,
@@ -86,7 +87,7 @@ export class CheckoutComponent implements OnInit {
       city: [null, Validators.required],
       region: [null, Validators.required],
       postalCode: [null, Validators.required],
-      shippingMethod: [null, Validators.required],
+      //shippingMethod: [null, Validators.required],
     });
 
     this.nav.show();
@@ -105,6 +106,11 @@ export class CheckoutComponent implements OnInit {
   
 
   onSubmit() {
+    this.submitted = true;
+    /*
+    if (this.orderForm.invalid) {
+      document.getElementsByClassName('')
+    }*/
     try {
       let cartDetail = {
         firstName: this.orderForm.get('firstName').value,

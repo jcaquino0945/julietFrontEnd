@@ -58,3 +58,9 @@ input:focus {
   text-transform: uppercase;
   color: #6e815d;
 }
+
+.forgotMsg {
+  font-size: .9vw;
+  color: #6e815d;
+  margin-left: 3vw;
+}

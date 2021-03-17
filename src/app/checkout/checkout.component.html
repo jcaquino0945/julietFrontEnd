@@ -43,10 +43,7 @@
                       placeholder="First Name" formControlName="firstName"
                     />
                     <span
-                  *ngIf="
-                    !orderForm.get('firstName').valid &&
-                    orderForm.get('firstName').touched
-                  "
+                    *ngIf="orderForm.controls.firstName.errors?.required" class="errorMsg"
                   >Please enter first name</span
                 >
                   </div>
@@ -58,10 +55,7 @@
                       formControlName="lastName"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('lastName').valid &&
-                      orderForm.get('lastName').touched
-                    "
+                    *ngIf="orderForm.controls.lastName.errors?.required" class="errorMsg"
                     >Please enter last name</span
                   >
                   </div>
@@ -75,10 +69,7 @@
                       formControlName="contactNumber"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('contactNumber').valid &&
-                      orderForm.get('contactNumber').touched
-                    "
+                    *ngIf="orderForm.controls.contactNumber.errors?.required" class="errorMsg"
                     >Please enter contactNumber</span
                   >
                   </div>
@@ -91,10 +82,7 @@
                       placeholder="Email Address" formControlName="email"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('email').valid &&
-                      orderForm.get('email').touched
-                    "
+                    *ngIf="orderForm.controls.email.errors?.required" class="errorMsg"
                     >Please enter email</span
                   >
                   </div>
@@ -114,10 +102,7 @@
                       placeholder="House no. / Street" formControlName="street"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('street').valid &&
-                      orderForm.get('street').touched
-                    "
+                    *ngIf="orderForm.controls.street.errors?.required" class="errorMsg"
                     >Please enter first street</span
                   >
                   </div>
@@ -131,10 +116,7 @@
                       formControlName="province"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('province').valid &&
-                      orderForm.get('province').touched
-                    "
+                    *ngIf="orderForm.controls.province.errors?.required" class="errorMsg"
                     >Please enter province</span
                   >
                   </div>
@@ -146,10 +128,7 @@
                       formControlName="city"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('city').valid &&
-                      orderForm.get('city').touched
-                    "
+                    *ngIf="orderForm.controls.city.errors?.required" class="errorMsg"
                     >Please enter city</span
                   >
                   </div>
@@ -163,12 +142,10 @@
                       formControlName="region"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('region').valid &&
-                      orderForm.get('region').touched
-                    "
+                    *ngIf="orderForm.controls.region.errors?.required" class="errorMsg"
                     >Please enter region</span
                   >
+                  
                   </div>
                   <div class="col">
                     <input
@@ -178,12 +155,11 @@
                       formControlName="postalCode"
                     />
                     <span
-                    *ngIf="
-                      !orderForm.get('postalCode').valid &&
-                      orderForm.get('postalCode').touched
-                    "
+                    *ngIf="orderForm.controls.postalCode.errors?.required" class="errorMsg"
                     >Please enter region</span
                   >
+                  
+                 
                   </div>
                 </div>
                 <div class="form-row mt-4">
@@ -193,7 +169,7 @@
                     </button>
                   </div>
                   <div class="col">
-                    <button (click)="next()" class="btn-proceed">
+                    <button (click)="next()" class="btn-proceed" [disabled]="orderForm.invalid">
                       Proceed to Shipping
                     </button>
                   </div>

@@ -76,3 +76,8 @@ input:focus {
 .details {
   font-size: 12px;
 }
+
+.errorMsg {
+  font-size: .8vw;
+  color: rgb(223, 4, 4);
+}
