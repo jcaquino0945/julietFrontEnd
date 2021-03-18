@@ -56,6 +56,7 @@ export class CheckoutComponent implements OnInit {
   value: number;
   paymentMethod = '';
   status='';
+  _id='';
 
   constructor(
     public nav: NavbarService,
@@ -81,6 +82,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._id = this.makeid(15);
     if (this.items.length == 0) {
       this.router.navigate(['home'])
     }  
@@ -113,12 +115,14 @@ export class CheckoutComponent implements OnInit {
   
 
   onSubmit() {
+    let dateNow = new Date();
     /*
     if (this.orderForm.invalid) {
       document.getElementsByClassName('')
     }*/
     try {
       let cartDetail = {
+        _id: this._id,
         firstName: this.orderForm.get('firstName').value,
         lastName: this.orderForm.get('lastName').value,
         contactNumber: this.orderForm.get('contactNumber').value,
@@ -128,7 +132,7 @@ export class CheckoutComponent implements OnInit {
         city: this.orderForm.get('city').value,
         region: this.orderForm.get('region').value,
         postalCode: this.orderForm.get('postalCode').value,
-        datePurchased: Date.now(),
+        datePurchased: dateNow,
         totalPrice: this.totalPrice,
         product: this.items,
         shippingMethod: this.shippingMethod,
@@ -145,22 +149,24 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-          <h2 style="color:#6e815d">Order Confirmation</h2>
+          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:100%; height:auto;">
+          <h1 style="text-align: center;">Order Confirmation</h1>
           <br>
-          <h4>Hello <span style="color:#6e815d">${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</span></h4>
+          <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
+          <p style="color:black">We have received your order <span style="font-weight:bold">#${this._id}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
           <br>
-          <p>Thank you for ordering with Juliet Manila! We have received your order and will process it shortly.</p>
-          <br>
-          <p>Payment Method: <span style="color:#6e815d">${this.paymentMethod}</span></p>
-          <p>Order Status: <span style="color:orange">${this.status}</span></p>
+          <p>Order Status: <span style="color:orange">${this.status}</p>
           <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
           <hr style="color:#6e815d">
           <br>
-          <h2>Bank Transfer</h2>
+          <h1 style="text-align: center;">Payment Instructions (${this.paymentMethod})</h1>
           <p>1.) Please send your payment via bank transfer using the following details</p>
-          <p style="font-size:.8vw">a. Bank: <span style="font-weight: bold; text-decoration: underline;">BPI Family Savings Bank</span></p>
-          <p style="font-size:.8vw">b. Account Name: <span style="font-weight: bold; text-decoration: underline;">Antonith Joy P. Telesforo</span></p>
-          <p style="font-size:.8vw">c. Account Number: <span style="font-weight: bold; text-decoration: underline;">0429744199</span></p>
+          <p style="font-size:1vw">a. Bank: <span style="font-weight: bold; text-decoration: underline;">BPI Family Savings Bank</span></p>
+          <p style="font-size:1vw">b. Account Name: <span style="font-weight: bold; text-decoration: underline;">Antonith Joy P. Telesforo</span></p>
+          <p style="font-size:1vw">c. Account Number: <span style="font-weight: bold; text-decoration: underline;">0429744199</span></p>
+          <br>
+          <p>If you have any questions, feel free to reply to this email.</p>
+          </div> 
           `
         }
         this.orderService.addOrder(cartDetail);
@@ -177,28 +183,30 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-            <h2 style="color:#6e815d">Order Confirmation</h2>
-            <br>
-            <h4>Hello <span style="color:#6e815d">${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</span></h4>
-            <br>
-            <p>Thank you for ordering with Juliet Manila! We have received your order and will process it shortly.</p>
-            <br>
-            <p>Payment Method: <span style="color:#6e815d">${this.paymentMethod}</span></p>
-            <p>Order Status: <span style="color:orange">${this.status}</span></p>
-            <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
-            <hr style="color:#6e815d">
-            <br>
-            <h2>G-Cash</h2>
-            <p>1.) Please send your payment via bank transfer using the following details</p>
-            <p style="font-size:.8vw">a. G-Cash Number: <span style="font-weight: bold; text-decoration: underline;">09326584281</span></p>
-            <p style="font-size:.8vw">b. Message: <span style="font-weight: bold; text-decoration: underline;">From: (Your Name)</span></p>
+          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:100%; height:auto;">
+          <h1 style="text-align: center;">Order Confirmation</h1>
+          <br>
+          <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
+          <p style="color:black">We have received your order <span style="font-weight:bold">#${this._id}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
+          <br>
+          <p>Order Status: <span style="color:orange">${this.status}</p>
+          <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
+          <hr style="color:#6e815d">
+          <br>
+          <h1 style="text-align: center;">Payment Instructions (${this.paymentMethod})</h1>
+          <p>1.) Please send your payment via bank transfer using the following details</p>
+          <p style="font-size:1vw">a. G-Cash Number: <span style="font-weight: bold; text-decoration: underline;">09326584281</span></p>
+          <p style="font-size:1vw">b. Message: <span style="font-weight: bold; text-decoration: underline;">(Input your order number)</span></p>
+          <br>
+          <p>If you have any questions, feel free to reply to this email.</p>
+          </div> 
           `
         }
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
       }
-      if (this.paymentMethod == 'Cash On Delivery') {
+      if (this.shippingMethod == 'Same Day Delivery (COD)') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
           subject: `Order for ${this.orderForm.get('firstName').value}`,  
@@ -251,6 +259,18 @@ export class CheckoutComponent implements OnInit {
     
    
   }
+   makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+    
+ }
+ 
+ 
   changePayment(payment) {
     console.log(payment)
     if (payment == 'bankTransfer') {
@@ -287,7 +307,5 @@ export class CheckoutComponent implements OnInit {
       }
   }
 }
-function value(value: any) {
-  throw new Error('Function not implemented.');
-}
+
 
