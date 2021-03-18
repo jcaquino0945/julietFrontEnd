@@ -56,7 +56,7 @@ export class CheckoutComponent implements OnInit {
   value: number;
   paymentMethod = '';
   status='';
-  _id='';
+  orderId='';
 
   constructor(
     public nav: NavbarService,
@@ -82,7 +82,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._id = this.makeid(15);
+    this.orderId = this.makeid(15);
     if (this.items.length == 0) {
       this.router.navigate(['home'])
     }  
@@ -122,7 +122,7 @@ export class CheckoutComponent implements OnInit {
     }*/
     try {
       let cartDetail = {
-        _id: this._id,
+        orderId: this.orderId,
         firstName: this.orderForm.get('firstName').value,
         lastName: this.orderForm.get('lastName').value,
         contactNumber: this.orderForm.get('contactNumber').value,
@@ -153,7 +153,7 @@ export class CheckoutComponent implements OnInit {
           <h1 style="text-align: center;">Order Confirmation</h1>
           <br>
           <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
-          <p style="color:black">We have received your order <span style="font-weight:bold">#${this._id}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
+          <p style="color:black">We have received your order <span style="font-weight:bold">#${this.orderId}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
           <br>
           <p>Order Status: <span style="color:orange">${this.status}</p>
           <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
@@ -187,7 +187,7 @@ export class CheckoutComponent implements OnInit {
           <h1 style="text-align: center;">Order Confirmation</h1>
           <br>
           <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
-          <p style="color:black">We have received your order <span style="font-weight:bold">#${this._id}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
+          <p style="color:black">We have received your order <span style="font-weight:bold">#${this.orderId}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
           <br>
           <p>Order Status: <span style="color:orange">${this.status}</p>
           <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
