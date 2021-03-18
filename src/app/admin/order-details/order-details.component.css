@@ -1,0 +1,59 @@
+.card,
+input,
+button,
+select,
+textarea,
+.input-group-text {
+  border-radius: 0;
+}
+
+.img-thumbnail {
+  border-radius: 0;
+  margin-right: 5px;
+}
+
+.subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+.form-row {
+  margin: 10px 0px;
+  padding: 0;
+}
+
+.btn-juliet,
+.btn-edit:hover,
+.btn-clear:hover {
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.75px;
+}
+
+.btn-juliet:hover,
+.btn-edit,
+.btn-clear {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #6e815d;
+  letter-spacing: 0.75px;
+}
+
+.btn-edit,
+.btn-delete {
+  width: 100%;
+}

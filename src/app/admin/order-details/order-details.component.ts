@@ -42,7 +42,7 @@ export class OrderDetailsComponent implements OnInit {
   order: Orders;
   galleryForm: FormGroup;
   errMess: string;
-
+  status: string;
   constructor(
     private orderService: OrderService,
     private route: ActivatedRoute,
@@ -70,5 +70,8 @@ export class OrderDetailsComponent implements OnInit {
       );
     (errmess) => (this.errMess = <any>errmess);
   }
+  updateStatus(val) {
+    console.log(this.status);
 
+  }
 }

@@ -22,12 +22,9 @@
           Status: {{ order.status }} <br>
         </div>
         <div class="align-self-start">
-          <select class="form-select">
-            <option selected value="" disabled>Update Status</option>
-            <option>Awaiting Payment</option>
-            <option>For Delivery</option>            
-            <option>Transaction Complete</option>
-          </select>
+          <p *ngIf="order.status == 'Awaiting Payment'" style="color: orange;">{{ order.status }}</p>
+          <p *ngIf="order.status == 'For Delivery'" style="color: rgb(3, 175, 3);">{{ order.status }}</p>
+          <p *ngIf="order.status == 'Transaction Complete'" style="color: rgb(1, 122, 1);">{{ order.status }}</p>
         </div>
       </div>
     </div>

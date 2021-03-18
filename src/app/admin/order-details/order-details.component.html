@@ -1,3 +1,4 @@
+<!--
 <div *ngIf="order">
 <p>{{order.firstName}} {{order.lastName}}</p>
 <p>Php {{order.totalPrice}}</p>
@@ -7,3 +8,91 @@
     <li *ngFor="let orders of order.product">{{orders.name}} {{orders.quantity}}</li>
 </ul>
 </div>
+-->
+<div class="d-flex flex-row flex-wrap justify-content-between">
+    <div class="col p-0" *ngIf="order">
+      <div class="card p-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+            Order
+          </div>
+        <div class="card-body" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; height: auto; width: 100%; text-align: center;">
+            <div style="display: inline-block; margin-right: 1vw; width: 33%;" *ngFor="let orders of order.product">
+            <img src={{orders.imageUrl}} style="height: 8vw; width:8vw;">
+            <p class="subtitle">{{orders.name}}</p>
+            <p class="subtitle">Amount: {{orders.totalPrice}}</p>
+            <p class="subtitle">Quantity: {{orders.quantity}}</p>
+            </div>
+        </div>
+      </div>
+      <div class="card p-5 mt-2">
+        <div class="card-text my-4">
+            <div class="card-title border-bottom pb-2 mb-2">
+              {{ order.orderId }}
+            </div>
+            <div class="subtitle">Order ID</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.firstName }} {{ order.lastName }}
+          </div>
+          <div class="subtitle">Customer Name</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.email }}
+          </div>
+          <div class="subtitle">Customer Email</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.contactNumber }}
+          </div>
+          <div class="subtitle">Customer Number</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.datePurchased | date }}
+          </div>
+          <div class="subtitle">Date of Purchase</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 p-0 ml-2" *ngIf="order">
+      <div class="card p-5">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            <span style="color: rgb(1, 122, 1);">Php {{ order.totalPrice }}</span> 
+          </div>
+          <div class="subtitle">Total Amount</div>
+        </div>
+        <div class="card-text my-4" >
+          <div class="card-title border-bottom pb-2 mb-2">
+             {{ order.shippingMethod }}
+          </div>
+          <div class="subtitle">Shipping Method</div>
+        </div>
+        <div class="card-text my-4" >
+            <div class="card-title border-bottom pb-2 mb-2">
+               {{ order.paymentMethod }}
+            </div>
+            <div class="subtitle">Payment Method</div>
+          </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            <p *ngIf="order.status == 'Awaiting Payment'" style="color: orange;">{{ order.status }}</p>
+            <p *ngIf="order.status == 'For Delivery'" style="color: rgb(3, 175, 3);">{{ order.status }}</p>
+            <p *ngIf="order.status == 'Transaction Complete'" style="color: rgb(1, 122, 1);">{{ order.status }}</p>
+          </div>
+          <div class="subtitle">Order Status</div>
+        </div>
+        <select class="form-select" [(ngModel)]="status" (change)="updateStatus(status.value)">
+            <option selected value="" disabled>Update Status</option>
+            <option value="Awaiting Payment">Awaiting Payment</option>
+            <option value="For Delivery">For Delivery</option>            
+            <option value="Transaction Complete">Transaction Complete</option>
+          </select>
+      </div>
+    </div>
+  </div>
+  
+  
