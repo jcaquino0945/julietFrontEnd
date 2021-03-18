@@ -176,7 +176,7 @@ export class CheckoutComponent implements OnInit {
         this.router.navigate(['home'])
         
       }
-      if (this.paymentMethod == 'G-Cash') {
+      if (this.shippingMethod == 'G-Cash') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
           subject: `Order for ${this.orderForm.get('firstName').value}`,  

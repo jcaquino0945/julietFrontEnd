@@ -17,6 +17,8 @@ const apiUrl = 'http://localhost:3000/orders';
   providedIn: 'root',
 })
 export class OrderService {
+  searchQuery = '';
+  currentIndex: BehaviorSubject<string>;
   headers = new HttpHeaders({ 
     'Content-Type': 'application/json',
     'Authorization': 'bearer ' + sessionStorage.getItem('token')
@@ -26,6 +28,17 @@ export class OrderService {
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
   ) {}
+  setSearchQuery(val) {
+    this.searchQuery = val
+  }
+  getSearchQuery() {
+    return this.searchQuery
+  }
+  searchProduct(text): Observable<Orders[]> {
+    return this.http
+    .get<Orders[]>(apiUrl + '/search/' + text,{ headers: this.headers })
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 
   getOrders(): Observable<Orders[]> {
     return this.http

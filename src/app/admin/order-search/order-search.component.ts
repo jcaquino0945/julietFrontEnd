@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderService } from '../../services/order.service';
 import { Orders } from '../../models/orders';
+import { size } from '../../models/sizes';
 import { Observable } from 'rxjs';
 import { interval } from 'rxjs';
-import { OrderService } from '../../services/order.service';
+import { FixedSizeVirtualScrollStrategy } from '@angular/cdk/scrolling';
 import {
   FormControl,
   FormGroupDirective,
@@ -13,7 +15,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { FixedSizeVirtualScrollStrategy } from '@angular/cdk/scrolling';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -29,15 +30,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-order-search',
+  templateUrl: './order-search.component.html',
+  styleUrls: ['./order-search.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrderSearchComponent implements OnInit {
   orders$: Orders[];
   errMess: string;
   searchForm: FormGroup;
-
   constructor(
     private router: Router,
     private orderService: OrderService,
@@ -45,17 +45,28 @@ export class OrdersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe((orders$) => (this.orders$ = orders$), (errMess) => (this.errMess = <any>errMess))
+    let searchQuery = this.orderService.getSearchQuery();
+    console.log(searchQuery);
+    this.orderService.searchProduct(searchQuery).subscribe(
+      (orders$) => (this.orders$ = orders$, console.log(this.orders$)),
+     
+      (errmess) => (this.errMess = <any>errmess)
+    );
 
     this.searchForm = this.formBuilder.group({
       searchName: [null, Validators.required],
     })
-
   }
   search() {
     this.orderService.setSearchQuery(this.searchForm.get('searchName').value)
     console.log(this.orderService.getSearchQuery())
-    this.router.navigate(['admin/orders/search'])
+    
+    let searchQuery = this.orderService.getSearchQuery();
+    console.log(searchQuery);
+    this.orderService.searchProduct(searchQuery).subscribe(
+      (orders$) => (this.orders$ = orders$, console.log(this.orders$)),
+     
+      (errmess) => (this.errMess = <any>errmess)
+    );
   }
-
 }

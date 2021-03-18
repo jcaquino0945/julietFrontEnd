@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+    <h3>Orders</h3>
+    <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
+      <input class="form-control mr-2" type="search" placeholder="Search" formControlName="searchName"/>
+      <button class="btn btn-juliet my-2 my-sm-0" type="submit" [disabled]="searchForm.invalid">Search</button>
+    </form>
+  </div>
+  <div *ngIf="orders$">
+    <div class="card my-2" *ngFor="let order of orders$; let i = index" [routerLink]="['/admin/orders/', order._id]">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <div class="card-text">
+            <div class="subtitle">{{ order.datePurchased | date }}</div>
+            <div class="card-title p-0 m-0">
+              {{ order.firstName }} {{ order.lastName }}
+            </div>
+            {{ order.orderId }} <br />
+            {{ order.email }} <br />
+            Php {{ order.totalPrice }} <br>
+            Shipping Method: {{ order.shippingMethod }} <br>
+            Payment Method: {{ order.paymentMethod }} <br>
+            Status: {{ order.status }} <br>
+          </div>
+          <div class="align-self-start">
+            <select class="form-select">
+              <option selected value="" disabled>Update Status</option>
+              <option>Awaiting Payment</option>
+              <option>For Delivery</option>            
+              <option>Transaction Complete</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
