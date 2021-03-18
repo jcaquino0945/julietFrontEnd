@@ -40,6 +40,7 @@ export class AdminProductComponent implements OnInit {
   products$: Product[];
   errMess: string;
   galleryForm: FormGroup;
+  searchForm: FormGroup;
   imageFile: File = null;
   @ViewChild('labelImport')
   labelImport: ElementRef;
@@ -66,6 +67,9 @@ export class AdminProductComponent implements OnInit {
       (products$) => (this.products$ = products$),
       (errmess) => (this.errMess = <any>errmess)
     );
+    this.searchForm = this.formBuilder.group({
+      searchName: [null, Validators.required],
+    })
 
     this.galleryForm = this.formBuilder.group({
       imageFile: [null, Validators.required],
@@ -90,6 +94,11 @@ export class AdminProductComponent implements OnInit {
     this.sizes.push(s);
   }
 
+  search() {
+    this.productService.setSearchQuery(this.searchForm.get('searchName').value)
+    console.log(this.productService.getSearchQuery())
+    this.router.navigate(['admin/adminProduct/search'])
+  }
   onFormSubmit() {
     this.isLoadingResults = true;
     this.productService

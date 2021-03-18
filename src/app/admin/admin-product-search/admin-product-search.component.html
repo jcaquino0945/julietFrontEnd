@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h3>Products</h3>
+  <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
+    <!-- add new product modal button trigger -->
+    <input class="form-control mr-2" type="search" placeholder="Search" formControlName="searchName"/>
+    <button class="btn btn-juliet my-2 my-sm-0" type="submit" [disabled]="searchForm.invalid">Search</button>
+  </form>
+</div>
+
+<div *ngIf="products$">
+    <div class="card my-2" *ngFor="let product of products$; let i = index">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <img src="https://i.imgur.com/gEdYbSe.jpg" width="100px" />
+          <div class="mr-auto ml-3">
+            {{ product.name }} <br />
+            {{ product.price }} <br />
+            In stock
+          </div>
+          <div class="align-self-start">
+            <button
+              class="btn p-0"
+              [routerLink]="['/admin/adminProduct/', product._id]"
+            >
+              <i class="far fa-edit"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div *ngIf="!products$">
+<p>No known products</p>
+</div>
+<div *ngIf="products$?.length == 0">
+  <p>No known products</p>
+  </div>

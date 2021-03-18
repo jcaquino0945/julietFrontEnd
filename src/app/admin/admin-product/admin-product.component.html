@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap">
   <h3>Products</h3>
-  <form class="form-inline">
+  <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
     <!-- add new product modal button trigger -->
     <button
       type="button"
@@ -10,8 +10,8 @@
     >
       Add new
     </button>
-    <input class="form-control mr-2" type="search" placeholder="Search" />
-    <button class="btn btn-juliet my-2 my-sm-0" type="submit">Search</button>
+    <input class="form-control mr-2" type="search" placeholder="Search" formControlName="searchName"/>
+    <button class="btn btn-juliet my-2 my-sm-0" type="submit" [disabled]="searchForm.invalid">Search</button>
   </form>
 </div>
 

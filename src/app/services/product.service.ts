@@ -17,6 +17,7 @@ const apiUrl = 'http://localhost:3000/products';
   providedIn: 'root',
 })
 export class ProductService {
+  searchQuery = '';
   currentIndex: BehaviorSubject<string>;
   headers = new HttpHeaders({ 
     'Content-Type': 'application/json',
@@ -26,7 +27,12 @@ export class ProductService {
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
   ) {}
-
+  setSearchQuery(val) {
+    this.searchQuery = val
+  }
+  getSearchQuery() {
+    return this.searchQuery
+  }
   //get products from db
   getProducts(): Observable<Product[]> {
     return this.http
@@ -36,7 +42,7 @@ export class ProductService {
 
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
-      .get<Product[]>(apiUrl + '/category/' + category)
+      .get<Product[]>(apiUrl + '/category/' + category,)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -45,6 +51,12 @@ export class ProductService {
     return this.http
       .get<Product>(apiUrl + '/' + id)
       .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
+  searchProduct(text): Observable<Product[]> {
+    return this.http
+    .get<Product[]>(apiUrl + '/search/' + text)
+    .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
   //get all product ids

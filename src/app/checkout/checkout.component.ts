@@ -172,6 +172,9 @@ export class CheckoutComponent implements OnInit {
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
+        this.cartService.clearCart()
+        this.router.navigate(['home'])
+        
       }
       if (this.paymentMethod == 'G-Cash') {
         let emailDetail = {
@@ -205,6 +208,8 @@ export class CheckoutComponent implements OnInit {
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
+        this.cartService.clearCart()
+        this.router.navigate(['home'])
       }
       if (this.shippingMethod == 'Same Day Delivery (COD)') {
         let emailDetail = {
@@ -233,6 +238,8 @@ export class CheckoutComponent implements OnInit {
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
+        this.cartService.clearCart()
+        this.router.navigate(['home'])
       }
       /*
       let emailDetail = {
