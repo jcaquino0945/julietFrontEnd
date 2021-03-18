@@ -22,4 +22,9 @@ export class Orders {
   ctiy: string;
   region: string;
   postalCode: string;
+  _id: string;
+  shippingMethod: string;
+  paymentMethod:string;
+  orderId: string;
+  status: string;
 }

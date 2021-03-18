@@ -7,12 +7,14 @@ import { AdminStockComponent } from './admin-stock/admin-stock.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportsComponent } from './reports/reports.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 export const routes: Routes = [
   { path: 'admin', redirectTo: '/admin/dashboard', component: AdminProductComponent },
   { path: 'adminProduct', component: AdminProductComponent },
   { path: 'adminProduct/:id', component: AdminProductDetailComponent },
   { path: 'adminStock', component: AdminStockComponent },
+  { path: 'orders/:id', component: OrderDetailsComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'reports', component: ReportsComponent },

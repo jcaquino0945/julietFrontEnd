@@ -32,6 +32,16 @@ export class OrderService {
       .get<Orders[]>(apiUrl,{ headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+  getOrder(id: string): Observable<Orders> {
+    return this.http
+      .get<Orders>(apiUrl + '/' + id,{ headers: this.headers })
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  getOrderIds(): Observable<number[] | any> {
+    return this.getOrders()
+      .pipe(map((orders) => orders.map((order) => order._id)))
+      .pipe(catchError((error) => error));
+  }
 
   addOrder(product) {
     console.log('from service');

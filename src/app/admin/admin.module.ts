@@ -22,6 +22,7 @@ import { AdminStockComponent } from './admin-stock/admin-stock.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportsComponent } from './reports/reports.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 @NgModule({
   declarations: [
     AdminProductComponent,
@@ -29,7 +30,8 @@ import { ReportsComponent } from './reports/reports.component';
     AdminStockComponent,
     OrdersComponent,
     DashboardComponent,
-    ReportsComponent
+    ReportsComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,

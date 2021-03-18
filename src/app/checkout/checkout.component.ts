@@ -149,7 +149,7 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:100%; height:auto;">
+          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:80%; height:auto;">
           <h1 style="text-align: center;">Order Confirmation</h1>
           <br>
           <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
@@ -161,9 +161,9 @@ export class CheckoutComponent implements OnInit {
           <br>
           <h1 style="text-align: center;">Payment Instructions (${this.paymentMethod})</h1>
           <p>1.) Please send your payment via bank transfer using the following details</p>
-          <p style="font-size:1vw">a. Bank: <span style="font-weight: bold; text-decoration: underline;">BPI Family Savings Bank</span></p>
-          <p style="font-size:1vw">b. Account Name: <span style="font-weight: bold; text-decoration: underline;">Antonith Joy P. Telesforo</span></p>
-          <p style="font-size:1vw">c. Account Number: <span style="font-weight: bold; text-decoration: underline;">0429744199</span></p>
+          <p>a. Bank: <span style="font-weight: bold; text-decoration: underline;">BPI Family Savings Bank</span></p>
+          <p>b. Account Name: <span style="font-weight: bold; text-decoration: underline;">Antonith Joy P. Telesforo</span></p>
+          <p>c. Account Number: <span style="font-weight: bold; text-decoration: underline;">0429744199</span></p>
           <br>
           <p>If you have any questions, feel free to reply to this email.</p>
           </div> 
@@ -183,7 +183,7 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:100%; height:auto;">
+          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:80%; height:auto;">
           <h1 style="text-align: center;">Order Confirmation</h1>
           <br>
           <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
@@ -195,8 +195,8 @@ export class CheckoutComponent implements OnInit {
           <br>
           <h1 style="text-align: center;">Payment Instructions (${this.paymentMethod})</h1>
           <p>1.) Please send your payment via bank transfer using the following details</p>
-          <p style="font-size:1vw">a. G-Cash Number: <span style="font-weight: bold; text-decoration: underline;">09326584281</span></p>
-          <p style="font-size:1vw">b. Message: <span style="font-weight: bold; text-decoration: underline;">(Input your order number)</span></p>
+          <p>a. G-Cash Number: <span style="font-weight: bold; text-decoration: underline;">09326584281</span></p>
+          <p>b. Message: <span style="font-weight: bold; text-decoration: underline;">(Input your order number)</span></p>
           <br>
           <p>If you have any questions, feel free to reply to this email.</p>
           </div> 

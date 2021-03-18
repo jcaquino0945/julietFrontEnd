@@ -1,0 +1,9 @@
+<div *ngIf="order">
+<p>{{order.firstName}} {{order.lastName}}</p>
+<p>Php {{order.totalPrice}}</p>
+<p>Order Id {{order.orderId}}</p>
+
+<ul>
+    <li *ngFor="let orders of order.product">{{orders.name}} {{orders.quantity}}</li>
+</ul>
+</div>
