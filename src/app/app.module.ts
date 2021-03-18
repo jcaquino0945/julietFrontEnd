@@ -18,6 +18,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+import { FacebookModule } from 'ngx-facebook';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -34,6 +35,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FaqsComponent } from './faqs/faqs.component';
 import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -72,6 +76,10 @@ import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.com
     MaterialFileInputModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
+    FacebookModule.forRoot(),
+    CarouselModule,
+    ButtonModule,
+    ToastModule
     //AdminModule
   ],
   providers: [],

@@ -33,39 +33,40 @@
     </div>
   </div>
 
-  <div class="section-2" *ngIf="product">
+  <div class="section-2">
     <div class="container">
-      <h5 class="mb-5 text-center">You might also like</h5>
-      <div class="d-flex flex-row justify-content-center">
-        <div class="card m-2">
-          <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
-          <div class="card-body">
-            <div class="card-text">Sol and Luna Necklace</div>
-            <div class="card-title">Php 250</div>
+      <p-carousel
+        [value]="products$"
+        styleClass="custom-carousel"
+        [numVisible]="4"
+        [numScroll]="1"
+        [circular]="false"
+        [autoplayInterval]="3000"
+        [responsiveOptions]="responsiveOptions"
+      >
+        <ng-template pTemplate="header">
+          <h5 class="mb-5 text-center">You might also like</h5>
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+          <div class="d-flex flex-row justify-content-center">
+            <div class="product-item">
+              <div class="product-item-content">
+                <div class="card">
+                  <img
+                    src="https://i.imgur.com/jeBLPq1.jpg"
+                    class="card-img-top desktop-card-img img-fluid"
+                  />
+                  <div class="card-body">
+                    <div class="card-text">
+                      {{ product.name }} <br />Php {{ product.price }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card m-2">
-          <img src="https://i.imgur.com/gEdYbSe.jpg" class="card-img-top" />
-          <div class="card-body">
-            <div class="card-text">Sol and Luna Necklace</div>
-            <div class="card-title">Php 250</div>
-          </div>
-        </div>
-        <div class="card m-2">
-          <img src="https://i.imgur.com/0S1pVTu.png" class="card-img-top" />
-          <div class="card-body">
-            <div class="card-text">Sol and Luna Necklace</div>
-            <div class="card-title">Php 250</div>
-          </div>
-        </div>
-        <div class="card m-2">
-          <img src="https://i.imgur.com/jeBLPq1.jpg" class="card-img-top" />
-          <div class="card-body">
-            <div class="card-text">Sol and Luna Necklace</div>
-            <div class="card-title">Php 250</div>
-          </div>
-        </div>
-      </div>
+        </ng-template>
+      </p-carousel>
     </div>
   </div>
 </div>

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order.service';
 import { Orders } from '../../models/orders';
 import * as moment from 'moment';
+import * as _ from 'lodash';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +12,7 @@ import * as moment from 'moment';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  orders: Orders[];
   dailyOrders: Orders[];
   weeklyOrders: Orders[];
   monthlyOrders: Orders[];
@@ -17,9 +20,32 @@ export class DashboardComponent implements OnInit {
   weeklySales: string;
   monthlySales: string;
   errMess: string;
+  bestsellers = [];
   constructor(private router: Router, private orderService: OrderService) {}
 
   ngOnInit(): void {
+    // for bestselling items kaso not working :<
+    // this.orderService.getOrders().subscribe(
+    //   (orders) =>
+    //     (this.bestsellers = _.uniq(
+    //       _.concat(...orders.map((order) => order.products)).map((product) => {
+    //         return {
+    //           ...product,
+    //           orderTimes: _.concat(
+    //             ...orders.map((order) =>
+    //               order.products.map((product) => product)
+    //             )
+    //           )
+    //             .filter((prod) => prod.name === product.name)
+    //             .map((product) => product.quantity)
+    //             .reduce((accumulator, current) => accumulator + current, 0),
+    //         };
+    //       })
+    //     ))
+    // );
+
+    console.log(this.bestsellers);
+
     // orders
     this.orderService.getOrders().subscribe(
       (dailyOrders) =>

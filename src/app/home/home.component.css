@@ -72,6 +72,7 @@ p {
 
 .section-5 {
   height: 80vh;
+  padding: 0 270px;
 }
 
 .bg1 {
@@ -84,6 +85,10 @@ p {
   background-color: #e7edeb;
   width: 250px;
   height: 500px;
+}
+
+.bg3 {
+  background-color: #e7edeb;
 }
 
 .text {
@@ -135,8 +140,4 @@ p {
 
 .desktop-card-img {
   width: 200px;
-}
-
-.bg {
-  background-color: #e7edeb;
 }
