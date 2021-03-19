@@ -45,6 +45,13 @@ export class OrderService {
       .get<Orders[]>(apiUrl,{ headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+/*
+  getEvents(): Observable<Orders[]> {    
+    return this.http.get<Orders[]>(apiUrl,{ headers: this.headers }).pipe(
+        map(orders => orders.sort((a, b) => new Date(b.datePurchased).getTime() - new Date(a.datePurchased).getTime()))
+    ) ;
+  }
+  */
   getOrder(id: string): Observable<Orders> {
     return this.http
       .get<Orders>(apiUrl + '/' + id,{ headers: this.headers })

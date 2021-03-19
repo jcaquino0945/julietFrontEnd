@@ -79,8 +79,7 @@ export class OrderDetailsComponent implements OnInit {
   updateStatus(id) {
     this.orderService.updateOrder(id,this.galleryForm.value).subscribe(
       (res) => {
-        console.log('Order updated');
-        window.alert('Order updated!');
+        window.alert('Order status updated! Email sent to ' + this.order.email);
         document.getElementById('close').click(); // close modal 
         //console.log(this.orderService.getSearchQuery())
       },
@@ -103,14 +102,12 @@ export class OrderDetailsComponent implements OnInit {
           this.order = order;
           //this.orderService.setSearchQuery(order.orderId);
           this.status = order.status;
+          this.updateOrderEmail();
         },
         (err) => console.log(err)
       );
     (errmess) => (this.errMess = <any>errmess);
-
-    this.galleryForm = this.formBuilder.group({
-      status: ''
-    });
+    
 }
 
   updateOrderEmail() {
@@ -124,7 +121,6 @@ export class OrderDetailsComponent implements OnInit {
         <h1>We have received your payment, we are now processing your order!</h1>
         `
       }
-      window.alert('Email sent to ' + this.order.email)
       this.orderService.sendReceipt(emailDetail)
     }
     if (status == 'For Delivery') {
@@ -135,7 +131,6 @@ export class OrderDetailsComponent implements OnInit {
         <h1>Your order has now been processed and it will be now be delivered to you! Feel free to contact us for updates</h1>
         `
       }
-      window.alert('Email sent to ' + this.order.email)
       this.orderService.sendReceipt(emailDetail)
     }
     if (status == 'Transaction Complete') {
@@ -146,7 +141,6 @@ export class OrderDetailsComponent implements OnInit {
         <h1>Thank you for ordering with juliet!</h1>
         `
       }
-      window.alert('Email sent to ' + this.order.email)
       this.orderService.sendReceipt(emailDetail)
     }
     this.orderService
