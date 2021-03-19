@@ -1,5 +1,5 @@
 export class Orders {
-  products: [
+  product: [
     {
       imageUrl: string;
       name: string;

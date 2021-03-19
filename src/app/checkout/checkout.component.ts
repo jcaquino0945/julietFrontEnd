@@ -115,8 +115,22 @@ export class CheckoutComponent implements OnInit {
     this.paymentMethod = 'Bank Transfer (BDO,BPI,etc)';
     this.status = 'Awaiting Payment'
 
-     this.itemRows = this.items.map(({name, quantity, totalPrice}) =>
-    `<tr><td>${name}</td><td>${quantity}</td><td>$${totalPrice}</td></tr>`).join('');
+     this.itemRows = this.items.map(({name, quantity, totalPrice, price}) =>
+      `<tr>
+      <td>
+          <p>${name}</p>
+      </th>
+      <td>
+          <p>x${quantity}</p>
+      </td>
+      <td>
+          <p>Php ${price}</p>
+      </td>
+      <td>
+          <p>Php ${totalPrice}</p>
+      </td>
+      </tr>`
+    ).join('');
 
     console.log(this.itemRows);
   }
@@ -158,32 +172,122 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:80%; height:auto;">
-          <h1 style="text-align: center;">Order Confirmation</h1>
-          <br>
-          <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
-          <p style="color:black">We have received your order <span style="font-weight:bold">#${this.orderId}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
-          <br>
-          <p>Order Status: <span style="color:orange">${this.status}</p>
-          <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
-          <hr style="color:#6e815d">
-          <br>
-          <h1 style="text-align: center;">Payment Instructions (${this.paymentMethod})</h1>
-          <p>1.) Please send your payment via bank transfer using the following details</p>
-          <p>a. Bank: <span style="font-weight: bold; text-decoration: underline;">BPI Family Savings Bank</span></p>
-          <p>b. Account Name: <span style="font-weight: bold; text-decoration: underline;">Antonith Joy P. Telesforo</span></p>
-          <p>c. Account Number: <span style="font-weight: bold; text-decoration: underline;">0429744199</span></p>
-          <br>
-          <p>If you have any questions, feel free to reply to this email.</p>
-          </div> 
-          <div style='text-align:center'>
-            <p> Order Details </p> <hr>
-            <table>
-                <tbody>
-                    ${this.itemRows}
-                </tbody>
-            </table>
-          </div>
+          <div style="background-color: #ffffff" style="height: auto; width: 100%;">
+        <h2 style="text-align:center;">Juliet Manila</h2>
+        <div class="row">
+            <div class="col"
+                style="margin-top: 10vh; margin-bottom: 10vh; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                <h1> Order Confirmation</h1>
+            </div>
+            <div class="col"
+                style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                <p> Hello <i> ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value},</i> </p>
+                <p>Thank you for ordering from Juliet Manila! We will now process your order once we have received your payment! Payment instructions for <i>${this.paymentMethod}</i> can be found at the end of this email</p>
+            </div>
+            <div class="col"
+                style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                <span>Order Number: <span style="font-weight:bold">${this.orderId}<span></span>
+            </div>
+        </div>
+        <h5
+            style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin: 1rem; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            items
+            ordered </h5>
+        <hr style="margin: 1rem;">
+        <table style="width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <tr>
+                <th>
+                    <p> (Product name) </p>
+                </th>
+                <th>
+                    <p> (Quantity) </p>
+                </th>
+                <th>
+                    <p> (Price per item) </p>
+                </th>
+                <th>
+                    <p> (Total Price) </p>
+                </th>
+            </tr>
+            ${this.itemRows}
+        </table>
+        <div class="row"
+            style="text-align: right; margin-right: 10vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <div class="col" style="width: 90%; margin-top: 5vh;">
+                <p style="font-weight:bold"> Total: Php ${this.totalPrice} <span style="font-weight:normal; color: gray;">(Includes Shipping Fee)</span></p>
+            </div>
+        </div>
+        <hr style="margin: 1rem;">
+        <h5 style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+        margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            delivery
+            details </h5>
+        <hr style="margin: 1rem;">
+        <table
+            style="width: 100%; text-align: left; margin: 0 0 0 1rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <tr>
+                <th>
+                    <p> Shipping Method: </p>
+                </th>
+                <th>
+                    <p> ${this.shippingMethod} </p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p> Delivery Address: </p>
+                </th>
+                <th>
+                    <p> ${this.orderForm.get('street').value} </p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p> Order Status: </p>
+                </th>
+                <th>
+                    <p> ${this.status} </p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p> Payment Method: </p>
+                </th>
+                <th>
+                    <p> ${this.paymentMethod} </p>
+                </th>
+            </tr>
+           
+        </table>
+        <hr style="margin: 1rem;">
+        <h5
+            style="text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+        margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20pt;">
+            payment instructions </h5>
+        <hr style="margin: 1rem;">
+        <span
+            style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+            Please send your payment via bank transfer using the following details
+        </span>
+        <ul style="padding-bottom: 10px;">
+            <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Bank:
+                <strong><u> BPI Family Savings Bank</u></strong></li>
+            <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Account Name:
+                <strong><u> Antonith Joy P. Telesforo</u></strong></li>
+            <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Account Number:
+                <strong><u> 0429744199 </u></strong></li>
+        </ul>
+        <span
+            style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+            <strong> * </strong> <span style="font-weight:bold;">Once you are done paying for the order/s at a certain bank, please reply to this
+            email with the invoice attached to the message for verification of payment.</span>
+        </span>
+        <p
+            style="text-align: left; margin: 1rem 1rem 2rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-bottom: 3vh;">
+            <strong> * </strong>If you have any inquiries or questions, feel free to reply to this email.
+        </p>
+        <!-- <hr style="margin: 1rem;"> -->
+    </div>
           `
         }
         this.orderService.addOrder(cartDetail);
@@ -193,7 +297,7 @@ export class CheckoutComponent implements OnInit {
         this.router.navigate(['home'])
         
       }
-      if (this.shippingMethod == 'G-Cash') {
+      if (this.paymentMethod == 'G-Cash') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
           subject: `Order for ${this.orderForm.get('firstName').value}`,  
@@ -203,23 +307,120 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-          <div style="border: black 1px solid; padding:2vw; margin:1.5vw; width:80%; height:auto;">
-          <h1 style="text-align: center;">Order Confirmation</h1>
-          <br>
-          <h2 style="color:#6e815d text-align: center;">Hello ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</h2>
-          <p style="color:black">We have received your order <span style="font-weight:bold">#${this.orderId}</span> on date <span style="font-weight:bold">#${dateNow.toString()}</span> and you will be paying for this via <span style="font-weight:bold">#${this.paymentMethod}</span>.</p>
-          <br>
-          <p>Order Status: <span style="color:orange">${this.status}</p>
-          <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
-          <hr style="color:#6e815d">
-          <br>
-          <h1 style="text-align: center;">Payment Instructions (${this.paymentMethod})</h1>
-          <p>1.) Please send your payment via bank transfer using the following details</p>
-          <p>a. G-Cash Number: <span style="font-weight: bold; text-decoration: underline;">09326584281</span></p>
-          <p>b. Message: <span style="font-weight: bold; text-decoration: underline;">(Input your order number)</span></p>
-          <br>
-          <p>If you have any questions, feel free to reply to this email.</p>
-          </div> 
+          <div style="background-color: #ffffff" style="height: auto; width: 100%;">
+          <h2 style="text-align:center;">Juliet Manila</h2>
+          <div class="row">
+              <div class="col"
+                  style="margin-top: 10vh; margin-bottom: 10vh; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                  <h1> Order Confirmation</h1>
+              </div>
+              <div class="col"
+                  style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  <p> Hello <i> ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value},</i> </p>
+                  <p>Thank you for ordering from Juliet Manila! We will now process your order once we have received your payment! Payment instructions for <i>${this.paymentMethod}</i> can be found at the end of this email</p>
+              </div>
+              <div class="col"
+                  style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  <span>Order Number: <span style="font-weight:bold">${this.orderId}<span></span>
+              </div>
+          </div>
+          <h5
+              style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin: 1rem; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              items
+              ordered </h5>
+          <hr style="margin: 1rem;">
+          <table style="width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <tr>
+                  <th>
+                      <p> (Product name) </p>
+                  </th>
+                  <th>
+                      <p> (Quantity) </p>
+                  </th>
+                  <th>
+                      <p> (Price per item) </p>
+                  </th>
+                  <th>
+                      <p> (Total Price) </p>
+                  </th>
+              </tr>
+              ${this.itemRows}
+          </table>
+          <div class="row"
+              style="text-align: right; margin-right: 10vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <div class="col" style="width: 90%; margin-top: 5vh;">
+                  <p style="font-weight:bold"> Total: Php ${this.totalPrice} <span style="font-weight:normal; color: gray;">(Includes Shipping Fee)</span></p>
+              </div>
+          </div>
+          <hr style="margin: 1rem;">
+          <h5 style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+          margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              delivery
+              details </h5>
+          <hr style="margin: 1rem;">
+          <table
+              style="width: 100%; text-align: left; margin: 0 0 0 1rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <tr>
+                  <th>
+                      <p> Shipping Method: </p>
+                  </th>
+                  <th>
+                      <p> ${this.shippingMethod} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Delivery Address: </p>
+                  </th>
+                  <th>
+                      <p> ${this.orderForm.get('street').value} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Order Status: </p>
+                  </th>
+                  <th>
+                      <p> ${this.status} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Payment Method: </p>
+                  </th>
+                  <th>
+                      <p> ${this.paymentMethod} </p>
+                  </th>
+              </tr>
+             
+          </table>
+          <hr style="margin: 1rem;">
+          <h5
+              style="text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+          margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20pt;">
+              payment instructions </h5>
+          <hr style="margin: 1rem;">
+          <span
+              style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+              Please send your payment via G-Cash using the following details
+          </span>
+          <ul style="padding-bottom: 10px;">
+              <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> G-Cash Number:
+                  <strong><u> 09326584281</u></strong></li>
+              <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Message:
+                  <strong><u> (Your Name)</u></strong></li>
+          </ul>
+          <span
+              style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+              <strong> * </strong> <span style="font-weight:bold;">Once you are done paying for the order/s at a certain bank, please reply to this
+              email with the invoice attached to the message for verification of payment.</span>
+          </span>
+          <p
+              style="text-align: left; margin: 1rem 1rem 2rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-bottom: 3vh;">
+              <strong> * </strong>If you have any inquiries or questions, feel free to reply to this email.
+          </p>
+          <!-- <hr style="margin: 1rem;"> -->
+      </div>
           `
         }
         this.orderService.addOrder(cartDetail);
@@ -228,7 +429,7 @@ export class CheckoutComponent implements OnInit {
         this.cartService.clearCart()
         this.router.navigate(['home'])
       }
-      if (this.shippingMethod == 'Same Day Delivery (COD)') {
+      if (this.shippingMethod == 'Same Day Delivery (COD)' && this.paymentMethod == 'G-Cash') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
           subject: `Order for ${this.orderForm.get('firstName').value}`,  
@@ -238,18 +439,266 @@ export class CheckoutComponent implements OnInit {
           <p>We will reply back to you when we have already processed your order!</p>
           `,*/
           html: `
-          <h2 style="color:#6e815d">Order Confirmation</h2>
+          <div style="background-color: #ffffff" style="height: auto; width: 100%;">
+          <h2 style="text-align:center;">Juliet Manila</h2>
+          <div class="row">
+              <div class="col"
+                  style="margin-top: 10vh; margin-bottom: 10vh; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                  <h1> Order Confirmation</h1>
+              </div>
+              <div class="col"
+                  style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  <p> Hello <i> ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value},</i> </p>
+                  <p>Thank you for ordering from Juliet Manila! We will now process your order once we have received your payment! Payment instructions for <i>${this.paymentMethod}</i> can be found at the end of this email</p>
+              </div>
+              <div class="col"
+                  style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  <span>Order Number: <span style="font-weight:bold">${this.orderId}<span></span>
+              </div>
+          </div>
+          <h5
+              style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin: 1rem; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              items
+              ordered </h5>
+          <hr style="margin: 1rem;">
+          <table style="width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <tr>
+                  <th>
+                      <p> (Product name) </p>
+                  </th>
+                  <th>
+                      <p> (Quantity) </p>
+                  </th>
+                  <th>
+                      <p> (Price per item) </p>
+                  </th>
+                  <th>
+                      <p> (Total Price) </p>
+                  </th>
+              </tr>
+              ${this.itemRows}
+          </table>
+          <div class="row"
+              style="text-align: right; margin-right: 10vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <div class="col" style="width: 90%; margin-top: 5vh;">
+                  <p style="font-weight:bold"> Total: Php ${this.totalPrice} <span style="font-weight:normal; color: gray;">(Includes Shipping Fee)</span></p>
+              </div>
+          </div>
+          <hr style="margin: 1rem;">
+          <h5 style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+          margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              delivery
+              details </h5>
+          <hr style="margin: 1rem;">
+          <table
+              style="width: 100%; text-align: left; margin: 0 0 0 1rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <tr>
+                  <th>
+                      <p> Shipping Method: </p>
+                  </th>
+                  <th>
+                      <p> ${this.shippingMethod} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Delivery Address: </p>
+                  </th>
+                  <th>
+                      <p> ${this.orderForm.get('street').value} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Order Status: </p>
+                  </th>
+                  <th>
+                      <p> ${this.status} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Payment Method: </p>
+                  </th>
+                  <th>
+                      <p> ${this.paymentMethod} </p>
+                  </th>
+              </tr>
+             
+          </table>
+          <hr style="margin: 1rem;">
+          <h5
+              style="text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+          margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20pt;">
+              payment instructions </h5>
+          <hr style="margin: 1rem;">
+          <span
+              style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+              Please send your payment via G-Cash using the following details
+          </span>
+          <ul style="padding-bottom: 10px;">
+              <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> G-Cash Number:
+                  <strong><u> 09326584281</u></strong></li>
+              <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Message:
+                  <strong><u> (Your Name)</u></strong></li>
+          </ul>
+          <span
+              style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+              <strong> * </strong> <span style="font-weight:bold;">Once you are done paying for the order/s at a certain bank, please reply to this
+              email with the invoice attached to the message for verification of payment.</span>
+          </span>
           <br>
-          <h4>Hello <span style="color:#6e815d">${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value}!</span></h4>
           <br>
-          <p>Thank you for ordering with Juliet Manila! We have received your order and will process it shortly.</p>
+          <span
+          style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+          <strong> * </strong> <span style="font-weight:bold;">Please also specify your preferred courier when replying with your payment verification invoice. If not, we will assign a courier for you and update you with the details.</span>
+      </span>
+          <p
+              style="text-align: left; margin: 1rem 1rem 2rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-bottom: 3vh;">
+              <strong> * </strong>If you have any inquiries or questions, feel free to reply to this email.
+          </p>
+          <!-- <hr style="margin: 1rem;"> -->
+      </div>
+          `
+        }
+        this.orderService.addOrder(cartDetail);
+        this.orderService.sendReceipt(emailDetail);
+        window.alert("Succesful order!");
+        this.cartService.clearCart()
+        this.router.navigate(['home'])
+      }
+      if (this.shippingMethod == 'Same Day Delivery (COD)' && this.paymentMethod == 'Bank Transfer (BDO,BPI,etc)') {
+        let emailDetail = {
+          to: this.orderForm.get('email').value,
+          subject: `Order for ${this.orderForm.get('firstName').value}`,  
+          /*
+          html: `<h2>Thank you for your order${this.orderForm.get('firstName').value}!</h2>
+          <p>Your total purchase is worth Php ${this.totalPrice} </p>
+          <p>We will reply back to you when we have already processed your order!</p>
+          `,*/
+          html: `
+          <div style="background-color: #ffffff" style="height: auto; width: 100%;">
+          <h2 style="text-align:center;">Juliet Manila</h2>
+          <div class="row">
+              <div class="col"
+                  style="margin-top: 10vh; margin-bottom: 10vh; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                  <h1> Order Confirmation</h1>
+              </div>
+              <div class="col"
+                  style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  <p> Hello <i> ${this.orderForm.get('firstName').value} ${this.orderForm.get('lastName').value},</i> </p>
+                  <p>Thank you for ordering from Juliet Manila! We will now process your order once we have received your payment! Payment instructions for <i>${this.paymentMethod}</i> can be found at the end of this email</p>
+              </div>
+              <div class="col"
+                  style="margin: 10vh; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                  <span>Order Number: <span style="font-weight:bold">${this.orderId}<span></span>
+              </div>
+          </div>
+          <h5
+              style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin: 1rem; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              items
+              ordered </h5>
+          <hr style="margin: 1rem;">
+          <table style="width: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <tr>
+                  <th>
+                      <p> (Product name) </p>
+                  </th>
+                  <th>
+                      <p> (Quantity) </p>
+                  </th>
+                  <th>
+                      <p> (Price per item) </p>
+                  </th>
+                  <th>
+                      <p> (Total Price) </p>
+                  </th>
+              </tr>
+              ${this.itemRows}
+          </table>
+          <div class="row"
+              style="text-align: right; margin-right: 10vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <div class="col" style="width: 90%; margin-top: 5vh;">
+                  <p style="font-weight:bold"> Total: Php ${this.totalPrice} <span style="font-weight:normal; color: gray;">(Includes Shipping Fee)</span></p>
+              </div>
+          </div>
+          <hr style="margin: 1rem;">
+          <h5 style="font-size: 20pt; text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+          margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              delivery
+              details </h5>
+          <hr style="margin: 1rem;">
+          <table
+              style="width: 100%; text-align: left; margin: 0 0 0 1rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              <tr>
+                  <th>
+                      <p> Shipping Method: </p>
+                  </th>
+                  <th>
+                      <p> ${this.shippingMethod} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Delivery Address: </p>
+                  </th>
+                  <th>
+                      <p> ${this.orderForm.get('street').value} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Order Status: </p>
+                  </th>
+                  <th>
+                      <p> ${this.status} </p>
+                  </th>
+              </tr>
+              <tr>
+                  <th>
+                      <p> Payment Method: </p>
+                  </th>
+                  <th>
+                      <p> ${this.paymentMethod} </p>
+                  </th>
+              </tr>
+             
+          </table>
+          <hr style="margin: 1rem;">
+          <h5
+              style="text-align: left; padding-bottom: 1rem; margin-left: 1rem;
+          margin-top: 7vh; text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20pt;">
+              payment instructions </h5>
+          <hr style="margin: 1rem;">
+          <span
+              style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+              Please send your payment via Bank Transfer (BDO,BPI,etc) using the following details
+          </span>
+          <ul style="padding-bottom: 10px;">
+          <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Bank:
+          <strong><u> BPI Family Savings Bank</u></strong></li>
+          <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Account Name:
+              <strong><u> Antonith Joy P. Telesforo</u></strong></li>
+          <li style="font-size: 15pt; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> Account Number:
+              <strong><u> 0429744199 </u></strong></li>
+          </ul>
+          <span
+              style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+              <strong> * </strong> <span style="font-weight:bold;">Once you are done paying for the order/s at a certain bank, please reply to this
+              email with the invoice attached to the message for verification of payment.</span>
+          </span>
           <br>
-          <p>Payment Method: <span style="color:#6e815d">${this.paymentMethod}</span></p>
-          <p>Order Status: <span style="color:orange">${this.status}</span></p>
-          <p>Total Amount: <span style="color:black">${this.totalPrice}</span></p>
-          <hr style="color:#6e815d">
           <br>
-          <h2>Cash On Delivery</h2>
+          <span
+          style="width: 100%; text-align: left; margin: 0 0 0 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 1rem;">
+          <strong> * </strong> <span style="font-weight:bold;">Please also specify your preferred courier when replying with your payment verification invoice. If not, we will assign a courier for you and update you with the details.</span>
+      </span>
+          <p
+              style="text-align: left; margin: 1rem 1rem 2rem; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-bottom: 3vh;">
+              <strong> * </strong>If you have any inquiries or questions, feel free to reply to this email.
+          </p>
+          <!-- <hr style="margin: 1rem;"> -->
+      </div>
           `
         }
         this.orderService.addOrder(cartDetail);
