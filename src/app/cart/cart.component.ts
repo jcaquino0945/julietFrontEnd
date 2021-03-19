@@ -29,13 +29,35 @@ export class CartComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
-
     this.onResize();
     this.responsive.checkWidth();
   }
-  updatePrice(item, quantity) {
-    item.quantity = this.quantity;
+  addQuantity(item) {
+    item.quantity++;
+    if (item.quantity == 11) {
+      item.quantity = 10;
+    }
     item.totalPrice = item.price * item.quantity;
+
+    this.totalPrice = this.cartService.totalPrice();
+    this.itemPrice = this.cartService.itemPrice();
+
+  }
+  subtractQuantity(item) {
+    item.quantity--;
+    if (item.quantity == 0) {
+      item.quantity = 1;
+    }
+    item.totalPrice = item.price * item.quantity;
+    
+    this.totalPrice = this.cartService.totalPrice();
+    this.itemPrice = this.cartService.itemPrice();
+
+  }
+  updatePrice(item) {
+    //item.quantity = this.quantity;
+    item.totalPrice = item.price * this.quantity;
+    
     //console.log(item.quantity)
     //console.log(item.price);
     //console.log(item.totalPrice);

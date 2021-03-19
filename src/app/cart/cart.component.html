@@ -14,22 +14,25 @@
           />
         </div>
         <div class="align-self-center">
-          {{ item.name }}
+          {{ item.name }} x{{item.quantity}}
           <div class="details">Size: {{ item.size }}</div>
           <div class="py-2">
+            <p><span style="margin-right: 1.5vw;" (click)="addQuantity(item)">+</span><span style="font-weight: bolder;" (click)="subtractQuantity(item)">--</span></p>
+            <!--
             <select
               class="form-select form-select-sm"
               aria-label=".form-select-sm example"
               [(ngModel)]="quantity"
-              (change)="updatePrice(item, quantity.value)"
+              (change)="updatePrice(item)"
             >
-              <!-- <option selected disabled>Qty</option> -->
-              <option selected value="1">1</option>
-              <option value="2">2</option>
+              <option value="quantity" *ngIf="quantity" selected>{{quantity}}</option>
+              <option value="1">1</option>
+              <option value="2">2</option
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
+            -->
           </div>
         </div>
         <div class="ml-auto align-self-center">Php {{ item.totalPrice }}</div>

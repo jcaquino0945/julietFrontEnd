@@ -2,13 +2,13 @@
   <nav *ngIf="nav.visible"></nav>
   <ribbon *ngIf="ribbon.visible"></ribbon>
   <footer *ngIf="footer.visible"></footer>
-
   <div class="container" *ngIf="product">
     <div class="row section-1">
       <div class="col">
         <img src="https://i.imgur.com/HGYgGAq.jpg" width="450px" />
       </div>
       <div class="col">
+        <form [formGroup]="orderForm">
         <h5>{{ product.name }}</h5>
         <p>
           <!--<b>Material</b> Gold Plated Copper <br />-->
@@ -16,18 +16,23 @@
           100% Handcrafted
         </p>
         <h5 class="mb-4">Php {{ product.price }}</h5>
-        <select class="form-select" [(ngModel)]="selectedOption">
-          <option selected value="undefined" hidden>Chain length</option>
+        <p>Select Size:</p>
+        <select class="form-select" formControlName="selectedOption">
           <option value="{{ prodSize }}" *ngFor="let prodSize of product.sizes">
             {{ prodSize }}"
           </option>
         </select>
-        <a
+        <!--
+        <a 
           routerLink="/cart"
           class="btn btn-add-to-cart"
           (click)="addToCart(product)"
-          >Add to Cart</a
-        >
+          >Add to Cart</a>
+          -->
+          <button type="submit" class="btn-add-to-cart" [disabled]="orderForm.invalid" (click)="addToCart(product)">
+            Complete Purchase
+          </button>
+        </form>
         <p><b>Note</b> Check the last photo for measuring guide.</p>
       </div>
     </div>

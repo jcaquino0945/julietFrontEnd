@@ -11,6 +11,29 @@ import { switchMap } from 'rxjs/operators';
 
 import { CartService } from '../services/cart.service';
 import { ResponsiveService } from '../services/responsive.service';
+import {
+  FormControl,
+  FormGroupDirective,
+  FormBuilder,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
+}
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -22,7 +45,7 @@ export class ProductComponent implements OnInit {
   product: Product;
   productIds: string[];
   errMess: string;
-  selectedOption: string;
+  orderForm: FormGroup;
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
@@ -32,10 +55,18 @@ export class ProductComponent implements OnInit {
     private location: Location,
     private router: Router,
     private cartService: CartService,
-    private responsive: ResponsiveService
+    private responsive: ResponsiveService,
+    private formBuilder: FormBuilder,
+
   ) {}
 
   ngOnInit(): void {
+    this.orderForm = this.formBuilder.group({
+      selectedOption: [null, Validators.required]
+     
+      //shippingMethod: [null, Validators.required],
+      
+    });
     this.productService
       .getProducts()
       .subscribe((products) => (this.products$ = products));
@@ -73,13 +104,14 @@ export class ProductComponent implements OnInit {
       description: product.description,
       price: product.price,
       category: product.category,
-      size: this.selectedOption,
+      size: this.orderForm.get('selectedOption').value,
       quantity: 1,
       totalPrice: product.price,
     };
     this.cartService.addToCart(cartProduct);
     console.log(cartProduct);
     window.alert('Your product has been added to the cart!');
+    this.router.navigate(['/cart'])
   }
 
   onResize() {
@@ -87,4 +119,5 @@ export class ProductComponent implements OnInit {
       this.isMobile = isMobile;
     });
   }
+ 
 }
