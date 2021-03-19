@@ -18,6 +18,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
+import { FacebookModule } from 'ngx-facebook';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -36,6 +37,9 @@ import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot-password-details.component';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -76,6 +80,10 @@ import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot
     MaterialFileInputModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
+    FacebookModule.forRoot(),
+    CarouselModule,
+    ButtonModule,
+    ToastModule
     //AdminModule
   ],
   providers: [],

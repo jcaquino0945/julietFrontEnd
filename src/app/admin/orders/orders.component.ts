@@ -31,7 +31,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
   orders$: Orders[];
@@ -57,5 +57,4 @@ export class OrdersComponent implements OnInit {
     console.log(this.orderService.getSearchQuery())
     this.router.navigate(['admin/orders/search'])
   }
-
 }

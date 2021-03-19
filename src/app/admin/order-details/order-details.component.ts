@@ -124,7 +124,7 @@ export class OrderDetailsComponent implements OnInit {
         <h1>We have received your payment, we are now processing your order!</h1>
         `
       }
-      console.log('Email Sent')
+      window.alert('Email sent to ' + this.order.email)
       this.orderService.sendReceipt(emailDetail)
     }
     if (status == 'For Delivery') {
@@ -135,7 +135,7 @@ export class OrderDetailsComponent implements OnInit {
         <h1>Your order has now been processed and it will be now be delivered to you! Feel free to contact us for updates</h1>
         `
       }
-      console.log('Email Sent')
+      window.alert('Email sent to ' + this.order.email)
       this.orderService.sendReceipt(emailDetail)
     }
     if (status == 'Transaction Complete') {
@@ -146,7 +146,7 @@ export class OrderDetailsComponent implements OnInit {
         <h1>Thank you for ordering with juliet!</h1>
         `
       }
-      console.log('Email Sent')
+      window.alert('Email sent to ' + this.order.email)
       this.orderService.sendReceipt(emailDetail)
     }
     this.orderService
