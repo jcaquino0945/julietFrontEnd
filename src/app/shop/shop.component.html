@@ -17,21 +17,13 @@
                 <a class="nav-link" href="#">New Arrival</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/shop/category/Necklace"
-                  >Necklaces</a
-                >
+                <a class="nav-link" routerLink="/shop/category/Necklace">Necklaces</a>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link"
-                  routerLink="/shop/category/Bracelets-Anklets"
-                  >Bracelets and Anklets</a
-                >
+                <a class="nav-link" routerLink="/shop/category/Bracelets-Anklets">Bracelets and Anklets</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/shop/category/Earrings"
-                  >Earrings</a
-                >
+                <a class="nav-link" routerLink="/shop/category/Earrings">Earrings</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" routerLink="/shop/category/Rings">Rings</a>
@@ -42,18 +34,9 @@
             </ul>
           </div>
           <div class="col-10">
-            <div
-              class="d-flex justify-content-start flex-wrap"
-              *ngIf="products$"
-            >
-              <div
-                class="card mx-2"
-                *ngFor="let product of products$; let i = index"
-              >
-                <img
-                  src="https://i.imgur.com/HGYgGAq.jpg"
-                  class="card-img-top"
-                />
+            <div class="d-flex justify-content-start flex-wrap" *ngIf="products$">
+              <div class="card mx-2" *ngFor="let product of products$; let i = index">
+                <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
                 <div class="card-body">
                   <div class="card-text">
                     <a [routerLink]="['/product/', product._id]">{{
@@ -73,4 +56,59 @@
 
 <div *ngIf="isMobile">
   <!-- start coding here for mobile view -->
+  <div class="jumbotron section">
+    <div class="container">
+      <h3 class="title title-border text-center text-capitalize mt-5 mb-5">Shop</h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Shop by Category
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/shop">View All</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Arrival</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Necklace">Necklaces</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Bracelets-Anklets">Bracelets and Anklets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Earrings">Earrings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Rings">Rings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Bestsellers</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="d-flex justify-content-start flex-wrap" *ngIf="products$">
+            <div class="row">
+              <div class="card mx-2" *ngFor="let product of products$; let i = index">
+                <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
+                <div class="card-body">
+                  <div class="card-text">
+                    <a [routerLink]="['/product/', product._id]">{{
+                  product.name
+                }}</a>
+                  </div>
+                  <div class="card-title">Php {{ product.price }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -20,6 +20,11 @@
   color: #ffffff;
 }
 
+.btn-2 {
+  background-color: transparent;
+  border-color: transparent;
+}
+
 ul {
   margin: 0 auto;
   align-items: center;
@@ -30,4 +35,42 @@ ul {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.75px;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:active,
+.navbar-toggler:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-2:hover,
+.btn-2:active,
+.btn-2:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: #ffffff;
+  }
+
+  .navbar-toggler,
+  .btn-2 {
+    color: black;
+  }
+
+  .navbar a {
+    color: #c1ae8d;
+  }
+
+  .dropdown-menu {
+    border-color: transparent;
+  }
+
+  .dropdown-menu li {
+    text-align: center;
+  }
+
 }

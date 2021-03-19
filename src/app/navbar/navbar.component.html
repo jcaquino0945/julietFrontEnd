@@ -39,14 +39,14 @@
         </svg>
       </button>
       <div class="ml-auto align-self-center text-right">
-        <button class="d-lg-none btn-2 mr-4" type="submit">
+        <button class="btn-2 mr-4" type="submit">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
             viewBox="0 0 16 16">
             <path
               d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
           </svg>
         </button>
-        <button class="d-lg-none btn-2 mr-2">
+        <button class="btn-2 mr-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
             viewBox="0 0 16 16">
             <path
@@ -57,19 +57,39 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a routerLink="/home" routerLinkActive="active">Home</a>
+            <a routerLink="/home" routerLinkActive="active" data-toggle="collapse"
+              data-target=".navbar-collapse">Home</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/shop" routerLinkActive="active">Shop</a>
+            <a routerLink="/shop" routerLinkActive="active" data-toggle="collapse"
+              data-target=".navbar-collapse">Shop</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/bestsellers" routerLinkActive="active">Bestsellers</a>
+            <a routerLink="/bestsellers" routerLinkActive="active" data-toggle="collapse"
+              data-target=".navbar-collapse">Bestsellers</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/discover" routerLinkActive="active">Discover</a>
+            <a routerLink="/discover" routerLinkActive="active" data-toggle="collapse"
+              data-target=".navbar-collapse">Discover</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/about-us" routerLinkActive="active">About Us</a>
+            <a routerLink="/about-us" routerLinkActive="active" data-toggle="collapse"
+              data-target=".navbar-collapse">About Us</a>
+          </li>
+          <li class="nav-item">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a routerLink="/faqs" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse">faqs</a></li>
+                  <li><a routerLink="/jewelry-care" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse">Jewelry Care</a></li>
+                  <li><a routerLink="/contact-us" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse">Contact Us</a></li>
+                </ul>
+              </li>
+            </ul> 
           </li>
         </ul>
       </div>

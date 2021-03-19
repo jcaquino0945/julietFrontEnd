@@ -18,6 +18,7 @@ import { JewelryCareComponent } from './jewelry-care/jewelry-care.component';
 import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot-password-details.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'thank-you', component: ThankYouComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   { path: 'forgotPassword/:_id', component: ForgotPasswordDetailsComponent },
 

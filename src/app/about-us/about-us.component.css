@@ -64,3 +64,25 @@
   text-transform: uppercase;
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  div h6 {
+    position: relative;
+    bottom: 40px;
+    left: 12px;
+    text-align: left !important;
+    color: #ffffff;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .title {
+    margin-top: 20vh;
+  }
+
+  .section-2 {
+    width: 100%;
+  }
+}
