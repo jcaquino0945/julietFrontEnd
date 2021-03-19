@@ -65,13 +65,112 @@ export class OrderDetailsComponent implements OnInit {
       .subscribe(
         (order) => {
           this.order = order;
+          //this.orderService.setSearchQuery(order.orderId);
+          this.status = order.status;
         },
         (err) => console.log(err)
       );
     (errmess) => (this.errMess = <any>errmess);
-  }
-  updateStatus(val) {
-    console.log(this.status);
 
+    this.galleryForm = this.formBuilder.group({
+      status: ''
+    });
+  }
+  updateStatus(id) {
+    this.orderService.updateOrder(id,this.galleryForm.value).subscribe(
+      (res) => {
+        console.log('Order updated');
+        window.alert('Order updated!');
+        document.getElementById('close').click(); // close modal 
+        //console.log(this.orderService.getSearchQuery())
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.orderService
+      .getOrderIds()
+      .subscribe((orderIds) => (this.orderIds = orderIds));
+
+      this.route.params
+      .pipe(
+        switchMap((params: Params) => {
+          return this.orderService.getOrder(params['id']);
+        })
+      )
+      .subscribe(
+        (order) => {
+          this.order = order;
+          //this.orderService.setSearchQuery(order.orderId);
+          this.status = order.status;
+        },
+        (err) => console.log(err)
+      );
+    (errmess) => (this.errMess = <any>errmess);
+
+    this.galleryForm = this.formBuilder.group({
+      status: ''
+    });
+}
+
+  updateOrderEmail() {
+    status = this.status;
+    console.log(status);
+    if (status == 'Processing Order') {
+      let emailDetail = {
+        to: this.order.email,
+        subject: `Order for ${this.order.firstName}`,  
+        html: `
+        <h1>We have received your payment, we are now processing your order!</h1>
+        `
+      }
+      console.log('Email Sent')
+      this.orderService.sendReceipt(emailDetail)
+    }
+    if (status == 'For Delivery') {
+      let emailDetail = {
+        to: this.order.email,
+        subject: `Order for ${this.order.firstName}`,  
+        html: `
+        <h1>Your order has now been processed and it will be now be delivered to you! Feel free to contact us for updates</h1>
+        `
+      }
+      console.log('Email Sent')
+      this.orderService.sendReceipt(emailDetail)
+    }
+    if (status == 'Transaction Complete') {
+      let emailDetail = {
+        to: this.order.email,
+        subject: `Order for ${this.order.firstName}`,  
+        html: `
+        <h1>Thank you for ordering with juliet!</h1>
+        `
+      }
+      console.log('Email Sent')
+      this.orderService.sendReceipt(emailDetail)
+    }
+    this.orderService
+      .getOrderIds()
+      .subscribe((orderIds) => (this.orderIds = orderIds));
+
+      this.route.params
+      .pipe(
+        switchMap((params: Params) => {
+          return this.orderService.getOrder(params['id']);
+        })
+      )
+      .subscribe(
+        (order) => {
+          this.order = order;
+          //this.orderService.setSearchQuery(order.orderId);
+          this.status = order.status;
+        },
+        (err) => console.log(err)
+      );
+    (errmess) => (this.errMess = <any>errmess);
+
+    this.galleryForm = this.formBuilder.group({
+      status: ''
+    });
   }
 }

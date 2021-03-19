@@ -39,7 +39,7 @@ export class OrderService {
     .get<Orders[]>(apiUrl + '/search/' + text,{ headers: this.headers })
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
-
+  
   getOrders(): Observable<Orders[]> {
     return this.http
       .get<Orders[]>(apiUrl,{ headers: this.headers })
@@ -91,6 +91,12 @@ export class OrderService {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));
-
+  }
+  //update order
+  updateOrder(id, data): Observable<any> {   
+    console.log(this.headers);
+    return this.http
+      .put(apiUrl + '/' + id, data, { headers: this.headers })
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

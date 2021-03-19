@@ -57,6 +57,8 @@ export class CheckoutComponent implements OnInit {
   paymentMethod = '';
   status='';
   orderId='';
+  itemRows;
+  
 
   constructor(
     public nav: NavbarService,
@@ -97,6 +99,7 @@ export class CheckoutComponent implements OnInit {
       region: [null, Validators.required],
       postalCode: [null, Validators.required],
       //shippingMethod: [null, Validators.required],
+      
     });
 
     this.nav.show();
@@ -111,7 +114,13 @@ export class CheckoutComponent implements OnInit {
     this.shippingMethod = "LBC (Metro Manila)";
     this.paymentMethod = 'Bank Transfer (BDO,BPI,etc)';
     this.status = 'Awaiting Payment'
+
+     this.itemRows = this.items.map(({name, quantity, totalPrice}) =>
+    `<tr><td>${name}</td><td>${quantity}</td><td>$${totalPrice}</td></tr>`).join('');
+
+    console.log(this.itemRows);
   }
+  
   
 
   onSubmit() {
@@ -167,6 +176,14 @@ export class CheckoutComponent implements OnInit {
           <br>
           <p>If you have any questions, feel free to reply to this email.</p>
           </div> 
+          <div style='text-align:center'>
+            <p> Order Details </p> <hr>
+            <table>
+                <tbody>
+                    ${this.itemRows}
+                </tbody>
+            </table>
+          </div>
           `
         }
         this.orderService.addOrder(cartDetail);

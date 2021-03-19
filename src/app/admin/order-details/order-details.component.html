@@ -79,18 +79,56 @@
           </div>
         <div class="card-text my-4">
           <div class="card-title border-bottom pb-2 mb-2">
-            <p *ngIf="order.status == 'Awaiting Payment'" style="color: orange;">{{ order.status }}</p>
+            <p *ngIf="order.status == 'Awaiting Payment'" style="color: red;">{{ order.status }}</p>
             <p *ngIf="order.status == 'For Delivery'" style="color: rgb(3, 175, 3);">{{ order.status }}</p>
             <p *ngIf="order.status == 'Transaction Complete'" style="color: rgb(1, 122, 1);">{{ order.status }}</p>
+            <p *ngIf="order.status == 'Processing Order'" style="color: orange;">{{ order.status }}</p>
           </div>
           <div class="subtitle">Order Status</div>
         </div>
-        <select class="form-select" [(ngModel)]="status" (change)="updateStatus(status.value)">
-            <option selected value="" disabled>Update Status</option>
-            <option value="Awaiting Payment">Awaiting Payment</option>
-            <option value="For Delivery">For Delivery</option>            
-            <option value="Transaction Complete">Transaction Complete</option>
-          </select>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-juliet" data-toggle="modal" data-target="#exampleModalCentered">
+          Update Status
+        </button>
+        <br>
+        <button
+        class="btn btn-edit"
+        type="button"
+        (click)="updateOrderEmail()"
+        >
+        Send Email
+        </button>
+
+        <!-- MODAL -->
+        <form [formGroup]="galleryForm" (ngSubmit)="updateStatus(order._id)">
+          <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenteredLabel">Update Status</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <select class="form-select" formControlName="status">
+                      <option selected value="" disabled>Update Status</option>
+                      <option value="Awaiting Payment">Awaiting Payment</option>
+                      <option value="Processing Order">Processing Order</option>
+                      <option value="For Delivery">For Delivery</option>            
+                      <option value="Transaction Complete">Transaction Complete</option>
+                    </select>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"  id="close">Close</button>
+                  <button type="button" class="btn btn-primary" type="submit">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div> 
+          </form>     
+          <!-- MODAL -->
       </div>
     </div>
   </div>
