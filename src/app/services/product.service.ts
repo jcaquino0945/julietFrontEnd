@@ -23,6 +23,9 @@ export class ProductService {
     'Content-Type': 'application/json',
     'Authorization': 'bearer ' + sessionStorage.getItem('token')
  });
+ stockHeaders = new HttpHeaders({ 
+  'Content-Type': 'application/json',
+});
   constructor(
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
@@ -125,6 +128,13 @@ export class ProductService {
       .put(apiUrl + '/' + id, data, { headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+
+  modifyStock(id, data): Observable<any> {
+    return this.http
+    .put(apiUrl + '/updateStock/' + id, data, { headers: this.stockHeaders })
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
 
   /*
   updateProduct(id, product: Product, file: File): Observable<any> {

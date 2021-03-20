@@ -107,6 +107,8 @@ export class ProductComponent implements OnInit {
       size: this.orderForm.get('selectedOption').value,
       quantity: 1,
       totalPrice: product.price,
+      stock_quantity: product.stock_quantity,
+      updateStock: product.stock_quantity - 1,
     };
     this.cartService.addToCart(cartProduct);
     console.log(cartProduct);

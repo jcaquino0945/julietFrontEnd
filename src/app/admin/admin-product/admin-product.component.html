@@ -169,7 +169,8 @@
         <div class="mr-auto ml-3">
           {{ product.name }} <br />
           {{ product.price }} <br />
-          In stock
+          <p *ngIf="product.stock_quantity==0" style="color: red;">Out of stock</p>
+          <p *ngIf="product.stock_quantity < 10 && product.stock_quantity != 0" style="color: orange;">Few stocks left</p>
         </div>
         <div class="align-self-start">
           <button

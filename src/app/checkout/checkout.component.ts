@@ -16,7 +16,7 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ResponsiveService } from '../services/responsive.service';
 import { Router } from '@angular/router';
-
+import { ProductService } from '../services/product.service';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
     control: FormControl | null,
@@ -39,10 +39,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class CheckoutComponent implements OnInit {
   public isMobile: Boolean;
   items = this.cartService.getItems();
+  stocks = this.cartService.getStocks();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
   cartDetail: any;
   orderForm: FormGroup;
+  stockForm: FormGroup;
   firstName = '';
   lastName = '';
   contactNumber = '';
@@ -58,7 +60,7 @@ export class CheckoutComponent implements OnInit {
   status='';
   orderId='';
   itemRows;
-  
+  updateStock;
 
   constructor(
     public nav: NavbarService,
@@ -68,7 +70,9 @@ export class CheckoutComponent implements OnInit {
     private orderService: OrderService,
     private formBuilder: FormBuilder,
     private responsive: ResponsiveService,
-    private router: Router
+    private router: Router,
+    private productService: ProductService,
+
 
   ) {}
 
@@ -84,10 +88,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      
     this.orderId = this.makeid(15);
     if (this.items.length == 0) {
       this.router.navigate(['home'])
     }  
+    
     this.orderForm = this.formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
@@ -114,7 +120,7 @@ export class CheckoutComponent implements OnInit {
     this.shippingMethod = "LBC (Metro Manila)";
     this.paymentMethod = 'Bank Transfer (BDO,BPI,etc)';
     this.status = 'Awaiting Payment'
-
+   
      this.itemRows = this.items.map(({name, quantity, totalPrice, price}) =>
       `<tr>
       <td>
@@ -132,7 +138,20 @@ export class CheckoutComponent implements OnInit {
       </tr>`
     ).join('');
 
-    console.log(this.itemRows);
+    this.updateStock = this.stocks.map(({_id,stock_quantity}) => {
+        this.stockForm = this.formBuilder.group({
+            _id: _id,
+            stock_quantity: stock_quantity,
+        });
+        this.productService.modifyStock(_id,this.stockForm.value).subscribe((res) => {
+            console.log(res)
+            console.log('stock updated');
+        },
+        (error) => {
+            console.log(error);
+        }
+        )
+   });
   }
   
   
@@ -162,6 +181,7 @@ export class CheckoutComponent implements OnInit {
         paymentMethod: this.paymentMethod,
         status: this.status
       }
+      
       if (this.paymentMethod == 'Bank Transfer (BDO,BPI,etc)') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
@@ -716,21 +736,11 @@ export class CheckoutComponent implements OnInit {
         <p>We will reply back to you when we have already processed your order!</p>
         `
       }
-      */
-     
-      
-        
+      */  
     } catch (error) {
       window.alert("error")
     }
-    //let productArray = [];
-    //productArray.push(this.items);
-    //console.log("Orders: " + Object.values(this.items));
-    //console.log("Total Price is Php " + this.totalPrice);
-    //console.log("product array:" + productArray);
-    
-    
-   
+        this.updateStock(); 
   }
    makeid(length) {
     var result           = '';

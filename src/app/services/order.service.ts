@@ -63,9 +63,10 @@ export class OrderService {
       .pipe(catchError((error) => error));
   }
 
+
   addOrder(product) {
     console.log('from service');
-    console.log(product);
+    //console.log(product['stock_quantity'] + 'product');
     console.log(JSON.stringify(product));
     var myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
@@ -80,6 +81,7 @@ export class OrderService {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));
+    
   }
 
   sendReceipt(emailDetail) {

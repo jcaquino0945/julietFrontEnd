@@ -16,6 +16,7 @@
           100% Handcrafted
         </p>
         <h5 class="mb-4">Php {{ product.price }}</h5>
+        <h5 class="mb-4" style="color: red;" *ngIf="product.stock_quantity==0">Out of stock</h5>
         <p>Select Size:</p>
         <select class="form-select" formControlName="selectedOption">
           <option value="{{ prodSize }}" *ngFor="let prodSize of product.sizes">
@@ -29,7 +30,7 @@
           (click)="addToCart(product)"
           >Add to Cart</a>
           -->
-          <button type="submit" class="btn-add-to-cart" [disabled]="orderForm.invalid" (click)="addToCart(product)">
+          <button type="submit" class="btn-add-to-cart" [disabled]="orderForm.invalid || product.stock_quantity == 0" (click)="addToCart(product)">
             Complete Purchase
           </button>
         </form>

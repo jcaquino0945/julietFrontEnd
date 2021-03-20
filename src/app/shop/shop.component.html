@@ -41,7 +41,7 @@
                   <div class="card-text">
                     <a [routerLink]="['/product/', product._id]">{{
                       product.name
-                    }}</a>
+                    }}</a><span *ngIf="product.stock_quantity == 0" style="color: red; font-size: .8vw; margin-left: 1vw;">Out of stock</span>
                   </div>
                   <div class="card-title">Php {{ product.price }}</div>
                 </div>

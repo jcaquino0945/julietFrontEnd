@@ -18,7 +18,7 @@
         <div class="card-body" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; height: auto; width: 100%; text-align: center;">
             <div style="display: inline-block; margin-right: 1vw; width: 33%;" *ngFor="let orders of order.product">
             <img src={{orders.imageUrl}} style="height: 8vw; width:8vw;">
-            <p class="subtitle">{{orders.name}}</p>
+            <p class="subtitle">{{orders.name}} ({{orders.size}})</p>
             <p class="subtitle">Amount: {{orders.totalPrice}}</p>
             <p class="subtitle">Quantity: {{orders.quantity}}</p>
             </div>
@@ -54,6 +54,24 @@
             {{ order.datePurchased | date }}
           </div>
           <div class="subtitle">Date of Purchase</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.street }}
+          </div>
+          <div class="subtitle">Street</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.city }}
+          </div>
+          <div class="subtitle">City</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.province }}
+          </div>
+          <div class="subtitle">Province</div>
         </div>
       </div>
     </div>

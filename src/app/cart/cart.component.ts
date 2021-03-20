@@ -4,6 +4,7 @@ import { RibbonService } from '../services/ribbon.service';
 import { FooterService } from '../services/footer.service';
 import { CartService } from '../services/cart.service';
 import { ResponsiveService } from '../services/responsive.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,13 +14,16 @@ import { ResponsiveService } from '../services/responsive.service';
 export class CartComponent implements OnInit {
   public isMobile: Boolean;
   items = this.cartService.getItems();
+  stocks = this.cartService.getStocks();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
+  productStock;
   quantity: number;
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
     public footer: FooterService,
+    private router: Router,
     private cartService: CartService,
     private responsive: ResponsiveService
   ) {}
@@ -33,26 +37,43 @@ export class CartComponent implements OnInit {
     this.responsive.checkWidth();
   }
   addQuantity(item) {
+    item.updateStock = item.stock_quantity;
     item.quantity++;
-    if (item.quantity == 11) {
-      item.quantity = 10;
+    if (item.quantity > item.stock_quantity) {
+      item.quantity = item.stock_quantity;
     }
+    //item.updateStock = item.stock_quantity - item.quantity;
+     this.productStock = {
+      _id: item._id,
+      stock_quantity:  item.stock_quantity - item.quantity,
+    };
+    console.log(this.productStock);
     item.totalPrice = item.price * item.quantity;
-
+    this.totalPrice = this.cartService.totalPrice();
+    this.itemPrice = this.cartService.itemPrice();
+  
+  }
+  subtractQuantity(item) {
+    item.updateStock = item.stock_quantity;
+    item.quantity--;
+    item.updateStock = item.stock_quantity - item.quantity;
+    if (item.quantity == 0) {
+      item.quantity = 1;
+    }
+    //item.updateStock = item.stock_quantity - item.quantity;
+     this.productStock = {
+      _id: item._id,
+      stock_quantity:  item.stock_quantity - item.quantity,
+    };
+    console.log(this.productStock);
+    item.totalPrice = item.price * item.quantity;
     this.totalPrice = this.cartService.totalPrice();
     this.itemPrice = this.cartService.itemPrice();
 
   }
-  subtractQuantity(item) {
-    item.quantity--;
-    if (item.quantity == 0) {
-      item.quantity = 1;
-    }
-    item.totalPrice = item.price * item.quantity;
-    
-    this.totalPrice = this.cartService.totalPrice();
-    this.itemPrice = this.cartService.itemPrice();
-
+  checkout() {
+    this.cartService.addStock(this.productStock);
+    this.router.navigate(['/checkout'])
   }
   updatePrice(item) {
     //item.quantity = this.quantity;

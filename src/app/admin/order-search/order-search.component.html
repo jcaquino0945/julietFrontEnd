@@ -12,14 +12,13 @@
           <div class="card-text">
             <div class="subtitle">{{ order.datePurchased | date }}</div>
             <div class="card-title p-0 m-0">
-              {{ order.firstName }} {{ order.lastName }}
+              <p style="font-size: 1.2vw; font-weight: 800;">{{ order.firstName }} {{ order.lastName }}</p>
             </div>
-            {{ order.orderId }} <br />
-            {{ order.email }} <br />
-            Php {{ order.totalPrice }} <br>
-            Shipping Method: {{ order.shippingMethod }} <br>
-            Payment Method: {{ order.paymentMethod }} <br>
-            Status: {{ order.status }} <br>
+            Order ID: <span style="font-weight: 400;">{{ order.orderId }}</span> <br />
+            Email <span style="font-weight: 400;">{{ order.email }}</span> <br />
+            Php <span style="font-weight: 400;">{{ order.totalPrice }}</span> <br>
+            Shipping Method: <span style="font-weight: 400;">{{ order.shippingMethod }}</span> <br>
+            Payment Method: <span style="font-weight: 400;">{{ order.paymentMethod }}</span> <br>
           </div>
           <div class="align-self-start">
             <p *ngIf="order.status == 'Awaiting Payment'" style="color: red;">{{ order.status }}</p>
