@@ -50,29 +50,9 @@
   font-size: 15px;
 }
 
-/* @media (min-width: 768px) and (max-width: 991px) {}
-
-@media (max-width: 767px) {}
-
-@media (max-width: 479px) {
-  p {
-    font-size: 11pt;
-    width: 70%;
-  }
-
-  .row {
-    margin: 0 20px 0;
+@media (max-width: 768px) {
+  .title {
+    margin-top: 40vh;
+    margin-bottom: 10vh;
   }
 }
-
-
-@media(max-width: 320px) {
-  p {
-    font-size: 10pt;
-    width: 60%;
-  }
-
-  .row {
-    margin: 0 10px 0;
-  }
-} */

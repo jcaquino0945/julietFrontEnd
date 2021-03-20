@@ -87,23 +87,12 @@ li:before {
   font-family: "Playfair Display", serif;
 }
 
-/* @media (max-width: 479px) {
-  button {
+@media (max-width: 426px) {
+  .accordion-button{
     text-align: left;
+  }
+
+  .title {
+    margin-top: 17vh;
   }
 }
-@media (max-width: 320px) {
-  img {
-    width: 200px;
-    height: 200px;
-    margin-right: 20px;
-  }
-
-  .card-body {
-    text-align: center;
-  }
-
-  button {
-    text-align: left;
-  }
-} */

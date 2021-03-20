@@ -40,6 +40,7 @@ import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -64,6 +65,7 @@ import { ToastModule } from 'primeng/toast';
     ShopByCategoryComponent,
     ForgotPasswordComponent,
     ForgotPasswordDetailsComponent,
+    ThankYouComponent,
   ],
   imports: [
     BrowserModule,

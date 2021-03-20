@@ -67,3 +67,17 @@ select {
 .card-text {
   font-size: 15px;
 }
+
+@media (max-width: 426px) {
+  img {
+    max-height: 100%;
+    object-fit: cover;
+    margin: 10vh 0 5vh ;
+  }
+
+  .section-1 {
+    width: 100%;
+    padding: 0;
+    display: contents;
+  }
+}

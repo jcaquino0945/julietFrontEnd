@@ -78,4 +78,35 @@
 
 <div *ngIf="isMobile">
   <!-- start coding here for mobile view -->
+  <div class="container" *ngIf="product">
+    <div class="row section-1">
+        <img src="https://i.imgur.com/HGYgGAq.jpg" class="img-fluid" />
+      <div class="col">
+        <h1>{{ product.name }}</h1>
+        <!-- <p>
+          <b>Material</b> Gold Plated Copper <br />
+          <b>Inclusion: </b> Juliet Canvas Pouch <br />
+          100% Handcrafted
+        </p> -->
+        <ul>
+          <li><b>Material: </b> Gold Plated Copper</li>
+          <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
+        </ul>
+        <h5 class="mb-4">Php {{ product.price }}</h5>
+        <select class="form-select" [(ngModel)]="selectedOption">
+          <option selected value="undefined" hidden>Chain length</option>
+          <option value="{{ prodSize }}" *ngFor="let prodSize of product.sizes">
+            {{ prodSize }}"
+          </option>
+        </select>
+        <a
+          routerLink="/cart"
+          class="btn btn-add-to-cart"
+          (click)="addToCart(product)"
+          >Add to Cart</a
+        >
+        <p><b>Note: </b> Check the last photo for measuring guide.</p>
+      </div>
+    </div>
+  </div>
 </div>

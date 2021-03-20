@@ -30,12 +30,16 @@
       <div class="container">
         <div class="d-flex flex-row justify-content-center">
           <div class="p-2">
-            <img src="https://i.imgur.com/IcZOQ6L.jpg" width="350px" />
-            <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
+            <img src="https://i.imgur.com/IcZOQ6L.jpg" class="img-fluid" />
+            <div>
+              <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
+            </div>
           </div>
           <div class="p-2">
-            <img src="https://i.imgur.com/Sf1cid0.jpg" width="350px" />
-            <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
+            <img src="https://i.imgur.com/Sf1cid0.jpg" class="img-fluid" />
+            <div>
+              <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
+            </div>
           </div>
           <div class="p-2">
             <img src="https://i.imgur.com/aDlziCg.jpg" width="350px" />
@@ -112,45 +116,33 @@
 </div>
 
 <!-- mobile view -->
-<div *ngIf="isMobile">
-  <section class="jumbotron section-1 text-center">
-    <div class="container">
-      <div class="display-5">
-        Wear something unique.<br />Chic doesn't have to be expensive.
-      </div>
-    </div>
-  </section>
-  <section class="jumbotron text-center">
-    <div class="container">
-      <p>
-        Made with delicate handwork, specially delivered to you. Anticipate the
-        upcoming sets and accessories soon, only here in Juliet.
-      </p>
-      <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
-    </div>
-  </section>
+<div *ngIf="isMobile"> 
   <section class="jumbotron text-center">
     <div class="container">
       <img
         src="https://i.imgur.com/IcZOQ6L.jpg"
-        width="350px"
+        width="500px"
         class="img-fluid"
       />
-      <h6 class="text-uppercase text-center mt-3 mb-3">Shop Necklaces</h6>
+      <div>
+        <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
+      </div>
       <img
         src="https://i.imgur.com/Sf1cid0.jpg"
-        width="350px"
+        width="500px"
         class="img-fluid"
       />
-      <h6 class="text-uppercase text-center mt-3 mb-3">Shop Earrings</h6>
+      <div>
+        <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
+      </div>
       <img
         src="https://i.imgur.com/aDlziCg.jpg"
-        width="350px"
+        width="500px"
         class="img-fluid"
       />
-      <h6 class="text-uppercase text-center mt-3 mb-3">
-        Shop Bracelets and Anklets
-      </h6>
+      <div>
+        <h6 class="text-uppercase text-center mt-3">Shop Bracelets and Anklets</h6>
+      </div>
     </div>
   </section>
   <section class="jumbotron text-center">

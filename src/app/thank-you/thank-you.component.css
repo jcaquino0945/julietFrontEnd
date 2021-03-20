@@ -1,0 +1,29 @@
+.jumbotron {
+  height: 100%;
+  background-color: transparent;
+  
+}
+
+.btn-primary {
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #6e815d;
+}

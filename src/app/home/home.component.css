@@ -77,8 +77,8 @@ p {
 
 .bg1 {
   background-color: #e7edeb;
-  width: 700px;
-  height: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 .bg2 {
@@ -140,4 +140,19 @@ p {
 
 .desktop-card-img {
   width: 200px;
+}
+
+.bg {
+  background-color: #e7edeb;
+}
+
+@media (max-width: 768px) {
+  div h6 {
+    position: relative;
+    bottom: 40px;
+    left: 12px;
+    text-align: left !important;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 }
