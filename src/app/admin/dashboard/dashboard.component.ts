@@ -5,6 +5,9 @@ import { Orders } from '../../models/orders';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 import { Product } from 'src/app/models/product';
+import { CMS } from '../../models/cms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CmsService } from 'src/app/services/cms.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +24,16 @@ export class DashboardComponent implements OnInit {
   monthlySales: string;
   errMess: string;
   bestsellers = [];
-  constructor(private router: Router, private orderService: OrderService) {}
+  ribbon = { ribbon: '' };
+  cmsForm: FormGroup;
+  isLoadingResults = false;
+
+  constructor(
+    private router: Router,
+    private orderService: OrderService,
+    private formBuilder: FormBuilder,
+    private cms: CmsService
+  ) {}
 
   ngOnInit(): void {
     // for bestselling items kaso not working :<
@@ -44,7 +56,7 @@ export class DashboardComponent implements OnInit {
     //     ))
     // );
 
-    console.log(this.bestsellers);
+    // console.log(this.bestsellers);
 
     // orders
     this.orderService.getOrders().subscribe(
@@ -92,5 +104,9 @@ export class DashboardComponent implements OnInit {
         .reduce((accumulator, current) => accumulator + current, 0)
         .toFixed(2);
     });
+
+    // this.cmsForm = this.formBuilder.group({
+    //   ribbon: [null, Validators.required],
+    // });
   }
 }
