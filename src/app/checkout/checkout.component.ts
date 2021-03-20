@@ -314,7 +314,7 @@ export class CheckoutComponent implements OnInit {
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['home'])
+        this.router.navigate(['thank-you'])
         
       }
       if (this.paymentMethod == 'G-Cash') {
@@ -447,7 +447,7 @@ export class CheckoutComponent implements OnInit {
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['home'])
+        this.router.navigate(['thank-you'])
       }
       if (this.shippingMethod == 'Same Day Delivery (COD)' && this.paymentMethod == 'G-Cash') {
         let emailDetail = {
@@ -585,7 +585,7 @@ export class CheckoutComponent implements OnInit {
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['home'])
+        this.router.navigate(['thank-you'])
       }
       if (this.shippingMethod == 'Same Day Delivery (COD)' && this.paymentMethod == 'Bank Transfer (BDO,BPI,etc)') {
         let emailDetail = {
@@ -725,7 +725,7 @@ export class CheckoutComponent implements OnInit {
         this.orderService.sendReceipt(emailDetail);
         window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['home'])
+        this.router.navigate(['thank-you'])
       }
       /*
       let emailDetail = {
