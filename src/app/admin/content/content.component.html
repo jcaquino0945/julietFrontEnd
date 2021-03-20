@@ -1,11 +1,33 @@
-<h2>Edit Ribbon <span class="badge badge-secondary">New</span></h2>
-<div *ngIf="ribbons$">
-<div class="input-group" *ngFor="let ribbon of ribbons$">
-    <form class="form-inline" [formGroup]="ribbonForm" (ngSubmit)="updateRibbon(ribbon._id)">
-    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" formControlName="ribbon" placeholder="{{ribbon.ribbon}}">
-    <div class="input-group-append">
-      <button class="btn btn-success" type="submit" [disabled]="ribbonForm.invalid">Update</button>
+<h2>Content Management</h2>
+<div class="card">
+  <div class="card-header">
+    <div class="subtitle">Update Ribbon</div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="ribbons$">
+      <div class="input-group" *ngFor="let ribbon of ribbons$">
+        <form
+          class="form-inline"
+          [formGroup]="ribbonForm"
+          (ngSubmit)="updateRibbon(ribbon._id)"
+        >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="ribbon"
+            placeholder="{{ ribbon.ribbon }}"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-juliet ml-2"
+              type="submit"
+              [disabled]="ribbonForm.invalid"
+            >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    </form>
-</div>
+  </div>
 </div>

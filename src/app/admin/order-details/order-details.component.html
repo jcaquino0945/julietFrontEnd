@@ -10,145 +10,216 @@
 </div>
 -->
 <div class="d-flex flex-row flex-wrap justify-content-between">
-    <div class="col p-0" *ngIf="order">
-      <div class="card p-4">
+  <div class="col p-0" *ngIf="order">
+    <div class="card" *ngFor="let orders of order.product">
+      <div class="card-header subtitle">Ordered Product Summary</div>
+      <div class="card-body p-5">
+        <img
+        src="https://i.imgur.com/aDlziCg.jpg"
+        class="img-thumbnail my-4"
+        width="100px"
+      />
+      <div class="card-text py-4">
         <div class="card-title border-bottom pb-2 mb-2">
-            Order
-          </div>
-        <div class="card-body" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; height: auto; width: 100%; text-align: center;">
-            <div style="display: inline-block; margin-right: 1vw; width: 33%;" *ngFor="let orders of order.product">
-            <img src={{orders.imageUrl}} style="height: 8vw; width:8vw;">
-            <p class="subtitle">{{orders.name}} ({{orders.size}})</p>
-            <p class="subtitle">Amount: {{orders.totalPrice}}</p>
-            <p class="subtitle">Quantity: {{orders.quantity}}</p>
-            </div>
+          {{ orders.name }}
         </div>
+        <div class="subtitle">Product Name</div>
       </div>
-      <div class="card p-5 mt-2">
-        <div class="card-text my-4">
-            <div class="card-title border-bottom pb-2 mb-2">
-              {{ order.orderId }}
-            </div>
-            <div class="subtitle">Order ID</div>
+      <div class="card-text py-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          Php {{ orders.price }}
         </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.firstName }} {{ order.lastName }}
-          </div>
-          <div class="subtitle">Customer Name</div>
+        <div class="subtitle">Product Price</div>
+      </div>
+      <div class="card-text py-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ orders.quantity }}
         </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.email }}
-          </div>
-          <div class="subtitle">Customer Email</div>
+        <div class="subtitle">Quantity</div>
+      </div>
+      <div class="card-text py-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ orders.size }}
         </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.contactNumber }}
-          </div>
-          <div class="subtitle">Customer Number</div>
-        </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.datePurchased | date }}
-          </div>
-          <div class="subtitle">Date of Purchase</div>
-        </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.street }}
-          </div>
-          <div class="subtitle">Street</div>
-        </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.city }}
-          </div>
-          <div class="subtitle">City</div>
-        </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            {{ order.province }}
-          </div>
-          <div class="subtitle">Province</div>
-        </div>
+        <div class="subtitle">Product   Size</div>
+      </div>
       </div>
     </div>
-    <div class="col-4 p-0 ml-2" *ngIf="order">
-      <div class="card p-5">
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            <span style="color: rgb(1, 122, 1);">Php {{ order.totalPrice }}</span> 
-          </div>
-          <div class="subtitle">Total Amount</div>
+    <div class="card p-5 mt-2">
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.orderId }}
         </div>
-        <div class="card-text my-4" >
-          <div class="card-title border-bottom pb-2 mb-2">
-             {{ order.shippingMethod }}
-          </div>
-          <div class="subtitle">Shipping Method</div>
+        <div class="subtitle">Order ID</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.firstName }} {{ order.lastName }}
         </div>
-        <div class="card-text my-4" >
-            <div class="card-title border-bottom pb-2 mb-2">
-               {{ order.paymentMethod }}
-            </div>
-            <div class="subtitle">Payment Method</div>
-          </div>
-        <div class="card-text my-4">
-          <div class="card-title border-bottom pb-2 mb-2">
-            <p *ngIf="order.status == 'Awaiting Payment'" style="color: red;">{{ order.status }}</p>
-            <p *ngIf="order.status == 'For Delivery'" style="color: rgb(3, 175, 3);">{{ order.status }}</p>
-            <p *ngIf="order.status == 'Transaction Complete'" style="color: rgb(1, 122, 1);">{{ order.status }}</p>
-            <p *ngIf="order.status == 'Processing Order'" style="color: orange;">{{ order.status }}</p>
-          </div>
-          <div class="subtitle">Order Status</div>
+        <div class="subtitle">Customer Name</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.email }}
         </div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-juliet" data-toggle="modal" data-target="#exampleModalCentered">
-          Update Status
-        </button>
-        <br>
-        <button
-        class="btn btn-edit"
-        type="button"
-        (click)="updateOrderEmail()"
-        >
-        Send Email
-        </button>
-
-        <!-- MODAL -->
-        <form [formGroup]="galleryForm" (ngSubmit)="updateStatus(order._id)">
-          <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenteredLabel">Update Status</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <select class="form-select" formControlName="status">
-                      <option selected value="" disabled>Update Status</option>
-                      <option value="Awaiting Payment">Awaiting Payment</option>
-                      <option value="Processing Order">Processing Order</option>
-                      <option value="For Delivery">For Delivery</option>            
-                      <option value="Transaction Complete">Transaction Complete</option>
-                    </select>
-
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal"  id="close">Close</button>
-                  <button type="button" class="btn btn-primary" type="submit">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div> 
-          </form>     
-          <!-- MODAL -->
+        <div class="subtitle">Customer Email</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.contactNumber }}
+        </div>
+        <div class="subtitle">Customer Number</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.datePurchased | date }}
+        </div>
+        <div class="subtitle">Date of Purchase</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.street }}
+        </div>
+        <div class="subtitle">Street</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.city }}
+        </div>
+        <div class="subtitle">City</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.province }}
+        </div>
+        <div class="subtitle">Province</div>
       </div>
     </div>
   </div>
-  
-  
+  <div class="col-4 p-0 ml-2" *ngIf="order">
+    <div class="card p-5">
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          <span style="color: rgb(1, 122, 1)">Php {{ order.totalPrice }}</span>
+        </div>
+        <div class="subtitle">Total Amount</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.shippingMethod }}
+        </div>
+        <div class="subtitle">Shipping Method</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          {{ order.paymentMethod }}
+        </div>
+        <div class="subtitle">Payment Method</div>
+      </div>
+      <div class="card-text my-4">
+        <div class="card-title border-bottom pb-2 mb-2">
+          <span
+            class="badge badge-danger subtitle"
+            *ngIf="order.status == 'Awaiting Payment'"
+            >{{ order.status }}
+          </span>
+          <span
+            class="badge badge-info subtitle"
+            *ngIf="order.status == 'For Delivery'"
+            >{{ order.status }}
+          </span>
+          <span
+            class="badge badge-success subtitle"
+            *ngIf="order.status == 'Transaction Complete'"
+          >
+            {{ order.status }}
+          </span>
+          <span
+            class="badge badge-primary subtitle"
+            *ngIf="order.status == 'Processing Order'"
+          >
+            {{ order.status }}
+          </span>
+        </div>
+        <div class="subtitle">Order Status</div>
+      </div>
+    </div>
+    <!-- Button trigger modal -->
+    <div class="form-row">
+      <div class="col p-0 mr-2">
+        <button
+          type="button"
+          class="btn btn-edit"
+          data-toggle="modal"
+          data-target="#exampleModalCentered"
+        >
+          Update Status
+        </button>
+      </div>
+      <div class="col p-0">
+        <button
+          class="btn btn-juliet btn-delete"
+          type="button"
+          (click)="updateOrderEmail()"
+        >
+          Send Email
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <form [formGroup]="galleryForm" (ngSubmit)="updateStatus(order._id)">
+      <div
+        class="modal"
+        id="exampleModalCentered"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenteredLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenteredLabel">
+                Update Status
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <select class="form-select" formControlName="status">
+                <option selected value="" disabled>Update Status</option>
+                <option value="Awaiting Payment">Awaiting Payment</option>
+                <option value="Processing Order">Processing Order</option>
+                <option value="For Delivery">For Delivery</option>
+                <option value="Transaction Complete">
+                  Transaction Complete
+                </option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-clear mr-2"
+                data-dismiss="modal"
+                id="close"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-juliet" type="submit">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- MODAL -->
+  </div>
+</div>

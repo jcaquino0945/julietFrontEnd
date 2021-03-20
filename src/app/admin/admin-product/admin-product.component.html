@@ -10,8 +10,19 @@
     >
       Add new
     </button>
-    <input class="form-control mr-2" type="search" placeholder="Search" formControlName="searchName"/>
-    <button class="btn btn-juliet my-2 my-sm-0" type="submit" [disabled]="searchForm.invalid">Search</button>
+    <input
+      class="form-control mr-2"
+      type="search"
+      placeholder="Search"
+      formControlName="searchName"
+    />
+    <button
+      class="btn btn-juliet my-2 my-sm-0"
+      type="submit"
+      [disabled]="searchForm.invalid"
+    >
+      Search
+    </button>
   </form>
 </div>
 
@@ -89,7 +100,9 @@
               formControlName="category"
               class="form-select"
             >
-              <option selected value="undefined" disabled>Choose Category</option>
+              <option selected value="undefined" disabled>
+                Choose Category
+              </option>
               <option value="Necklaces">Necklaces</option>
               <option value="Bracelets-Anklets">Bracelets and Anklets</option>
               <option value="Earrings">Earrings</option>
@@ -132,9 +145,7 @@
                 id="sizes"
                 #input
               />
-              <label for="sizes" class="subtitle mt-2"
-                >Add Sizes</label
-              >
+              <label for="sizes" class="subtitle mt-2">Add Sizes</label>
             </div>
             <div class="col p-0">
               <button
@@ -146,10 +157,9 @@
               </button>
             </div>
           </div>
-          <div class="form-row">Sizes: 
-            <div *ngFor="let sizes of sizes">
-              &nbsp;{{ sizes }}
-            </div>
+          <div class="form-row">
+            Sizes:
+            <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
           </div>
         </div>
         <div class="modal-footer">
@@ -172,9 +182,22 @@
         <img src="https://i.imgur.com/gEdYbSe.jpg" width="100px" />
         <div class="mr-auto ml-3">
           {{ product.name }} <br />
-          {{ product.price }} <br />
-          <p *ngIf="product.stock_quantity==0" style="color: red;">Out of stock</p>
-          <p *ngIf="product.stock_quantity < 10 && product.stock_quantity != 0" style="color: orange;">Few stocks left</p>
+          Php {{ product.price }} <br />
+          <span
+            class="badge badge-success subtitle"
+            *ngIf="product.stock_quantity > 10"
+            >In Stock</span
+          >
+          <span
+            class="badge badge-warning subtitle"
+            *ngIf="product.stock_quantity < 10 && product.stock_quantity != 0"
+            >Few stocks left</span
+          >
+          <span
+            class="badge badge-danger subtitle"
+            *ngIf="product.stock_quantity == 0"
+            >Out of Stock</span
+          >
         </div>
         <div class="align-self-start">
           <button
