@@ -1,1 +1,11 @@
-<h1>content works</h1>
+<h2>Edit Ribbon <span class="badge badge-secondary">New</span></h2>
+<div *ngIf="ribbons$">
+<div class="input-group" *ngFor="let ribbon of ribbons$">
+    <form class="form-inline" [formGroup]="ribbonForm" (ngSubmit)="updateRibbon(ribbon._id)">
+    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" formControlName="ribbon" placeholder="{{ribbon.ribbon}}">
+    <div class="input-group-append">
+      <button class="btn btn-success" type="submit" [disabled]="ribbonForm.invalid">Update</button>
+    </div>
+    </form>
+</div>
+</div>

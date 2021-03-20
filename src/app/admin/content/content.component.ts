@@ -39,7 +39,23 @@ export class ContentComponent implements OnInit {
   }
 
   updateRibbon(id) {
-
+    this.ribbonService
+      .updateRibbon(id, this.ribbonForm.value)
+      .subscribe(
+        (res: any) => {
+          if (res) {
+            console.log('nice');
+            window.alert('Ribbon Updated!')
+          }
+        },
+        (err: any) => {
+          console.log(err);}
+      );
+      this.ribbonService.getRibbons().subscribe(
+        (ribbons$) => (this.ribbons$ = ribbons$),
+        (errmess) => (this.errMess = <any>errmess)
+      );
+      
   }
 
 }
