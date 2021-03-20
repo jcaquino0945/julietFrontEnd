@@ -133,7 +133,7 @@
                 #input
               />
               <label for="sizes" class="subtitle mt-2"
-                >Add Available Sizes</label
+                >Add Sizes</label
               >
             </div>
             <div class="col p-0">
@@ -146,7 +146,11 @@
               </button>
             </div>
           </div>
-          <div class="form-row">Sizes:</div>
+          <div class="form-row">Sizes: 
+            <div *ngFor="let sizes of sizes">
+              &nbsp;{{ sizes }}
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <div class="button-row">

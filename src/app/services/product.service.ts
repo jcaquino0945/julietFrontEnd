@@ -19,19 +19,19 @@ const apiUrl = 'http://localhost:3000/products';
 export class ProductService {
   searchQuery = '';
   currentIndex: BehaviorSubject<string>;
-  headers = new HttpHeaders({ 
+  headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Authorization': 'bearer ' + sessionStorage.getItem('token')
- });
+    Authorization: 'bearer ' + sessionStorage.getItem('token'),
+  });
   constructor(
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
   ) {}
   setSearchQuery(val) {
-    this.searchQuery = val
+    this.searchQuery = val;
   }
   getSearchQuery() {
-    return this.searchQuery
+    return this.searchQuery;
   }
   //get products from db
   getProducts(): Observable<Product[]> {
@@ -42,7 +42,7 @@ export class ProductService {
 
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
-      .get<Product[]>(apiUrl + '/category/' + category,)
+      .get<Product[]>(apiUrl + '/category/' + category)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -55,8 +55,8 @@ export class ProductService {
 
   searchProduct(text): Observable<Product[]> {
     return this.http
-    .get<Product[]>(apiUrl + '/search/' + text)
-    .pipe(catchError(this.processHTTPMsgService.handleError));
+      .get<Product[]>(apiUrl + '/search/' + text)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
   //get all product ids
@@ -73,7 +73,7 @@ export class ProductService {
     // formData.append('imageTitle', gallery.imageTitle);
     // formData.append('sizes', JSON.stringify(sizes));
     for (var i = 0; i < sizes.length; i++) {
-      formData.append('sizes', sizes[i])
+      formData.append('sizes', sizes[i]);
     }
     formData.append('name', product.name);
     formData.append('price', product.price.toString());
@@ -84,12 +84,12 @@ export class ProductService {
     //const header = new HttpHeaders();
     const params = new HttpParams();
     const header = new HttpHeaders({
-      'Authorization': 'bearer ' + sessionStorage.getItem('token')
-   });
+      Authorization: 'bearer ' + sessionStorage.getItem('token'),
+    });
     const options = {
       params,
       reportProgress: true,
-      headers: header
+      headers: header,
     };
     const req = new HttpRequest('POST', apiUrl, formData, options);
     return this.http.request(req);
@@ -153,7 +153,7 @@ export class ProductService {
   }*/
   deleteProduct(id: string): Observable<any> {
     return this.http
-      .delete<Product[]>(apiUrl + '/' + id,{ headers: this.headers })
+      .delete<Product[]>(apiUrl + '/' + id, { headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

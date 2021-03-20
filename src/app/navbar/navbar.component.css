@@ -20,6 +20,38 @@
   color: #ffffff;
 }
 
+.dropdown {
+  position: static;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  padding: 50px 300px;
+  height: auto;
+  width: 100%;
+  position: absolute;
+  visibility: visible;
+}
+
+.dropdown-menu {
+  border: 0;
+  border-radius: 0;
+  width: 100%;
+  margin-top: 0;
+}
+
+.dropdown-menu a {
+  color: #000;
+  margin: 0;
+  padding: 5px 0;
+  width: auto;
+}
+
+.dropdown-menu a:hover {
+  background: none;
+  color: #c1ae8d;
+}
+
 ul {
   margin: 0 auto;
   align-items: center;

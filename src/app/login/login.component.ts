@@ -33,8 +33,9 @@ export class LoginComponent implements OnInit {
       .then((response) => {
         this.authService.setUserInfo(response['token']);
         this.router.navigate(['admin']);
-      }).catch((err) => {
-        window.alert('Wrong username/password')
+      })
+      .catch((err) => {
+        window.alert('Wrong username/password');
       });
   }
 }

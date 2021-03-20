@@ -1,4 +1,5 @@
-.card, input {
+.card,
+input {
   border-radius: 0;
   width: 100%;
 }
@@ -17,7 +18,8 @@ select {
   letter-spacing: 0.75px;
 }
 
-.btn-juliet {
+.btn-juliet,
+.btn-clear:hover {
   background: #6e815d;
   padding: 8px 15px;
   margin: 0;
@@ -30,7 +32,8 @@ select {
   letter-spacing: 0.75px;
 }
 
-.btn-juliet:hover {
+.btn-juliet:hover,
+.btn-clear {
   background: transparent;
   padding: 8px 15px;
   margin: 0;
