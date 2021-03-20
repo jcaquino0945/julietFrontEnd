@@ -25,6 +25,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AdminProductSearchComponent } from './admin-product-search/admin-product-search.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
+import { ContentComponent } from './content/content.component';
 @NgModule({
   declarations: [
     AdminProductComponent,
@@ -35,7 +36,8 @@ import { OrderSearchComponent } from './order-search/order-search.component';
     ReportsComponent,
     OrderDetailsComponent,
     AdminProductSearchComponent,
-    OrderSearchComponent
+    OrderSearchComponent,
+    ContentComponent
   ],
   imports: [
     CommonModule,

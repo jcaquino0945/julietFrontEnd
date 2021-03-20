@@ -1,13 +1,5 @@
 <div class="d-flex justify-content-between align-items-center flex-wrap">
   <h3>Dashboard</h3>
-  <button
-    type="button"
-    class="btn btn-juliet mr-2 ml-auto"
-    data-toggle="modal"
-    data-target="#modal"
-  >
-    Update Ribbon
-  </button>
   <form class="form-inline">
     <input class="form-control mr-2" type="search" placeholder="Search" />
     <button class="btn btn-juliet my-2 my-sm-0" type="submit">Search</button>
@@ -96,46 +88,3 @@
   </div>
 </div>
 
-<div class="modal" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Update Ribbon</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-          id="close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- <form #ribbonForm="ngForm" (ngSubmit)="onFormSubmit()"> -->
-          <div class="form-row">
-            <input
-              type="text"
-              class="form-control"
-              name="ribbon"
-              #ribbon="ngModel"
-              [(ngModel)]="ribbon.ribbon"
-            />
-            <label for="ribbon" class="subtitle mt-2">Ribbon</label>
-          </div>
-          <button type="submit" class="btn btn-juliet ml-2" id="close">
-            Submit
-          </button>
-        <!-- </form> -->
-      </div>
-      <div class="modal-footer">
-        <div class="button-row">
-          <button type="reset" class="btn btn-clear">Clear</button>
-          <button type="submit" class="btn btn-juliet ml-2" id="close">
-            Save
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

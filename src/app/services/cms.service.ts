@@ -11,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 import { CMS } from '../models/cms';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = 'http://localhost:3000/cms';
+const apiUrl = 'http://localhost:3000/ribbon';
 
 @Injectable({
   providedIn: 'root',
@@ -25,4 +25,16 @@ export class CmsService {
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
   ) {}
+
+  getRibbons(): Observable<CMS[]> {
+    return this.http
+      .get<CMS[]>(apiUrl)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  updateRibbon(id,data): Observable<CMS[]> {
+    return this.http
+      .put<CMS[]>(apiUrl + '/' + id,data,{headers: this.headers})
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
 }

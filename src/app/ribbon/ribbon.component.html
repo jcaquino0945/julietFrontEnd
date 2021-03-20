@@ -1,7 +1,7 @@
 <div *ngIf="!isMobile">
-  <ribbon *ngIf="ribbon.visible">
-    <div class="container-fluid text-center text-uppercase">
-      Free shipping on all orders over Php 1,500! Shop Now.
+  <ribbon *ngIf="ribbon.visible && myRibbon$">
+    <div class="container-fluid text-center text-uppercase" *ngFor="let ribbon of myRibbon$">
+      {{ribbon.ribbon}}
     </div>
   </ribbon>
 </div>

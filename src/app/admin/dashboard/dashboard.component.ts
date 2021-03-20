@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   monthlySales: string;
   errMess: string;
   bestsellers = [];
-  ribbon = { ribbon: '' };
+  ribbon: CMS[];
   cmsForm: FormGroup;
   isLoadingResults = false;
 
