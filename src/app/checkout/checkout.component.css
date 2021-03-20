@@ -83,3 +83,14 @@ input:focus {
   font-size: .8vw;
   color: rgb(223, 4, 4);
 }
+@media (max-width: 426px){
+  ::placeholder {
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.70px;
+  }
+  
+  .btn-proceed {
+    padding: 8px;
+  }
+}

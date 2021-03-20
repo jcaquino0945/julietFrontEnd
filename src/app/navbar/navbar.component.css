@@ -51,6 +51,10 @@ ul {
   border-color: transparent;
 }
 
+.btn-2 {
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .navbar {
     background-color: #ffffff;

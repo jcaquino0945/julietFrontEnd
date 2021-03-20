@@ -53,3 +53,12 @@ select {
   border-radius: 0;
   font-size: 13px;
 }
+
+@media (max-width: 426px){
+  .section {
+    padding: 0;
+  }
+  .card {
+    width: 100%;
+  }
+}
