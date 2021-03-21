@@ -54,7 +54,7 @@ export class AdminService {
   public changePassword(password, id) {
     if (this.isAuthenticated()) {
       return this.http
-      .post(apiUrl + 'passwordReset/' + id, {
+      .put(apiUrl + 'passwordReset/' + id, {
         password: password,
       },{headers:this.headers})
       .toPromise();
