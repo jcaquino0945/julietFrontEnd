@@ -36,7 +36,7 @@
           <div class="col-10">
             <div class="d-flex justify-content-start flex-wrap" *ngIf="products$">
               <div class="card mx-2" *ngFor="let product of products$; let i = index">
-                <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
+                <img src={{product.imageUrl}} class="card-img-top" />
                 <div class="card-body">
                   <div class="card-text">
                     <a [routerLink]="['/product/', product._id]">{{
@@ -89,7 +89,7 @@
           <div class="d-flex justify-content-start flex-wrap" *ngIf="products$">
             <div class="row">
               <div class="card mx-2" *ngFor="let product of products$; let i = index">
-                <img src="https://i.imgur.com/HGYgGAq.jpg" class="card-img-top" />
+                <img src={{product.imageUrl}} class="card-img-top" />
                 <div class="card-body">
                   <div class="card-text">
                     <a [routerLink]="['/product/', product._id]">{{

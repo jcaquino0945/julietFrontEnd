@@ -36,6 +36,11 @@ export class CartComponent implements OnInit {
     this.onResize();
     this.responsive.checkWidth();
   }
+  clearCart() {
+    this.items = [];
+    this.cartService.clearCart();
+
+  }
   addQuantity(item) {
     item.updateStock = item.stock_quantity;
     item.quantity++;

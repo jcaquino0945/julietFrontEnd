@@ -5,7 +5,7 @@
   <div class="container" *ngIf="product">
     <div class="row section-1">
       <div class="col">
-        <img src="https://i.imgur.com/HGYgGAq.jpg" width="450px" />
+        <img src={{product.imageUrl}} width="450px" />
       </div>
       <div class="col">
         <form [formGroup]="orderForm">
@@ -81,7 +81,7 @@
   <!-- start coding here for mobile view -->
   <div class="container" *ngIf="product">
     <div class="row section-1">
-        <img src="https://i.imgur.com/HGYgGAq.jpg" class="img-fluid" />
+        <img src={{product.imageUrl}} class="img-fluid" />
       <div class="col">
         <form [formGroup]="orderForm">
           <h5>{{ product.name }}</h5>

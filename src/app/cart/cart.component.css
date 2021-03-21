@@ -23,8 +23,7 @@ select {
   color: #fff;
   width: 100%;
 }
-
-.btn-proceed:hover {
+.btn-proceed:hover, .btn-back {
   background: transparent;
   padding: 8px 15px;
   margin: 10px 0;

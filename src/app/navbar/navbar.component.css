@@ -1,4 +1,5 @@
 .navbar {
+  
   padding: 1vh 0;
   transition: 0.1s all ease-in;
   border: none;
@@ -26,11 +27,14 @@
 }
 .dropdown {
   position: static;
+  transition: 1s all ease-in-out;
+  transition: .6s all ease-in-out;
 }
 
 .dropdown:hover > .dropdown-menu {
+  transition: .6s all ease-in-out;
   display: block;
-  padding: 50px 300px;
+  padding: 25px 300px;
   height: auto;
   width: 100%;
   position: absolute;
@@ -38,6 +42,9 @@
 }
 
 .dropdown-menu {
+  display: none;
+  transition: .6s all ease-in-out;
+  text-align: center;
   border: 0;
   border-radius: 0;
   width: 100%;
@@ -52,6 +59,8 @@
 }
 
 .dropdown-menu a:hover {
+  display: block;
+  transition: .6s all ease-in-out;
   background: none;
   color: #c1ae8d;
 }
@@ -90,6 +99,15 @@ ul {
   .navbar {
     background-color: #ffffff;
   }
+  .dropdown:hover > .dropdown-menu {
+    display: block;
+    padding: 0 0 10px 0;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    visibility: visible;
+  }
 
   .navbar-toggler,
   .btn-2 {
@@ -101,11 +119,14 @@ ul {
   }
 
   .dropdown-menu {
+    
+    text-align: center;
     border-color: transparent;
   }
 
   .dropdown-menu li {
     text-align: center;
   }
+  
 
 }
