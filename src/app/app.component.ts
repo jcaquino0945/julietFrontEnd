@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponsiveService } from './services/responsive.service';
 import { FacebookService, InitParams } from 'ngx-facebook';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private responsive: ResponsiveService, private facebookService: FacebookService) {}
 
   ngOnInit() {
+    AOS.init();
     this.initFacebookService();
     this.responsive.getMobileStatus().subscribe((isMobile) => {
       if (isMobile) {

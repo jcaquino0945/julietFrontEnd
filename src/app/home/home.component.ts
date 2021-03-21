@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
