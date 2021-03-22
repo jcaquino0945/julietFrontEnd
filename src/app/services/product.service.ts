@@ -62,7 +62,7 @@ export class ProductService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  //get all product ids
+  //get all product idss
   getProductIds(): Observable<number[] | any> {
     return this.getProducts()
       .pipe(map((products) => products.map((product) => product._id)))
