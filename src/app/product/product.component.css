@@ -38,7 +38,9 @@ select {
   color: #fff;
   width: 100%;
 }
-
+* {
+	outline: none;
+}
 .btn-add-to-cart:hover {
   background: transparent;
   padding: 8px 15px;
