@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
+import { ResponsiveService } from '../services/responsive.service';
 
 @Component({
   selector: 'app-shop-by-category',
@@ -15,6 +16,8 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./shop-by-category.component.css']
 })
 export class ShopByCategoryComponent implements OnInit {
+  public isMobile: Boolean;
+
   products$: Product[];
   errMess: string;
   constructor(
@@ -25,12 +28,17 @@ export class ShopByCategoryComponent implements OnInit {
     private productService:ProductService,
     private route: ActivatedRoute,
     private location: Location,
+    private responsive: ResponsiveService
+
   ) { }
 
   ngOnInit(): void {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
+
+    this.onResize();
+    this.responsive.checkWidth();
 
     this.route.params.pipe(switchMap((params: Params) => { return this.productService.getProductsByCategory(params['category']); }))
     .subscribe(products$ => {
@@ -39,6 +47,12 @@ export class ShopByCategoryComponent implements OnInit {
     err => console.log(err));
     errmess => this.errMess = <any>errmess;
 
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
   }
 
 }

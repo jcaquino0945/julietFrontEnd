@@ -1,5 +1,4 @@
 .navbar {
-  
   padding: 1vh 0;
   transition: 0.1s all ease-in;
   border: none;
@@ -16,7 +15,12 @@
   letter-spacing: 0.75px;
   margin: 0 2vw;
 }
-
+.navbar a:hover {
+  color: rgb(221, 221, 221);
+}
+.active {
+  color: rgb(221, 221, 221) !important;
+}
 .navbar-toggler {
   color: #ffffff;
 }
@@ -117,7 +121,9 @@ ul {
   .navbar a {
     color: #c1ae8d;
   }
-
+.mobile-active {
+  color: #a08e6e;
+}
   .dropdown-menu {
     
     text-align: center;

@@ -16,6 +16,7 @@ export class ShopComponent implements OnInit {
   public isMobile: Boolean;
   products$: Product[];
   errMess: string;
+  loading = true;
   constructor(
     public nav: NavbarService,
     public ribbon: RibbonService,
@@ -26,6 +27,7 @@ export class ShopComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.nav.show();
     this.ribbon.show();
     this.footer.show();

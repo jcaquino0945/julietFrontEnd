@@ -1,5 +1,6 @@
 .container-fluid {
-  padding: 5px;
+  padding: 7px;
   color: #fff;
   background-color: #6e815d;
+  font-size: 1.2vw;
 }
