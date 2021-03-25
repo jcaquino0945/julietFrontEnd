@@ -467,4 +467,34 @@ export class OrderDetailsComponent implements OnInit {
       status: ''
     });
   }
+  deleteOrder(id) {
+    if (window.confirm('Are you sure?')) {
+      this.orderService.deleteOrder(id).subscribe(
+        (order) => (this.order = order),
+        (errmess) => (this.errMess = <any>errmess)
+      );
+      console.log('deleted product with id: ' + id);
+      this.router.navigate(['/admin/orders']);
+    }
+    this.orderService
+    .getOrderIds()
+    .subscribe((orderIds) => (this.orderIds = orderIds));
+
+    this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+        return this.orderService.getOrder(params['id']);
+      })
+    )
+    .subscribe(
+      (order) => {
+        this.order = order;
+        //this.orderService.setSearchQuery(order.orderId);
+        this.status = order.status;
+      },
+      (err) => console.log(err)
+    );
+  (errmess) => (this.errMess = <any>errmess);
+  }
+
 }

@@ -56,6 +56,11 @@ export class OrderService {
       .get<Orders[]>(apiUrl + '/awaitingPayments',{ headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+  deleteOrder(id: string): Observable<any> {
+    return this.http
+      .delete<Orders[]>(apiUrl + '/' + id, { headers: this.headers })
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 /*
   getEvents(): Observable<Orders[]> {    
     return this.http.get<Orders[]>(apiUrl,{ headers: this.headers }).pipe(

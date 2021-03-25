@@ -120,6 +120,23 @@ export class AdminProductDetailComponent implements OnInit {
       console.log('deleted product with id: ' + id);
       this.router.navigate(['/admin/adminProduct']);
     }
+    //resubscribe to refresh
+    this.productService
+      .getProductIds()
+      .subscribe((productIds) => (this.productIds = productIds));
+    this.route.params
+      .pipe(
+        switchMap((params: Params) => {
+          return this.productService.getProduct(params['id']);
+        })
+      )
+      .subscribe(
+        (product) => {
+          this.product = product;
+        },
+        (err) => console.log(err)
+      );
+    (errmess) => (this.errMess = <any>errmess);
   }
 
   onFormSubmit(id) {
