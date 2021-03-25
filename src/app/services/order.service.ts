@@ -45,6 +45,17 @@ export class OrderService {
       .get<Orders[]>(apiUrl,{ headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+
+  getOrdersWithConfirmedPayments(): Observable<Orders[]> {
+    return this.http
+      .get<Orders[]>(apiUrl + '/confirmedPayments',{ headers: this.headers })
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  getOrdersWithAwaitingPayments(): Observable<Orders[]> {
+    return this.http
+      .get<Orders[]>(apiUrl + '/awaitingPayments',{ headers: this.headers })
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 /*
   getEvents(): Observable<Orders[]> {    
     return this.http.get<Orders[]>(apiUrl,{ headers: this.headers }).pipe(

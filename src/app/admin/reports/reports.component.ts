@@ -16,7 +16,7 @@ export class ReportsComponent implements OnInit {
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe(
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(
       (orders$) =>
         (this.chart = new Chart(document.getElementById('monthlyChart'), {
           type: 'line',
@@ -67,7 +67,7 @@ export class ReportsComponent implements OnInit {
       (errMess) => (this.errMess = <any>errMess)
     );
 
-    this.orderService.getOrders().subscribe(
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(
       (orders$) =>
         (this.chart = new Chart(document.getElementById('weeklyChart'), {
           type: 'line',

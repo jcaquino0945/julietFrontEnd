@@ -32,28 +32,25 @@
 .dropdown {
   position: static;
   transition: 1s all ease-in-out;
-  transition: .6s all ease-in-out;
 }
-
-.dropdown:hover > .dropdown-menu {
-  transition: .6s all ease-in-out;
-  display: block;
-  padding: 25px 300px;
-  height: auto;
-  width: 100%;
-  position: absolute;
-  visibility: visible;
-}
-
 .dropdown-menu {
+  transition: 1s all ease-in-out;
   display: none;
-  transition: .6s all ease-in-out;
   text-align: center;
   border: 0;
   border-radius: 0;
   width: 100%;
   margin-top: 0;
 }
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  padding: 25px 300px;
+  height: auto;
+  width: 100%;
+  position: absolute;
+}
+
 
 .dropdown-menu a {
   color: #000;
@@ -64,7 +61,7 @@
 
 .dropdown-menu a:hover {
   display: block;
-  transition: .6s all ease-in-out;
+  transition: .2s all ease-in-out;
   background: none;
   color: #c1ae8d;
 }

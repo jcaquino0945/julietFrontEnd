@@ -43,6 +43,13 @@ export class ProductService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
+  //get featured products from db
+  getFeaturedProducts(): Observable<Product[]> {
+    return this.http
+      .get<Product[]>(apiUrl + '/featured')
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
       .get<Product[]>(apiUrl + '/category/' + category)

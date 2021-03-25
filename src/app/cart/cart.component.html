@@ -2,7 +2,7 @@
 <ribbon *ngIf="ribbon.visible"></ribbon>
 <footer *ngIf="footer.visible"></footer>
 
-<div class="container" *ngIf="items.length != 0">
+<div class="container" *ngIf="items.length != 0" data-aos="fade-right" data-aos-duration="800">
   <div class="row section">
     <div class="col-7 mx-3">
       <h5>Shopping Cart</h5>
@@ -75,7 +75,7 @@
   </div>
 </div>
 
-<div class="container" *ngIf="items.length == 0">
+<div class="container" *ngIf="items.length == 0" data-aos="fade-right" data-aos-duration="800">
   <div class="row section">
     <div class="col-7 mx-3">
       <h5>Shopping Cart</h5>

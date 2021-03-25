@@ -8,4 +8,9 @@
 
 <div *ngIf="isMobile">
   <!-- start coding here for mobile view -->
+  <ribbon *ngIf="ribbon.visible && myRibbon$">
+    <div class="container-fluid text-center text-uppercase" *ngFor="let ribbon of myRibbon$" style="font-size: 4vw; width: 100%; margin: 0;">
+      {{ribbon.ribbon}}
+    </div>
+  </ribbon>
 </div>

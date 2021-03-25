@@ -68,6 +68,7 @@ export class AdminProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    sessionStorage.getItem('token')
     this.productService
       .getProductIds()
       .subscribe((productIds) => (this.productIds = productIds));

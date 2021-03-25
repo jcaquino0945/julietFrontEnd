@@ -17,8 +17,12 @@ import { CmsService } from 'src/app/services/cms.service';
 export class DashboardComponent implements OnInit {
   orders: Orders[];
   dailyOrders: Orders[];
+  awaitingPayment: Orders[];
   weeklyOrders: Orders[];
   monthlyOrders: Orders[];
+  dailyOrdersConfirmed: Orders[];
+  weeklyOrdersConfirmed: Orders[];
+  monthlyOrdersConfirmed: Orders[];
   dailySales: string;
   weeklySales: string;
   monthlySales: string;
@@ -66,10 +70,25 @@ export class DashboardComponent implements OnInit {
         )),
       (errMess) => (this.errMess = <any>errMess)
     );
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(
+      (dailyOrdersConfirmed) =>
+        (this.dailyOrdersConfirmed = dailyOrdersConfirmed.filter((order) =>
+          moment(order.datePurchased).isSame(moment(), 'D')
+        )),
+      (errMess) => (this.errMess = <any>errMess)
+    );
 
     this.orderService.getOrders().subscribe(
       (weeklyOrders) =>
         (this.weeklyOrders = weeklyOrders.filter((order) =>
+          moment(order.datePurchased).isSame(moment(), 'W')
+        )),
+      (errMess) => (this.errMess = <any>errMess)
+    );
+
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(
+      (weeklyOrdersConfirmed) =>
+        (this.weeklyOrdersConfirmed = weeklyOrdersConfirmed.filter((order) =>
           moment(order.datePurchased).isSame(moment(), 'W')
         )),
       (errMess) => (this.errMess = <any>errMess)
@@ -83,23 +102,38 @@ export class DashboardComponent implements OnInit {
       (errMess) => (this.errMess = <any>errMess)
     );
 
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(
+      (monthlyOrdersConfirmed) =>
+        (this.monthlyOrdersConfirmed = monthlyOrdersConfirmed.filter((order) =>
+          moment(order.datePurchased).isSame(moment(), 'M')
+        )),
+      (errMess) => (this.errMess = <any>errMess)
+    );
+    //awaiting payment
+    this.orderService.getOrdersWithAwaitingPayments().subscribe(
+      (awaitingPayment) =>
+        (this.awaitingPayment = awaitingPayment.filter((order) =>
+          moment(order.datePurchased).isSame(moment(), 'D')
+        )),
+      (errMess) => (this.errMess = <any>errMess)
+    );
     // sales
-    this.orderService.getOrders().subscribe(() => {
-      this.dailySales = this.dailyOrders
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(() => {
+      this.dailySales = this.dailyOrdersConfirmed
         .map((order) => order.totalPrice)
         .reduce((accumulator, current) => accumulator + current, 0)
         .toFixed(2);
     });
 
-    this.orderService.getOrders().subscribe(() => {
-      this.weeklySales = this.weeklyOrders
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(() => {
+      this.weeklySales = this.weeklyOrdersConfirmed
         .map((order) => order.totalPrice)
         .reduce((accumulator, current) => accumulator + current, 0)
         .toFixed(2);
     });
 
-    this.orderService.getOrders().subscribe(() => {
-      this.monthlySales = this.monthlyOrders
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(() => {
+      this.monthlySales = this.monthlyOrdersConfirmed
         .map((order) => order.totalPrice)
         .reduce((accumulator, current) => accumulator + current, 0)
         .toFixed(2);

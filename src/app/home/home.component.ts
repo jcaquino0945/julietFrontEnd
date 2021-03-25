@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     this.responsive.checkWidth();
 
     this.product
-      .getProducts()
+      .getFeaturedProducts()
       .subscribe((products) => (this.products = products));
   }
 

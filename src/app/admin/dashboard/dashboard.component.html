@@ -26,9 +26,9 @@
   </div>
   <div class="col p-0 ml-1">
     <div class="card">
-      <div class="card-body">
-        <h1>10%</h1>
-        <div class="subtitle">Growth compared to last month's sales</div>
+      <div class="card-body" *ngIf="awaitingPayment">
+        <h1 style="color: red;">{{ awaitingPayment.length }}</h1>
+        <div class="subtitle">Total Orders Awaiting Payment</div>
       </div>
     </div>
   </div>
