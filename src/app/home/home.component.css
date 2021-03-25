@@ -72,9 +72,10 @@ p {
 .section-4 {
   overflow: hidden;
   margin: 0;
-  padding: 30px;
-  height: 100vh;
+  padding: 100px;
+  height: 140vh;
   width: 100%;
+  background-color: #e7edeb;
 }
 
 .section-5 {
@@ -83,7 +84,6 @@ p {
 }
 
 .bg1 {
-  background-color: #e7edeb;
   height: 40vh;
   width: 50vw;
 }
@@ -168,6 +168,36 @@ p {
   overflow: hidden;
   transform: scale(1.3);
 }
+/* pt-3 pl-3 ml-1 */
+
+.back-to-top {
+    background-color: #6e815d;
+    color: #FFFFFF;
+    transition: opacity .6s ease-in-out;
+    z-index: 999;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 0%;
+  }
+
+  .back-to-top .i {
+    color: #FFFFFF;
+    background-color: #ffffff;
+  }
+
+  .back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+    color: #FFFFFF;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+  }
+
+
 @media (max-width: 768px) {
   div h6 {
     position: relative;
