@@ -68,7 +68,7 @@ export class ProductComponent implements OnInit {
       
     });
     this.productService
-      .getProducts()
+      .getFeaturedProducts()
       .subscribe((products) => (this.products$ = products));
 
     this.productService
