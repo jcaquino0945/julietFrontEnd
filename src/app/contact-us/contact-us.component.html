@@ -1,3 +1,9 @@
+<div class="alert alert-success alert-dismissible fade show" role="alert" style="position: sticky; top: 0;" *ngIf="saveSuccess">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Message sent!</strong> We will reply back to you as soon as possible!
+</div>
 <div *ngIf="!isMobile">
   <nav *ngIf="nav.visible"></nav>
   <ribbon *ngIf="ribbon.visible"></ribbon>
@@ -5,7 +11,7 @@
 
   <div class="jumbotron">
     <div class="container text-center">
-      <form>
+      <form [formGroup]="contactForm">
         <div class="form-row">
           <div class="col">
             <h3 class="title title-border text-center mb-5">Contact Us</h3>
@@ -22,27 +28,39 @@
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Name" />
+            <input type="text" class="form-control" placeholder="Name" formControlName="name"/>
+            <span
+            *ngIf="contactForm.controls.name.errors?.required" class="errorMsg"
+          >Please enter your name</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Contact number" />
+            <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber"/>
+            <span
+            *ngIf="contactForm.controls.contactNumber.errors?.required" class="errorMsg"
+          >Please enter your number</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="email" class="form-control" placeholder="Email address" />
+            <input type="email" class="form-control" placeholder="Email address" formControlName="email"/>
+            <span
+            *ngIf="contactForm.controls.email.errors?.required" class="errorMsg"
+          >Please enter your email</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <textarea class="form-control" placeholder="Message"></textarea>
+            <textarea class="form-control" placeholder="Message" formControlName="message"></textarea>
+            <span
+            *ngIf="contactForm.controls.message.errors?.required" class="errorMsg"
+          >Please enter a message</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="submit" class="btn btn-submit" value="Submit" />
+            <input type="submit" class="btn btn-submit" value="Submit" (click)="onFormSubmit()"  [disabled]="contactForm.invalid"/>
           </div>
         </div>
       </form>
@@ -54,7 +72,7 @@
   <!-- start coding here for mobile view -->
   <div class="jumbotron">
     <div class="container text-center">
-      <form>
+      <form [formGroup]="contactForm">
         <div class="form-row">
           <div class="col">
             <h3 class="title title-border text-center mb-5">Contact Us</h3>
@@ -71,27 +89,39 @@
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Name" />
+            <input type="text" class="form-control" placeholder="Name" formControlName="name"/>
+            <span
+            *ngIf="contactForm.controls.name.errors?.required" class="errorMsg"
+          >Please enter your name</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Contact number" />
+            <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber"/>
+            <span
+            *ngIf="contactForm.controls.contactNumber.errors?.required" class="errorMsg"
+          >Please enter your number</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="email" class="form-control" placeholder="Email address" />
+            <input type="email" class="form-control" placeholder="Email address" formControlName="email"/>
+            <span
+            *ngIf="contactForm.controls.email.errors?.required" class="errorMsg"
+          >Please enter your email</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <textarea class="form-control" placeholder="Message"></textarea>
+            <textarea class="form-control" placeholder="Message" formControlName="message"></textarea>
+            <span
+            *ngIf="contactForm.controls.message.errors?.required" class="errorMsg"
+          >Please enter a message</span>
           </div>
         </div>
         <div class="form-row">
           <div class="col">
-            <input type="submit" class="btn btn-submit" value="Submit" />
+            <input type="submit" class="btn btn-submit" value="Submit" (click)="onFormSubmit()"  [disabled]="contactForm.invalid"/>
           </div>
         </div>
       </form>

@@ -15,6 +15,8 @@ import { CmsService } from 'src/app/services/cms.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  ribbons$: CMS[];
+  ribbonForm: FormGroup;
   orders: Orders[];
   dailyOrders: Orders[];
   awaitingPayment: Orders[];
@@ -36,10 +38,20 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private orderService: OrderService,
     private formBuilder: FormBuilder,
-    private cms: CmsService
+    private cms: CmsService,
+    private ribbonService: CmsService
+
   ) {}
 
   ngOnInit(): void {
+    this.ribbonService.getRibbons().subscribe(
+      (ribbons$) => (this.ribbons$ = ribbons$),
+      (errmess) => (this.errMess = <any>errmess)
+    );
+    
+    this.ribbonForm = this.formBuilder.group({
+      ribbon: [null, Validators.required],
+    })
     // for bestselling items kaso not working :<
     // this.orderService.getOrders().subscribe(
     //   (orders) =>
@@ -113,7 +125,7 @@ export class DashboardComponent implements OnInit {
     this.orderService.getOrdersWithAwaitingPayments().subscribe(
       (awaitingPayment) =>
         (this.awaitingPayment = awaitingPayment.filter((order) =>
-          moment(order.datePurchased).isSame(moment(), 'D')
+          moment(order.datePurchased).isSame(moment(), 'M')
         )),
       (errMess) => (this.errMess = <any>errMess)
     );
@@ -142,5 +154,25 @@ export class DashboardComponent implements OnInit {
     // this.cmsForm = this.formBuilder.group({
     //   ribbon: [null, Validators.required],
     // });
+  }
+
+  updateRibbon(id) {
+    this.ribbonService
+      .updateRibbon(id, this.ribbonForm.value)
+      .subscribe(
+        (res: any) => {
+          if (res) {
+            console.log('nice');
+            window.alert('Ribbon Updated!')
+          }
+        },
+        (err: any) => {
+          console.log(err);}
+      );
+      this.ribbonService.getRibbons().subscribe(
+        (ribbons$) => (this.ribbons$ = ribbons$),
+        (errmess) => (this.errMess = <any>errmess)
+      );
+      
   }
 }

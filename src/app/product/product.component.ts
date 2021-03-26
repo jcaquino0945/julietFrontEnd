@@ -40,6 +40,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
+  saveSuccess: boolean;
+  saveFailure: boolean;
+
   public isMobile: Boolean;
   products$: Product[];
   product: Product;
@@ -97,23 +100,29 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product) {
-    let cartProduct = {
-      _id: product._id,
-      name: product.name,
-      imageUrl: product.imageUrl,
-      description: product.description,
-      price: product.price,
-      category: product.category,
-      size: this.orderForm.get('selectedOption').value,
-      quantity: 1,
-      totalPrice: product.price,
-      stock_quantity: product.stock_quantity,
-      updateStock: product.stock_quantity - 1,
-    };
-    this.cartService.addToCart(cartProduct);
-    console.log(cartProduct);
-    window.alert('Your product has been added to the cart!');
-    this.router.navigate(['/cart'])
+    try {
+      let cartProduct = {
+        _id: product._id,
+        name: product.name,
+        imageUrl: product.imageUrl,
+        description: product.description,
+        price: product.price,
+        category: product.category,
+        size: this.orderForm.get('selectedOption').value,
+        quantity: 1,
+        totalPrice: product.price,
+        stock_quantity: product.stock_quantity,
+        updateStock: product.stock_quantity - 1,
+      };
+      this.cartService.addToCart(cartProduct);
+      console.log(cartProduct);
+      this.saveSuccess = true 
+      this.router.navigate(['/cart'])
+    } catch (error) {
+      this.saveFailure = true
+    }
+    
+    
   }
 
   onResize() {

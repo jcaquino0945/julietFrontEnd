@@ -10,12 +10,10 @@ import { ReportsComponent } from './reports/reports.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AdminProductSearchComponent } from './admin-product-search/admin-product-search.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
-import { ContentComponent } from './content/content.component';
 
 export const routes: Routes = [
   { path: 'admin', redirectTo: '/admin/dashboard', component: AdminProductComponent },
   { path: 'adminProduct', component: AdminProductComponent },
-  { path: 'content', component: ContentComponent },
   { path: 'adminProduct/search', component: AdminProductSearchComponent },
   { path: 'adminProduct/:id', component: AdminProductDetailComponent },
   { path: 'adminStock', component: AdminStockComponent },

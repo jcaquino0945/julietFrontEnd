@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  saveSuccess: boolean;
   public isMobile: Boolean;
   items = this.cartService.getItems();
   stocks = this.cartService.getStocks();
@@ -39,7 +40,7 @@ export class CartComponent implements OnInit {
   clearCart() {
     this.items = [];
     this.cartService.clearCart();
-
+    this.saveSuccess = true 
   }
   addQuantity(item) {
     item.updateStock = item.stock_quantity;

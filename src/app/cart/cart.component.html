@@ -1,3 +1,10 @@
+
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess" style="position: sticky; top: 0;">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Cart has been cleared!</strong> Continue shopping to add more items in cart!
+</div>
 <nav *ngIf="nav.visible"></nav>
 <ribbon *ngIf="ribbon.visible"></ribbon>
 <footer *ngIf="footer.visible"></footer>
@@ -79,7 +86,10 @@
   <div class="row section">
     <div class="col-7 mx-3">
       <h5>Shopping Cart</h5>
+      <br>
+      <p>Cart is empty!</p>
     </div>
+
     <div class="col mx-3">
       <div class="card">
         <div class="card-body">

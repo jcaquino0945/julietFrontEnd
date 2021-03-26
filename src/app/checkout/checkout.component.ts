@@ -312,7 +312,6 @@ export class CheckoutComponent implements OnInit {
         }
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
-        window.alert("Succesful order!");
         this.cartService.clearCart()
         this.router.navigate(['thank-you'])
         

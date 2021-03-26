@@ -6,7 +6,10 @@
   position: relative;
   display: block;
 }
-
+.errorMsg {
+  color: #6e815d;
+  font-size: .9vw;
+}
 .title-border:after {
   content: "";
   position: absolute;
@@ -108,6 +111,10 @@ textarea:focus {
   .jumbotron {
     padding: 10px 5em;
   }
+  .errorMsg {
+    color: #6e815d;
+    font-size: 3.2vw;
+  }
 }
 
 @media (max-width: 320px) {
@@ -118,6 +125,10 @@ textarea:focus {
 
   .form-row {
     width: 100%;
+  }
+  .errorMsg {
+    color: #6e815d;
+    font-size: 3.5vw;
   }
 
 
