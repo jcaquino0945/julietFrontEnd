@@ -39,9 +39,12 @@
                 <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">
-                    <a><span style="font-weight: bold;">{{ product.name }}</span></a><span *ngIf="product.stock_quantity == 0" style="color: red; font-size: .8vw; margin-left: 1vw;">Out of stock</span>
+                    <a>
+                      <span style="font-weight: bold;">{{ product.name }}</span>
+                    </a>
                   </div>
                   <div class="card-title">Php {{ product.price }}</div>
+                  <p *ngIf="product.stock_quantity == 0" style="color: red;font-size: 12pt;">Out of stock</p>
                 </div>
               </div>
             </div>
@@ -84,23 +87,24 @@
           </div>
         </div>
 
-        <div class="col-md-12" *ngIf="products$">
+        <div class="col-md-12" *ngIf="products$" data-aos="fade-up" data-aos-duration="1000">
           <div class="d-flex justify-content-start flex-wrap">
             <div class="row">
               <div class="card mx-2" *ngFor="let product of products$; let i = index" [routerLink]="['/product/', product._id]">
                 <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">
-                    <a [routerLink]="['/product/', product._id]"><span style="font-weight: bold;">{{ product.name }}</span></a>
+                    <a [routerLink]="['/product/', product._id]">
+                      <span style="font-weight: bold;">{{ product.name }}</span>
+                    </a>
                   </div>
                   <div class="card-title">Php {{ product.price }}</div>
+                  <p *ngIf="product.stock_quantity == 0" style="color: red; font-size: 12pt;">Out of stock</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        
       </div>
     </div>
   </div>

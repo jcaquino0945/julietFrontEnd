@@ -4,6 +4,12 @@
   </button>
   <strong>Product added to cart!</strong> Check out your items in cart
 </div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="product.stock_quantity == 0" style="position: sticky; top: 0;">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>This product is currently out of stock!</strong> We will restock it soon!
+</div>
 <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -22,8 +28,8 @@
       <div class="col">
         <form [formGroup]="orderForm">
         <h5>{{ product.name }}</h5>
+        <p> {{ product.description }} </p>
         <ul>
-          <li><b>Description: </b> {{ product.description }}</li>
           <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
         </ul>
         <h5 class="mb-4">Php {{ product.price }}</h5>
@@ -96,10 +102,10 @@
       <div class="col">
         <form [formGroup]="orderForm">
           <h5 class="align-text-left">{{ product.name }}</h5>
-          <ul>
-            <li><b>Description: </b> {{ product.description }}</li>
-            <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
-          </ul>
+          <p> {{ product.description }} </p>
+        <ul>
+          <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
+        </ul>
           <h5 class="mb-4">Php {{ product.price }}</h5>
           <h5 class="mb-4" style="color: red;" *ngIf="product.stock_quantity==0">Out of stock</h5>
           <p>Select Size:</p>

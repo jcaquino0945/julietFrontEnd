@@ -42,7 +42,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class ProductComponent implements OnInit {
   saveSuccess: boolean;
   saveFailure: boolean;
-
   public isMobile: Boolean;
   products$: Product[];
   product: Product;

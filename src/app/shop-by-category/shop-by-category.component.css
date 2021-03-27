@@ -61,4 +61,71 @@ a {
   .card-text {
     font-size: 15px;
   }
+  @media (max-width: 426px) {
+    #dropdownMenuButton1 {
+      width: 100%;
+      text-align: left;
+      background-color: #ffffff;
+      color: #6e815d;
+      border-radius: 0;
+    }
+  
+    .dropdown-toggle::after {
+      content: "";
+      display: inline-block;
+      right: 15px;
+      top: 18px;
+      position: absolute;
+    }
+  
+    .dropdown-menu {
+      width: 100%;
+    }
+  
+    .nav-item {
+      padding: 5px;
+    }
+  
+    .card {
+      width: 180px;
+      max-height: 800px;
+    }
+  
+    .card-img-top {
+      margin-top: 5vh;
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+  
+    .card-body {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 376px) {
+    .card {
+      width: 150px;
+    }
+    
+    .card-img-top {
+      margin-top: 5vh;
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .card {
+      width: 120px;
+    }
+    
+    .card-img-top {
+      margin-top: 5vh;
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+  }
   
