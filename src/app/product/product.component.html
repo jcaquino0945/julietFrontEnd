@@ -10,8 +10,8 @@
       <div class="col">
         <form [formGroup]="orderForm">
         <h5>{{ product.name }}</h5>
+        <p> {{ product.description }} </p>
         <ul>
-          <li><b>Description: </b> {{ product.description }}</li>
           <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
         </ul>
         <h5 class="mb-4">Php {{ product.price }}</h5>
@@ -84,10 +84,10 @@
       <div class="col">
         <form [formGroup]="orderForm">
           <h5 class="align-text-left">{{ product.name }}</h5>
-          <ul>
-            <li><b>Description: </b> {{ product.description }}</li>
-            <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
-          </ul>
+          <p> {{ product.description }} </p>
+        <ul>
+          <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
+        </ul>
           <h5 class="mb-4">Php {{ product.price }}</h5>
           <h5 class="mb-4" style="color: red;" *ngIf="product.stock_quantity==0">Out of stock</h5>
           <p>Select Size:</p>

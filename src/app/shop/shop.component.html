@@ -39,9 +39,12 @@
                 <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">
-                    <a><span style="font-weight: bold;">{{ product.name }}</span></a><span *ngIf="product.stock_quantity == 0" style="color: red; font-size: .8vw; margin-left: 1vw;">Out of stock</span>
+                    <a>
+                      <span style="font-weight: bold;">{{ product.name }}</span>
+                    </a>
                   </div>
                   <div class="card-title">Php {{ product.price }}</div>
+                  <p *ngIf="product.stock_quantity == 0" style="color: red;font-size: 12pt;">Out of stock</p>
                 </div>
               </div>
             </div>
@@ -91,16 +94,17 @@
                 <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">
-                    <a [routerLink]="['/product/', product._id]"><span style="font-weight: bold;">{{ product.name }}</span></a>
+                    <a [routerLink]="['/product/', product._id]">
+                      <span style="font-weight: bold;">{{ product.name }}</span>
+                    </a>
                   </div>
                   <div class="card-title">Php {{ product.price }}</div>
+                  <p *ngIf="product.stock_quantity == 0" style="color: red; font-size: 12pt;">Out of stock</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        
       </div>
     </div>
   </div>
