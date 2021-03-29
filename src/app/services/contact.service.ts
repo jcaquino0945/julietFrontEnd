@@ -42,7 +42,7 @@ export class ContactService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  deleteProduct(id: string): Observable<any> {
+  deleteMessage(id: string): Observable<any> {
     return this.http
       .delete<Contact[]>(apiUrl + '/' + id, { headers: this.headers })
       .pipe(catchError(this.processHTTPMsgService.handleError));

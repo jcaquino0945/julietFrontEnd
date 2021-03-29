@@ -3,6 +3,8 @@ import { Chart } from 'chart.js';
 import { Orders } from '../../models/orders';
 import * as moment from 'moment';
 import { OrderService } from 'src/app/services/order.service';
+import { ContactService } from '../../services/contact.service';
+import { Contact } from '../../models/contact';
 
 @Component({
   selector: 'app-reports',
@@ -11,11 +13,17 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class ReportsComponent implements OnInit {
   orders$: Orders[];
+  messages$: Contact[];
   errMess: string;
   chart: any;
-  constructor(private orderService: OrderService) {}
+  constructor(
+    private orderService: OrderService,
+    private contactService: ContactService,
+    ) {}
 
   ngOnInit(): void {
+    this.contactService.getMessages().subscribe((messages$) => (this.messages$ = messages$), (errMess) => (this.errMess = <any>errMess));
+
     this.orderService.getOrdersWithConfirmedPayments().subscribe(
       (orders$) =>
         (this.chart = new Chart(document.getElementById('monthlyChart'), {
@@ -118,4 +126,11 @@ export class ReportsComponent implements OnInit {
       (errMess) => (this.errMess = <any>errMess)
     );
   }
+  deleteMsg(id) {
+    if (window.confirm('Are you sure?')) {
+    this.contactService.deleteMessage(id).subscribe((messages$) => (this.messages$ = messages$), (errMess) => (this.errMess = <any>errMess));
+
+    this.contactService.getMessages().subscribe((messages$) => (this.messages$ = messages$), (errMess) => (this.errMess = <any>errMess));
+  }
+}
 }
