@@ -39,6 +39,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./admin-product-detail.component.css'],
 })
 export class AdminProductDetailComponent implements OnInit {
+  saveSuccess: boolean;
+  saveFailure: boolean;
   products$: Product[];
   product: Product;
   productIds: string[];
@@ -144,10 +146,12 @@ export class AdminProductDetailComponent implements OnInit {
       (res) => {
         console.log('Content updated');
         document.getElementById('close').click(); // close modal
-        window.alert('Product updated!');
+        this.saveSuccess = true;
+
       },
       (error) => {
         console.log(error);
+        this.saveFailure = true
       }
     );
     //resubscribe to refresh

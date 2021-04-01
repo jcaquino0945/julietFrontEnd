@@ -13,6 +13,8 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+  saveSuccess: boolean;
+  saveFailure: boolean;
   user = { email: '' };
   constructor(
     private authService: AuthService,
@@ -32,11 +34,11 @@ export class ForgotPasswordComponent implements OnInit {
   resetPassword() {
     this.adminService
     .sendPasswordResetRequest(this.user.email)
-    .then((response) => {
-      window.alert('Check your email')
+    .then((saveSuccess) => {
+      this.saveSuccess = true;
+      saveSuccess = this.saveSuccess;
     }).catch((err) => {
-      window.alert('Wrong admin email!')
-
+      this.saveFailure = true
     })
   }
 

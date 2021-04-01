@@ -38,6 +38,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit {
+  saveSuccess: boolean;
+  saveFailure: boolean;
   orderIds: string[];
   order: Orders;
   galleryForm: FormGroup;
@@ -100,11 +102,12 @@ export class OrderDetailsComponent implements OnInit {
   updateStatus(id) {
     this.orderService.updateOrder(id,this.galleryForm.value).subscribe(
       (res) => {
-        window.alert('Order status updated! Email sent to ' + this.order.email);
+        this.saveSuccess = true;
         document.getElementById('close').click(); // close modal 
         //console.log(this.orderService.getSearchQuery())
       },
       (error) => {
+        this.saveFailure = true
         console.log(error);
       }
     );
