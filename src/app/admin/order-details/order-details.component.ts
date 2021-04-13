@@ -102,12 +102,12 @@ export class OrderDetailsComponent implements OnInit {
   updateStatus(id) {
     this.orderService.updateOrder(id,this.galleryForm.value).subscribe(
       (res) => {
-        this.saveSuccess = true;
+        //this.saveSuccess = true;
         document.getElementById('close').click(); // close modal 
-        //console.log(this.orderService.getSearchQuery())
+        console.log(this.orderService.getSearchQuery())
       },
       (error) => {
-        this.saveFailure = true
+        //this.saveFailure = true
         console.log(error);
       }
     );
@@ -238,7 +238,15 @@ export class OrderDetailsComponent implements OnInit {
     </div>
         `
       }
-      this.orderService.sendReceipt(emailDetail)
+      try {
+        this.orderService.sendReceipt(emailDetail)
+        this.saveSuccess = true;
+        document.getElementById('close').click(); // close modal 
+      } catch (error) {
+        this.saveFailure = true
+        console.log(error);
+      } 
+      
     }
     if (status == 'For Delivery') {
       let emailDetail = {
@@ -341,7 +349,14 @@ export class OrderDetailsComponent implements OnInit {
     </div>
         `
       }
-      this.orderService.sendReceipt(emailDetail)
+      try {
+        this.orderService.sendReceipt(emailDetail)
+        this.saveSuccess = true;
+        document.getElementById('close').click(); // close modal 
+      } catch (error) {
+        this.saveFailure = true
+        console.log(error);
+      } 
     }
     if (status == 'Transaction Complete') {
       let emailDetail = {
@@ -444,7 +459,14 @@ export class OrderDetailsComponent implements OnInit {
     </div>
         `
       }
-      this.orderService.sendReceipt(emailDetail)
+      try {
+        this.orderService.sendReceipt(emailDetail)
+        this.saveSuccess = true;
+        document.getElementById('close').click(); // close modal 
+      } catch (error) {
+        this.saveFailure = true
+        console.log(error);
+      } 
     }
     this.orderService
       .getOrderIds()

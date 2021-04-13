@@ -32,14 +32,12 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   resetPassword() {
-    this.adminService
-    .sendPasswordResetRequest(this.user.email)
-    .then((saveSuccess) => {
+      this.adminService
+    .sendPasswordResetRequest(this.user.email).then((res) => {
+      console.log(res)
       this.saveSuccess = true;
-      saveSuccess = this.saveSuccess;
     }).catch((err) => {
       this.saveFailure = true
     })
-  }
-
+}
 }
