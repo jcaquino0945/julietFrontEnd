@@ -43,6 +43,7 @@ export class CartComponent implements OnInit {
     this.saveSuccess = true 
   }
   addQuantity(item) {
+    
     item.updateStock = item.stock_quantity;
     item.quantity++;
     if (item.quantity > item.stock_quantity) {
@@ -52,6 +53,7 @@ export class CartComponent implements OnInit {
      this.productStock = {
       _id: item._id,
       stock_quantity:  item.stock_quantity - item.quantity,
+      orders: item.orders + item.quantity
     };
     console.log(this.productStock);
     item.totalPrice = item.price * item.quantity;
@@ -70,6 +72,7 @@ export class CartComponent implements OnInit {
      this.productStock = {
       _id: item._id,
       stock_quantity:  item.stock_quantity - item.quantity,
+      orders: item.orders + item.quantity
     };
     console.log(this.productStock);
     item.totalPrice = item.price * item.quantity;

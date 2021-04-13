@@ -109,6 +109,7 @@ export class ProductComponent implements OnInit {
         category: product.category,
         size: this.orderForm.get('selectedOption').value,
         quantity: 1,
+        orders: product.orders,
         totalPrice: product.price,
         stock_quantity: product.stock_quantity,
         updateStock: product.stock_quantity - 1,

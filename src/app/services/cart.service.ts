@@ -17,9 +17,9 @@ export class CartService {
     this.stocks.push(stock);
   }
   getStocks() {
+    console.log(this.stocks);
     return this.stocks;
   }
-
   getItems() {
     return this.items
   }

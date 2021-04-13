@@ -138,20 +138,7 @@ export class CheckoutComponent implements OnInit {
       </tr>`
     ).join('');
 
-    this.updateStock = this.stocks.map(({_id,stock_quantity}) => {
-        this.stockForm = this.formBuilder.group({
-            _id: _id,
-            stock_quantity: stock_quantity,
-        });
-        this.productService.modifyStock(_id,this.stockForm.value).subscribe((res) => {
-            console.log(res)
-            console.log('stock updated');
-        },
-        (error) => {
-            console.log(error);
-        }
-        )
-   });
+    
   }
   
   
@@ -739,6 +726,21 @@ export class CheckoutComponent implements OnInit {
     } catch (error) {
       window.alert("error")
     }
+    this.updateStock = this.stocks.map(({_id,stock_quantity,orders}) => {
+        this.stockForm = this.formBuilder.group({
+            _id: _id,
+            stock_quantity: stock_quantity,
+            orders: orders
+        });
+        this.productService.modifyStock(_id,this.stockForm.value).subscribe((res) => {
+            console.log(res)
+            console.log('stock updated');
+        },
+        (error) => {
+            console.log(error);
+        }
+        )
+   });
         this.updateStock(); 
   }
    makeid(length) {
