@@ -91,26 +91,16 @@
     </div>
   </div>
   <div class="col p-0 ml-2">
-    <div class="card">
-      <div class="card-header subtitle">Most ordered item this week</div>
-      <div class="card-body">
-        <h5>Sol and Luna Necklace</h5>
-      </div>
-    </div>
-    <div class="card mt-2">
+    <div class="card mt-2" *ngIf="bestSellers$">
       <div class="card-header subtitle">Bestselling Items</div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item" *ngFor="let bestSellers of bestSellers$">{{bestSellers.name}} <span style="font-style: italic; color: green;">x {{bestSellers.orders}} orders</span></li>
       </ul>
     </div>
-    <div class="card mt-2">
+    <div class="card mt-2" *ngIf="lowStocks$">
       <div class="card-header subtitle">Items that are low in stock</div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item" *ngFor="let lowStocks of lowStocks$">{{lowStocks.name}} | <span style="font-style: italic; color: red;">{{lowStocks.stock_quantity}} remaining </span></li>
       </ul>
     </div>
   </div>

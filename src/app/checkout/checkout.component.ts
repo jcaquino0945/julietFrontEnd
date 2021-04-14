@@ -42,6 +42,7 @@ export class CheckoutComponent implements OnInit {
   stocks = this.cartService.getStocks();
   totalPrice = this.cartService.totalPrice();
   itemPrice = this.cartService.itemPrice();
+  saveSuccess: boolean;
   cartDetail: any;
   orderForm: FormGroup;
   stockForm: FormGroup;
@@ -300,7 +301,10 @@ export class CheckoutComponent implements OnInit {
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
         this.cartService.clearCart()
-        this.router.navigate(['thank-you'])
+        this.saveSuccess = true;
+        setTimeout(() => {
+            this.router.navigate(['thank-you'])
+          }, 2000);
         
       }
       if (this.paymentMethod == 'G-Cash') {
@@ -431,10 +435,11 @@ export class CheckoutComponent implements OnInit {
         }
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
-        window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['thank-you'])
-      }
+        this.saveSuccess = true;
+        setTimeout(() => {
+            this.router.navigate(['thank-you'])
+          }, 1000);      }
       if (this.shippingMethod == 'Same Day Delivery (COD)' && this.paymentMethod == 'G-Cash') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
@@ -569,10 +574,11 @@ export class CheckoutComponent implements OnInit {
         }
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
-        window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['thank-you'])
-      }
+        this.saveSuccess = true;
+        setTimeout(() => {
+            this.router.navigate(['thank-you'])
+          }, 1000);      }
       if (this.shippingMethod == 'Same Day Delivery (COD)' && this.paymentMethod == 'Bank Transfer (BDO,BPI,etc)') {
         let emailDetail = {
           to: this.orderForm.get('email').value,
@@ -709,10 +715,11 @@ export class CheckoutComponent implements OnInit {
         }
         this.orderService.addOrder(cartDetail);
         this.orderService.sendReceipt(emailDetail);
-        window.alert("Succesful order!");
         this.cartService.clearCart()
-        this.router.navigate(['thank-you'])
-      }
+        this.saveSuccess = true;
+        setTimeout(() => {
+            this.router.navigate(['thank-you'])
+          }, 1000);      }
       /*
       let emailDetail = {
         to: this.orderForm.get('email').value,

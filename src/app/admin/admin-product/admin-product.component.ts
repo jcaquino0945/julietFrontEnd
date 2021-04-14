@@ -80,6 +80,7 @@ export class AdminProductComponent implements OnInit {
       sizes: [null, Validators.required],
       stock_quantity: 0,
       featured: false,
+      orders: 0,
     });
   }
 

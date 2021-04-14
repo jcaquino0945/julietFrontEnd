@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order.service';
+import { ProductService } from 'src/app/services/product.service';
 import { Orders } from '../../models/orders';
 import * as moment from 'moment';
 import * as _ from 'lodash';
@@ -16,6 +17,8 @@ import { CmsService } from 'src/app/services/cms.service';
 })
 export class DashboardComponent implements OnInit {
   ribbons$: CMS[];
+  bestSellers$: Product[];
+  lowStocks$: Product[];
   ribbonForm: FormGroup;
   orders: Orders[];
   dailyOrders: Orders[];
@@ -37,6 +40,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private orderService: OrderService,
+    private productService: ProductService,
     private formBuilder: FormBuilder,
     private cms: CmsService,
     private ribbonService: CmsService
@@ -44,6 +48,15 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.productService.getLowStocks().subscribe(
+      (lowStocks$) => (this.lowStocks$ = lowStocks$),
+      (errmess) => (this.errMess = <any>errmess)
+    );
+    this.productService.getBestSellers().subscribe(
+      (bestSellers$) => (this.bestSellers$ = bestSellers$),
+      (errmess) => (this.errMess = <any>errmess)
+    );
+
     this.ribbonService.getRibbons().subscribe(
       (ribbons$) => (this.ribbons$ = ribbons$),
       (errmess) => (this.errMess = <any>errmess)

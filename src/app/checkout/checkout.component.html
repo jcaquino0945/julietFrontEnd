@@ -1,3 +1,9 @@
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Order has been completed!</strong> You will now be redirected to another page.
+</div>
 <nav *ngIf="nav.visible"></nav>
 <ribbon *ngIf="ribbon.visible"></ribbon>
 <footer *ngIf="footer.visible"></footer>

@@ -49,6 +49,16 @@ export class ProductService {
       .get<Product[]>(apiUrl + '/featured')
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+  getBestSellers(): Observable<Product[]> {
+    return this.http
+      .get<Product[]>(apiUrl + '/best-sellers')
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  getLowStocks(): Observable<Product[]> {
+    return this.http
+      .get<Product[]>(apiUrl + '/low-stock')
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
@@ -85,6 +95,7 @@ export class ProductService {
     for (var i = 0; i < sizes.length; i++) {
       formData.append('sizes', sizes[i]);
     }
+    formData.append('orders', product.orders.toString());
     formData.append('name', product.name);
     formData.append('price', product.price.toString());
     formData.append('category', product.category);
