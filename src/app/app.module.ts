@@ -41,6 +41,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { ShopBestsellersComponent } from './shop-bestsellers/shop-bestsellers.component';
+import { ShopRecentlyAddedComponent } from './shop-recently-added/shop-recently-added.component';
 
 //import { AdminModule } from './admin/admin.module';
 
@@ -66,6 +68,8 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
     ForgotPasswordComponent,
     ForgotPasswordDetailsComponent,
     ThankYouComponent,
+    ShopBestsellersComponent,
+    ShopRecentlyAddedComponent,
   ],
   imports: [
     BrowserModule,

@@ -59,6 +59,11 @@ export class ProductService {
       .get<Product[]>(apiUrl + '/low-stock')
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+  getRecentlyAdded(): Observable<Product[]> {
+    return this.http
+      .get<Product[]>(apiUrl + '/recently-added')
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http

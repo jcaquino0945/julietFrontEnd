@@ -19,11 +19,15 @@ import { ShopByCategoryComponent } from './shop-by-category/shop-by-category.com
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotPasswordDetailsComponent } from './forgot-password-details/forgot-password-details.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { ShopBestsellersComponent } from './shop-bestsellers/shop-bestsellers.component';
+import { ShopRecentlyAddedComponent } from './shop-recently-added/shop-recently-added.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'shop', component: ShopComponent },
+  { path: 'shop/best-sellers', component: ShopBestsellersComponent },
+  { path: 'shop/recently-added', component: ShopRecentlyAddedComponent },
   { path: 'shop/category/:category', component: ShopByCategoryComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'cart', component: CartComponent },
