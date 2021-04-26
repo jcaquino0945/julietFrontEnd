@@ -1,3 +1,30 @@
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
 .section {
   align-items: center;
   display: flex;

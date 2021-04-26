@@ -1,3 +1,30 @@
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
 .jumbotron {
   align-items: center;
   display: flex;
@@ -66,28 +93,37 @@ ol {
   counter-reset: item;
   padding: 0;
 }
-.ol-a{
-  margin-left: 60px;
+
+
+.ol-a {
+  margin-left: 100px;
 }
-.ol-a ol{
+
+.ol-a ol {
   list-style: none;
   list-style-type: lower-alpha !important;
   margin-left: 10px;
 }
+
 .ol-a li {
   list-style: lower-alpha !important;
   counter-increment: none !important;
 }
+
 .ol-a li::before {
-display: none;
+  display: none;
 }
+
 li {
   counter-increment: item;
+  word-wrap: break-word;
 }
+
 a {
   color: #c1ae8d;
   text-decoration: none;
 }
+
 li:before {
   margin: 5px 20px;
   content: counter(item);
@@ -105,7 +141,7 @@ li:before {
 }
 
 @media (max-width: 426px) {
-  .accordion-button{
+  .accordion-button {
     text-align: left;
   }
 
