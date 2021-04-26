@@ -46,4 +46,5 @@ export class ShopComponent implements OnInit {
       this.isMobile = isMobile;
     });
   }
+
 }

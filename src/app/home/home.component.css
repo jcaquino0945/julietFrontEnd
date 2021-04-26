@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden; 
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -197,6 +201,13 @@ p {
     opacity: 1;
   }
 
+  a {
+    color: black;
+  }
+
+  app-root {
+    display: block;
+ }
 
 @media (max-width: 768px) {
   div h6 {

@@ -9,6 +9,7 @@
 .bs-stepper-label {
   font-weight: normal;
   color: #000;
+  width: 100%;
  
 }
 
@@ -92,5 +93,25 @@ input:focus {
   
   .btn-proceed {
     padding: 8px;
+  }
+
+  .bs-stepper-label {
+    font-size: small;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .errorMsg {
+    font-size: 9pt;
+  }
+
+  .btn-back {
+    padding: 8px 100px;
+  }
+
+  .bs-stepper-header {
+    margin-top: 3rem;
   }
 }

@@ -30,22 +30,34 @@
       <div class="container">
         <div class="d-flex flex-row justify-content-center">
           <div class="p-2">
-            <div class="img-hover-zoom"> <img src="https://i.imgur.com/IcZOQ6L.jpg" class="img-fluid" /></div>
-            <div>
-              <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
-            </div>
+            <a routerLink="/shop/category/Necklaces">
+              <div class="img-hover-zoom">
+                <img src="https://i.imgur.com/IcZOQ6L.jpg" class="img-fluid" />
+              </div>
+              <div>
+                <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
+              </div>
+            </a>
           </div>
           <div class="p-2">
-            <div class="img-hover-zoom"> <img src="https://i.imgur.com/Sf1cid0.jpg" class="img-fluid" /></div>
-            <div>
-              <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
-            </div>
+            <a routerLink="/shop/category/Earrings">
+              <div class="img-hover-zoom">
+                <img src="https://i.imgur.com/Sf1cid0.jpg" class="img-fluid" />
+              </div>
+              <div>
+                <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
+              </div>
+            </a>
           </div>
           <div class="p-2">
-            <div class="img-hover-zoom"> <img src="https://i.imgur.com/aDlziCg.jpg" class="img-fluid" /></div>
-            <h6 class="text-uppercase text-center mt-3">
-              Shop Bracelets and Anklets
-            </h6>
+            <a routerLink="/shop/category/Bracelets-Anklets">
+              <div class="img-hover-zoom">
+                <img src="https://i.imgur.com/aDlziCg.jpg" class="img-fluid" />
+              </div>
+              <h6 class="text-uppercase text-center mt-3">
+                Shop Bracelets and Anklets
+              </h6>
+            </a>
           </div>
         </div>
       </div>
@@ -120,7 +132,7 @@
         </p-carousel>
       </div>
     </div>
-    <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">
+    <a href="/home" id="back-to-top" class="back-to-top" style="display: inline;">
       <i class="fa fa-arrow-up pt-3 pl-2 ml-2"></i>
     </a>
   </main>
@@ -131,18 +143,30 @@
   <ribbon *ngIf="ribbon.visible"></ribbon>
   <section class="jumbotron text-center">
     <div class="container" data-aos="fade-up" data-aos-duration="1200">
-      <div class="img-hover-zoom"> <img src="https://i.imgur.com/IcZOQ6L.jpg" class="img-fluid" /></div>
-      <div>
-        <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
-      </div>
-      <div class="img-hover-zoom"> <img src="https://i.imgur.com/Sf1cid0.jpg" class="img-fluid" /></div>
-      <div>
-        <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
-      </div>
-      <div class="img-hover-zoom"> <img src="https://i.imgur.com/aDlziCg.jpg" class="img-fluid" /></div>
-      <div>
-        <h6 class="text-uppercase text-center mt-3">Shop Bracelets and Anklets</h6>
-      </div>
+      <a routerLink="/shop/category/Necklaces">
+        <div class="img-hover-zoom">
+          <img src="https://i.imgur.com/IcZOQ6L.jpg" class="img-fluid" />
+        </div>
+        <div>
+          <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
+        </div>
+      </a>
+      <a routerLink="/shop/category/Earrings">
+        <div class="img-hover-zoom">
+          <img src="https://i.imgur.com/Sf1cid0.jpg" class="img-fluid" />
+        </div>
+        <div>
+          <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
+        </div>
+      </a>
+      <a routerLink="/shop/category/Bracelets-Anklets">
+        <div class="img-hover-zoom">
+          <img src="https://i.imgur.com/aDlziCg.jpg" class="img-fluid" />
+        </div>
+        <h6 class="text-uppercase text-center mt-3">
+          Shop Bracelets and Anklets
+        </h6>
+      </a>
     </div>
   </section>
   <section class="jumbotron text-center" data-aos="fade-up" data-aos-duration="1200">
@@ -160,7 +184,7 @@
       </div>
     </div>
   </section>
-  <a href="#" id="back-to-top" class="back-to-top" style="display: inline;">
+  <a href="/home" id="back-to-top" class="back-to-top" style="display: inline;">
     <i class="fa fa-arrow-up pt-3 pl-2 ml-2"></i>
   </a>
 </div>
