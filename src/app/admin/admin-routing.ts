@@ -10,6 +10,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AdminProductSearchComponent } from './admin-product-search/admin-product-search.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
+import { CmsComponent } from './cms/cms.component';
 
 export const routes: Routes = [
   { path: 'admin', redirectTo: '/admin/dashboard', component: AdminProductComponent },
@@ -22,7 +23,7 @@ export const routes: Routes = [
   { path: 'orders/:id', component: OrderDetailsComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'reports', component: ReportsComponent },
-
+  { path: 'cms', component: CmsComponent },
   { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' }, // redirect to `Home`
 ];
 @NgModule({
