@@ -14,11 +14,13 @@
   <div class="col p-0" *ngIf="product">
     <div class="card p-4">
       <div class="card-body">
+        <div *ngFor="let productImg of product.imageUrl" style="display:inline-block">
         <img
-        src={{product.imageUrl}}
+        src={{productImg}}
           width="100px"
-          class="img-thumbnail"
+          class="img-thumbnail" 
         />
+      </div>
         <div class="subtitle border-top pt-2 mt-3">Item Gallery</div>
       </div>
     </div>

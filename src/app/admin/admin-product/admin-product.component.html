@@ -47,6 +47,7 @@
           <div class="form-row">
             <div class="custom-file">
               <input
+                multiple
                 type="file"
                 class="custom-file-input"
                 id="imageFile"
@@ -179,7 +180,7 @@
   <div class="card my-2" *ngFor="let product of products$; let i = index">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center flex-wrap">
-        <img src={{product.imageUrl}} width="100px" />
+        <img src={{product.imageUrl[0]}} width="100px" />
         <div class="mr-auto ml-3">
           {{ product.name }} <br />
           Php {{ product.price }} <br />

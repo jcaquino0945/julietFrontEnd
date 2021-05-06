@@ -92,13 +92,15 @@ export class ProductService {
   }
 
   //add product with image
-  addGallery(product: Product, file: File, sizes: any): Observable<any> {
+  addGallery(product: Product, file:  Array<File>, sizes: any): Observable<any> {
     const formData = new FormData();
-    formData.append('file', file);
     // formData.append('imageTitle', gallery.imageTitle);
     // formData.append('sizes', JSON.stringify(sizes));
     for (var i = 0; i < sizes.length; i++) {
       formData.append('sizes', sizes[i]);
+    }
+    for (var i = 0; i < file.length; i++) {
+      formData.append('file', file[i]);
     }
     formData.append('orders', product.orders.toString());
     formData.append('name', product.name);

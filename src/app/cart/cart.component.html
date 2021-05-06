@@ -145,9 +145,9 @@
     <div class="row section">
       <div class="col-7 mx-3">
         <h5>Shopping Cart</h5>
-        <div class="d-flex my-3" *ngFor="let item of items">
+        <div class="d-flex my-3" *ngFor="let item of items; let i = index">
           <div class="align-self-center">
-            <img src={{item.imageUrl}} class="mr-3 img-responsive img-thumbnail" />
+            <img src={{item.imageUrl[0]}} class="mr-3 img-responsive img-thumbnail" />
           </div>
           <div class="align-self-center">
             {{ item.name }} x{{item.quantity}}

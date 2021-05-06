@@ -23,7 +23,7 @@
   <div class="container" *ngIf="product">
     <div class="row section-1">
       <div class="col">
-        <img src={{product.imageUrl}} width="450px" />
+        <img src={{product.imageUrl[0]}} width="450px" />
       </div>
       <div class="col">
         <form [formGroup]="orderForm">

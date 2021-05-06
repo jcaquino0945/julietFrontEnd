@@ -51,6 +51,8 @@ export class AdminProductComponent implements OnInit {
   stock_quantity = 0;
   featured = false;
   sizes = [];
+  filesToUpload: Array<File> = [];
+
 
   // orders
   isLoadingResults = false;
@@ -88,7 +90,9 @@ export class AdminProductComponent implements OnInit {
     this.labelImport.nativeElement.innerText = Array.from(files)
       .map((f) => f.name)
       .join(', ');
-    this.imageFile = files.item(0);
+      for (let index = 0; index < files.length; index++) {
+        this.filesToUpload.push(files.item(index))
+      }
   }
 
   addSize(s) {
@@ -101,9 +105,11 @@ export class AdminProductComponent implements OnInit {
     this.router.navigate(['admin/adminProduct/search'])
   }
   onFormSubmit() {
+    console.log(this.filesToUpload)
     this.isLoadingResults = true;
+    
     this.productService
-      .addGallery(this.galleryForm.value, this.imageFile, this.sizes)
+      .addGallery(this.galleryForm.value, this.filesToUpload, this.sizes)
       .subscribe(
         (res: any) => {
           this.isLoadingResults = false;
@@ -122,6 +128,7 @@ export class AdminProductComponent implements OnInit {
         }
       );
     this.galleryForm.reset();
+    
   }
   /*
   deleteProduct(id) {
