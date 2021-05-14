@@ -26,6 +26,57 @@ export class ReportsComponent implements OnInit {
 
     this.orderService.getOrdersWithConfirmedPayments().subscribe(
       (orders$) =>
+        (this.chart = new Chart(document.getElementById('yearlyChart'), {
+          type: 'line',
+          data: {
+            labels: [4, 3, 2, 1, 0].map((num) =>
+              moment().subtract(num, 'year').format('YYYY')
+            ),
+            datasets: [
+              {
+                label: 'Total Sales',
+                data: [4, 3, 2, 1, 0].map((num) =>
+                  orders$
+                    .filter((order) =>
+                      moment(order.datePurchased).isSame(
+                        moment().subtract(num, 'year'),
+                        'year'
+                      )
+                    )
+                    .map((order) => order.totalPrice)
+                    .reduce((accumulator, current) => accumulator + current, 0)
+                ),
+                backgroundColor: ['transparent'],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              yAxes: [
+                { ticks: { callback: (tick) => `₱ ${tick.toFixed(2)}` } },
+              ],
+            },
+            tooltips: {
+              callbacks: {
+                label: (label) => `₱ ${label.yLabel.toFixed(2)}`,
+              },
+            },
+          },
+        })),
+      (errMess) => (this.errMess = <any>errMess)
+    );
+
+    this.orderService.getOrdersWithConfirmedPayments().subscribe(
+      (orders$) =>
         (this.chart = new Chart(document.getElementById('monthlyChart'), {
           type: 'line',
           data: {
