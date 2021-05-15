@@ -1,10 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Orders } from '../../models/orders';
 import * as moment from 'moment';
 import { OrderService } from 'src/app/services/order.service';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../models/contact';
+import {
+  FormControl,
+  FormGroupDirective,
+  FormBuilder,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-reports',
@@ -19,6 +28,7 @@ export class ReportsComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private contactService: ContactService,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -184,4 +194,69 @@ export class ReportsComponent implements OnInit {
     this.contactService.getMessages().subscribe((messages$) => (this.messages$ = messages$), (errMess) => (this.errMess = <any>errMess));
   }
 }
+openDialog(name,email,message) {
+  this.dialog.open(DialogDataExampleDialog, {
+    data: {
+      name, email, message
+    }
+  });
+}
+}
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  template: `
+  <h1 mat-dialog-title>Reply to user</h1>
+<div mat-dialog-content>
+  Message details:
+  <ul>
+    <li>
+     From: {{data.name}}
+    </li>
+    <li>
+      Message: {{data.message}}
+    </li>
+  </ul>
+  <form novalidate #replyForm="ngForm" (ngSubmit)="replyToUser()">
+      <input
+      placeholder="Input reply here"
+      type="text"
+      [(ngModel)]="replyData.reply"
+      name="reply"
+      class="form-control"
+      #reply="ngModel"
+      required
+      />
+      <br>
+      <button
+            style="border: .5px solid white; padding: 3px 8px; color: white; background-color: #6e815d; margin-right: 6px"
+            type="submit"
+            [disabled]="replyForm.form.invalid"
+          >
+            Reply
+          </button> 
+          <span *ngIf="replyForm.form.invalid" style="color:white">Reply is required</span>
+  </form>
+</div>
+  `,
+})
+
+export class DialogDataExampleDialog {
+  replyData = { reply: ''};
+  constructor(@Inject(MAT_DIALOG_DATA) public data,
+  private orderService: OrderService,
+  ) {}
+
+  replyToUser() {
+    let emailDetail = {
+      to: this.data.email,
+      subject: `Admin reply to query by: ${this.data.name}`,
+      html: `
+      <h5>Subject: ${this.data.message}</h5>
+      <p>Admin has replied: <span style="font-weight:bold;">${this.replyData.reply}
+      `
+    }
+    this.orderService.sendReceipt(emailDetail)
+    window.alert(`Message has been sent to ${this.data.email}`)
+  }
 }

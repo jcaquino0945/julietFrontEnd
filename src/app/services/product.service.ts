@@ -1,3 +1,4 @@
+//imports needed in ts file
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import {
@@ -11,18 +12,21 @@ import { catchError, map } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = 'http://localhost:3000/products';
+const apiUrl = 'http://localhost:3000/products'; //api url from backend service
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  //declared variables
   searchQuery = '';
   currentIndex: BehaviorSubject<string>;
+  //header for http request with bearer token
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'bearer ' + sessionStorage.getItem('token')
  });
+   //header for http request with bearer token for product manipulation from client side
  stockHeaders = new HttpHeaders({ 
   'Content-Type': 'application/json',
 });
@@ -30,10 +34,10 @@ export class ProductService {
     private http: HttpClient,
     private processHTTPMsgService: ProcessHTTPMsgService
   ) {}
-  setSearchQuery(val) {
+  setSearchQuery(val) { //function to set search query
     this.searchQuery = val;
   }
-  getSearchQuery() {
+  getSearchQuery() { //function to get search query
     return this.searchQuery;
   }
   //get products from db

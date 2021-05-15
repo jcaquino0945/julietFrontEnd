@@ -35,7 +35,7 @@ export class CmsComponent implements OnInit {
       (res: any) => {
         if (res) {
           window.alert('About Us Details Updated!')
-          console.log(this.aboutForm.value)
+          console.log(this.aboutForm.get('about').value)
           console.log(id)
         }
       },

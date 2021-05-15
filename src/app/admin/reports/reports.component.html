@@ -54,6 +54,9 @@
           <span style="font-weight: 400">{{ messages.message }}</span> 
         </div>
         <div class="align-self-start">
+          <span class="badge badge-success subtitle" style="cursor: pointer; margin-right: 5px;" (click)="openDialog(messages.name,messages.email,messages.message)">
+            Reply
+          </span>
           <span
             class="badge badge-danger subtitle" (click)="deleteMsg(messages._id)" style="cursor: pointer;">Delete
           </span>
@@ -61,6 +64,5 @@
     </div>
   </div>
 </div>
-
 
 

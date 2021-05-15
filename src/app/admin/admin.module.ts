@@ -21,11 +21,12 @@ import { AdminProductDetailComponent } from './admin-product-detail/admin-produc
 import { AdminStockComponent } from './admin-stock/admin-stock.component';
 import { OrdersComponent } from './orders/orders.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ReportsComponent } from './reports/reports.component';
+import { ReportsComponent, DialogDataExampleDialog } from './reports/reports.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AdminProductSearchComponent } from './admin-product-search/admin-product-search.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
 import { CmsComponent } from './cms/cms.component';
+
 @NgModule({
   declarations: [
     AdminProductComponent,
@@ -38,6 +39,7 @@ import { CmsComponent } from './cms/cms.component';
     AdminProductSearchComponent,
     OrderSearchComponent,
     CmsComponent,
+    DialogDataExampleDialog
     
   ],
   imports: [
@@ -60,6 +62,8 @@ import { CmsComponent } from './cms/cms.component';
   ],
   exports: [
     AdminProductComponent,
+    DialogDataExampleDialog
+    
   ]
 })
 export class AdminModule { }
