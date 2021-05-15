@@ -18,7 +18,7 @@ import { ResponsiveService } from '../services/responsive.service';
 export class ShopByCategoryComponent implements OnInit {
   public isMobile: Boolean;
 
-  products$: Product[];
+  products: Product[];
   errMess: string;
   constructor(
     public nav: NavbarService,
@@ -40,9 +40,11 @@ export class ShopByCategoryComponent implements OnInit {
     this.onResize();
     this.responsive.checkWidth();
 
+    window.scrollTo(0,0);
+
     this.route.params.pipe(switchMap((params: Params) => { return this.productService.getProductsByCategory(params['category']); }))
-    .subscribe(products$ => {
-      this.products$ = products$;
+    .subscribe(products => {
+      this.products = products;
     },
     err => console.log(err));
     errmess => this.errMess = <any>errmess;
@@ -55,4 +57,20 @@ export class ShopByCategoryComponent implements OnInit {
     });
   }
 
+  // sorts the product by the highest price and vice versa / sorts alphabetically
+  sortProductByPrice(option) {
+    if (option.value == "l2h") {
+      this.products.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (option.value == "h2l") {
+      this.products.sort((a, b) => Number(b.price) - Number(a.price));
+    } else if (option.value == "a2z") {
+      this.products.sort(function (a, b) {     
+        return ('' + a.name).localeCompare(b.name); 
+      })
+    } else if (option.value == "z2a"){
+      this.products.sort(function (a, b) {     
+        return ('' + b.name).localeCompare(a.name); 
+      })
+    }
+  };
 }

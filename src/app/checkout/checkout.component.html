@@ -170,12 +170,12 @@
                 </div>
                 <div class="form-row mt-4">
                   <div class="col">
-                    <button routerLink="/cart" class="btn-back">
+                    <button routerLink="/cart" class="btn-back text-center">
                       Edit Cart
                     </button>
                   </div>
                   <div class="col">
-                    <button (click)="next()" class="btn-proceed" [disabled]="orderForm.invalid">
+                    <button (click)="next()" class="btn-proceed text-center" [disabled]="orderForm.invalid">
                       Proceed to Shipping
                     </button>
                   </div>
@@ -216,12 +216,12 @@
                 </div>
                 <div class="form-row mt-4">
                   <div class="col">
-                    <button (click)="previous()" class="btn-back">
+                    <button (click)="previous()" class="btn-back text-center">
                       Edit Information
                     </button>
                   </div>
                   <div class="col">
-                    <button (click)="next()" class="btn-proceed">
+                    <button (click)="next()" class="btn-proceed text-center">
                       Proceed to Payment
                     </button>
                   </div>
@@ -279,29 +279,29 @@
               class="mr-3 img-responsive img-thumbnail"
             />
           </div>
-          <div class="align-self-center">
+          <div class="align-self-center label">
             {{ item.name }}
             <div class="details">Size: {{item.size}}</div>
           </div>
-          <div class="ml-auto align-self-center">Php {{ item.totalPrice }}</div>
+          <div class="ml-auto align-self-center label">Php {{ item.totalPrice }}</div>
         </div>
       </div>
       <div class="d-flex justify-content-between" *ngIf="itemPrice">
-        <div>Subtotal</div>
-        <div>Php {{itemPrice}}</div>
+        <div class="label">Subtotal</div>
+        <div class="label">Php {{itemPrice}}</div>
       </div>
       <div class="d-flex justify-content-between" *ngIf="value">
-        <div>Shipping Fee</div>
-        <div class="text-muted">Php {{value}}</div>
+        <div class="label">Shipping Fee</div>
+        <div class="text-muted label">Php {{value}}</div>
       </div>
       <div class="d-flex justify-content-between" *ngIf="value == 0">
-        <div>Shipping Fee</div>
-        <div class="text-muted">To be updated</div>
+        <div class="label">Shipping Fee</div>
+        <div class="text-muted label">To be updated</div>
       </div>
       <hr />
       <div class="d-flex justify-content-between" *ngIf="totalPrice">
-        <div><h5>Total</h5></div>
-        <div><h5>Php {{totalPrice}}</h5></div>
+        <div class="label"><h5>Total</h5></div>
+        <div class="label"><h5>Php {{totalPrice}}</h5></div>
       </div>
     </div>
   </div>

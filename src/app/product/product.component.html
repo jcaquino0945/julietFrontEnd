@@ -27,10 +27,10 @@
       </div>
       <div class="col">
         <form [formGroup]="orderForm">
-        <h5>{{ product.name }}</h5>
-        <p> {{ product.description }} </p>
+        <h5 class="mt-3 pt-5">{{ product.name }}</h5>
+        <span class="mt-5"> {{ product.description }} </span>
         <ul>
-          <li><b>Inclusion: </b> Juliet Canvas Pouch</li>
+          <li><strong>Inclusion: </strong> Juliet Canvas Pouch</li>
         </ul>
         <h5 class="mb-4">Php {{ product.price }}</h5>
         <h5 class="mb-4" style="color: red;" *ngIf="product.stock_quantity==0">Out of stock</h5>
@@ -51,7 +51,7 @@
             Add To Cart
           </button>
         </form>
-        <p><b>Note</b> Check the last photo for measuring guide.</p>
+        <p><strong>Note:</strong> Check the last photo for measuring guide.</p>
       </div>
     </div>
   </div>

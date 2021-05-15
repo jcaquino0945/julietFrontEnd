@@ -1,133 +1,3 @@
-<!-- <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess" style="position: sticky; top: 0;">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>Cart has been cleared!</strong> Continue shopping to add more items in cart!
-</div>
-<nav *ngIf="nav.visible"></nav>
-<ribbon *ngIf="ribbon.visible"></ribbon>
-<footer *ngIf="footer.visible"></footer>
-
-<div class="container" *ngIf="items.length != 0" data-aos="fade-right" data-aos-duration="800">
-  <div class="row section">
-    <div class="col mx-3">
-      <h5 class="mt-5">Shopping Cart</h5>
-      <div class="d-flex my-5" *ngFor="let item of items">
-        <div class="align-self-center">
-          <img
-          src={{item.imageUrl}}
-            class="mr-3 img-responsive img-thumbnail"
-          />
-        </div>
-        <div class="align-self-center">
-          {{ item.name }} x{{item.quantity}}
-          <div class="details">Size: {{ item.size }}</div>
-          <div class="py-2">
-            <p><span style="margin-right: 1.5vw;" (click)="addQuantity(item)">+</span><span style="font-weight: bolder;" (click)="subtractQuantity(item)">--</span></p>
-            
-            <select
-              class="form-select form-select-sm"
-              aria-label=".form-select-sm example"
-              [(ngModel)]="quantity"
-              (change)="updatePrice(item)"
-            >
-              <option value="quantity" *ngIf="quantity" selected>{{quantity}}</option>
-              <option value="1">1</option>
-              <option value="2">2</option
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-           
-          </div>
-        </div>
-        <div class="col">
-          <div class="ml-auto align-self-center">Php {{ item.totalPrice }}</div>
-        </div>
-      </div>
-    </div>
-    <div class="col mx-3" *ngIf="totalPrice">
-      <div class="card">
-        <div class="card-body">
-          <div class="card-text" *ngIf="itemPrice">
-            <div class="d-flex justify-content-between">
-              <div>Order value</div>
-              <div>Php {{ itemPrice }}</div>
-            </div>
-            <div
-              class="d-flex justify-content-between"
-              *ngIf="itemPrice"
-            >
-              <div>Shipping</div>
-              <div>Calculated at next step</div>
-            </div>
-            <hr />
-            <div class="d-flex justify-content-between">
-              <div>
-                <h6>Total</h6>
-              </div>
-              <div>
-                <h6>Php {{ totalPrice }}</h6>
-              </div>
-            </div>
-          </div>
-          <button class="btn-back" (click)="clearCart()">
-            Clear Cart
-          </button>
-          <button type="button" class="btn-proceed" (click)="checkout()">
-            Proceed to Checkout
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container" *ngIf="items.length == 0" data-aos="fade-right" data-aos-duration="800">
-  <div class="row section">
-    <div class="col-7 mx-3">
-      <h5 class="mt-5">Shopping Cart</h5>
-      <br>
-      <p>Cart is empty!</p>
-    </div>
-
-    <div class="col mx-3">
-      <div class="card">
-        <div class="card-body">
-          <div class="card-text" >
-            <div class="d-flex justify-content-between">
-              <div>Order value</div>
-              <div>Php 0</div>
-            </div>
-            <div
-              class="d-flex justify-content-between"
-            >
-              <div>Shipping</div>
-              <div>Calculated at next step</div>
-            </div>
-            <hr />
-            <div class="d-flex justify-content-between">
-              <div>
-                <h6>Total</h6>
-              </div>
-              <div>
-                <h6>Php 0</h6>
-              </div>
-            </div>
-          </div>
-          <button class="btn-back" (click)="clearCart()" disabled>
-            Clear Cart
-          </button>
-          <button type="button" class="btn-proceed" (click)="checkout()" disabled>
-            Proceed to Checkout
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess"
   style="position: sticky; top: 0;">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -149,15 +19,15 @@
           <div class="align-self-center">
             <img src={{item.imageUrl}} class="mr-3 img-responsive img-thumbnail" />
           </div>
-          <div class="align-self-center">
+          <div class="align-self-center label">
             {{ item.name }} x{{item.quantity}}
             <div class="details">Size: {{ item.size }}</div>
-            <div class="py-2">
+            <div class="py-2 label">
               <p><span style="margin-right: 1.5vw;" (click)="addQuantity(item)">+</span><span
                   style="font-weight: bolder;" (click)="subtractQuantity(item)">--</span></p>
             </div>
           </div>
-          <div class="ml-auto align-self-center">Php {{ item.totalPrice }}</div>
+          <div class="ml-auto align-self-center label">Php {{ item.totalPrice }}</div>
         </div>
       </div>
       <div class="col mx-3" *ngIf="totalPrice">
@@ -165,20 +35,20 @@
           <div class="card-body">
             <div class="card-text" *ngIf="itemPrice">
               <div class="d-flex justify-content-between">
-                <div>Order value</div>
-                <div>Php {{ itemPrice }}</div>
+                <div class="label">Order value</div>
+                <div class="label">Php {{ itemPrice }}</div>
               </div>
               <div class="d-flex justify-content-between" *ngIf="itemPrice">
-                <div>Shipping</div>
-                <div>Calculated at the next step</div>
+                <div class="label">Shipping</div>
+                <div class="label">Calculated at the next step</div>
               </div>
               <hr />
               <div class="d-flex justify-content-between">
                 <div>
-                  <h6>Total</h6>
+                  <h6 class="label">Total</h6>
                 </div>
                 <div>
-                  <h6>Php {{ totalPrice }}</h6>
+                  <h6 class="label">Php {{ totalPrice }}</h6>
                 </div>
               </div>
             </div>
@@ -206,22 +76,22 @@
           <div class="card-body">
             <div class="card-text" >
               <div class="d-flex justify-content-between">
-                <div>Order value</div>
-                <div>Php 0</div>
+                <div class="label">Order value</div>
+                <div class="label">Php 0</div>
               </div>
               <div
                 class="d-flex justify-content-between"
               >
-                <div>Shipping</div>
-                <div>Calculated at next step</div>
+                <div class="label">Shipping</div>
+                <div class="label">Calculated at next step</div>
               </div>
               <hr />
               <div class="d-flex justify-content-between">
                 <div>
-                  <h6>Total</h6>
+                  <h6 class="label">Total</h6>
                 </div>
                 <div>
-                  <h6>Php 0</h6>
+                  <h6 class="label">Php 0</h6>
                 </div>
               </div>
             </div>
@@ -251,22 +121,22 @@
           <div class="card-body">
             <div class="card-text" >
               <div class="d-flex justify-content-between">
-                <div>Order value</div>
-                <div>Php 0</div>
+                <div class="label">Order value</div>
+                <div class="label">Php 0</div>
               </div>
               <div
                 class="d-flex justify-content-between"
               >
-                <div>Shipping</div>
-                <div>Calculated at next step</div>
+                <div class="label">Shipping</div>
+                <div class="label">Calculated at next step</div>
               </div>
               <hr />
               <div class="d-flex justify-content-between">
                 <div>
-                  <h6>Total</h6>
+                  <h6 class="label">Total</h6>
                 </div>
                 <div>
-                  <h6>Php 0</h6>
+                  <h6 class="label">Php 0</h6>
                 </div>
               </div>
             </div>
@@ -297,7 +167,7 @@
               <p><span style="margin-right: 4vw;" (click)="addQuantity(item)">+</span><span
                   style="font-weight: bolder;" (click)="subtractQuantity(item)">--</span></p>
             </div>
-            <div>Php {{ item.totalPrice }}</div>
+            <div class="label">Php {{ item.totalPrice }}</div>
           </div>
         </div>
       </div>
@@ -306,20 +176,20 @@
           <div class="card-body">
             <div class="card-text" *ngIf="itemPrice">
               <div class="d-flex justify-content-between">
-                <div>Order value</div>
-                <div>Php {{ itemPrice }}</div>
+                <div class="label">Order value</div>
+                <div class="label">Php {{ itemPrice }}</div>
               </div>
               <div class="d-flex justify-content-between" *ngIf="itemPrice">
-                <div>Shipping</div>
-                <div>Calculated at the next step</div>
+                <div class="label">Shipping</div>
+                <div class="label">Calculated at the next step</div>
               </div>
               <hr />
               <div class="d-flex justify-content-between">
                 <div>
-                  <h6>Total</h6>
+                  <h6 class="label">Total</h6>
                 </div>
                 <div>
-                  <h6>Php {{ totalPrice }}</h6>
+                  <h6 class="label">Php {{ totalPrice }}</h6>
                 </div>
               </div>
             </div>

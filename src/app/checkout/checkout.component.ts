@@ -89,6 +89,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
       
     this.orderId = this.makeid(15);
     if (this.items.length == 0) {

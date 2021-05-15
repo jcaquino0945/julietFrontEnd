@@ -36,6 +36,8 @@ export class CartComponent implements OnInit {
     this.footer.show();
     this.onResize();
     this.responsive.checkWidth();
+
+    window.scrollTo(0,0);
   }
   clearCart() {
     this.items = [];

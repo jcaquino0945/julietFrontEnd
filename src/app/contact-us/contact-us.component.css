@@ -12,6 +12,10 @@
   border-radius: 0%;
 }
 
+p {
+  font-family: Work Sans;
+}
+
 .back-to-top .i {
   color: #FFFFFF;
   background-color: #ffffff;
@@ -36,6 +40,7 @@
 .errorMsg {
   color: #6e815d;
   font-size: .9vw;
+  font-family: Work Sans;
 }
 .title-border:after {
   content: "";
@@ -67,7 +72,7 @@ textarea {
 
 input,
 textarea {
-  padding: 0;
+  padding: 1px;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #dbdbdb;
@@ -85,6 +90,7 @@ textarea:focus {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.75px;
+  font-family: Work Sans;
 }
 
 .form-row {
@@ -107,6 +113,12 @@ textarea:focus {
   font-size: 15px;
   text-transform: uppercase;
   color: #fff;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
 }
 
 .btn-submit:hover {
@@ -119,6 +131,12 @@ textarea:focus {
   font-size: 15px;
   text-transform: uppercase;
   color: #6e815d;
+  
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
 }
 
 @media (max-width: 1024px) {

@@ -31,11 +31,15 @@
               <li class="nav-item">
                 <a class="nav-link" routerLink="/shop/best-sellers">Bestsellers</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/category/Other">Others</a>
+              </li>
             </ul>
           </div>
           <div class="col-10">
-            <div class="d-flex justify-content-start flex-wrap" *ngIf="products$">
-              <div class="card mx-2" *ngFor="let product of products$; let i = index" [routerLink]="['/product/', product._id]">
+            <div class="d-flex justify-content-start flex-wrap" *ngIf="products">
+              <div class="card mx-2" *ngFor="let product of products; let i = index"
+                [routerLink]="['/product/', product._id]">
                 <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">
@@ -49,10 +53,19 @@
               </div>
             </div>
           </div>
+          <div class="col">
+            <select (change)="sortProductByPrice($event.target)">
+              <option selected value="undefined" disabled> Choose Category</option>
+              <option value="l2h">Price: Low to High</option>
+              <option value="h2l">Price: High to Low</option>
+              <option value="a2z">Alphabetical: A-Z</option>
+              <option value="z2a">Alphabetical: Z-A</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
-    <a href="/shop" id="back-to-top" class="back-to-top" style="display: inline;">
+    <a routerLink="/shop" id="back-to-top" class="back-to-top" style="display: inline;">
       <i class="fa fa-arrow-up pt-3 pl-2 ml-2"></i>
     </a>
   </main>
@@ -89,10 +102,11 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-12 mt-4" *ngIf="products$" data-aos="fade-up" data-aos-duration="1000">
+        <div class="col-md-12 mt-4" *ngIf="products" data-aos="fade-up" data-aos-duration="1000">
           <div class="d-flex justify-content-start flex-wrap">
             <div class="row">
-              <div class="card mx-auto" *ngFor="let product of products$; let i = index" [routerLink]="['/product/', product._id]">
+              <div class="card mx-auto" *ngFor="let product of products; let i = index"
+                [routerLink]="['/product/', product._id]">
                 <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">

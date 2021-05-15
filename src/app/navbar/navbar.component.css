@@ -18,12 +18,19 @@
 }
 
 .navbar a {
-  font-size: 13px;
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.75px;
   margin: 0 2vw;
+  font-family: Work Sans;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+
 }
 
 .navbar a:hover {
@@ -111,7 +118,13 @@ ul {
   color: #ffffff;
 }
 
-
+h1 {
+  font-size: 30pt;
+  font-weight: normal;
+  font-family: Playfair Display;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
 
 @media (max-width: 768px) {
   .navbar {

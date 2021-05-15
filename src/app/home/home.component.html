@@ -3,13 +3,15 @@
   <nav *ngIf="nav.visible"></nav>
   <ribbon *ngIf="ribbon.visible"></ribbon>
   <footer *ngIf="footer.visible"></footer>
-
   <main role="main">
     <!-- section 1 -->
     <section class="jumbotron section-1 text-center">
       <div class="container">
         <div class="display-5">
-          Wear something unique.<br />Chic doesn't have to be expensive.
+          Wear something unique. 
+        </div>
+        <div class="display-2">
+          Chic doesn't have to be expensive.
         </div>
       </div>
     </section>
@@ -17,7 +19,7 @@
     <!-- section 2 -->
     <section class="jumbotron section-2 text-center" data-aos="fade-up" data-aos-duration="1200">
       <div class="container">
-        <p>
+        <p class>
           Made with delicate handwork, specially delivered to you. Anticipate
           the upcoming sets and accessories soon, only here in Juliet.
         </p>
@@ -28,90 +30,10 @@
     <!-- section 3 -->
     <div class="jumbotron section-3" data-aos="fade-up" data-aos-duration="1200">
       <div class="container">
-        <div class="d-flex flex-row justify-content-center">
-          <div class="p-2">
-            <a routerLink="/shop/category/Necklaces">
-              <div class="img-hover-zoom">
-                <img src="https://i.imgur.com/IcZOQ6L.jpg" class="img-fluid" />
-              </div>
-              <div>
-                <h6 class="text-uppercase text-center mt-3">Shop Necklaces</h6>
-              </div>
-            </a>
-          </div>
-          <div class="p-2">
-            <a routerLink="/shop/category/Earrings">
-              <div class="img-hover-zoom">
-                <img src="https://i.imgur.com/Sf1cid0.jpg" class="img-fluid" />
-              </div>
-              <div>
-                <h6 class="text-uppercase text-center mt-3">Shop Earrings</h6>
-              </div>
-            </a>
-          </div>
-          <div class="p-2">
-            <a routerLink="/shop/category/Bracelets-Anklets">
-              <div class="img-hover-zoom">
-                <img src="https://i.imgur.com/aDlziCg.jpg" class="img-fluid" />
-              </div>
-              <h6 class="text-uppercase text-center mt-3">
-                Shop Bracelets and Anklets
-              </h6>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- section 4 -->
-    <div class="jumbotron section-4" data-aos="fade-up" data-aos-duration="1200">
-      <div class="container-fluid">
-        <div class="d-flex flex-row justify-content-center mb-5">
-          <div class="align-self-center bg1">
-            <div class="text">
-              <div class="subtitle">Juliet Bestseller</div>
-              <h2 class="title">Pressed Flower Collection</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                consectetur a felis eget commodo. Nullam eu consequat dolor.
-                Aenean suscipit.
-              </p>
-              <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
-            </div>
-          </div>
-          <div class="align-self-center">
-            <img src="https://i.imgur.com/ih3wcF7.jpg" width="350px" height="400px" />
-          </div>
-          <!-- <div class="align-self-center bg2"></div> -->
-        </div>
-        <div class="d-flex flex-row justify-content-center mt-5">
-          <div class="align-self-center">
-            <img src="https://i.imgur.com/ih3wcF7.jpg" width="350px" height="400px" />
-          </div>
-          <div class="align-self-center bg1">
-            <div class="text align-text-right">
-              <div class="subtitle">Juliet Bestseller</div>
-              <h2 class="title">Pressed Flower Collection</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                consectetur a felis eget commodo. Nullam eu consequat dolor.
-                Aenean suscipit.
-              </p>
-              <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
-            </div>
-          </div>
-          <!-- <div class="align-self-center bg2"></div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- section 5 -->
-    <div class="jumbotron section-5" data-aos="fade-up" data-aos-duration="1200">
-      <div class="container">
         <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="false"
           [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
           <ng-template pTemplate="header">
-            <h5 class="mb-5 text-center">You might like</h5>
+            <h5 class="mb-5 text-center">Recommended for you, from Juliet</h5>
           </ng-template>
           <ng-template let-product pTemplate="item">
             <div class="d-flex flex-row justify-content-center">
@@ -121,7 +43,8 @@
                     <img src="{{ product.imageUrl }}" class="card-img-top desktop-card-img img-fluid" />
                     <div class="card-body">
                       <div class="card-text">
-                        <span style="font-weight: bold;">{{ product.name }}</span> <br />Php {{ product.price }}
+                        <span style="font-weight: bold;">{{ product.name }}</span> <br />
+                        <span>Php {{ product.price }}</span>
                       </div>
                     </div>
                   </div>
@@ -132,8 +55,60 @@
         </p-carousel>
       </div>
     </div>
+
+    <!-- section 4 -->
+    <div class="jumbotron section-4" data-aos="fade-up" data-aos-duration="1200">
+      <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center mb-5">
+          <div class="align-self-center bg1">
+            <div class="text">
+              <div class="subtitle mb-3">highlight</div>
+              <h2 class="title mb-3">A gift for mom.</h2>
+              <p>
+                This Mother's Day, shower your Mothers with the love that they deserve and the effort they give, being the light on every household.
+              </p>
+              <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
+            </div>
+          </div>
+          <div class="align-self-center">
+            <img src="https://images.unsplash.com/photo-1544652406-55174175da25?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"/>
+          </div>
+          <!-- <div class="align-self-center bg2"></div> -->
+        </div>
+      </div>
+    </div>
+
+    <section class="jumbotron section-5 text-center justify-content-center" data-aos="fade-up" data-aos-duration="1200">
+      <div class="row">
+        <div class="col">
+          <i class="fas fa-laugh-beam"></i>
+          <p> happiness guaranteed </p>
+          <span> Just like Red Velvet, all we deliver is Happiness.</span>
+        </div>
+        <div class="col">
+          <i class="fas fa-hand-sparkles"></i>
+          <p> handcrafting at its finest </p>
+          <span> 100% crafted by our hands, made just for you.</span>
+        </div>
+        <div class="col">
+          <i class="fas fa-tag"></i>
+          <p> great deals? great deals </p>
+          <span> Its everyone's favorite, we got you. </span>
+        </div>
+      </div> 
+    </section>
+
+  <!-- section 5 -->
+    <section class="jumbotron section-6 text-center" data-aos="fade-up" data-aos-duration="1200">
+      <div class="container">
+        <br /> <br />
+        <span class="mb-5 mt-5"> Who is Juliet? </span>
+        <p class="mt-5 mb-5"> Juliet is a start-up business that wants to exude elegance, beauty and fashion at a affordable price. We believe that treasured memories and inspirations can be worn and preserved forever.</p>
+        <a routerLink="/about-us" class="btn btn-learn-more">learn more</a>
+      </div>
+    </section>
     <a href="/home" id="back-to-top" class="back-to-top" style="display: inline;">
-      <i class="fa fa-arrow-up pt-3 pl-2 ml-2"></i>
+      <i class="fa fa-arrow-up"></i>
     </a>
   </main>
 </div>
@@ -141,6 +116,7 @@
 <!-- mobile view -->
 <div *ngIf="isMobile">
   <ribbon *ngIf="ribbon.visible"></ribbon>
+  <footer *ngIf="footer.visible"></footer>
   <section class="jumbotron text-center">
     <div class="container" data-aos="fade-up" data-aos-duration="1200">
       <a routerLink="/shop/category/Necklaces">
@@ -185,6 +161,6 @@
     </div>
   </section>
   <a href="/home" id="back-to-top" class="back-to-top" style="display: inline;">
-    <i class="fa fa-arrow-up pt-3 pl-2 ml-2"></i>
+    <i class="fa fa-arrow-up"></i>
   </a>
 </div>

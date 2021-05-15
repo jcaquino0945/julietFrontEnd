@@ -14,16 +14,14 @@
 }
 
 input {
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #dbdbdb;
+  padding: 1em;
+  border-radius: 10px;
+  border: 1px solid gray;
 }
 
 input:focus {
-  box-shadow: none;
-  border: none;
-  border-bottom: 1px solid #000;
+  border-radius: 10px;
+  border: 1px solid gray;
   background-color: transparent;
 }
 
@@ -31,6 +29,7 @@ input:focus {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.75px;
+  font-family: Work Sans;
 }
 
 .form-row {
@@ -52,6 +51,12 @@ input:focus {
   text-transform: uppercase;
   color: #fff;
   width: 100%;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
   
 }
 
@@ -66,6 +71,12 @@ input:focus {
   text-transform: uppercase;
   color: #6e815d;
   width: 100%;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
 }
 
 .img-responsive {
@@ -83,7 +94,16 @@ input:focus {
 .errorMsg {
   font-size: .8vw;
   color: rgb(223, 4, 4);
+  font-family: Work Sans;
 }
+
+span, h5, .label, .details, label {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0em;
+}
+
 @media (max-width: 426px){
   ::placeholder {
     text-transform: uppercase;
@@ -108,7 +128,7 @@ input:focus {
   }
 
   .btn-back {
-    padding: 8px 100px;
+    padding: 8px 50px;
   }
 
   .bs-stepper-header {

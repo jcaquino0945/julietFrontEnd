@@ -1,7 +1,24 @@
 .jumbotron {
   height: 100%;
   background-color: transparent;
-  
+
+}
+
+.container {
+  width: 50rem;
+}
+
+h3 {
+  font-size: 35px;
+}
+
+h3, p{
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 .btn-primary {
@@ -13,7 +30,12 @@
   text-decoration: none;
   font-size: 15px;
   text-transform: uppercase;
-  color: #fff;
+  color: #fff; 
+  
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
 }
 
 .btn-primary:hover {

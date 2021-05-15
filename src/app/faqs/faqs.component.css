@@ -57,6 +57,10 @@
   background: #aaa;
 }
 
+li, a, strong {
+  font-family: Work Sans;
+}
+
 .accordion-collapse,
 .accordion-body,
 .accordion-button,
@@ -66,7 +70,8 @@
   background-color: transparent;
   border: none;
   box-shadow: none;
-  padding: 10px 0;
+  padding: 20px 0;
+  font-family: Work Sans;
 }
 
 .accordion-button::after {

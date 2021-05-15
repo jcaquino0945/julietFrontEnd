@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.onResize();
     this.responsive.checkWidth();
+    window.scrollTo(0,0);
   }
   
   onResize() {

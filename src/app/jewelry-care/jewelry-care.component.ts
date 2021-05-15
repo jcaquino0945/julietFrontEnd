@@ -25,6 +25,8 @@ export class JewelryCareComponent implements OnInit {
 
     this.onResize();
     this.responsive.checkWidth();
+
+    window.scrollTo(0,0);
   }
 
   onResize() {

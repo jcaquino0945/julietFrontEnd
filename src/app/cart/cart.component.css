@@ -4,6 +4,27 @@ select {
   border-radius: 0;
 }
 
+h5 {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: Work Sans;
+}
+
+.label,
+h6, .details {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0em;
+}
+
 .section {
   display: flex;
   background-size: cover;
@@ -22,8 +43,16 @@ select {
   text-transform: uppercase;
   color: #fff;
   width: 100%;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
 }
-.btn-proceed:hover, .btn-back {
+
+.btn-proceed:hover,
+.btn-back {
   background: transparent;
   padding: 8px 15px;
   margin: 10px 0;
@@ -34,6 +63,13 @@ select {
   text-transform: uppercase;
   color: #6e815d;
   width: 100%;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+
 }
 
 .img-responsive {
@@ -53,13 +89,14 @@ select {
   font-size: 13px;
 }
 
-@media (max-width: 426px){
+@media (max-width: 426px) {
   .section {
     padding: 0;
   }
+
   .card {
     width: 100%;
   }
 
-  
+
 }

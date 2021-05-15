@@ -14,7 +14,7 @@ import { ResponsiveService } from '../services/responsive.service';
 })
 export class ShopRecentlyAddedComponent implements OnInit {
   public isMobile: Boolean;
-  products$: Product[];
+  products: Product[];
   errMess: string;
   loading = true;
   constructor(
@@ -30,12 +30,13 @@ export class ShopRecentlyAddedComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
+    window.scrollTo(0,0);
 
     this.onResize();
     this.responsive.checkWidth();
 
     this.productService.getRecentlyAdded().subscribe(
-      (products$) => (this.products$ = products$),
+      (products) => (this.products = products),
       (errmess) => (this.errMess = <any>errmess)
     );
   }
@@ -44,4 +45,20 @@ export class ShopRecentlyAddedComponent implements OnInit {
       this.isMobile = isMobile;
     });
   }
+
+  sortProductByPrice(option) {
+    if (option.value == "l2h") {
+      this.products.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (option.value == "h2l") {
+      this.products.sort((a, b) => Number(b.price) - Number(a.price));
+    } else if (option.value == "a2z") {
+      this.products.sort(function (a, b) {     
+        return ('' + a.name).localeCompare(b.name); 
+      })
+    } else if (option.value == "z2a"){
+      this.products.sort(function (a, b) {     
+        return ('' + b.name).localeCompare(a.name); 
+      })
+    }
+  };
 }

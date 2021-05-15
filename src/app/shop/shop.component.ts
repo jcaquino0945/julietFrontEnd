@@ -14,7 +14,7 @@ import { ResponsiveService } from '../services/responsive.service';
 })
 export class ShopComponent implements OnInit {
   public isMobile: Boolean;
-  products$: Product[];
+  products: Product[];
   errMess: string;
   loading = true;
   constructor(
@@ -33,12 +33,14 @@ export class ShopComponent implements OnInit {
     this.footer.show();
 
     this.onResize();
+    window.scrollTo(0,0);
     this.responsive.checkWidth();
 
     this.productService.getProducts().subscribe(
-      (products$) => (this.products$ = products$),
+      (products) => (this.products = products),
       (errmess) => (this.errMess = <any>errmess)
     );
+    
   }
 
   onResize() {
@@ -46,5 +48,22 @@ export class ShopComponent implements OnInit {
       this.isMobile = isMobile;
     });
   }
+
+  // sorts the product by the highest price and vice versa / sorts alphabetically
+  sortProductByPrice(option) {
+    if (option.value == "l2h") {
+      this.products.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (option.value == "h2l") {
+      this.products.sort((a, b) => Number(b.price) - Number(a.price));
+    } else if (option.value == "a2z") {
+      this.products.sort(function (a, b) {     
+        return ('' + a.name).localeCompare(b.name); 
+      })
+    } else if (option.value == "z2a"){
+      this.products.sort(function (a, b) {     
+        return ('' + b.name).localeCompare(a.name); 
+      })
+    }
+  };
 
 }

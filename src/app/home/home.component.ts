@@ -51,6 +51,8 @@ export class HomeComponent implements OnInit {
     this.onResize();
     this.responsive.checkWidth();
 
+    window.scrollTo(0,0);
+
     this.product
       .getFeaturedProducts()
       .subscribe((products) => (this.products = products));

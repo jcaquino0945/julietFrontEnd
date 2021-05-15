@@ -12,6 +12,10 @@
   border-radius: 0%;
 }
 
+p {
+  font-family: Work Sans;
+}
+
 .back-to-top .i {
   color: #FFFFFF;
   background-color: #ffffff;

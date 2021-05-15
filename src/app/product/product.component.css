@@ -2,8 +2,8 @@
   align-items: center;
   display: flex;
   background-size: cover;
-  height: 90vh;
-  padding: 0 150px;
+  height: 100vh;
+  padding: 0 140px;
 }
 
 .section-2 {
@@ -14,9 +14,6 @@
   padding: 20pc 270px;
 }
 
-p {
-  font-size: 13px;
-}
 
 select {
   border-radius: 0;
@@ -37,10 +34,17 @@ select {
   text-transform: uppercase;
   color: #fff;
   width: 100%;
+
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
 }
+
 * {
-	outline: none;
+  outline: none;
 }
+
 .btn-add-to-cart:hover {
   background: transparent;
   padding: 8px 15px;
@@ -52,6 +56,7 @@ select {
   text-transform: uppercase;
   color: #6e815d;
   width: 100%;
+  
 }
 
 .card,
@@ -70,11 +75,46 @@ select {
   font-size: 15px;
 }
 
+.col h5 {
+  font-family: Work Sans;
+  font-size: 20pt;
+  font-style: normal;
+  font-weight: 500;
+
+}
+
+.col span, .col strong {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.col strong {
+  font-weight: bold;
+}
+
+.col li {
+  font-family: Work Sans;
+  font-size: 13pt;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+h5 {
+  font-family: Work Sans;
+  font-size: 15pt;
+  font-style: normal;
+  font-weight: 500;
+}
+
+
 @media (max-width: 426px) {
   img {
     max-height: 100%;
     object-fit: cover;
-    margin: 10vh 0 5vh ;
+    margin: 10vh 0 5vh;
   }
 
   .section-1 {

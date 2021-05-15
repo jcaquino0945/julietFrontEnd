@@ -23,7 +23,7 @@ export class ThankYouComponent implements OnInit {
     this.nav.show();
     this.ribbon.show();
     this.footer.show();
-
+    window.scrollTo(0,0);
     this.onResize();
     this.responsive.checkWidth();
   }
