@@ -119,7 +119,7 @@
               <div class="product-item" [routerLink]="['/product/', product._id]">
                 <div class="product-item-content">
                   <div class="card">
-                    <img src="{{ product.imageUrl }}" class="card-img-top desktop-card-img img-fluid" />
+                    <img src="{{ product.imageUrl[0] }}" class="card-img-top desktop-card-img img-fluid" />
                     <div class="card-body">
                       <div class="card-text">
                         <span style="font-weight: bold;">{{ product.name }}</span> <br />Php {{ product.price }}
