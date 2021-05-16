@@ -93,7 +93,7 @@
           <div class="d-flex justify-content-start flex-wrap">
             <div class="row">
               <div class="card mx-auto" *ngFor="let product of products$; let i = index" [routerLink]="['/product/', product._id]">
-                <div class="img-hover-zoom"> <img src="{{product.imageUrl}}" class="img-fluid card-img-top" /></div>
+                <div class="img-hover-zoom"> <img src="{{product.imageUrl[0]}}" class="img-fluid card-img-top" /></div>
                 <div class="card-body">
                   <div class="card-text">
                     <a [routerLink]="['/product/', product._id]">
