@@ -3,7 +3,8 @@
   display: flex;
   background-size: cover;
   height: 90vh;
-  padding: 0 150px;
+  margin: 100px 0;
+  padding: 0 100px;
 }
 
 .section-2 {
