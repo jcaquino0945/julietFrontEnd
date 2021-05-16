@@ -100,10 +100,15 @@ export class ProductComponent implements OnInit {
 
   addToCart(product) {
     try {
+      let stockDetail = {
+        _id: product._id,
+        stock_quantity: product.stock_quantity - 1,
+        orders: product.orders + 1
+      }
       let cartProduct = {
         _id: product._id,
         name: product.name,
-        imageUrl: product.imageUrl,
+        imageUrl: product.imageUrl[0].toString(),
         description: product.description,
         price: product.price,
         category: product.category,
@@ -114,6 +119,7 @@ export class ProductComponent implements OnInit {
         stock_quantity: product.stock_quantity,
         updateStock: product.stock_quantity - 1,
       };
+      this.cartService.addStock(stockDetail)
       this.cartService.addToCart(cartProduct);
       console.log(cartProduct);
       this.saveSuccess = true 

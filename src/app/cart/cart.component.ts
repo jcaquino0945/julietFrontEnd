@@ -56,6 +56,7 @@ export class CartComponent implements OnInit {
       orders: item.orders + item.quantity
     };
     console.log(this.productStock);
+    this.cartService.addStock(this.productStock)
     item.totalPrice = item.price * item.quantity;
     this.totalPrice = this.cartService.totalPrice();
     this.itemPrice = this.cartService.itemPrice();
@@ -75,6 +76,7 @@ export class CartComponent implements OnInit {
       orders: item.orders + item.quantity
     };
     console.log(this.productStock);
+    this.cartService.addStock(this.productStock)
     item.totalPrice = item.price * item.quantity;
     this.totalPrice = this.cartService.totalPrice();
     this.itemPrice = this.cartService.itemPrice();
