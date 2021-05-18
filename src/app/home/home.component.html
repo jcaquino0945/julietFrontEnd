@@ -65,9 +65,9 @@
 
     <!-- section 4 -->
         
-    <div class="jumbotron section-4" data-aos="fade-up" data-aos-duration="1200">
+    <div class="jumbotron section-4" data-aos="fade-up" data-aos-duration="600">
       <div class="container-fluid">
-        <div class="d-flex flex-row justify-content-center mb-5">
+        <div class="d-flex flex-row justify-content-center m-3">
           <div class="align-self-center bg1">
             <div class="text">
               <div class="subtitle">Juliet Bestseller</div>
@@ -85,12 +85,28 @@
           </div>
           <!-- <div class="align-self-center bg2"></div> -->
         </div>
-        <div class="d-flex flex-row justify-content-center mt-5">
+      </div>
+    </div>
+
+    <!-- section 6 --> 
+    <div class="jumbotron section-6">
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+          <div class="container d-flex justify-content-center align-items-center flex-column" style="background-color: #FAF9F9; width: 50%; text-align: center; opacity: 0.8; padding: 20px;">
+          <h3 style="margin-bottom: 40px;">Who Is Juliet?</h3>
+          <p style="margin-bottom: 40px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum corrupti quod minus eum fugiat veniam accusantium hic voluptates velit esse!</p>
+          <a routerLink="/about-us" class="btn btn-shop-now">Learn More</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="jumbotron section-4" data-aos="fade-up" data-aos-duration="600">
+      <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center m-3">
           <div class="align-self-center">
             <img src="https://i.imgur.com/ih3wcF7.jpg" width="350px" height="400px" />
           </div>
-          <div class="align-self-center bg1">
-            <div class="text align-text-right">
+          <div class="align-self-center bg1" style="text-align: right!important;">
+            <div class="text">
               <div class="subtitle">Juliet Bestseller</div>
               <h2 class="title">Pressed Flower Collection</h2>
               <p>
@@ -101,10 +117,12 @@
               <a routerLink="/shop" class="btn btn-shop-now">Shop Now</a>
             </div>
           </div>
+         
           <!-- <div class="align-self-center bg2"></div> -->
         </div>
       </div>
     </div>
+
 
     <!-- section 5 -->
     <div class="jumbotron section-5" data-aos="fade-up" data-aos-duration="1200">
@@ -112,7 +130,7 @@
         <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="false"
           [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
           <ng-template pTemplate="header">
-            <h5 class="mb-5 text-center">You might like</h5>
+            <h5 class="mb-5 text-center">Recommended For You</h5>
           </ng-template>
           <ng-template let-product pTemplate="item">
             <div class="d-flex flex-row justify-content-center">
@@ -142,6 +160,15 @@
 <!-- mobile view -->
 <div *ngIf="isMobile">
   <ribbon *ngIf="ribbon.visible"></ribbon>
+
+  <section class="jumbotron section-1 text-center" style="height: 70vh;">
+    <div class="container">
+      <div class="display-5">
+        Wear something unique.<br />Chic doesn't have to be expensive.
+      </div>
+    </div>
+  </section>
+
   <section class="jumbotron text-center">
     <div class="container" data-aos="fade-up" data-aos-duration="1200">
       <a routerLink="/shop/category/Necklaces">
@@ -185,6 +212,42 @@
       </div>
     </div>
   </section>
+
+  <div class="jumbotron section-6">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+      <div class="container d-flex justify-content-center align-items-center flex-column" style="background-color: #FAF9F9; width: 80%; text-align: center; opacity: 0.8; padding: 20px;">
+      <h3 style="margin-bottom: 40px;">Who Is Juliet?</h3>
+      <p style="margin-bottom: 40px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum corrupti quod minus eum fugiat veniam accusantium hic voluptates velit esse!</p>
+      <a routerLink="/about-us" class="btn btn-shop-now">Learn More</a>
+      </div>
+    </div>
+</div>
+<div class="jumbotron section-5" data-aos="fade-up" data-aos-duration="1200">
+  <div class="container">
+    <p-carousel [value]="products" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="false"
+      [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+      <ng-template pTemplate="header">
+        <h5 class="mb-5 text-center">Recommended For You</h5>
+      </ng-template>
+      <ng-template let-product pTemplate="item">
+        <div class="d-flex flex-row justify-content-center">
+          <div class="product-item" [routerLink]="['/product/', product._id]">
+            <div class="product-item-content">
+              <div class="card">
+                <img src="{{ product.imageUrl[0] }}" class="card-img-top desktop-card-img img-fluid" />
+                <div class="card-body">
+                  <div class="card-text">
+                    <span style="font-weight: bold;">{{ product.name }}</span> <br />Php {{ product.price }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>
   <a href="/home" id="back-to-top" class="back-to-top" style="display: inline;">
     <i class="fa fa-arrow-up pt-3 pl-2 ml-2"></i>
   </a>

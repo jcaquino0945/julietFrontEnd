@@ -76,10 +76,17 @@ p {
 .section-4 {
   overflow: hidden;
   margin: 0;
-  padding: 100px;
-  height: 140vh;
+  padding: 80px;
+  height: auto;
   width: 100%;
   background-color: #e7edeb;
+}
+.section-6 {
+  background-image: url(https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80);
+  overflow: hidden;
+  margin: 0;
+  height: 80vh;
+  width: 100%;
 }
 
 .section-5 {
@@ -217,5 +224,10 @@ p {
     text-align: left !important;
     color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .section-5 {
+    height: 80vh;
+    padding:0;
   }
 }

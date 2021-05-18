@@ -168,12 +168,14 @@
                  
                   </div>
                 </div>
-                <div class="form-row mt-4">
+                <div class="form-row">
                   <div class="col">
                     <button routerLink="/cart" class="btn-back">
                       Edit Cart
                     </button>
                   </div>
+                 </div>
+                 <div class="form-row">
                   <div class="col">
                     <button (click)="next()" class="btn-proceed" [disabled]="orderForm.invalid">
                       Proceed to Shipping
@@ -214,18 +216,20 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-row mt-4">
-                  <div class="col">
-                    <button (click)="previous()" class="btn-back">
-                      Edit Information
-                    </button>
-                  </div>
-                  <div class="col">
-                    <button (click)="next()" class="btn-proceed">
-                      Proceed to Payment
-                    </button>
-                  </div>
-                </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button (click)="previous()" class="btn-back">
+                          Edit Information
+                        </button>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button (click)="next()" class="btn-proceed">
+                          Proceed to Payment
+                        </button>
+                      </div>
+                    </div>
               </div>
             </div>
             <!-- Payment Method -->
@@ -252,18 +256,20 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-row mt-4">
-                  <div class="col">
-                    <button (click)="previous()" type="button" class="btn-back">
-                      Back to Shipping
-                    </button>
-                  </div>
-                  <div class="col">
-                    <button type="submit" (click)="onSubmit()" class="btn-proceed" routerLink="/thank-you">
-                      Complete Purchase
-                    </button>
-                  </div>
-                </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button (click)="previous()" class="btn-back">
+                          Back to Shipping
+                        </button>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button type="submit" (click)="onSubmit()" class="btn-proceed" routerLink="/thank-you">
+                          Complete Purchase
+                        </button>
+                      </div>
+                    </div>
               </div>
             </div>
           </form>

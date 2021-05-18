@@ -2,6 +2,7 @@
   class="alert alert-success alert-dismissible fade show"
   role="alert"
   *ngIf="saveSuccess"
+  style="position: sticky; top: 0; z-index: 999!important;"
 >
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -12,7 +13,7 @@
   class="alert alert-warning alert-dismissible fade show"
   role="alert"
   *ngIf="product.stock_quantity == 0"
-  style="position: sticky; top: 0"
+  style="position: sticky; top: 0; z-index: 999!important;"
 >
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -24,6 +25,7 @@
   class="alert alert-danger alert-dismissible fade show"
   role="alert"
   *ngIf="saveFailure"
+  style="position: sticky; top: 0; z-index: 999!important;"
 >
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -35,7 +37,7 @@
   <ribbon *ngIf="ribbon.visible"></ribbon>
   <footer *ngIf="footer.visible"></footer>
   <div class="container" *ngIf="product">
-    <div class="row section-1">
+    <div class="row section-1  m-3">
       <div class="col">
         <div
           id="carouselExampleControls"
@@ -128,7 +130,7 @@
     </div>
   </div>
 
-  <div class="section-2">
+  <div class="section-2 p-3">
     <div class="container">
       <p-carousel
         [value]="products$"
@@ -140,7 +142,7 @@
         [responsiveOptions]="responsiveOptions"
       >
         <ng-template pTemplate="header">
-          <h5 class="mb-5 text-center">You might also like</h5>
+          <h5 class="mb-5 text-center">Recommended For You</h5>
         </ng-template>
         <ng-template let-product pTemplate="item">
           <div class="d-flex flex-row justify-content-center">
