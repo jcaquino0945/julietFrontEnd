@@ -96,7 +96,7 @@ p {
 
 .bg1 {
   height: 40vh;
-  width: 50vw;
+  width: auto;
 }
 
 .bg2 {
