@@ -94,12 +94,19 @@ a:hover {
 }
 
 @media (max-width: 769px) {
-  #dropdownMenuButton1 {
+  #dropdownMenuButton1, select {
     width: 100%;
     text-align: left;
     background-color: #ffffff;
     color: #6e815d;
     border-radius: 0;
+  }
+  option {
+    color: black;
+  }
+
+  select {
+    color:  #ACDF87;
   }
 
   .dropdown-toggle::after {
@@ -120,12 +127,19 @@ a:hover {
 }
 
 @media (max-width: 426px) {
-  #dropdownMenuButton1 {
+  #dropdownMenuButton1, select {
     width: 100%;
     text-align: left;
     background-color: #ffffff;
     color: #6e815d;
     border-radius: 0;
+  }
+  option {
+    color: black;
+  }
+
+  select {
+    color:  #ACDF87;
   }
 
   .dropdown-toggle::after {

@@ -31,6 +31,15 @@
               <li class="nav-item">
                 <a class="nav-link" routerLink="/shop/best-sellers">Bestsellers</a>
               </li>
+              <li class="nav-item mt-3">
+                <select (change)="sortProductByPrice($event.target)">
+                  <option selected value="undefined" disabled> Sort by ...</option>
+                  <option value="l2h">Price: Low to High</option>
+                  <option value="h2l">Price: High to Low</option>
+                  <option value="a2z">Alphabetical: A-Z</option>
+                  <option value="z2a">Alphabetical: Z-A</option>
+                </select>
+            </li>
             </ul>
           </div>
           <div class="col-10">
@@ -70,6 +79,13 @@
               data-bs-toggle="dropdown" aria-expanded="false">
               Shop by Category
             </button>
+            <select (change)="sortProductByPrice($event.target)" class="mt-3">
+              <option selected value="undefined" disabled> Choose Category</option>
+              <option value="l2h">Price: Low to High</option>
+              <option value="h2l">Price: High to Low</option>
+              <option value="a2z">Alphabetical: A-Z</option>
+              <option value="z2a">Alphabetical: Z-A</option>
+            </select>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li class="nav-item">
                 <a class="nav-link active" routerLink="/shop">View All</a>

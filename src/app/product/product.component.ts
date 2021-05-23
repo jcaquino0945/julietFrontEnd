@@ -63,6 +63,8 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
+
     this.orderForm = this.formBuilder.group({
       selectedOption: [null, Validators.required]
      

@@ -215,6 +215,27 @@ p {
   app-root {
     display: block;
  }
+ .section-7 {
+  background: #1f1207;
+  height: 15vh;
+  color: white;
+  width: 100%;
+}
+
+.section-7 .col {
+  width: 500px;
+}
+
+.section-7 p,
+.section-7 span {
+  font-family: Quicksand;
+  font-size: 10pt;
+  width: 100%;
+}
+
+.section-7 p {
+  text-transform: uppercase;
+}
 
 @media (max-width: 768px) {
   div h6 {
@@ -231,3 +252,17 @@ p {
     padding:0;
   }
 }
+@media (max-width: 768px) {
+  .section-7 {
+      height: 100%;
+    }
+  
+    .section-7 span, .section-7 p {
+      font-size: 100%;
+    }
+  
+    .section-7 .col {
+      
+      padding: 4em;
+    }
+  }

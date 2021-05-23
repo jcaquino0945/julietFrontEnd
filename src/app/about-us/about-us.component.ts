@@ -20,6 +20,8 @@ export class AboutUsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
+
     this.nav.show();
     this.ribbon.show();
     this.footer.show();

@@ -12,19 +12,35 @@ footer {
   background: #c1ae8d;
 }
 
-h5 {
+p {
+  font-family: Work Sans;
+}
+
+h5, h6{
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.75px;
   color: #43341f;
   font-weight: bold;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: left;
 }
 
-a {
+h6 {
+  font-size: auto;
+  text-align: center;
+  color: white;
+  font-weight: normal;
+}
+
+a, svg{
   color: #fff;
 }
 
-a:hover {
+a:hover, svg:hover {
   text-decoration: none;
   color: #6e815d;
 }
@@ -34,11 +50,17 @@ a:hover {
   color: #fff;
   margin: 2px 0;
   padding: 0;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+
 }
 
 @media (max-width: 768px) {
   footer {
-    display: none !important;
+    padding: 0;
   }
 }
-

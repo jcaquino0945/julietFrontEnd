@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     console.log(this.items);
     this.nav.show();
     this.ribbon.show();

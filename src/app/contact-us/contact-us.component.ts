@@ -54,6 +54,8 @@ export class ContactUsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
+
     this.contactForm = this.formBuilder.group({
       name: [null, Validators.required],
       email: [null, Validators.required],

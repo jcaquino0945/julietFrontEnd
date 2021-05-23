@@ -1,131 +1,207 @@
+body {
+  overflow-x: hidden; 
+}
+
 a {
-    text-decoration: none;
-    color: #000;
-  }
-  
-  a:hover {
-    text-decoration: none;
+  text-decoration: none;
+  color: #000;
+}
+* {
+	outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #6e815d;
+}
+
+.title {
+  color: #6e815d;
+}
+.img-hover-zoom {
+  /* [1.1] Set it as per your need */
+ overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+ overflow: hidden;
+ transition: transform 1s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+ overflow: hidden;
+ transform: scale(1.3);
+}
+
+.jumbotron {
+  display: flex;
+  background-size: cover;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+  height: 100%;
+}
+
+.nav-link {
+  font-size: 13px;
+  color: #000;
+  margin: 2px 0;
+  padding: 0;
+}
+
+.card,
+.card-img-top {
+  width: 200px;
+  border: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
+}
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
+@media (max-width: 769px) {
+  #dropdownMenuButton1, select {
+    width: 100%;
+    text-align: left;
+    background-color: #ffffff;
     color: #6e815d;
-  }
-  * {
-    outline: none;
-  }
-  .img-hover-zoom {
-    /* [1.1] Set it as per your need */
-   overflow: hidden; /* [1.2] Hide the overflowing of child elements */
-  }
-  
-  /* [2] Transition property for smooth transformation of images */
-  .img-hover-zoom img {
-   overflow: hidden;
-   transition: transform 1s ease;
-  }
-  
-  /* [3] Finally, transforming the image when container gets hovered */
-  .img-hover-zoom:hover img {
-   overflow: hidden;
-   transform: scale(1.3);
-  }
-  .title {
-    color: #6e815d;
-  }
-  
-  .jumbotron {
-    display: flex;
-    background-size: cover;
-    background-color: transparent;
-    margin: 0;
     border-radius: 0;
-    height: 100%;
   }
-  
-  .nav-link {
-    font-size: 13px;
-    color: #000;
-    margin: 2px 0;
-    padding: 0;
+  option {
+    color: black;
   }
-  
-  .card,
+
+  select {
+    color:  #ACDF87;
+  }
+
+  .dropdown-toggle::after {
+    content: "";
+    display: inline-block;
+    right: 15px;
+    top: 18px;
+    position: absolute;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  .nav-item {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 426px) {
+  #dropdownMenuButton1, select {
+    width: 100%;
+    text-align: left;
+    background-color: #ffffff;
+    color: #6e815d;
+    border-radius: 0;
+  }
+  option {
+    color: black;
+  }
+
+  select {
+    color:  #ACDF87;
+  }
+
+  .dropdown-toggle::after {
+    content: "";
+    display: inline-block;
+    right: 15px;
+    top: 18px;
+    position: absolute;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  .nav-item {
+    padding: 5px;
+  }
+
+  .card {
+    width: 180px;
+    max-height: 800px;
+  }
+
   .card-img-top {
-    width: 200px;
+    margin-top: 5vh;
+    width: 100%;
     border: 0;
     border-radius: 0;
   }
-  
+
   .card-body {
-    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 376px) {
+  .card {
+    width: 150px;
   }
   
-  .card-title,
-  .card-text {
-    font-size: 15px;
+  .card-img-top {
+    margin-top: 5vh;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
   }
-  @media (max-width: 426px) {
-    #dropdownMenuButton1 {
-      width: 100%;
-      text-align: left;
-      background-color: #ffffff;
-      color: #6e815d;
-      border-radius: 0;
-    }
-  
-    .dropdown-toggle::after {
-      content: "";
-      display: inline-block;
-      right: 15px;
-      top: 18px;
-      position: absolute;
-    }
-  
-    .dropdown-menu {
-      width: 100%;
-    }
-  
-    .nav-item {
-      padding: 5px;
-    }
-  
-    .card {
-      width: 180px;
-      max-height: 800px;
-    }
-  
-    .card-img-top {
-      margin-top: 5vh;
-      width: 100%;
-      border: 0;
-      border-radius: 0;
-    }
-  
-    .card-body {
-      text-align: center;
-    }
+}
+
+@media (max-width: 361px) {
+  .card {
+    width: 120px;
   }
   
-  @media (max-width: 376px) {
-    .card {
-      width: 150px;
-    }
-    
-    .card-img-top {
-      margin-top: 5vh;
-      width: 100%;
-      border: 0;
-      border-radius: 0;
-    }
+  .card-img-top {
+    margin-top: 5vh;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
   }
-  
-  @media (max-width: 320px) {
-    .card {
-      width: 120px;
-    }
-    
-    .card-img-top {
-      margin-top: 5vh;
-      width: 100%;
-      border: 0;
-      border-radius: 0;
-    }
+
+  .row {
+    /* margin-left: 10px;
+    margin-right: 10px; */
   }
-  
+}

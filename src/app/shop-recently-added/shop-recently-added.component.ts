@@ -44,4 +44,21 @@ export class ShopRecentlyAddedComponent implements OnInit {
       this.isMobile = isMobile;
     });
   }
+
+  sortProductByPrice(option) {
+    if (option.value == "l2h") {
+      this.products$.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (option.value == "h2l") {
+      this.products$.sort((a, b) => Number(b.price) - Number(a.price));
+    } else if (option.value == "a2z") {
+      this.products$.sort(function (a, b) {
+        return ('' + a.name).localeCompare(b.name); 
+      })
+    } else if (option.value == "z2a"){
+      this.products$.sort(function (a, b) {
+        return ('' + b.name).localeCompare(a.name); 
+      })
+    }
+  };
+  
 }
