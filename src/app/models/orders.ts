@@ -19,7 +19,7 @@ export class Orders {
   email: string;
   street: string;
   province: string;
-  ctiy: string;
+  city: string;
   region: string;
   postalCode: string;
   _id: string;
