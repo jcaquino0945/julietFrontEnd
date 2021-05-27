@@ -57,3 +57,7 @@ textarea,
 .btn-delete {
   width: 100%;
 }
+
+.card-text {
+  padding: 10px;
+}

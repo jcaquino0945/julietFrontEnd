@@ -14,6 +14,10 @@ import {
   Validators,
 } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {
+  ResponsiveService
+} from 'src/app/services/responsive.service';
+
 
 @Component({
   selector: 'app-reports',
@@ -25,13 +29,18 @@ export class ReportsComponent implements OnInit {
   messages$: Contact[];
   errMess: string;
   chart: any;
+  public isMobile: boolean;
   constructor(
     private orderService: OrderService,
     private contactService: ContactService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private responsive: ResponsiveService,
     ) {}
 
   ngOnInit(): void {
+    this.onResize();
+    this.responsive.checkWidth();
+
     this.contactService.getMessages().subscribe((messages$) => (this.messages$ = messages$), (errMess) => (this.errMess = <any>errMess));
 
     this.orderService.getOrdersWithConfirmedPayments().subscribe(
@@ -187,6 +196,13 @@ export class ReportsComponent implements OnInit {
       (errMess) => (this.errMess = <any>errMess)
     );
   }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
+  
   deleteMsg(id) {
     if (window.confirm('Are you sure?')) {
     this.contactService.deleteMessage(id).subscribe((messages$) => (this.messages$ = messages$), (errMess) => (this.errMess = <any>errMess));
