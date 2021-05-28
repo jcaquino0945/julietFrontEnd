@@ -1,0 +1,78 @@
+<div *ngIf="!isMobile">
+  <footer *ngIf="footer.visible">
+    <div class="container-fluid">
+      <div class="d-flex">
+        <div class="align-self-start mr-5">
+          <ul class="nav flex-column">
+            <h5>Support</h5>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/faqs" routerLinkActive="active">Frequently Asked Questions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/jewelry-care" routerLinkActive="active">Jewelry Care</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="align-self-start">
+          <ul class="nav flex-column">
+            <h5>Products</h5>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/shop/category/Necklaces">Necklaces</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/shop/category/Bracelets-Anklets">Bracelets and Anklets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/shop/category/Earrings">Earrings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/shop/recently-added">New Arrival</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/shop/best-sellers">Bestsellers</a>
+            </li>
+          </ul>
+        </div>
+        <div class="ml-auto align-self-center text-right">
+          <a href="https://www.tiktok.com/@juliet.mnl.ph" class="mr-2">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.instagram.com/juliet.mnl.ph/?hl=en" class="mr-2"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/juliet.mnl.ph" class="mr-2"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/julietmnlph"><i class="fab fa-twitter"></i></a>
+          <br />
+          <p>Juliet Manila Philippines. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div *ngIf="isMobile">
+  <!-- start coding here for mobile view -->
+  <footer *ngIf="footer.visible">
+    <div class="container-fluid">
+      <div class="ml-auto align-self-center text-center">
+        <h6> Follow us on our socials </h6>
+        <a href="https://www.tiktok.com/@juliet.mnl.ph" class="mr-2">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.instagram.com/juliet.mnl.ph/?hl=en" class="mr-2">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/juliet.mnl.ph" class="mr-2">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com/julietmnlph">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <br />
+        <hr>
+        <h6 class="mt-5"> Juliet Manila Philippines. All rights reserved. </h6>
+      </div>
+    </div>
+  </footer>
+</div>

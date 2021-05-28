@@ -1,0 +1,140 @@
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+.row {
+  padding: 30px 0px;
+}
+
+.jumbotron {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+}
+
+.section-1 {
+  height: 50vh;
+  background-image: url(https://images.unsplash.com/photo-1547738238-5ddb16bef15f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+  color: #fff;
+}
+
+.section-2 {
+  overflow: hidden;
+  margin: auto;
+  height: 100%;
+  width: 50em;
+  color: #000;
+}
+
+
+
+.img-thumbnail {
+  border: 10px solid #fff;
+  border-radius: 0;
+}
+
+.btn-shop-now {
+  background: #6e815d;
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.img-hover-zoom {
+  /* [1.1] Set it as per your need */
+ overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+ overflow: hidden;
+ transition: transform 1s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+ overflow: hidden;
+ transform: scale(1.3);
+}
+/* pt-3 pl-3 ml-1 */
+
+@media (max-width: 768px) {
+  div h6 {
+    position: relative;
+    bottom: 40px;
+    left: 12px;
+    text-align: left !important;
+    color: #ffffff;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .title {
+    margin-top: 20vh;
+  }
+
+  .section-2 {
+    width: 100%;
+  }
+}

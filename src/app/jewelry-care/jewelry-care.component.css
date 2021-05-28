@@ -1,0 +1,92 @@
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
+.section {
+  padding: 60px 0 60px 0;
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  height: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 100px;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+/* .media {
+  width: 25em;
+  margin: auto;
+} */
+
+.card,
+.card-img-top {
+  width: 200px;
+  border: 0;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 10px 0;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+  }
+}
+
+@media (max-width: 426px) {
+  .row {
+    display: contents;
+  }
+}

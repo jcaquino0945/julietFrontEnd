@@ -1,0 +1,30 @@
+<h3>About Us</h3>
+<div class="aboutUsContainer">
+    <div>
+        <main role="main" *ngIf="about$">
+          <div class="jumbotron section-1"></div>
+      
+          <div class="jumbotron section-2">
+            <div class="container">
+              <h3 class="title title-border text-center mb-5">About Us</h3>
+                <form
+              [formGroup]="aboutForm"
+              *ngFor="let about of about$"
+              (ngSubmit)="updateAboutUsDetails(about._id)"
+                >
+                  <p>{{about._id}}</p>
+                  <textarea type="text"               formControlName="about"
+                  style="width: 100%; max-width: 100%; border: none; height: auto; margin-bottom: 5px;" placeholder="{{about.text}}"></textarea>
+                  <br>
+                  <button
+                  type="submit"
+                  [disabled]="aboutForm.invalid"
+                  >
+                Update
+              </button>
+                </form>
+            </div>
+          </div>
+        </main>
+    </div>
+</div> 

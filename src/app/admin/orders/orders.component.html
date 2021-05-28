@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h3>Orders</h3>
+  <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
+    <input
+      class="form-control mr-2"
+      type="search"
+      placeholder="Search"
+      formControlName="searchName"
+    />
+    <button
+      class="btn btn-juliet my-2 my-sm-0"
+      type="submit"
+      [disabled]="searchForm.invalid"
+    >
+      Search
+    </button>
+  </form>
+</div>
+<div *ngIf="orders$">
+  <div
+    class="card my-2"
+    *ngFor="let order of orders$; let i = index"
+    [routerLink]="['/admin/orders/', order._id]"
+  >
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="card-text">
+          <div class="subtitle">{{ order.datePurchased | date }}</div>
+          <div class="card-title p-0 m-0">
+            <!-- <p style="font-size: 1.2vw; font-weight: 800">
+              
+            </p> -->
+            <h5>{{ order.firstName }} {{ order.lastName }}</h5>
+          </div>
+          Order ID: <span style="font-weight: 400">{{ order.orderId }}</span>
+          <br />
+          Email <span style="font-weight: 400">{{ order.email }}</span> <br />
+          Php <span style="font-weight: 400">{{ order.totalPrice }}</span>
+          <br />
+          Shipping Method:
+          <span style="font-weight: 400">{{ order.shippingMethod }}</span>
+          <br />
+          Payment Method:
+          <span style="font-weight: 400">{{ order.paymentMethod }}</span> <br />
+        </div>
+        <div class="align-self-start">
+          <span
+            class="badge badge-danger subtitle"
+            *ngIf="order.status == 'Awaiting Payment'"
+            >{{ order.status }}
+          </span>
+          <span
+            class="badge badge-info subtitle"
+            *ngIf="order.status == 'For Delivery'"
+            >{{ order.status }}
+          </span>
+          <span
+            class="badge badge-success subtitle"
+            *ngIf="order.status == 'Transaction Complete'"
+          >
+            {{ order.status }}
+          </span>
+          <span
+            class="badge badge-primary subtitle"
+            *ngIf="order.status == 'Processing Order'"
+          >
+            {{ order.status }}
+          </span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,155 @@
+.dropdown-menu::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+
+.navbar {
+  padding: 1vh 0;
+  transition: 0.1s all ease-in;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  background-color: #c1ae8d;
+}
+
+.navbar a {
+  font-size: 13px;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin: 0 2vw;
+}
+
+.navbar a:hover {
+  color: rgb(221, 221, 221);
+}
+
+/* .active {
+  color: rgb(221, 221, 221) !important;
+} */
+
+.navbar-toggler {
+  color: #ffffff;
+}
+
+.btn-2 {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.dropdown {
+  position: static;
+  transition: 1s all ease-in-out;
+}
+
+.dropdown-menu {
+  transition: 1s all ease-in-out;
+  display: none;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+  width: 100%;
+  margin-top: 0;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+  padding: 25px 300px;
+  height: auto;
+  width: 100%;
+  position: absolute;
+}
+
+
+.dropdown-menu a {
+  color: #000;
+  margin: 0;
+  padding: 5px 0;
+  width: auto;
+}
+
+.dropdown-menu a:hover {
+  display: block;
+  transition: .2s all ease-in-out;
+  background: none;
+  color: #c1ae8d;
+}
+
+ul {
+  margin: 0 auto;
+  align-items: center;
+  list-style-type: none;
+}
+
+.subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:active,
+.navbar-toggler:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-2:hover,
+.btn-2:active,
+.btn-2:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-2 {
+  color: #ffffff;
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: #ffffff;
+  }
+
+  .dropdown:hover>.dropdown-menu {
+    display: block;
+    padding: 0 0 10px 0;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    visibility: visible;
+  }
+
+  .navbar-toggler,
+  .btn-2 {
+    color: black;
+  }
+
+  .navbar a {
+    color: #c1ae8d;
+  }
+
+  .mobile-active {
+    color: #a08e6e;
+  }
+
+  .dropdown-menu {
+
+    text-align: center;
+    border-color: transparent;
+  }
+
+  .dropdown-menu li {
+    text-align: center;
+  }
+
+
+}

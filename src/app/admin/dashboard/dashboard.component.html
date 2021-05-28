@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h3>Dashboard</h3>
+  <div class="card">
+    <div class="card-header">
+      <div class="subtitle">Update Ribbon </div>
+    </div>
+    <div class="card-body">
+      <div *ngIf="ribbons$">
+        <div class="input-group" *ngFor="let ribbon of ribbons$">
+          <form
+            class="form-inline"
+            [formGroup]="ribbonForm"
+            (ngSubmit)="updateRibbon(ribbon._id)"
+          >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="ribbon"
+              placeholder="{{ ribbon.ribbon }}"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-juliet ml-2"
+                type="submit"
+                [disabled]="ribbonForm.invalid"
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="d-flex flex-row justify-content-between align-items-start flex-wrap mt-2"
+>
+  <div class="col p-0 mr-1">
+    <div class="card">
+      <div class="card-body" *ngIf="monthlySales">
+        <h1>Php {{ monthlySales }}</h1>
+        <div class="subtitle">Total sales this month</div>
+      </div>
+    </div>
+  </div>
+  <div class="col p-0 ml-1 mr-1">
+    <div class="card">
+      <div class="card-body" *ngIf="monthlyOrders">
+        <h1>{{ monthlyOrders.length }}</h1>
+        <div class="subtitle">Total orders this month</div>
+      </div>
+    </div>
+  </div>
+  <div class="col p-0 ml-1">
+    <div class="card">
+      <div class="card-body" *ngIf="awaitingPayment">
+        <h1 style="color: red;">{{ awaitingPayment.length }}</h1>
+        <div class="subtitle">Orders Awaiting Payments (Monthly)</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="d-flex flex-row justify-content-between align-items-start flex-wrap mt-2"
+>
+  <div class="col p-0">
+    <div class="card">
+      <div class="card-header subtitle">Sales Today</div>
+      <div class="card-body" *ngIf="dailySales">
+        <h5>Php {{ dailySales }}</h5>
+      </div>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header subtitle">Sales This Week</div>
+      <div class="card-body" *ngIf="weeklySales">
+        <h5>Php {{ weeklySales }}</h5>
+      </div>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header subtitle">Orders Today</div>
+      <div class="card-body" *ngIf="dailyOrders">
+        <h5>{{ dailyOrders.length }}</h5>
+      </div>
+    </div>
+    <div class="card mt-2">
+      <div class="card-header subtitle">Orders this Week</div>
+      <div class="card-body" *ngIf="weeklyOrders">
+        <h5>{{ weeklyOrders.length }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col p-0 ml-2">
+    <div class="card mt-2" *ngIf="bestSellers$">
+      <div class="card-header subtitle">Bestselling Items</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let bestSellers of bestSellers$">{{bestSellers.name}} <span style="font-style: italic; color: green;">x {{bestSellers.orders}} orders</span></li>
+      </ul>
+    </div>
+    <div class="card mt-2" *ngIf="lowStocks$">
+      <div class="card-header subtitle">Items that are low in stock</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let lowStocks of lowStocks$">{{lowStocks.name}} | <span style="font-style: italic; color: red;">{{lowStocks.stock_quantity}} remaining </span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+

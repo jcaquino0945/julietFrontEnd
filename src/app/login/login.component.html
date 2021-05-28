@@ -1,0 +1,50 @@
+<nav *ngIf="!nav.visible"></nav>
+<ribbon *ngIf="!ribbon.visible"></ribbon>
+<footer *ngIf="!footer.visible"></footer>
+
+<div class="jumbotron">
+  <div class="container text-center loginContainer">
+    <div class="card">
+      <div class="card-body">
+        <form novalidate #loginForm="ngForm" (ngSubmit)="login()">
+          <div class="form-row">
+            <div class="col">
+              <input
+                placeholder="Username"
+                type="text"
+                [(ngModel)]="user.username"
+                name="username"
+                class="form-control"
+                #username="ngModel"
+                required
+              />
+            </div>
+          </div>
+        <p *ngIf="username.errors?.required" class="errorMsg" id="errorMsgUser">Username is required</p>
+          <div class="form-row">
+            <div class="col">
+              <input
+                placeholder="Password"
+                type="password"
+                [(ngModel)]="user.password"
+                name="password"
+                class="form-control"
+                #password="ngModel"
+                required
+              />
+            </div>
+          </div>
+         <p *ngIf="password.errors?.required" class="errorMsg" id="errorMsgPass">Password is required</p>
+          <button
+            type="submit"
+            class="btn btn-login"
+            [disabled]="loginForm.form.invalid"
+          >
+            Login
+          </button>
+          <a routerLink="/forgotPassword" routerLinkActive="active" class="forgotMsg">Forgot Password?</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

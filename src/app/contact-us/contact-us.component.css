@@ -1,0 +1,162 @@
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+.errorMsg {
+  color: #6e815d;
+  font-size: .9vw;
+}
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+.jumbotron {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  background-color: transparent;
+  margin: 0;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  padding: 80px 30em;
+}
+
+textarea {
+  height: 100px;
+}
+
+input,
+textarea {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: transparent;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+::placeholder {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.75px;
+}
+
+.form-row {
+  margin: 20px 0px;
+}
+
+.form-group {
+  padding: 10px 0;
+}
+
+
+
+.btn-submit {
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.btn-submit:hover {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #6e815d;
+}
+
+@media (max-width: 1024px) {
+  .jumbotron {
+    padding: 50px 20em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .jumbotron {
+    padding: 30px 10em;
+  }
+
+}
+
+@media (max-width: 479px) {
+  .jumbotron {
+    padding: 10px 5em;
+  }
+  .errorMsg {
+    color: #6e815d;
+    font-size: 3.2vw;
+  }
+}
+
+@media (max-width: 320px) {
+  p {
+    text-align: center;
+    font-size: 10pt;
+  }
+
+  .form-row {
+    width: 100%;
+  }
+  .errorMsg {
+    color: #6e815d;
+    font-size: 3.5vw;
+  }
+
+
+}

@@ -1,0 +1,151 @@
+.back-to-top {
+  background-color: #6e815d;
+  color: #FFFFFF;
+  transition: opacity .6s ease-in-out;
+  z-index: 999;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+
+.back-to-top .i {
+  color: #FFFFFF;
+  background-color: #ffffff;
+}
+
+.back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+  color: #FFFFFF;
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
+.jumbotron {
+  align-items: center;
+  display: flex;
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5em 20em;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+.title-border {
+  position: relative;
+  display: block;
+}
+
+.title-border:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  margin: 15px auto;
+  width: 50px;
+  height: 1px;
+  background: #aaa;
+}
+
+.accordion-collapse,
+.accordion-body,
+.accordion-button,
+.accordion-button:focus,
+.accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 10px 0;
+}
+
+.accordion-button::after {
+  background: none;
+  font-family: "Font Awesome 5 Free";
+  content: "\f067";
+  font-weight: 900;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background: none;
+  font-family: "Font Awesome 5 Free";
+  content: "\f068";
+  font-weight: 900;
+}
+
+.card-title,
+.card-text {
+  font-size: 15px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+}
+
+
+.ol-a {
+  margin-left: 100px;
+}
+
+.ol-a ol {
+  list-style: none;
+  list-style-type: lower-alpha !important;
+  margin-left: 10px;
+}
+
+.ol-a li {
+  list-style: lower-alpha !important;
+  counter-increment: none !important;
+}
+
+.ol-a li::before {
+  display: none;
+}
+
+li {
+  counter-increment: item;
+  word-wrap: break-word;
+}
+
+a {
+  color: #c1ae8d;
+  text-decoration: none;
+}
+
+li:before {
+  margin: 5px 20px;
+  content: counter(item);
+  background: #c1ae8d;
+  border-radius: 50%;
+  color: white;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: inline-block;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+}
+
+@media (max-width: 426px) {
+  .accordion-button {
+    text-align: left;
+  }
+
+  .title {
+    margin-top: 8vh;
+  }
+}

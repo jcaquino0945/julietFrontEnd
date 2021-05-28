@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-between align-items-start">
+  <div class="col p-0">
+    <div class="card">
+      <div class="card-header subtitle">Monthly Report</div>
+      <div class="card-body">
+        <div id="divChart" class="mb-5">
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col p-0 ml-2">
+    <div class="card">
+      <div class="card-header subtitle">Weekly Report</div>
+      <div class="card-body">
+        <div id="divChart" class="mb-5">
+          <canvas id="weeklyChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-2">
+  <div class="card-header subtitle">Annual Report</div>
+  <div class="card-body">
+    <div id="divChart" class="mb-5">
+      <canvas id="yearlyChart"></canvas>
+    </div>
+  </div>
+</div>
+<br>
+<h2>Customer Messages <span class="badge badge-secondary">New</span></h2>
+<select (change)="sortProductByPrice($event.target)">
+  <option selected value="undefined" disabled> Sort by ...</option>
+  <option value="l2h">Date: (Recent Messages)</option>
+  <option value="h2l">Date: (Earlier Messages)</option>
+  <option value="a2z">Alphabetical: A-Z</option>
+  <option value="z2a">Alphabetical: Z-A</option>
+</select>
+
+<div *ngIf="messages$">
+  <div
+    class="card my-2"
+    *ngFor="let messages of messages$; let i = index"
+  >
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div class="card-text">
+          <div class="subtitle">{{ messages.dateSent | date }}</div>
+          <div class="card-title p-0 m-0">
+            <!-- <p style="font-size: 1.2vw; font-weight: 800">
+              
+            </p> -->
+            <h5>{{ messages.name }}</h5>
+          </div>
+          <span style="font-weight: 600">{{ messages.contactNumber }}</span>
+          <br />
+          <span style="font-weight: 500">{{ messages.email }}</span>
+          <br />
+          <span style="font-weight: 400">{{ messages.message }}</span> 
+        </div>
+        <div class="align-self-start">
+          <span class="badge badge-success subtitle" style="cursor: pointer; margin-right: 5px;" (click)="openDialog(messages.name,messages.email,messages.message)">
+            Reply
+          </span>
+          <span
+            class="badge badge-danger subtitle" (click)="deleteMsg(messages._id)" style="cursor: pointer;">Delete
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+

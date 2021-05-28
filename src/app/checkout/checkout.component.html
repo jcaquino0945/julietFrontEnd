@@ -1,0 +1,310 @@
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Order has been completed!</strong> You will now be redirected to another page.
+</div>
+<nav *ngIf="nav.visible"></nav>
+<ribbon *ngIf="ribbon.visible"></ribbon>
+<footer *ngIf="footer.visible"></footer>
+
+<div class="container"> 
+  <div class="row">
+    <div class="col">
+      <div id="stepper" class="bs-stepper">
+        <div class="bs-stepper-header">
+          <div class="step" data-target="#information">
+            <button class="step-trigger">
+              <span class="bs-stepper-label">Information</span>
+            </button>
+          </div>
+          <div><i class="fas fa-chevron-right"></i></div>
+          <div class="step" data-target="#shipping">
+            <button class="step-trigger">
+              <span class="bs-stepper-label">Shipping</span>
+            </button>
+          </div>
+          <div><i class="fas fa-chevron-right"></i></div>
+          <div class="step" data-target="#payment">
+            <button class="step-trigger">
+              <span class="bs-stepper-label">Payment</span>
+            </button>
+          </div>
+        </div>
+        <div class="bs-stepper-content">
+          <form [formGroup]="orderForm">
+            <!-- Contact and Shipping Information -->
+            <div id="information" class="content">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Contact Information</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First Name" formControlName="firstName"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.firstName.errors?.required" class="errorMsg"
+                  >Please enter first name</span
+                >
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last Name"
+                      formControlName="lastName"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.lastName.errors?.required" class="errorMsg"
+                    >Please enter last name</span
+                  >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Contact Number"
+                      formControlName="contactNumber"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.contactNumber.errors?.required" class="errorMsg"
+                    >Please enter contact number</span
+                  >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email Address" formControlName="email"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.email.errors?.required" class="errorMsg"
+                    >Please enter email</span
+                  >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Shipping Information</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="House no. / Street / Barangay" formControlName="street"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.street.errors?.required" class="errorMsg"
+                    >Please enter house number, street and barangay</span
+                  >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Province"
+                      formControlName="province"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.province.errors?.required" class="errorMsg"
+                    >Please enter province</span
+                  >
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="City"
+                      formControlName="city"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.city.errors?.required" class="errorMsg"
+                    >Please enter city</span
+                  >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Region"
+                      formControlName="region"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.region.errors?.required" class="errorMsg"
+                    >Please enter region</span
+                  >
+                  
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Postal Code"
+                      formControlName="postalCode"
+                    />
+                    <span
+                    *ngIf="orderForm.controls.postalCode.errors?.required" class="errorMsg"
+                    >Please enter region</span
+                  >
+                  
+                 
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <button routerLink="/cart" class="btn-back">
+                      Edit Cart
+                    </button>
+                  </div>
+                 </div>
+                 <div class="form-row">
+                  <div class="col">
+                    <button (click)="next()" class="btn-proceed" [disabled]="orderForm.invalid">
+                      Proceed to Shipping
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Shipping Method -->
+            <div id="shipping" class="content">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Shipping Method</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio1" checked name="customRadio" value="1" class="custom-control-input" (change)="handleClick(90)">
+                      <label class="custom-control-label" for="customRadio1">LBC (Metro Manila)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" (change)="handleClick(165)">
+                      <label class="custom-control-label" for="customRadio2">LBC (Luzon)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" (change)="handleClick(185)">
+                      <label class="custom-control-label" for="customRadio3">LBC (Visayas)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" (change)="handleClick(205)">
+                      <label class="custom-control-label" for="customRadio4">LBC (Mindanao)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input" (change)="handleClick(0)">
+                      <label class="custom-control-label" for="customRadio5">Same Day Delivery (COD)</label>
+                    </div>
+                  </div>
+                </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button (click)="previous()" class="btn-back">
+                          Edit Information
+                        </button>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button (click)="next()" class="btn-proceed">
+                          Proceed to Payment
+                        </button>
+                      </div>
+                    </div>
+              </div>
+            </div>
+            <!-- Payment Method -->
+            <div id="payment" class="content">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <h5>Payment Method</h5>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="paymentRadio1" checked name="paymentMethod" value="1" class="custom-control-input" (change)="changePayment('bankTransfer')">
+                      <label class="custom-control-label" for="paymentRadio1">Bank Transfer (BDO,BPI,etc)</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input type="radio" id="paymentRadio2"  name="paymentMethod" value="1" class="custom-control-input" (change)="changePayment('gCash')">
+                      <label class="custom-control-label" for="paymentRadio2">G-Cash</label>
+                    </div>
+                  </div>
+                </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button (click)="previous()" class="btn-back">
+                          Back to Shipping
+                        </button>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <button type="submit" (click)="onSubmit()" class="btn-proceed" routerLink="/thank-you">
+                          Complete Purchase
+                        </button>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col" *ngIf="items">
+      <div class="mb-5">
+        <div class="d-flex my-3" *ngFor="let item of items">
+          <div class="align-self-center">
+            <img
+              src="{{item.imageUrl}}"
+              class="mr-3 img-responsive img-thumbnail"
+            />
+          </div>
+          <div class="align-self-center">
+            {{ item.name }}
+            <div class="details">Size: {{item.size}}</div>
+          </div>
+          <div class="ml-auto align-self-center">Php {{ item.totalPrice }}</div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between" *ngIf="itemPrice">
+        <div>Subtotal</div>
+        <div>Php {{itemPrice}}</div>
+      </div>
+      <div class="d-flex justify-content-between" *ngIf="value">
+        <div>Shipping Fee</div>
+        <div class="text-muted">Php {{value}}</div>
+      </div>
+      <div class="d-flex justify-content-between" *ngIf="value == 0">
+        <div>Shipping Fee</div>
+        <div class="text-muted">To be updated</div>
+      </div>
+      <hr />
+      <div class="d-flex justify-content-between" *ngIf="totalPrice">
+        <div><h5>Total</h5></div>
+        <div><h5>Php {{totalPrice}}</h5></div>
+      </div>
+    </div>
+  </div>
+</div>

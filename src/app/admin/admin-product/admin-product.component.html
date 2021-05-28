@@ -1,0 +1,214 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+  <h3>Products</h3>
+  <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
+    <!-- add new product modal button trigger -->
+    <button
+      type="button"
+      class="btn btn-juliet mr-2"
+      data-toggle="modal"
+      data-target="#modal"
+    >
+      Add new
+    </button>
+    <input
+      class="form-control mr-2"
+      type="search"
+      placeholder="Search"
+      formControlName="searchName"
+    />
+    <button
+      class="btn btn-juliet my-2 my-sm-0"
+      type="submit"
+      [disabled]="searchForm.invalid"
+    >
+      Search
+    </button>
+  </form>
+</div>
+
+<!-- add new product modal -->
+<form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit()">
+  <div class="modal" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add new product</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            id="close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="custom-file">
+              <input
+                multiple
+                type="file"
+                class="custom-file-input"
+                id="imageFile"
+                formControlName="imageFile"
+                (change)="onFileChange($event.target.files)"
+              />
+              <label class="custom-file-label" #labelImport for="imageFile"
+                >Choose image</label
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name"
+              formControlName="name"
+            />
+            <label for="name" class="subtitle mt-2">Item Name</label>
+          </div>
+          <div class="form-row">
+            <textarea
+              class="form-control"
+              placeholder="Description"
+              formControlName="description"
+            ></textarea>
+            <label for="description" class="subtitle mt-2"
+              >Item Description</label
+            >
+          </div>
+          <div class="form-row">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Php</span>
+              </div>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Price"
+                formControlName="price"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+            <label for="price" class="subtitle mt-2">Item Price</label>
+          </div>
+          <div class="form-row">
+            <select
+              class="custom-select"
+              formControlName="category"
+              class="form-select"
+            >
+              <option selected value="undefined" disabled>
+                Sort by ...
+              </option>
+              <option value="Necklaces">Necklaces</option>
+              <option value="Bracelets-Anklets">Bracelets and Anklets</option>
+              <option value="Earrings">Earrings</option>
+              <option value="Rings">Rings</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="category" class="subtitle mt-2">Item Category</label>
+          </div>
+          <div class="form-row">
+            <input
+              type="number"
+              value="0"
+              class="form-control"
+              placeholder="Stock Quantity"
+              formControlName="stock_quantity"
+            />
+            <label for="stock_quantity" class="subtitle mt-2"
+              >Stock Quantity</label
+            >
+          </div>
+          <div class="form-row">
+            <div class="custom-control custom-switch">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="featured"
+                formControlName="featured"
+              />
+              <label class="custom-control-label" for="featured"
+                >Featured</label
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col p-0">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Size"
+                id="sizes"
+                #input
+              />
+              <label for="sizes" class="subtitle mt-2">Add Sizes</label>
+            </div>
+            <div class="col p-0">
+              <button
+                type="button"
+                class="btn btn-juliet ml-2"
+                (click)="addSize(input.value)"
+              >
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="form-row">
+            Sizes:
+            <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="button-row">
+            <button type="reset" class="btn btn-clear">Clear</button>
+            <button type="submit" class="btn btn-juliet ml-2" id="close">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="products$">
+  <div class="card my-2" *ngFor="let product of products$; let i = index">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <img src={{product.imageUrl[0]}} width="100px" />
+        <div class="mr-auto ml-3">
+          {{ product.name }} <br />
+          Php {{ product.price }} <br />
+          <span
+            class="badge badge-success subtitle"
+            *ngIf="product.stock_quantity > 10"
+            >In Stock</span
+          >
+          <span
+            class="badge badge-warning subtitle"
+            *ngIf="product.stock_quantity < 10 && product.stock_quantity != 0"
+            >Few stocks left</span
+          >
+          <span
+            class="badge badge-danger subtitle"
+            *ngIf="product.stock_quantity == 0"
+            >Out of Stock</span
+          >
+        </div>
+        <div class="align-self-start">
+          <button
+            class="btn p-0"
+            [routerLink]="['/admin/adminProduct/', product._id]"
+          >
+            <i class="far fa-edit"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

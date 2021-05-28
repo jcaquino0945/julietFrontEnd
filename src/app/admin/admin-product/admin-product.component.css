@@ -1,0 +1,53 @@
+.card,
+input,
+select,
+.custom-file-input,
+.custom-file-label,
+.input-group-text,
+textarea {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.form-row {
+  margin: 10px 0px;
+  padding: 0;
+}
+
+.far {
+  color: #6e815d;
+}
+
+.subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+.btn-juliet,
+.btn-clear:hover {
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.75px;
+}
+
+.btn-juliet:hover,
+.btn-clear {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #6e815d;
+  letter-spacing: 0.75px;
+}

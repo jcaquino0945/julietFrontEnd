@@ -1,0 +1,72 @@
+.admin-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-content {
+  overflow: auto;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.sidebar {
+  background: #6e815d;
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #fff;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+input {
+  border: 0;
+  border-radius: 0;
+}
+
+.btn-juliet {
+  background: #6e815d;
+  padding: 8px 15px;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.75px;
+}
+
+.btn-juliet:hover {
+  background: transparent;
+  padding: 8px 15px;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #6e815d;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #6e815d;
+  letter-spacing: 0.75px;
+}
