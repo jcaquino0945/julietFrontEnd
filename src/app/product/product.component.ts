@@ -112,7 +112,34 @@ export class ProductComponent implements OnInit {
     if (product.stock_quantity == 0) {
       this.emptyNgaDiba = true;
     } if (this.orderForm.invalid) {
-      this.selectSizePls = true;
+      try {
+        let stockDetail = {
+          _id: product._id,
+          stock_quantity: product.stock_quantity - 1,
+          orders: product.orders + 1
+        }
+        let cartProduct = {
+          _id: product._id,
+          name: product.name,
+          imageUrl: product.imageUrl[0].toString(),
+          description: product.description,
+          price: product.price,
+          category: product.category,
+          size: product.sizes[0],
+          quantity: 1,
+          orders: product.orders,
+          totalPrice: product.price,
+          stock_quantity: product.stock_quantity,
+          updateStock: product.stock_quantity - 1,
+        };
+        this.cartService.addStock(stockDetail)
+        this.cartService.addToCart(cartProduct);
+        console.log(cartProduct);
+        this.selectSizePls = true 
+      } catch (error) {
+        this.saveFailure = true
+      }
+      //this.selectSizePls = true;
     } if (product.stock_quantity != 0 && this.orderForm.valid) {
     try {
       let stockDetail = {
