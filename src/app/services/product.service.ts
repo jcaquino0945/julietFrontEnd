@@ -12,7 +12,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = '/server/api/products'; //api url from backend service
+const apiUrl = 'http://localhost:3000/products'; //api url from backend service
 
 @Injectable({
   providedIn: 'root',

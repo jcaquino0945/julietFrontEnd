@@ -11,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Orders } from '../models/orders';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = '/server/api/orders';
+const apiUrl = 'http://localhost:3000/orders';
 
 @Injectable({
   providedIn: 'root',
@@ -112,7 +112,7 @@ export class OrderService {
       body: JSON.stringify(emailDetail),
     };
 
-    fetch('/smtp', requestOptions)
+    fetch('http://localhost:3000/smtp', requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));
