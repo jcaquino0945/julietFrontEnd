@@ -10,7 +10,7 @@ import {
 import { catchError, map } from 'rxjs/operators';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = 'http://localhost:3000/auth/';
+const apiUrl = '/server/api/auth/';
 
 @Injectable({
   providedIn: 'root'
