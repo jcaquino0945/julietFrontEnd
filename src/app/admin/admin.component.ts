@@ -29,12 +29,19 @@ export class AdminComponent implements OnInit {
     this.footer.hide();
     this.onResize();
     this.responsive.checkWidth();
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
   }
 
   
   logout() {
     this.authService.clear();
     this.router.navigate(['home']);
+    window.location.reload();
   }
 
   onResize() {
