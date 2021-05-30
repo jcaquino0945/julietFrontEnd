@@ -24,7 +24,7 @@ export class AuthService {
 
   public validate(username, password) {
     return this.http
-      .post('http://localhost:3000/auth/login', {
+      .post('/auth/login', {
         username: username,
         password: password,
       })
