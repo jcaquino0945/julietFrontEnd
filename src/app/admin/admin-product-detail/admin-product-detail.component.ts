@@ -19,6 +19,7 @@ import { Location } from '@angular/common';
 
 import { switchMap } from 'rxjs/operators';
 import { OrderService } from 'src/app/services/order.service';
+import { ResponsiveService } from 'src/app/services/responsive.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -59,6 +60,7 @@ export class AdminProductDetailComponent implements OnInit {
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
   orderTimes: any;
+  public isMobile: Boolean;
 
   constructor(
     private productService: ProductService,
@@ -66,7 +68,8 @@ export class AdminProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private responsive: ResponsiveService,
   ) {}
 
   ngOnInit(): void {
@@ -106,6 +109,15 @@ export class AdminProductDetailComponent implements OnInit {
       category: [null, Validators.required],
       stock_quantity: 0,
       featured: false,
+    });
+
+    this.onResize();
+    this.responsive.checkWidth();
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
     });
   }
 

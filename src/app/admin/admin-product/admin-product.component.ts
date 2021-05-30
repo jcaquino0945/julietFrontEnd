@@ -16,6 +16,8 @@ import { Observable } from 'rxjs';
 import { interval } from 'rxjs';
 import { FixedSizeVirtualScrollStrategy } from '@angular/cdk/scrolling';
 //import { AuthService } from '../../auth.service';
+import { ResponsiveService } from 'src/app/services/responsive.service';
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -52,7 +54,7 @@ export class AdminProductComponent implements OnInit {
   featured = false;
   sizes = [];
   filesToUpload: Array<File> = [];
-
+  public isMobile: Boolean;
 
   // orders
   isLoadingResults = false;
@@ -61,10 +63,14 @@ export class AdminProductComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private responsive: ResponsiveService,
   ) {}
 
   ngOnInit(): void {
+    this.onResize();
+    this.responsive.checkWidth();
+
     this.productService.getProducts().subscribe(
       (products$) => (this.products$ = products$),
       (errmess) => (this.errMess = <any>errmess)
@@ -83,6 +89,12 @@ export class AdminProductComponent implements OnInit {
       stock_quantity: 0,
       featured: false,
       orders: 0,
+    });
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
     });
   }
 

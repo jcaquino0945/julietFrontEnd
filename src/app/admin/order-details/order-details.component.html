@@ -9,229 +9,459 @@
 </ul>
 </div>
 -->
-<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>Order Status Updated!</strong> Email sent to customer!
-</div>
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>An error occured!</strong> Sorry for the inconvenience
-</div>
-<div class="d-flex flex-row flex-wrap justify-content-between">
-  <div class="col p-0" *ngIf="order">
-    <div class="card" *ngFor="let orders of order.product">
-      <div class="card-header subtitle">Ordered Product Summary</div>
-      <div class="card-body p-5">
-        <img
-        src={{orders.imageUrl}}
-        class="img-thumbnail my-4"
-        width="100px"
-      />
-      <div class="card-text py-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ orders.name }}
-        </div>
-        <div class="subtitle">Product Name</div>
-      </div>
-      <div class="card-text py-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          Php {{ orders.price }}
-        </div>
-        <div class="subtitle">Product Price</div>
-      </div>
-      <div class="card-text py-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ orders.quantity }}
-        </div>
-        <div class="subtitle">Quantity</div>
-      </div>
-      <div class="card-text py-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ orders.size }}
-        </div>
-        <div class="subtitle">Product   Size</div>
-      </div>
-      </div>
-    </div>
-    <div class="card p-5 mt-2">
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.orderId }}
-        </div>
-        <div class="subtitle">Order ID</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.firstName }} {{ order.lastName }}
-        </div>
-        <div class="subtitle">Customer Name</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.email }}
-        </div>
-        <div class="subtitle">Customer Email</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.contactNumber }}
-        </div>
-        <div class="subtitle">Customer Number</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.datePurchased | date }}
-        </div>
-        <div class="subtitle">Date of Purchase</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.street }}
-        </div>
-        <div class="subtitle">Street</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.city }}
-        </div>
-        <div class="subtitle">City</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.province }}
-        </div>
-        <div class="subtitle">Province</div>
-      </div>
-    </div>
-  </div>
-  <div class="col-4 p-0 ml-2" *ngIf="order">
-    <div class="card p-5">
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          <span style="color: rgb(1, 122, 1)">Php {{ order.totalPrice }}</span>
-        </div>
-        <div class="subtitle">Total Amount</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.shippingMethod }}
-        </div>
-        <div class="subtitle">Shipping Method</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ order.paymentMethod }}
-        </div>
-        <div class="subtitle">Payment Method</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          <span
-            class="badge badge-danger subtitle"
-            *ngIf="order.status == 'Awaiting Payment'"
-            >{{ order.status }}
-          </span>
-          <span
-            class="badge badge-info subtitle"
-            *ngIf="order.status == 'For Delivery'"
-            >{{ order.status }}
-          </span>
-          <span
-            class="badge badge-success subtitle"
-            *ngIf="order.status == 'Transaction Complete'"
-          >
-            {{ order.status }}
-          </span>
-          <span
-            class="badge badge-primary subtitle"
-            *ngIf="order.status == 'Processing Order'"
-          >
-            {{ order.status }}
-          </span>
-        </div>
-        <div class="subtitle">Order Status</div>
-      </div>
-    </div>
-    <!-- Button trigger modal -->
-    <div class="form-row">
-      <div class="col p-0 mr-2">
-        <button
-          type="button"
-          class="btn btn-edit"
-          data-toggle="modal"
-          data-target="#exampleModalCentered"
-        >
-          Update Status
-        </button>
-      </div>
-        <button
-          class="btn btn-danger"
-          type="button"
-          (click)="deleteOrder(order._id)"
-          style="width: 100%; margin-top: 1.5vw;"
-        >
-          Delete Order
-        </button>
-      
-    </div>
 
-    <!-- MODAL -->
-    <form [formGroup]="galleryForm" (ngSubmit)="updateStatus(order._id)">
-      <div
-        class="modal"
-        id="exampleModalCentered"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenteredLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenteredLabel">
-                Update Status
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <select class="form-select" formControlName="status">
-                <option selected value="" disabled>Update Status</option>
-                <option value="Awaiting Payment">Awaiting Payment</option>
-                <option value="Processing Order">Processing Order</option>
-                <option value="For Delivery">For Delivery</option>
-                <option value="Transaction Complete">
-                  Transaction Complete
-                </option>
-              </select>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-clear mr-2"
-                data-dismiss="modal"
-                id="close"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-juliet" type="submit">
-                Save changes
-              </button>
+<div *ngIf = "!isMobile">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Order Status Updated!</strong> Email sent to customer!
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>An error occured!</strong> Sorry for the inconvenience
+  </div>
+  <div class="d-flex flex-row flex-wrap justify-content-between">
+    <div class="col p-0" *ngIf="order">
+      <div class="card" *ngFor="let orders of order.product">
+        <div class="card-header subtitle">Ordered Product Summary</div>
+        <div class="card-body p-5">
+          <img
+          src={{orders.imageUrl}}
+          class="img-thumbnail my-4"
+          width="100px"
+        />
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ orders.name }}
+          </div>
+          <div class="subtitle">Product Name</div>
+        </div>
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            Php {{ orders.price }}
+          </div>
+          <div class="subtitle">Product Price</div>
+        </div>
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ orders.quantity }}
+          </div>
+          <div class="subtitle">Quantity</div>
+        </div>
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ orders.size }}
+          </div>
+          <div class="subtitle">Product   Size</div>
+        </div>
+        </div>
+      </div>
+      <div class="card p-5 mt-2">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.orderId }}
+          </div>
+          <div class="subtitle">Order ID</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.firstName }} {{ order.lastName }}
+          </div>
+          <div class="subtitle">Customer Name</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.email }}
+          </div>
+          <div class="subtitle">Customer Email</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.contactNumber }}
+          </div>
+          <div class="subtitle">Customer Number</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.datePurchased | date }}
+          </div>
+          <div class="subtitle">Date of Purchase</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.street }}
+          </div>
+          <div class="subtitle">Street</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.city }}
+          </div>
+          <div class="subtitle">City</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.province }}
+          </div>
+          <div class="subtitle">Province</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 p-0 ml-2" *ngIf="order">
+      <div class="card p-5">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            <span style="color: rgb(1, 122, 1)">Php {{ order.totalPrice }}</span>
+          </div>
+          <div class="subtitle">Total Amount</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.shippingMethod }}
+          </div>
+          <div class="subtitle">Shipping Method</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.paymentMethod }}
+          </div>
+          <div class="subtitle">Payment Method</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            <span
+              class="badge badge-danger subtitle"
+              *ngIf="order.status == 'Awaiting Payment'"
+              >{{ order.status }}
+            </span>
+            <span
+              class="badge badge-info subtitle"
+              *ngIf="order.status == 'For Delivery'"
+              >{{ order.status }}
+            </span>
+            <span
+              class="badge badge-success subtitle"
+              *ngIf="order.status == 'Transaction Complete'"
+            >
+              {{ order.status }}
+            </span>
+            <span
+              class="badge badge-primary subtitle"
+              *ngIf="order.status == 'Processing Order'"
+            >
+              {{ order.status }}
+            </span>
+          </div>
+          <div class="subtitle">Order Status</div>
+        </div>
+      </div>
+      <!-- Button trigger modal -->
+      <div class="form-row">
+        <div class="col p-0 mr-2">
+          <button
+            type="button"
+            class="btn btn-edit"
+            data-toggle="modal"
+            data-target="#exampleModalCentered"
+          >
+            Update Status
+          </button>
+        </div>
+        
+          <button
+            class="btn btn-danger"
+            type="button"
+            (click)="deleteOrder(order._id)"
+            style="width: 100%; margin-top: 1.5vw;"
+          >
+            Delete Order
+          </button>
+        
+      </div>
+  
+      <!-- MODAL -->
+      <form [formGroup]="galleryForm" (ngSubmit)="updateStatus(order._id)">
+        <div
+          class="modal"
+          id="exampleModalCentered"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenteredLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenteredLabel">
+                  Update Status
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <select class="form-select" formControlName="status">
+                  <option selected value="" disabled>Update Status</option>
+                  <option value="Awaiting Payment">Awaiting Payment</option>
+                  <option value="Processing Order">Processing Order</option>
+                  <option value="For Delivery">For Delivery</option>
+                  <option value="Transaction Complete">
+                    Transaction Complete
+                  </option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-clear mr-2"
+                  data-dismiss="modal"
+                  id="close"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-juliet" type="submit">
+                  Save changes
+                </button>
+              </div>
             </div>
           </div>
         </div>
+      </form>
+      <!-- MODAL -->
+    </div>
+  </div>
+</div>
+
+<div *ngIf = "isMobile">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Order Status Updated!</strong> Email sent to customer!
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>An error occured!</strong> Sorry for the inconvenience
+  </div>
+  <div class="d-flex flex-row flex-wrap justify-content-between">
+    <div class="col mt-3" *ngIf="order">
+      <div class="card" *ngFor="let orders of order.product">
+        <div class="card-header subtitle">Ordered Product Summary</div>
+        <div class="card-body">
+          <img
+          src={{orders.imageUrl}}
+          class="img-thumbnail my-4"
+          width="100px"
+        />
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ orders.name }}
+          </div>
+          <div class="subtitle">Product Name</div>
+        </div>
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            Php {{ orders.price }}
+          </div>
+          <div class="subtitle">Product Price</div>
+        </div>
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ orders.quantity }}
+          </div>
+          <div class="subtitle">Quantity</div>
+        </div>
+        <div class="card-text py-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ orders.size }}
+          </div>
+          <div class="subtitle">Product   Size</div>
+        </div>
+        </div>
       </div>
-    </form>
-    <!-- MODAL -->
+      <div class="card mt-2">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.orderId }}
+          </div>
+          <div class="subtitle">Order ID</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.firstName }} {{ order.lastName }}
+          </div>
+          <div class="subtitle">Customer Name</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.email }}
+          </div>
+          <div class="subtitle">Customer Email</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.contactNumber }}
+          </div>
+          <div class="subtitle">Customer Number</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.datePurchased | date }}
+          </div>
+          <div class="subtitle">Date of Purchase</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.street }}
+          </div>
+          <div class="subtitle">Street</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.city }}
+          </div>
+          <div class="subtitle">City</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.province }}
+          </div>
+          <div class="subtitle">Province</div>
+        </div>
+      </div>
+    </div>
+    <div class="col mt-3" *ngIf="order">
+      <div class="card">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            <span style="color: rgb(1, 122, 1)">Php {{ order.totalPrice }}</span>
+          </div>
+          <div class="subtitle">Total Amount</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.shippingMethod }}
+          </div>
+          <div class="subtitle">Shipping Method</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ order.paymentMethod }}
+          </div>
+          <div class="subtitle">Payment Method</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            <span
+              class="badge badge-danger subtitle"
+              *ngIf="order.status == 'Awaiting Payment'"
+              >{{ order.status }}
+            </span>
+            <span
+              class="badge badge-info subtitle"
+              *ngIf="order.status == 'For Delivery'"
+              >{{ order.status }}
+            </span>
+            <span
+              class="badge badge-success subtitle"
+              *ngIf="order.status == 'Transaction Complete'"
+            >
+              {{ order.status }}
+            </span>
+            <span
+              class="badge badge-primary subtitle"
+              *ngIf="order.status == 'Processing Order'"
+            >
+              {{ order.status }}
+            </span>
+          </div>
+          <div class="subtitle">Order Status</div>
+        </div>
+      </div>
+      <!-- Button trigger modal -->
+      <div class="form-row">
+          <button
+            type="button"
+            class="btn btn-edit"
+            data-toggle="modal"
+            data-target="#exampleModalCentered"
+          >
+            Update Status
+          </button>
+          <button
+            class="btn btn-danger"
+            type="button"
+            (click)="deleteOrder(order._id)"
+            style="width: 100%; margin-top: 1.5vw;"
+          >
+            Delete Order
+          </button>
+      </div>
+  
+      <!-- MODAL -->
+      <form [formGroup]="galleryForm" (ngSubmit)="updateStatus(order._id)">
+        <div
+          class="modal"
+          id="exampleModalCentered"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenteredLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenteredLabel">
+                  Update Status
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <select class="form-select" formControlName="status">
+                  <option selected value="" disabled>Update Status</option>
+                  <option value="Awaiting Payment">Awaiting Payment</option>
+                  <option value="Processing Order">Processing Order</option>
+                  <option value="For Delivery">For Delivery</option>
+                  <option value="Transaction Complete">
+                    Transaction Complete
+                  </option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-clear mr-2"
+                  data-dismiss="modal"
+                  id="close"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-juliet" type="submit">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- MODAL -->
+    </div>
   </div>
 </div>

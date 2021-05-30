@@ -9,6 +9,7 @@ import { Product } from 'src/app/models/product';
 import { CMS } from '../../models/cms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CmsService } from 'src/app/services/cms.service';
+import { ResponsiveService } from 'src/app/services/responsive.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnInit {
   ribbon: CMS[];
   cmsForm: FormGroup;
   isLoadingResults = false;
+  public isMobile: Boolean;
 
   constructor(
     private router: Router,
@@ -43,8 +45,8 @@ export class DashboardComponent implements OnInit {
     private productService: ProductService,
     private formBuilder: FormBuilder,
     private cms: CmsService,
-    private ribbonService: CmsService
-
+    private ribbonService: CmsService,
+    private responsive: ResponsiveService,
   ) {}
 
   ngOnInit(): void {
@@ -167,6 +169,9 @@ export class DashboardComponent implements OnInit {
     // this.cmsForm = this.formBuilder.group({
     //   ribbon: [null, Validators.required],
     // });
+    this.onResize();
+    this.responsive.checkWidth();
+
   }
 
   updateRibbon(id) {
@@ -188,4 +193,11 @@ export class DashboardComponent implements OnInit {
       );
       
   }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
+
 }

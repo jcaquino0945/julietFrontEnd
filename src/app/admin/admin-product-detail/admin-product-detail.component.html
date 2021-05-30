@@ -1,208 +1,417 @@
-<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>Updated Product!</strong> Refresh if information isn't updated yet.
-</div>
-<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>An error occured!</strong> Sorry for the inconvenience
-</div>
-<div class="d-flex flex-row flex-wrap justify-content-between">
-  <div class="col p-0" *ngIf="product">
-    <div class="card p-4">
-      <div class="card-body">
-        <div *ngFor="let productImg of product.imageUrl" style="display:inline-block">
-        <img
-        src={{productImg}}
-          width="100px"
-          class="img-thumbnail" 
-        />
-      </div>
-        <div class="subtitle border-top pt-2 mt-3">Item Gallery</div>
-      </div>
-    </div>
-    <div class="card p-5 mt-2">
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.name }}
-        </div>
-        <div class="subtitle">Item Name</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.description }}
-        </div>
-        <div class="subtitle">Item Description</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.category }}
-        </div>
-        <div class="subtitle">Item Category</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.featured }}
-        </div>
-        <div class="subtitle">Featured</div>
-      </div>
-    </div>
+<div *ngIf = "!isMobile">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Updated Product!</strong> Refresh if information isn't updated yet.
   </div>
-  <div class="col-4 p-0 ml-2" *ngIf="product">
-    <div class="card p-5">
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.stock_quantity }}
-        </div>
-        <div class="subtitle">Items In Stock</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.orders }}
-        </div>
-        <div class="subtitle">Total orders of this product </div>
-      </div>
-      <div class="card-text my-4" >
-        <div class="card-title border-bottom pb-2 mb-2">
-          Php {{ product.price }}
-        </div>
-        <div class="subtitle">Item Price</div>
-      </div>
-      <div class="card-text my-4">
-        <div class="card-title border-bottom pb-2 mb-2">
-          {{ product.sizes }}
-        </div>
-        <div class="subtitle">Item Sizes</div>
-      </div>
-    </div>
-    <div class="form-row mt-2">
-      <div class="col p-0 mr-2">
-        <button
-          class="btn btn-edit"
-          type="button"
-          data-toggle="modal"
-          data-target="#modal"
-        >
-          Update Item
-        </button>
-      </div>
-      <div class="col p-0">
-        <button
-          class="btn btn-juliet btn-delete"
-          type="button"
-          (click)="deleteProduct(product._id)"
-        >
-          Delete Item
-        </button>
-      </div>
-    </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>An error occured!</strong> Sorry for the inconvenience
   </div>
-</div>
-
-<!-- update product modal -->
-<form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
-  <div class="modal" id="modal" *ngIf="product">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Update product</h5>
-          <button type="button" class="close" data-dismiss="modal">
-            <span aria-hidden="true">&times;</span>
+  <div class="d-flex flex-row flex-wrap justify-content-between">
+    <div class="col p-0" *ngIf="product">
+      <div class="card p-4">
+        <div class="card-body">
+          <img
+          src={{product.imageUrl}}
+            width="100px"
+            class="img-thumbnail"
+          />
+          <div class="subtitle border-top pt-2 mt-3">Item Gallery</div>
+        </div>
+      </div>
+      <div class="card p-5 mt-2">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.name }}
+          </div>
+          <div class="subtitle">Item Name</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.description }}
+          </div>
+          <div class="subtitle">Item Description</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.category }}
+          </div>
+          <div class="subtitle">Item Category</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.featured }}
+          </div>
+          <div class="subtitle">Featured</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 p-0 ml-2" *ngIf="product">
+      <div class="card p-5">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.stock_quantity }}
+          </div>
+          <div class="subtitle">Items In Stock</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.orders }}
+          </div>
+          <div class="subtitle">Total orders of this product </div>
+        </div>
+        <div class="card-text my-4" >
+          <div class="card-title border-bottom pb-2 mb-2">
+            Php {{ product.price }}
+          </div>
+          <div class="subtitle">Item Price</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.sizes }}
+          </div>
+          <div class="subtitle">Item Sizes</div>
+        </div>
+      </div>
+      <div class="form-row mt-2">
+        <div class="col p-0 mr-2">
+          <button
+            class="btn btn-edit"
+            type="button"
+            data-toggle="modal"
+            data-target="#modal"
+          >
+            Update Item
           </button>
         </div>
-        <div class="modal-body">
-          <div class="form-row">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="{{ product.name }}"
-              formControlName="name"
-            />
-            <label for="name" class="subtitle mt-2">Item Name</label>
+        <div class="col p-0">
+          <button
+            class="btn btn-juliet btn-delete"
+            type="button"
+            (click)="deleteProduct(product._id)"
+          >
+            Delete Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- update product modal -->
+  <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
+    <div class="modal" id="modal" *ngIf="product">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update product</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="form-row">
-            <textarea
-              class="form-control"
-              placeholder="{{ product.description }}"
-              formControlName="description"
-            ></textarea>
-            <label for="description" class="subtitle mt-2"
-              >Item Description</label
-            >
-          </div>
-          <div class="form-row">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Php</span>
-              </div>
+          <div class="modal-body">
+            <div class="form-row">
               <input
                 type="text"
                 class="form-control"
-                placeholder="{{ product.price }}"
-                formControlName="price"
+                placeholder="{{ product.name }}"
+                formControlName="name"
               />
-              <div class="input-group-append">
-                <span class="input-group-text">.00</span>
-              </div>
+              <label for="name" class="subtitle mt-2">Item Name</label>
             </div>
-            <label for="price" class="subtitle mt-2">Item Price</label>
-          </div>
-          <div class="form-row">
-            <select
-              class="custom-select"
-              formControlName="category"
-              class="form-control"
-            >
-              <option selected value="Necklaces">Necklaces</option>
-              <option value="Bracelets-Anklets">Bracelets and Anklets</option>
-              <option value="Earrings">Earrings</option>
-              <option value="Rings">Rings</option>
-              <option value="Other">Other</option>
-            </select>
-            <label for="category" class="subtitle mt-2">Item Category</label>
-          </div>
-          <div class="form-row">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="{{ product.stock_quantity }}"
-              formControlName="stock_quantity"
-            />
-            <label for="stock_quantity" class="subtitle mt-1"
-              >Stock Quantity</label
-            >
-          </div>
-          <div class="form-row">
-            <div class="custom-control custom-switch">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="featured"
-                formControlName="featured"
-              />
-              <label class="custom-control-label" for="featured"
-                >Featured</label
+            <div class="form-row">
+              <textarea
+                class="form-control"
+                placeholder="{{ product.description }}"
+                formControlName="description"
+              ></textarea>
+              <label for="description" class="subtitle mt-2"
+                >Item Description</label
               >
             </div>
+            <div class="form-row">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Php</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ product.price }}"
+                  formControlName="price"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+              <label for="price" class="subtitle mt-2">Item Price</label>
+            </div>
+            <div class="form-row">
+              <select
+                class="custom-select"
+                formControlName="category"
+                class="form-control"
+              >
+                <option selected value="Necklaces">Necklaces</option>
+                <option value="Bracelets-Anklets">Bracelets and Anklets</option>
+                <option value="Earrings">Earrings</option>
+                <option value="Rings">Rings</option>
+                <option value="Other">Other</option>
+              </select>
+              <label for="category" class="subtitle mt-2">Item Category</label>
+            </div>
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ product.stock_quantity }}"
+                formControlName="stock_quantity"
+              />
+              <label for="stock_quantity" class="subtitle mt-1"
+                >Stock Quantity</label
+              >
+            </div>
+            <div class="form-row">
+              <div class="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="featured"
+                  formControlName="featured"
+                />
+                <label class="custom-control-label" for="featured"
+                  >Featured</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="reset"
+              class="btn btn-clear"
+              data-dismiss="modal"
+              id="close"
+            >
+              Clear
+            </button>
+            <button type="submit" class="btn btn-juliet ml-2">
+              Save changes
+            </button>
           </div>
         </div>
-        <div class="modal-footer">
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf = "isMobile">
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Updated Product!</strong> Refresh if information isn't updated yet.
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>An error occured!</strong> Sorry for the inconvenience
+  </div>
+  <div class="d-flex flex-row flex-wrap justify-content-between">
+    <div class="col mt-3" *ngIf="product">
+      <div class="card p-4">
+        <div class="card-body">
+          <img
+          src={{product.imageUrl}}
+            width="100px"
+            class="img-thumbnail"
+          />
+          <div class="subtitle border-top pt-2 mt-3">Item Gallery</div>
+        </div>
+      </div>
+      <div class="card p-5 mt-2">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.name }}
+          </div>
+          <div class="subtitle">Item Name</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.description }}
+          </div>
+          <div class="subtitle">Item Description</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.category }}
+          </div>
+          <div class="subtitle">Item Category</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.featured }}
+          </div>
+          <div class="subtitle">Featured</div>
+        </div>
+      </div>
+    </div>
+    <div class="col mt-3" *ngIf="product">
+      <div class="card p-5">
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.stock_quantity }}
+          </div>
+          <div class="subtitle">Items In Stock</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.orders }}
+          </div>
+          <div class="subtitle">Total orders of this product </div>
+        </div>
+        <div class="card-text my-4" >
+          <div class="card-title border-bottom pb-2 mb-2">
+            Php {{ product.price }}
+          </div>
+          <div class="subtitle">Item Price</div>
+        </div>
+        <div class="card-text my-4">
+          <div class="card-title border-bottom pb-2 mb-2">
+            {{ product.sizes }}
+          </div>
+          <div class="subtitle">Item Sizes</div>
+        </div>
+      </div>
+      <div class="form-row mt-2">
+        <div class="col p-0 mr-2">
           <button
-            type="reset"
-            class="btn btn-clear"
-            data-dismiss="modal"
-            id="close"
+            class="btn btn-edit"
+            type="button"
+            data-toggle="modal"
+            data-target="#modal"
           >
-            Clear
+            Update Item
           </button>
-          <button type="submit" class="btn btn-juliet ml-2">
-            Save changes
+        </div>
+        <div class="col">
+          <button
+            class="btn btn-juliet btn-delete"
+            type="button"
+            (click)="deleteProduct(product._id)"
+          >
+            Delete Item
           </button>
         </div>
       </div>
     </div>
   </div>
-</form>
+  
+  <!-- update product modal -->
+  <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
+    <div class="modal" id="modal" *ngIf="product">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update product</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ product.name }}"
+                formControlName="name"
+              />
+              <label for="name" class="subtitle mt-2">Item Name</label>
+            </div>
+            <div class="form-row">
+              <textarea
+                class="form-control"
+                placeholder="{{ product.description }}"
+                formControlName="description"
+              ></textarea>
+              <label for="description" class="subtitle mt-2"
+                >Item Description</label
+              >
+            </div>
+            <div class="form-row">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Php</span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="{{ product.price }}"
+                  formControlName="price"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">.00</span>
+                </div>
+              </div>
+              <label for="price" class="subtitle mt-2">Item Price</label>
+            </div>
+            <div class="form-row">
+              <select
+                class="custom-select"
+                formControlName="category"
+                class="form-control"
+              >
+                <option selected value="Necklaces">Necklaces</option>
+                <option value="Bracelets-Anklets">Bracelets and Anklets</option>
+                <option value="Earrings">Earrings</option>
+                <option value="Rings">Rings</option>
+                <option value="Other">Other</option>
+              </select>
+              <label for="category" class="subtitle mt-2">Item Category</label>
+            </div>
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ product.stock_quantity }}"
+                formControlName="stock_quantity"
+              />
+              <label for="stock_quantity" class="subtitle mt-1"
+                >Stock Quantity</label
+              >
+            </div>
+            <div class="form-row">
+              <div class="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="featured"
+                  formControlName="featured"
+                />
+                <label class="custom-control-label" for="featured"
+                  >Featured</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="reset"
+              class="btn btn-clear"
+              data-dismiss="modal"
+              id="close"
+            >
+              Clear
+            </button>
+            <button type="submit" class="btn btn-juliet ml-2">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

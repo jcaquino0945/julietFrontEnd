@@ -2,41 +2,53 @@
 <ribbon *ngIf="!ribbon.visible"></ribbon>
 <footer *ngIf="!footer.visible"></footer>
 
-<div class="admin-container">
-  <!-- sidebar -->
-  <nav class="col-lg-2 d-md-block sidebar collapse">
-    <div class="sidebar-sticky pt-3">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin/dashboard"> Dashboard </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin/orders"> Orders </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin/adminProduct"> Products </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin/reports"> Reports </a>
-        </li>
-        <!--
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/admin/cms"> CMS </a>
-        </li>
-        -->
-      </ul>
-    </div>
-  </nav>
-  <!-- content -->
-  <div class="admin-content p-3">
-    <div
-      class="d-flex justify-content-end align-items-center pb-2 mb-2 border-bottom"
-    >
-      <form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
-        <button type="submit" class="btn btn-juliet">Logout</button>
-      </form>
-    </div>
+<div *ngIf="!isMobile">
+  <div class="admin-container">
+    <!-- sidebar -->
+    <nav class="col-2 d-md-block sidebar collapse">
+      <div class="sidebar-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/dashboard"> Dashboard </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/orders"> Orders </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/adminProduct"> Products </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin/reports"> Reports </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- content -->
+    <div class="admin-content p-3">
+      <div
+        class="d-flex justify-content-end align-items-center pb-2 mb-2 border-bottom"
+      >
+        <form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
+          <button type="submit" class="btn btn-juliet mt-3">Logout</button>
+        </form>
+      </div>
 
-    <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isMobile">
+  <div class="admin-container">
+    <!-- content -->
+    <div class="admin-content p-3">
+      <div class="d-flex justify-content-end align-items-center pb-2 mb-2 border-bottom">
+        <form novalidate #loginForm="ngForm" (ngSubmit)="logout()">
+          <button type="submit" class="btn btn-juliet mt-3">Logout</button>
+        </form>
+      </div>
+
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

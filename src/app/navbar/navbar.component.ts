@@ -1,3 +1,4 @@
+import { AdminService } from './../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NavbarService } from '../services/navbar.service';
@@ -12,7 +13,9 @@ import { filter } from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit {
   public isMobile: Boolean;
+  authenticated: Boolean;
   constructor(
+    public adminService: AdminService,
     public nav: NavbarService,
     private responsive: ResponsiveService
   ) {}
@@ -20,13 +23,15 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.onResize();
     this.responsive.checkWidth();
+    this.authenticated = this.adminService.isAuthenticated();
   }
-  
+
   onResize() {
     this.responsive.getMobileStatus().subscribe((isMobile) => {
       this.isMobile = isMobile;
     });
   }
+
 }
 export class AppComponent  {
   constructor(

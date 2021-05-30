@@ -15,6 +15,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { ResponsiveService } from 'src/app/services/responsive.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -39,11 +40,13 @@ export class AdminProductSearchComponent implements OnInit {
   products$: Product[];
   errMess: string;
   searchForm: FormGroup;
+  public isMobile: Boolean;
 
   constructor(
     private router: Router,
     private productService: ProductService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private responsive: ResponsiveService,
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +61,9 @@ export class AdminProductSearchComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       searchName: [null, Validators.required],
     })
+
+    this.onResize();
+    this.responsive.checkWidth();
   }
   search() {
     this.productService.setSearchQuery(this.searchForm.get('searchName').value)
@@ -70,6 +76,12 @@ export class AdminProductSearchComponent implements OnInit {
      
       (errmess) => (this.errMess = <any>errmess)
     );
+  }
+
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
   }
 
 }

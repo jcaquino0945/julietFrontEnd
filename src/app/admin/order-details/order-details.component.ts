@@ -17,6 +17,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { switchMap } from 'rxjs/operators';
+import { ResponsiveService } from 'src/app/services/responsive.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -46,12 +47,15 @@ export class OrderDetailsComponent implements OnInit {
   errMess: string;
   status: string;
   itemRows;
+  public isMobile: Boolean;
   constructor(
     private orderService: OrderService,
     private route: ActivatedRoute,
     private location: Location,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private responsive: ResponsiveService,
+
   ) { }
 
   ngOnInit(): void {
@@ -91,7 +95,12 @@ export class OrderDetailsComponent implements OnInit {
     });
 
   }
-
+  onResize() {
+    this.responsive.getMobileStatus().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
+  
   updateStatus(id) {
     this.orderService.updateOrder(id,this.galleryForm.value).subscribe(
       (res) => {
