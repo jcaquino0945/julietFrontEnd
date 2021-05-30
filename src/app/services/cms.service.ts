@@ -12,8 +12,8 @@ import { CMS } from '../models/cms';
 import { cmsAbout } from '../models/cms-about';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = 'http://localhost:3000/ribbon';
-const cmsAboutUrl = 'http://localhost:3000/cms-about';
+const apiUrl = '/ribbon';
+const cmsAboutUrl = '/cms-about';
 
 @Injectable({
   providedIn: 'root',
