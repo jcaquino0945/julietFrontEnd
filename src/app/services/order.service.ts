@@ -112,7 +112,7 @@ export class OrderService {
       body: JSON.stringify(emailDetail),
     };
 
-    fetch('/smtp', requestOptions)
+    fetch('/server/api/smtp', requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));

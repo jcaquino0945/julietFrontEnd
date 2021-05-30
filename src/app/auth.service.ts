@@ -24,7 +24,7 @@ export class AuthService {
 
   public validate(username, password) {
     return this.http
-      .post('/auth/login', {
+      .post('/server/api/auth/login', {
         username: username,
         password: password,
       })

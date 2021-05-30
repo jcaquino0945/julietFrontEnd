@@ -12,7 +12,7 @@ import { CMS } from '../models/cms';
 import { cmsAbout } from '../models/cms-about';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = '/ribbon';
+const apiUrl = '/server/api/ribbon';
 const cmsAboutUrl = '/cms-about';
 
 @Injectable({
