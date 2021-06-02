@@ -57,6 +57,7 @@ export class AdminProductDetailComponent implements OnInit {
   category = '';
   stock_quantity = 0;
   featured = false;
+  sizes = [];
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
   orderTimes: any;
@@ -119,6 +120,10 @@ export class AdminProductDetailComponent implements OnInit {
     this.responsive.getMobileStatus().subscribe((isMobile) => {
       this.isMobile = isMobile;
     });
+  }
+
+  addSize(s) {
+    if (this.sizes.includes(s) === false) this.sizes.push(s);    
   }
 
   goBack(): void {

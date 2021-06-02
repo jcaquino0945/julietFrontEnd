@@ -108,7 +108,7 @@ export class AdminProductComponent implements OnInit {
   }
 
   addSize(s) {
-    this.sizes.push(s);
+    if (this.sizes.includes(s) === false) this.sizes.push(s);    
   }
 
   search() {
@@ -116,6 +116,7 @@ export class AdminProductComponent implements OnInit {
     console.log(this.productService.getSearchQuery())
     this.router.navigate(['admin/adminProduct/search'])
   }
+  
   onFormSubmit() {
     console.log(this.filesToUpload)
     this.isLoadingResults = true;

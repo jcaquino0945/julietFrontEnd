@@ -187,6 +187,46 @@
                 >
               </div>
             </div>
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ product.sizes }}"
+                formControlName="sizes"
+                readonly
+              />
+              <label for="sizes" class="subtitle mt-1"
+                >Sizes</label
+              >
+            </div>
+            <div class="form-row">
+              Update sizes not working yet!!!!!!!!!!
+            </div>
+            <div class="form-row">
+              <div class="col p-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Size"
+                  id="sizes"
+                  #input
+                />
+                <label for="sizes" class="subtitle mt-2">Update Sizes</label>
+              </div>
+              <div class="col p-0">
+                <button
+                  type="button"
+                  class="btn btn-juliet ml-2"
+                  (click)="addSize(input.value)"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+            <div class="form-row">
+              Updated Sizes:
+              <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
+            </div>
           </div>
           <div class="modal-footer">
             <button

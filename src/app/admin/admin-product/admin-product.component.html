@@ -159,8 +159,10 @@
               </div>
             </div>
             <div class="form-row">
-              Sizes:
-              <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
+              Sizes
+            </div>
+            <div class="form-row">
+              <div *ngFor="let sizes of sizes" class="mr-2">{{ sizes }}</div>
             </div>
           </div>
           <div class="modal-footer">
@@ -375,8 +377,7 @@
               </div>
             </div>
             <div class="form-row">
-              Sizes:
-              <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
+              Sizes: <br><div *ngFor="let sizes of sizes">{{ sizes }}<br></div>
             </div>
           </div>
           <div class="modal-footer">
