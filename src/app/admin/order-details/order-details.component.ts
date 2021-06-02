@@ -60,6 +60,8 @@ export class OrderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     sessionStorage.getItem('token')
+    this.onResize();
+    this.responsive.checkWidth();
     this.orderService
       .getOrderIds()
       .subscribe((orderIds) => (this.orderIds = orderIds));

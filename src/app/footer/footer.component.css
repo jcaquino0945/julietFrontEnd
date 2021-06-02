@@ -13,7 +13,7 @@ footer {
 }
 
 p {
-  font-family: Work Sans;
+  font-family: Gadugi;
 }
 
 h5, h6{
@@ -22,7 +22,7 @@ h5, h6{
   letter-spacing: 0.75px;
   color: #43341f;
   font-weight: bold;
-  font-family: Work Sans;
+  font-family: Gadugi;
   font-style: normal;
   font-weight: 600;
   line-height: 21px;
@@ -50,7 +50,7 @@ a:hover, svg:hover {
   color: #fff;
   margin: 2px 0;
   padding: 0;
-  font-family: Work Sans;
+  font-family: Gadugi;
   font-style: normal;
   font-weight: 200;
   line-height: 21px;
