@@ -1,14 +1,3 @@
-<!--
-<div *ngIf="order">
-<p>{{order.firstName}} {{order.lastName}}</p>
-<p>Php {{order.totalPrice}}</p>
-<p>Order Id {{order.orderId}}</p>
-
-<ul>
-    <li *ngFor="let orders of order.product">{{orders.name}} {{orders.quantity}}</li>
-</ul>
-</div>
--->
 
 <div *ngIf = "!isMobile">
   <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
@@ -160,7 +149,7 @@
       </div>
       <!-- Button trigger modal -->
       <div class="form-row">
-        <div class="col p-0 mr-2">
+        <div class="col p-0">
           <button
             type="button"
             class="btn btn-edit"
@@ -170,16 +159,14 @@
             Update Status
           </button>
         </div>
-        
           <button
             class="btn btn-danger"
             type="button"
             (click)="deleteOrder(order._id)"
-            style="width: 100%; margin-top: 1.5vw;"
+            style="width: 100%; margin-top: 1vw;"
           >
             Delete Order
           </button>
-        
       </div>
   
       <!-- MODAL -->
@@ -444,7 +431,7 @@
                   </option>
                 </select>
               </div>
-              <div class="modal-footer">
+              <div class="modal-footer"> 
                 <button
                   type="button"
                   class="btn btn-clear mr-2"

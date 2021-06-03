@@ -16,7 +16,8 @@
       <div class="card p-4">
         <div class="card-body">
           <img
-          src={{product.imageUrl}}
+          *ngFor="let img of product.imageUrl"
+          src={{img}}
             width="100px"
             class="img-thumbnail"
           />
@@ -50,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4 p-0 ml-2" *ngIf="product">
+    <div class="col p-0 ml-2" *ngIf="product">
       <div class="card p-5">
         <div class="card-text my-4">
           <div class="card-title border-bottom pb-2 mb-2">
@@ -187,6 +188,46 @@
                 >
               </div>
             </div>
+            <div class="form-row">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ product.sizes }}"
+                formControlName="sizes"
+                readonly
+              />
+              <label for="sizes" class="subtitle mt-1"
+                >Sizes</label
+              >
+            </div>
+            <div class="form-row">
+              Update sizes not working yet!!!!!!!!!!
+            </div>
+            <div class="form-row">
+              <div class="col p-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Size"
+                  id="sizes"
+                  #input
+                />
+                <label for="sizes" class="subtitle mt-2">Update Sizes</label>
+              </div>
+              <div class="col p-0">
+                <button
+                  type="button"
+                  class="btn btn-juliet ml-2"
+                  (click)="addSize(input.value)"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+            <div class="form-row">
+              Updated Sizes:
+              <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -225,7 +266,8 @@
       <div class="card p-4">
         <div class="card-body">
           <img
-          src={{product.imageUrl}}
+          *ngFor="let img of product.imageUrl"
+          src={{img}}
             width="100px"
             class="img-thumbnail"
           />

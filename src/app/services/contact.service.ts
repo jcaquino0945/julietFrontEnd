@@ -11,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Contact } from '../models/contact';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-const apiUrl = '/contacts';
+const apiUrl = '/server/api/contacts';
 
 @Injectable({
   providedIn: 'root'

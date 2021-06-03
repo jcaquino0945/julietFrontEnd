@@ -36,7 +36,7 @@
 }
 
 .title {
-  font-family: "Playfair Display", serif;
+  font-family: Book Antiqua;
   margin-bottom: 100px;
 }
 
@@ -44,6 +44,8 @@
   position: relative;
   display: block;
 }
+
+
 
 .title-border:after {
   content: "";
@@ -80,7 +82,7 @@
 
 @media (max-width: 768px) {
   .title {
-    margin-top: 20vh;
+    margin-top: 5vh;
     margin-bottom: 10vh;
   }
 }

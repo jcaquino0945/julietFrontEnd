@@ -83,9 +83,8 @@
 
 ul {
   margin: 0 auto;
-  align-items: flex-start;
+  align-items: center;
   list-style-type: none;
-  padding: 10px;
 }
 
 .subtitle {
@@ -116,7 +115,9 @@ li {
   padding: 5px;
 }
 
-
+#navbar-admin ul {
+  align-items: flex-start;
+}
 
 @media (max-width: 768px) {
   .navbar {
