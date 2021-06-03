@@ -1,11 +1,19 @@
-<div *ngIf = "!isMobile">
-  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+<div *ngIf="!isMobile">
+  <div
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+    *ngIf="saveSuccess"
+  >
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
     <strong>Updated Product!</strong> Refresh if information isn't updated yet.
   </div>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    role="alert"
+    *ngIf="saveFailure"
+  >
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -63,9 +71,9 @@
           <div class="card-title border-bottom pb-2 mb-2">
             {{ product.orders }}
           </div>
-          <div class="subtitle">Total orders of this product </div>
+          <div class="subtitle">Total orders of this product</div>
         </div>
-        <div class="card-text my-4" >
+        <div class="card-text my-4">
           <div class="card-title border-bottom pb-2 mb-2">
             Php {{ product.price }}
           </div>
@@ -101,7 +109,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- update product modal -->
   <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
     <div class="modal" id="modal" *ngIf="product">
@@ -189,19 +197,10 @@
               </div>
             </div>
             <div class="form-row">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="{{ product.sizes }}"
-                formControlName="sizes"
-                readonly
-              />
-              <label for="sizes" class="subtitle mt-1"
-                >Sizes</label
-              >
-            </div>
-            <div class="form-row">
-              Update sizes not working yet!!!!!!!!!!
+              <div class="subtitle">
+                Add and Remove Sizes
+                <small class="text-danger">*Same values can't be entered*</small>
+              </div>
             </div>
             <div class="form-row">
               <div class="col p-0">
@@ -212,7 +211,6 @@
                   id="sizes"
                   #input
                 />
-                <label for="sizes" class="subtitle mt-2">Update Sizes</label>
               </div>
               <div class="col p-0">
                 <button
@@ -224,9 +222,15 @@
                 </button>
               </div>
             </div>
-            <div class="form-row">
-              Updated Sizes:
-              <div *ngFor="let sizes of sizes">&nbsp;{{ sizes }}</div>
+            <div>
+              <div *ngFor="let s of sizes" class="border-bottom pt-2 pb-2">
+                {{ s }}
+                <span class="float-right"
+                  ><mat-icon class="deleteItem" (click)="deleteSize(s)"
+                    >delete</mat-icon
+                  ></span
+                >
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -248,14 +252,22 @@
   </form>
 </div>
 
-<div *ngIf = "isMobile">
-  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="saveSuccess">
+<div *ngIf="isMobile">
+  <div
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+    *ngIf="saveSuccess"
+  >
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
     <strong>Updated Product!</strong> Refresh if information isn't updated yet.
   </div>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="saveFailure">
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    role="alert"
+    *ngIf="saveFailure"
+  >
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -313,9 +325,9 @@
           <div class="card-title border-bottom pb-2 mb-2">
             {{ product.orders }}
           </div>
-          <div class="subtitle">Total orders of this product </div>
+          <div class="subtitle">Total orders of this product</div>
         </div>
-        <div class="card-text my-4" >
+        <div class="card-text my-4">
           <div class="card-title border-bottom pb-2 mb-2">
             Php {{ product.price }}
           </div>
@@ -351,7 +363,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- update product modal -->
   <form [formGroup]="galleryForm" (ngSubmit)="onFormSubmit(product._id)">
     <div class="modal" id="modal" *ngIf="product">
@@ -435,6 +447,42 @@
                 />
                 <label class="custom-control-label" for="featured"
                   >Featured</label
+                >
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="subtitle">
+                Add and Remove Sizes
+                <small class="text-danger">*Same values can't be entered*</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col p-0">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Size"
+                  id="sizes"
+                  #input
+                />
+              </div>
+              <div class="col p-0">
+                <button
+                  type="button"
+                  class="btn btn-juliet ml-2"
+                  (click)="addSize(input.value)"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+            <div>
+              <div *ngFor="let s of sizes" class="border-bottom pt-2 pb-2">
+                {{ s }}
+                <span class="float-right"
+                  ><mat-icon class="deleteItem" (click)="deleteSize(s)"
+                    >delete</mat-icon
+                  ></span
                 >
               </div>
             </div>
