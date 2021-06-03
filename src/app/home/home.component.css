@@ -318,11 +318,14 @@ app-root {
     font-size: 100%;
   }
 
-  .section-7 .col {
-    padding: 4em;
-  }
 
   .section-1 .display-5 {
     font-size: calc(1.425rem + 2.1vw);
+  }
+}
+
+@media (max-width: 400px){
+  .section-7 .col {
+    padding: 4em
   }
 }
