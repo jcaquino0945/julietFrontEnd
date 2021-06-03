@@ -315,7 +315,7 @@ app-root {
 
   .section-7 span,
   .section-7 p {
-    font-size: 100%;
+    font-size: auto;
   }
 
 
