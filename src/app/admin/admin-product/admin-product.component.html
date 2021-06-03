@@ -138,6 +138,12 @@
               </div>
             </div>
             <div class="form-row">
+              <div class="subtitle">
+                Add Sizes
+                <small class="text-danger">*Same values can't be entered*</small>
+              </div>
+            </div>
+            <div class="form-row">
               <div class="col p-0">
                 <input
                   type="text"
@@ -146,7 +152,6 @@
                   id="sizes"
                   #input
                 />
-                <label for="sizes" class="subtitle mt-2">Add Sizes</label>
               </div>
               <div class="col p-0">
                 <button
@@ -158,11 +163,15 @@
                 </button>
               </div>
             </div>
-            <div class="form-row">
-              Sizes
-            </div>
-            <div class="form-row">
-              <div *ngFor="let sizes of sizes" class="mr-2">{{ sizes }}</div>
+            <div>
+              <div *ngFor="let s of sizes" class="border-bottom pt-2 pb-2">
+                {{ s }}
+                <span class="float-right"
+                  ><mat-icon class="deleteItem" (click)="deleteSize(s)"
+                    >delete</mat-icon
+                  ></span
+                >
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -356,6 +365,12 @@
               </div>
             </div>
             <div class="form-row">
+              <div class="subtitle">
+                Add Sizes
+                <small class="text-danger">*Same values can't be entered*</small>
+              </div>
+            </div>
+            <div class="form-row">
               <div class="col p-0">
                 <input
                   type="text"
@@ -364,7 +379,6 @@
                   id="sizes"
                   #input
                 />
-                <label for="sizes" class="subtitle mt-2">Add Sizes</label>
               </div>
               <div class="col p-0">
                 <button
@@ -376,8 +390,15 @@
                 </button>
               </div>
             </div>
-            <div class="form-row">
-              Sizes: <br><div *ngFor="let sizes of sizes">{{ sizes }}<br></div>
+            <div>
+              <div *ngFor="let s of sizes" class="border-bottom pt-2 pb-2">
+                {{ s }}
+                <span class="float-right"
+                  ><mat-icon class="deleteItem" (click)="deleteSize(s)"
+                    >delete</mat-icon
+                  ></span
+                >
+              </div>
             </div>
           </div>
           <div class="modal-footer">

@@ -87,6 +87,9 @@ export class AdminProductDetailComponent implements OnInit {
       .subscribe(
         (product) => {
           this.product = product;
+          console.log(this.product.sizes);
+          this.sizes = this.product.sizes;
+          console.log(this.sizes);
           this.galleryForm.get('name').setValue(this.product.name);
           this.galleryForm
             .get('description')
@@ -97,6 +100,8 @@ export class AdminProductDetailComponent implements OnInit {
             .get('stock_quantity')
             .setValue(this.product.stock_quantity);
           this.galleryForm.get('featured').setValue(this.product.featured);
+          this.galleryForm.get('sizes').setValue(this.product.sizes);
+          console.log(this.galleryForm.get('sizes').value);
         },
         (err) => console.log(err)
       );
@@ -108,6 +113,7 @@ export class AdminProductDetailComponent implements OnInit {
       description: [null, Validators.required],
       price: [null, Validators.required],
       category: [null, Validators.required],
+      sizes: [],
       stock_quantity: 0,
       featured: false,
     });
@@ -123,7 +129,16 @@ export class AdminProductDetailComponent implements OnInit {
   }
 
   addSize(s) {
-    if (this.sizes.includes(s) === false) this.sizes.push(s);    
+    if (this.sizes.includes(s) === false) this.sizes.push(s); 
+    this.galleryForm.get('sizes').setValue(this.product.sizes);   
+    console.log(this.galleryForm.get('sizes').value);
+  }
+
+  deleteSize(s) {
+    this.sizes.splice(this.sizes.indexOf(s), 1);
+    console.log(this.sizes);
+    this.galleryForm.get('sizes').setValue(this.product.sizes);
+    console.log(this.galleryForm.get('sizes').value);
   }
 
   goBack(): void {
