@@ -108,7 +108,13 @@ export class AdminProductComponent implements OnInit {
   }
 
   addSize(s) {
-    if (this.sizes.includes(s) === false) this.sizes.push(s);    
+    if (this.sizes.includes(s) === false) this.sizes.push(s);   
+    console.log(this.sizes) ;
+  }
+
+  deleteSize(s) {
+    this.sizes.splice(this.sizes.indexOf(s), 1);
+    console.log(this.sizes);
   }
 
   search() {
